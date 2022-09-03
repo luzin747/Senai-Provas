@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Senai</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="loadLoja()">
+
+    <div id="container">
+
+        <div class="title-select">
+
+            <h1>Japoneis Loja</h1>
+            <hr>
+
+            <div class="select">
+                <p>FILTRAR </p>
+                <input id="input-busca" placeholder="Filtrar:" type="datetime">
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="cont-table">
+            <div class="scrow">
+                <table>
+                    <h5>Débitos</h5>
+
+                    <hr>
+
+
+                    <tbody class="table-D">
+
+                        <th>N_Lançamento</th>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+
+                        <tr class="linha model">
+                            <td class="nlanca">1</td>
+                            <td class="data">03-06-2022</td>
+                            <td class="descricao">Cafézinho</td>
+                            <td class="valor">12</td>
+                            <td class="tipo">Sáida</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="scrow">
+                <table>
+                    <h5>Créditos</h5>
+
+                    <hr>
+                    <tbody class="table-C ">
+
+                        <th>N_Lançamento</th>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+
+                        <tr class="linha model">
+                            <td class="nlanca">1</td>
+                            <td class="data">03-06-2022</td>
+                            <td class="descricao">Cafézinho</td>
+                            <td class="valor">12</td>
+                            <td class="tipo">Sáida</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="saldoCont">
+            <div class="saldo">
+                <p>Saldo Acumulado - R$:<span class="saldo-tot">Preço</span></p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>
