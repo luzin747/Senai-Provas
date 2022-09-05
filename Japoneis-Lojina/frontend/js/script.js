@@ -81,19 +81,76 @@ var contas = document.querySelectorAll('.valor')
 console.log(contas)
 
 
-// function somar() {
-
-//     for(let )
-
-// }
 
 const INPUT_BUSCA = document.getElementById('input-busca')
 const TABELA_BEBIDASD = document.querySelector('.table-D')
 const TABELA_BEBIDASC = document.querySelector('.table-C')
+var button = document.querySelector('.button')
 
-INPUT_BUSCA.addEventListener('keyup', () => {
+// console.log(VALOR_TOT)
+
+var tipos = document.querySelector('.SD').innerHTML
+
+
+var vez = false
+
+
+button.addEventListener('click', () => {
+    
+
+    var valortot = 0
+    var pegaValorTot = 0
+
+    var pega = INPUT_BUSCA.value
 
     
+        
+    // if(vez == false) {
+
+        var saldo = 0
+
+        var pegaSaldo = 0
+        
+        vez = false
+
+       
+
+        loja.forEach(preco => {
+
+            if(pega != preco.valor) {
+                document.querySelector('.saldo-title').innerHTML = 'Insira Uma Data Para Filtrar'
+                // vez = true
+            }
+
+
+            if(preco.datas == pega ) {
+                
+                pegaSaldo = preco.valor
+
+                saldo = saldo + Number(pegaSaldo)   
+          
+            }
+
+            if(pega == '') {
+                pegaValorTot = preco.valor
+                valortot = valortot + Number(pegaValorTot)
+
+                document.querySelector('.saldo-title').innerHTML = 'Saldo Acumulado - R$' + valortot
+            }else if (saldo != 0) {
+
+                document.querySelector('.saldo-title').innerHTML = 'Saldo do Dia - R$' + saldo
+            }
+
+        })
+
+
+      
+
+        
+
+    // }
+    
+
         let expressao = INPUT_BUSCA.value
 
         let linhas = TABELA_BEBIDASD.getElementsByTagName('tr')
@@ -102,6 +159,11 @@ INPUT_BUSCA.addEventListener('keyup', () => {
             if (true === isNaN(posicao)) {
                 continue
             }
+
+            
+        
+
+
 
             // console.log(posicao)
 
@@ -121,7 +183,7 @@ INPUT_BUSCA.addEventListener('keyup', () => {
 
 })
 
-INPUT_BUSCA.addEventListener('keyup', () => { 
+button.addEventListener('click', () => { 
 
     let expressao = INPUT_BUSCA.value
 

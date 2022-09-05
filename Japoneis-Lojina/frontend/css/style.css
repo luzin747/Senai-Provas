@@ -28,17 +28,34 @@ h1 {
     margin: 0 auto;
 }
 
+.title-select p {
+    text-align: center;
+
+}
+
 
 .select {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    
-    
-    
+    display: flex;   
+}
+
+.select-cont {
+    margin-top: 25px;
 }
 .select p {
     text-align: center;
+}
+
+button {
+    border-radius: 20px;
+    border: none;
+    margin-left: 10px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+button:hover  {
+    background-color: rgb(61, 61, 61);
+
 }
 
 .title-select input {
