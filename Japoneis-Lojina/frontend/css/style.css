@@ -190,7 +190,7 @@ tbody {
     top: 30%;
 
     width:  25%;  
-    height: 25%;  
+    /* height: 25%;   */
     box-shadow: 0px 0px 10px rgb(65, 65, 65);
     /* display: flex;
     justify-content: space-between; */
@@ -249,6 +249,7 @@ h3 {
     width: 100px;
     padding: 5px;
     margin-left: 40%;
+    margin-bottom: 10px;
     border: none;
     border-radius: 20px;
     background-color: rgb(59, 59, 59);
@@ -263,4 +264,14 @@ h3 {
 
 .fundo {
     background-color: black;
+}
+
+.inpdata {
+    width: 90px;
+}
+
+.datas {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
 }

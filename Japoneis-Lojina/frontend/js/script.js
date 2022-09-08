@@ -168,6 +168,9 @@ button.addEventListener('click', () => {
 function modalCadastrar() {
 
     var modal = document.querySelector('.modal')
+    var inpData = document.querySelector('.inpdata')
+
+    inpData.disabled = true
     document.querySelector('body').style.background = '#5e5e5e27';
 
     modal.classList.toggle('model')
@@ -181,8 +184,13 @@ function modalCadastrar() {
     dataAtual = ano + '-' + mes + '-' + dia;
     
     console.log(dataAtual);
+
+    
+
+    document.querySelector('.inpdata').value = dataAtual
     
 }
+
 
 function fecharModal() {
     var modal = document.querySelector('.modal')
