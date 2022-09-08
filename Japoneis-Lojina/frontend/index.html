@@ -8,6 +8,7 @@
     <title>Prova Senai</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body onload="loadLoja()">
@@ -20,13 +21,21 @@
             <hr>
 
             <div class="select-cont">
-                <p>FILTRAR (SEM ESPAÇOS) </p>
-                <div class="select">
-                    <input id="input-busca" placeholder="Insira a Data :" type="datetime">
-                    <button style="width: 100px;" class="button">Filtrar</button>
+                <div>
+                    <p>FILTRAR (SEM ESPAÇOS) </p>
+                    <div class="select">
+                        <input id="input-busca" placeholder="Insira a Data :" type="datetime">
+                        <button class="button bfiltrar">Filtrar</button>
+                    </div>
+                </div>
 
+                <div>
+                    <p>Cadastrar Lançamento</p>
+                    <button class="button bcadastrar">Cadastrar</button>
                 </div>
             </div>
+
+
 
 
 
@@ -89,6 +98,50 @@
 
         </div>
 
+        <div class="modal">
+            <div class="title">
+                <h3>Cadastrar Lançamento</h3>
+
+                <i class='bx bx-x'></i>
+
+            </div>
+
+            <form action="">
+
+
+
+                <div class="type-value-cont">
+
+                    <div>
+                        <p>Tipo</p>
+                        <select id="">
+                            <option value="">Saída</option>
+                            <option value="">Entrada</option>
+                        </select>
+
+                        <p>Valor:</p>
+                        <input type="text">
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="descrition-modal">
+                    <div>
+                        <p>Descrição:</p>
+                    </div>
+                    <div>
+                        
+                        <input type="text">
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
         <div class="saldoCont">
             <div class="saldo">
                 <p class="saldo-title">Saldo Acumulado - R$:<span class="saldo-tot">Preço</span></p>
@@ -100,5 +153,6 @@
 </body>
 
 <script src="js/script.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 
 </html>

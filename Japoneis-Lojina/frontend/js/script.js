@@ -16,8 +16,8 @@ function loadLoja() {
 
 function preencherTabela(e) {
 
-var saldoD = 0
-var saldoC = 0 
+    var saldoD = 0
+    var saldoC = 0
 
     loja.forEach(linha => {
         if (linha.tipo == 'D') {
@@ -35,16 +35,10 @@ var saldoC = 0
 
             document.querySelector(".table-D").appendChild(novaLinhaTabela)
 
-
-            
-
-            
-            
         }
 
-        
 
-        else if(linha.tipo == 'C') {
+        else if (linha.tipo == 'C') {
             var novaLinhaTabela = linhaTabela.cloneNode(true)
 
             novaLinhaTabela.classList.remove("model")
@@ -52,7 +46,7 @@ var saldoC = 0
             novaLinhaTabela.querySelector(".nlanca").innerHTML = linha.n_lancamentos
             novaLinhaTabela.querySelector(".data").innerHTML = linha.datas
             novaLinhaTabela.querySelector(".descricao").innerHTML = linha.descricao
-            var valores =  novaLinhaTabela.querySelector(".valor").innerHTML = linha.valor
+            var valores = novaLinhaTabela.querySelector(".valor").innerHTML = linha.valor
             novaLinhaTabela.querySelector(".tipo").innerHTML = 'Entrada'
 
             document.querySelector(".table-C").appendChild(novaLinhaTabela)
@@ -61,14 +55,14 @@ var saldoC = 0
 
         }
 
-       
+
 
 
     })
-   
+
     var valorTotal = saldoD + saldoC
 
- 
+
     document.querySelector('.saldo-tot').innerHTML = valorTotal
 
 
@@ -92,98 +86,91 @@ var button = document.querySelector('.button')
 var tipos = document.querySelector('.SD').innerHTML
 
 
-var vez = false
+// var vez = false
 
 
 button.addEventListener('click', () => {
-    
+
 
     var valortot = 0
     var pegaValorTot = 0
 
     var pega = INPUT_BUSCA.value
 
-    
-        
+
+
     // if(vez == false) {
 
-        var saldo = 0
+    var saldo = 0
 
-        var pegaSaldo = 0
-        
-        vez = false
+    var pegaSaldo = 0
 
-       
-
-        loja.forEach(preco => {
-
-            if(pega != preco.valor) {
-                document.querySelector('.saldo-title').innerHTML = 'Insira Uma Data Para Filtrar'
-                // vez = true
-            }
-
-
-            if(preco.datas == pega ) {
-                
-                pegaSaldo = preco.valor
-
-                saldo = saldo + Number(pegaSaldo)   
-          
-            }
-
-            if(pega == '') {
-                pegaValorTot = preco.valor
-                valortot = valortot + Number(pegaValorTot)
-
-                document.querySelector('.saldo-title').innerHTML = 'Saldo Acumulado - R$' + valortot
-            }else if (saldo != 0) {
-
-                document.querySelector('.saldo-title').innerHTML = 'Saldo do Dia - R$' + saldo
-            }
-
-        })
-
-
-      
-
-        
-
-    // }
-    
-
-        let expressao = INPUT_BUSCA.value
-
-        let linhas = TABELA_BEBIDASD.getElementsByTagName('tr')
-
-        for (let posicao in linhas) {
-            if (true === isNaN(posicao)) {
-                continue
-            }
-
-            
-        
+    // vez = false
 
 
 
-            // console.log(posicao)
+    loja.forEach(preco => {
 
-            // console.log(e.data)
-            let conteudoDaLinha = linhas[posicao].innerHTML
+        if (pega != preco.valor) {
+            document.querySelector('.saldo-title').innerHTML = 'Insira Uma Data Para Filtrar'
+            // vez = true
+        }
 
-            if(true === conteudoDaLinha.includes(expressao)){
-                linhas[posicao].style.display = ''
-            }else {
-                linhas[posicao].style.display = 'none' 
 
-            }
+        if (preco.datas == pega) {
+
+            pegaSaldo = preco.valor
+
+            saldo = saldo + Number(pegaSaldo)
 
         }
 
-    
+        if (pega == '') {
+            pegaValorTot = preco.valor
+            valortot = valortot + Number(pegaValorTot)
+
+            document.querySelector('.saldo-title').innerHTML = 'Saldo Acumulado - R$' + valortot
+        } else if (saldo != 0) {
+
+            document.querySelector('.saldo-title').innerHTML = 'Saldo do Dia - R$' + saldo
+        }
+
+    })
+
+    let expressao = INPUT_BUSCA.value
+
+    let linhas = TABELA_BEBIDASD.getElementsByTagName('tr')
+
+    for (let posicao in linhas) {
+        if (true === isNaN(posicao)) {
+            continue
+        }
+
+
+        console.log(posicao);
+
+
+
+
+        // console.log(posicao)
+
+        // console.log(e.data)
+        let conteudoDaLinha = linhas[posicao].innerHTML
+
+        if (true === conteudoDaLinha.includes(expressao)) {
+            linhas[posicao].style.display = ''
+        } else {
+            linhas[posicao].style.display = 'none'
+
+        }
+
+    }
+
+
 
 })
 
-button.addEventListener('click', () => { 
+button.addEventListener('click', () => {
 
     let expressao = INPUT_BUSCA.value
 
@@ -194,15 +181,13 @@ button.addEventListener('click', () => {
             continue
         }
 
-        // console.log(posicao)
 
-        // console.log(e.data)
         let conteudoDaLinha = linhas[posicao].innerHTML
 
-        if(true === conteudoDaLinha.includes(expressao)){
+        if (true === conteudoDaLinha.includes(expressao)) {
             linhas[posicao].style.display = ''
-        }else {
-            linhas[posicao].style.display = 'none' 
+        } else {
+            linhas[posicao].style.display = 'none'
 
         }
 
