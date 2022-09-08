@@ -17,12 +17,13 @@
 
         <div class="title-select">
 
-            <h1>Japoneis Loja</h1>
+            <h1>Japa Loja</h1>
             <hr>
 
             <div class="select-cont">
-                <div>
+                <div class="conts">
                     <p>FILTRAR (SEM ESPAÇOS) </p>
+                    <hr>
                     <div class="select">
                         <input id="input-busca" placeholder="Insira a Data :" type="datetime">
                         <button class="button bfiltrar">Filtrar</button>
@@ -31,7 +32,8 @@
 
                 <div>
                     <p>Cadastrar Lançamento</p>
-                    <button class="button bcadastrar">Cadastrar</button>
+                    <hr>
+                    <button onclick="modalCadastrar()" class="button bcadastrar">Cadastrar</button>
                 </div>
             </div>
 
@@ -98,11 +100,11 @@
 
         </div>
 
-        <div class="modal">
+        <div class="modal model">
             <div class="title">
                 <h3>Cadastrar Lançamento</h3>
 
-                <i class='bx bx-x'></i>
+                <i onclick="fecharModal()" class='bx bx-x'></i>
 
             </div>
 
@@ -113,14 +115,18 @@
                 <div class="type-value-cont">
 
                     <div>
-                        <p>Tipo</p>
-                        <select id="">
-                            <option value="">Saída</option>
-                            <option value="">Entrada</option>
-                        </select>
+                        <div>
+                            <p>Tipo</p>
+                            <select id="">
+                                <option value="">Saída</option>
+                                <option value="">Entrada</option>
+                            </select>
+                        </div>
 
-                        <p>Valor:</p>
-                        <input type="text">
+                        <div>
+                            <p>Valor: R$</p>
+                            <input type="text">
+                        </div>
                     </div>
 
 
@@ -132,12 +138,16 @@
                     <div>
                         <p>Descrição:</p>
                     </div>
+                    
                     <div>
                         
                         <input type="text">
+                    
                     </div>
                 </div>
             </form>
+
+            <button>Cadastrar</button>
 
 
         </div>

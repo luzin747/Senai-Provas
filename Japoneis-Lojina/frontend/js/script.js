@@ -14,7 +14,7 @@ function loadLoja() {
         })
 }
 
-function preencherTabela(e) {
+function preencherTabela() {
 
     var saldoD = 0
     var saldoC = 0
@@ -55,24 +55,16 @@ function preencherTabela(e) {
 
         }
 
-
-
-
     })
 
-    var valorTotal = saldoD + saldoC
+    var valorTotal = saldoC - saldoD 
 
 
     document.querySelector('.saldo-tot').innerHTML = valorTotal
 
-
-
-
 }
 
 var contas = document.querySelectorAll('.valor')
-
-console.log(contas)
 
 
 
@@ -81,13 +73,8 @@ const TABELA_BEBIDASD = document.querySelector('.table-D')
 const TABELA_BEBIDASC = document.querySelector('.table-C')
 var button = document.querySelector('.button')
 
-// console.log(VALOR_TOT)
 
 var tipos = document.querySelector('.SD').innerHTML
-
-
-// var vez = false
-
 
 button.addEventListener('click', () => {
 
@@ -98,22 +85,14 @@ button.addEventListener('click', () => {
     var pega = INPUT_BUSCA.value
 
 
-
-    // if(vez == false) {
-
     var saldo = 0
 
     var pegaSaldo = 0
-
-    // vez = false
-
-
 
     loja.forEach(preco => {
 
         if (pega != preco.valor) {
             document.querySelector('.saldo-title').innerHTML = 'Insira Uma Data Para Filtrar'
-            // vez = true
         }
 
 
@@ -137,6 +116,8 @@ button.addEventListener('click', () => {
 
     })
 
+
+
     let expressao = INPUT_BUSCA.value
 
     let linhas = TABELA_BEBIDASD.getElementsByTagName('tr')
@@ -146,15 +127,6 @@ button.addEventListener('click', () => {
             continue
         }
 
-
-        console.log(posicao);
-
-
-
-
-        // console.log(posicao)
-
-        // console.log(e.data)
         let conteudoDaLinha = linhas[posicao].innerHTML
 
         if (true === conteudoDaLinha.includes(expressao)) {
@@ -165,8 +137,6 @@ button.addEventListener('click', () => {
         }
 
     }
-
-
 
 })
 
@@ -181,7 +151,6 @@ button.addEventListener('click', () => {
             continue
         }
 
-
         let conteudoDaLinha = linhas[posicao].innerHTML
 
         if (true === conteudoDaLinha.includes(expressao)) {
@@ -194,4 +163,36 @@ button.addEventListener('click', () => {
     }
 
 })
+
+
+function modalCadastrar() {
+
+    var modal = document.querySelector('.modal')
+    document.querySelector('body').style.background = '#5e5e5e27';
+
+    modal.classList.toggle('model')
+
+    
+    
+    var hoje = new Date();
+    var dia = String(hoje.getDate()).padStart(2, '0');
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    var ano = hoje.getFullYear();
+    dataAtual = ano + '-' + mes + '-' + dia;
+    
+    console.log(dataAtual);
+    
+}
+
+function fecharModal() {
+    var modal = document.querySelector('.modal')
+
+    modal.classList.toggle('model')
+
+    document.querySelector('body').style.background = 'white';
+    document.querySelector('table').style.visibility = '';
+
+
+
+}
 
