@@ -82,39 +82,77 @@ button.addEventListener('click', () => {
     var valortot = 0
     var pegaValorTot = 0
 
+    var pegaSaldoC = 0
+    var pegaSaldoD = 0
+
+    var saldoC = 0 
+    var saldoD = 0
+
     var pega = INPUT_BUSCA.value
 
 
     var saldo = 0
 
-    var pegaSaldo = 0
+    // var pegaSaldo = 0
 
     loja.forEach(preco => {
 
-        if (pega != preco.valor) {
+        if (pega != preco.datas) {
             document.querySelector('.saldo-title').innerHTML = 'Insira Uma Data Para Filtrar'
         }
 
+       
 
-        if (preco.datas == pega) {
+        if(pega == preco.datas) {
 
-            pegaSaldo = preco.valor
+            if(preco.tipo == 'C') {
 
-            saldo = saldo + Number(pegaSaldo)
-
+                pegaSaldoC = preco.valor
+    
+                saldoC = saldoC + Number(pegaSaldoC)
+    
+    
+            }else if(preco.tipo == 'D') {
+    
+                pegaSaldoD = preco.valor
+    
+                saldoD = saldoD + Number(pegaSaldoD)
+         
+            }
         }
 
-        if (pega == '') {
-            pegaValorTot = preco.valor
-            valortot = valortot + Number(pegaValorTot)
+       
 
-            document.querySelector('.saldo-title').innerHTML = 'Saldo Acumulado - R$' + valortot
-        } else if (saldo != 0) {
-
-            document.querySelector('.saldo-title').innerHTML = 'Saldo do Dia - R$' + saldo
-        }
-
+        
+         
+        
+    
     })
+
+    var saldoTotal = saldoC - saldoD
+
+   
+    if (pega == '') {
+
+        pegaValorTot = preco.valor
+        valortot = valortot + Number(pegaValorTot)
+
+        document.querySelector('.saldo-title').innerHTML = 'Saldo Acumulado - R$' + valortot
+    }
+
+    if (saldoTotal != 0) {
+        document.querySelector('.saldo-title').innerHTML = 'Saldo do Dia - R$' + saldoTotal
+    }
+
+    
+
+   
+
+    
+
+    
+
+    
 
 
 
@@ -203,4 +241,52 @@ function fecharModal() {
 
 
 }
+
+
+function cadastrar() {
+
+    var hoje = new Date();
+    var dia = String(hoje.getDate()).padStart(2, '0');
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    var ano = hoje.getFullYear();
+    dataAtual = ano + '-' + mes + '-' + dia;
+    console.log(dataAtual);
+    // let dataLan = document.querySelector("#descricaoLan").value;
+    let descricao = document.querySelector(".descricao").value;
+    let valor = document.querySelector(".values").value;
+    let tipo = document.querySelector(".type").value;
+ 
+
+    let data = JSON.stringify({
+        "datas": dataAtual,
+        "descricao": descricao,
+        "valor": valor,
+        "tipo": tipo
+    });
+    
+    console.log(data);
+
+    fetch("http://localhost:3000/loja", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": data
+    })
+
+    .then(res => {return res.json()})
+    .then(resp => {
+        if(resp.tipo && resp.descricao && resp.valor !== undefined){
+            alert("Produto Cadastrado Com Sucesso !");
+            window.location.reload();
+        }else {
+            alert("Falha ao cadastrar produto");
+            window.location.reload();
+        }
+     })
+}
+
+
+
+
 

@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial';
+}
+
+body {
+    background-color: rgb(224, 224, 224);
+}
+
+nav ul {
+    display: flex;
+    padding: 10px;
+    background-color: black;
+
+}
+
+nav ul li {
+    list-style: none;
+     margin-left: 10px;
+     color: white;
+
+}
+
+table {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto;
+    background-color: white;
+    border-collapse: collapse;
+
+}
+
+.title-table {
+    background-color: black;
+    color: white;
+   
+}
+
+.title-table th {
+    padding: 5px;
+}
+
+.model {
+    display: none;
+    visibility: hidden;
+}
+
+tbody {
+    
+}
+
+tbody tr td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.cadastro-cont {
+    width: 200px;
+    margin: 20px auto;
+}
+
+.bCadastro {
+    padding: 10px;
+    background: none;
+    border:1px solid black;
+    color: black;
+    font-size: 13pt;
+    border-radius: 10px;
+    
+    text-align: center;
+}
+
+img {
+    width: 30px;
+}

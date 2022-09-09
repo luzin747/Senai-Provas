@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="loadLoja()">
+
+    <div id="container">
+
+        <nav>
+            <ul>
+                <li>Clientes</li>
+                <li onclick="mostrarDev()">Devoluções</li>
+            </ul>
+        </nav>
+
+
+        <div class="cadastro-cont">
+
+            <button class="bCadastro">Novo Cliente</button>
+
+        </div>
+
+
+        <table class="table-clientes">
+            <tr class="title-table">
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+            </tr>
+
+            <tbody class="t-pai">
+                <tr class="tCliente model">
+                    <td class="codCli">Cod</td>
+                    <td class="nomeCli">n</td>
+                    <td class="endereco">e</td>
+                    <td class="tell">t</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table class="tabela-devolucoes moel">
+            <tr class="title-table">
+                <th>Nome do Cliente</th>
+                <th>Telefone</th>
+                <th>Filme</th>
+                <th>Data Locação</th>
+                <th>Multa</th>
+                <th></th>
+            </tr>
+
+            <tbody class="t-pai-dev">
+                <tr class="tDevolucoes model">
+                    <td class="nomeCli">n</td>
+                    <td class="telefoneCli">e</td>
+                    <td class="filme">t</td>
+                    <td class="dataLoca">a</td>
+                    <td class="dataDevo">a</td>
+                    <td class="tell"><img src="https://raw.githubusercontent.com/wellifabio/senai2022/2583e041ded88413881d885e5b18dcb42edc750c/2des/pwbe/aula08/docs/assets/return.svg" alt=""></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>
