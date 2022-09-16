@@ -29,6 +29,7 @@ h1 {
 
 .nav-head i {
     padding-right: 10px;
+
 }
 
 .nav-head ul {
@@ -78,9 +79,11 @@ h1 {
 .menu ul li i {
     font-size: 13pt;
     padding-right: 5px;
-    color: white;
     margin-bottom: 28px;
+
 }
+
+
 
 main {
     display: flex;
@@ -89,9 +92,8 @@ main {
 .conteudo {
     margin: 30px 50px;
     width: 100%;
-    
-}
 
+}
 
 .linha-1 {
     font-size: 13pt;
@@ -119,145 +121,80 @@ main {
     background-color: rgba(15, 8, 8, 0.842);
 }
 
-.cont-cards {
-    display: flex;
-}
-
-.cards {
-    width: 19vw;
-    margin-left: 20px;
-    display: flex;
-    margin-top: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.728);
-    background-color: white;
-}
-
 .linha-2 {
-    width: 100%;
-}
-
-.linha-2-cont {
-   display: flex; 
-   padding: 20px;
-}
-
-
-.linha-2-cont i {
-    font-size: 35pt;
-}
-
-/* .title-linha {
-    text-align: end;
-    background-color: blueviolet;
-    width: 100px;
-} */
-
-
-.linha-2-sub {
-    margin-left: 15px;
-}
-
-.linha-2-situation {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    justify-content: end;
     
 }
-.linha-2-situation div{
-    text-align: center;
-}
 
-.linha-2-situation i {
-    font-size: 25pt;
-    color: rgb(0, 0, 0);
-    margin-top: 15px;
-    margin-left: 20px;
-}
-
-.linha-2-situation h6 {
-    font-size: 11pt;
-    margin-bottom: 5px;
-    font-weight: 400;
-}
-
-
-
-.linha-2-situation span {
+.button-new {
+    margin-top: 40px;
+    margin-right: 50px;
+    font-size: 12pt;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    font-family: 100;
     background-color: black;
     color: white;
-    border-radius: 15px;
-    padding: 5px 10px;
+    padding: 5px 20px;
 }
 
-/* .mensa-s {
-    color: chartreuse;
+.button-new i {
+    padding-right: 1px;
 }
-.mensa-s span {
-    background-color: chartreuse;
-} */
 
-
-.vagas-cont {
+table {
     margin-top: 30px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.395);
-}
-
-.vagas-cont h3 {
-    text-align: center;
-    padding: 10px;
-}
-
-.vagas-cont hr {
-    width: 90%;
-    margin: 0 auto;
-    border-color: rgb(255, 255, 255);
-    margin-bottom: 20px;
-}
-
-.cont-cards-vagas {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
+    border-collapse: collapse;
 }
 
-.cards-vagas {
-    padding-left: 50px;
+table tr{
+    display: flex;
     
 }
 
-.cards-vagas h4 {
-    font-weight: 400;
-    font-size: 14pt;
-    margin-bottom: 10px;
-}
-
-.cards-vagas i {
-    font-size: 32pt;
-}
-
-.sub-cards-vagas {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-
-.cards-vagas p {
-    margin: 2px;
-    background-color: black;
-    width: 32px;
-    color: white;
-    font-size: 9pt;
-    text-align: center;
-    border-radius: 5px;
-    padding: 10px 10px;
-}
-
-.situation-vagas-mini-cards {
-    padding-bottom: 20px;
+tbody {
+    border-collapse: collapse;
+    border: 1px solid black;    
     display: flex;
-    flex-wrap: wrap;
-    width: 360px;
-    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
+
+table tr th {
+    width: 200px;
+    margin: 0 auto;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.355);
+}
+table tr td{
+    width: 200px;
+    text-align: center;
+}
+
+.filtro {
+    margin-top: 40px;
+    margin-right: 55px;
+    display: flex;
+    justify-content: end;
+}
+
+.filtro button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+}
+
+.filtro input {	
+    padding: 5px 5px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid black;
+
+}
+
