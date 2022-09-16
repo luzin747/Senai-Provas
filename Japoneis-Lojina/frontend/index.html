@@ -30,10 +30,19 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="conts">
                     <p>Cadastrar Lançamento</p>
                     <hr>
                     <button onclick="modalCadastrar()" class="button bcadastrar">Cadastrar</button>
+                </div>
+
+                <div class="conts excluir">
+                    <p>Excluir Lançamento</p>
+                    <hr>
+                    <div>
+                        <input placeholder="Id do Lançamento:" type="text" name="" id="id-lanca">
+                        <button class="bexcluir" onclick="modalExcluir()">Excluir</button>
+                    </div>
                 </div>
             </div>
 
@@ -118,8 +127,8 @@
                         <div>
                             <p>Tipo: </p>
                             <select class="type">
-                                <option value="">Saída</option>
-                                <option value="">Entrada</option>
+                                <option value="Saida">Saída</option>
+                                <option value="Entrada">Entrada</option>
                             </select>
                         </div>
 
@@ -142,7 +151,7 @@
 
                     <div>
 
-                        <input class="descricao" type="text">
+                        <input id="descriLoja" class="descricao" type="text">
 
                     </div>
                 </div>
@@ -157,6 +166,58 @@
 
             <button onclick="cadastrar()">Cadastrar</button>
 
+
+        </div>
+
+        <div class="modalExcluir model">
+            <div class="title">
+                <h3>Excluir Lançamento</h3>
+
+                <i onclick="fecharModalExcluir()" class='bx bx-x'></i>
+
+            </div>
+
+            <div class="conts-inps">
+
+                <div>
+                    <p>Id Lançamento:</p>
+                    <input type="text" name="" class="inp" id="inp-Id-Lancamento">
+
+                    <p>Data:</p>
+                    <input type="text" name=""  class="inp" id="inp-Id-Data">
+                </div>
+
+                <div>
+
+                </div>
+
+
+                <div id="cont-description">
+                    <p>Descrição:</p>
+                    <input type="text" name="" class="inp" id="inp-id-Descricao">
+                </div>
+
+                <div id="cont-value-tipo">
+                    <p>Valor:</p>
+                    <input type="text" name=""  class="inp"id="inp-id-Valor">
+
+                    <p>Tipo:</p>
+                    <input type="text" name="" class="inp" id="inp-id-Tipo">
+                </div>
+
+
+
+            </div>
+            <div class="cont-s-n">
+                <h6>Deseja Excluir?</h6>
+                <hr>
+            </div>
+
+            <div class="mdExcluir-cont-button">
+
+                <button onclick="excluir()">SIM</button>
+                <button onclick="fecharModalExcluir()">NÃO</button>
+            </div>
 
         </div>
 

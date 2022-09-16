@@ -11,6 +11,8 @@ var linhaTabelaDevolucoes = document.querySelector(".tDevolucoes")
 
 var tabelaClientes = document.querySelector('.table-clientes')
 var tabelaDevolucoes = document.querySelector('.table-devolucoes')
+var testeTableDev = document.querySelector('.tabela-devolucoes')
+var testeTableClie = document.querySelector('.table-clientes')
 
 
 // var secSaldo = document.querySelector(".saldo")
@@ -120,7 +122,26 @@ function preencherTabela() {
 }
 
 function mostrarDev() {
+    // document.querySelector(".table-clientes").classList = 'sumir'
+   
+    var novaTabelaDev = testeTableDev.cloneNode(true)
+
+    novaTabelaDev.classList.remove('sumir')
+
+    document.querySelector('#cont-tableDev').appendChild(novaTabelaDev)
+
+   
     
+}
+
+function mostrarCli() {
+    document.querySelector(".tabela-devolucoes").classList = 'sumir'
+   
+    var novaTabelaClie = testeTableClie.cloneNode(true)
+
+    novaTabelaClie.classList.remove('sumir')
+
+    document.querySelector('#cont-TableClie').appendChild(novaTabelaClie)
 }
     
 

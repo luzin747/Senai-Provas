@@ -75,3 +75,9 @@ tbody tr td {
 img {
     width: 30px;
 }
+
+.sumir {
+    display: none;
+    visibility: hidden;
+}
+

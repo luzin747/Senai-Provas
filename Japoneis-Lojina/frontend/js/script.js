@@ -119,14 +119,7 @@ button.addEventListener('click', () => {
                 saldoD = saldoD + Number(pegaSaldoD)
          
             }
-        }
-
-       
-
-        
-         
-        
-    
+        }    
     })
 
     var saldoTotal = saldoC - saldoD
@@ -219,13 +212,92 @@ function modalCadastrar() {
     var dia = String(hoje.getDate()).padStart(2, '0');
     var mes = String(hoje.getMonth() + 1).padStart(2, '0');
     var ano = hoje.getFullYear();
-    dataAtual = ano + '-' + mes + '-' + dia;
+
+     dataAtual = ano + '-' + mes + '-' + dia;
+    
     
     console.log(dataAtual);
 
     
 
     document.querySelector('.inpdata').value = dataAtual
+    
+}
+
+function modalExcluir() {
+
+    var valorInpLanca = document.querySelector('#id-lanca').value
+
+   var inpId = document.querySelector('#inp-Id-Lancamento')
+   var inpData = document.querySelector('#inp-Id-Data')
+   var inpDescri = document.querySelector('#inp-id-Descricao')
+   var inpValor = document.querySelector('#inp-id-Valor')
+   var inpTipo = document.querySelector('#inp-id-Tipo')
+
+   inpId.disabled = true
+   inpData.disabled = true
+   inpDescri.disabled = true
+   inpValor.disabled = true
+   inpTipo.disabled = true
+
+    var achou = false
+
+    loja.forEach(id => {
+
+        console.log(valorInpLanca)
+        if(valorInpLanca == id.n_lancamentos) {
+            achou = true
+        }
+        
+    })
+
+    
+
+   if(achou == true) {
+        var modalExcluir = document.querySelector('.modalExcluir')
+        var inpData = document.querySelector('.inpdata')
+
+        inpData.disabled = true
+        document.querySelector('body').style.background = '#5e5e5e27';
+
+        modalExcluir.classList.toggle('model')
+
+       loja.forEach(itens => {
+
+        if(valorInpLanca == itens.n_lancamentos) {
+
+            var tipos = ' '
+
+            if(itens.tipo == 'D') {
+                tipos = 'Saída'
+            }
+            else {
+               tipos = 'Entrada'
+            }
+
+            modalExcluir.querySelector('#inp-Id-Lancamento').value = itens.n_lancamentos
+            modalExcluir.querySelector('#inp-Id-Data').value = itens.datas
+            modalExcluir.querySelector('#inp-id-Descricao').value = itens.descricao
+            modalExcluir.querySelector('#inp-id-Valor').value = itens.valor
+            modalExcluir.querySelector('#inp-id-Tipo').value =  tipos
+ 
+            document.querySelector('.conts-inps').append(modalExcluir)
+        }
+           
+
+       })
+        
+       
+   }
+   else {
+    alert('Insira um ID Válido')
+   }
+
+       
+
+    
+
+    
     
 }
 
@@ -242,6 +314,20 @@ function fecharModal() {
 
 }
 
+function fecharModalExcluir() {
+    var modalExcluir = document.querySelector('.modalExcluir')
+
+
+    modalExcluir.classList.toggle('model')
+
+    document.querySelector('body').style.background = 'white';
+    document.querySelector('table').style.visibility = '';
+
+
+
+}
+
+
 
 function cadastrar() {
 
@@ -249,41 +335,78 @@ function cadastrar() {
     var dia = String(hoje.getDate()).padStart(2, '0');
     var mes = String(hoje.getMonth() + 1).padStart(2, '0');
     var ano = hoje.getFullYear();
-    dataAtual = ano + '-' + mes + '-' + dia;
+    var dataAtual = ano + '-' + mes + '-' + dia;
     console.log(dataAtual);
-    // let dataLan = document.querySelector("#descricaoLan").value;
-    let descricao = document.querySelector(".descricao").value;
-    let valor = document.querySelector(".values").value;
-    let tipo = document.querySelector(".type").value;
- 
 
-    let data = JSON.stringify({
-        "datas": dataAtual,
+    var select = document.querySelector(".type")
+
+    let tipo = select.options[select.selectedIndex].value;
+
+
+
+    // let dataLan = document.querySelector("#descricaoLan").value;
+    var descricao = document.querySelector("#descriLoja").value;
+    let valor = document.querySelector(".values").value;
+
+    if(tipo == 'Saida') {
+        var types = 'D'
+    }else {
+        var types = 'C'
+    }
+
+    let data = {
         "descricao": descricao,
         "valor": valor,
-        "tipo": tipo
-    });
+        "tipo": types,
+    };
     
-    console.log(data);
+    console.log(data );
 
-    fetch("http://localhost:3000/loja", {
+    fetch(uriLojinha, {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json"
         },
-        "body": data
+        "body":JSON.stringify(data)
     })
 
     .then(res => {return res.json()})
     .then(resp => {
-        if(resp.tipo && resp.descricao && resp.valor !== undefined){
-            alert("Produto Cadastrado Com Sucesso !");
-            window.location.reload();
-        }else {
-            alert("Falha ao cadastrar produto");
-            window.location.reload();
+        if (resp.descricao !== undefined) {
+            alert("Lançamento cadastrado com sucesso.")
+            window.location.reload()
+        }else{
+            alert("Falha ao cadastrar")
         }
      })
+}
+
+function excluir() {
+
+    var idLanca = document.querySelector("#inp-Id-Lancamento").value
+
+    let data = {
+        "n_lancamento":idLanca
+    }
+
+    console.log(data)
+
+    fetch("http://localhost:3000/loja", {
+        "method":"DELETE",
+        "headers":{
+            "Content-Type": "application/json"
+        },
+        "body":JSON.stringify(data)
+    })
+    .then(res => { return res.json() })
+    .then(resp => {
+        if(resp.n_lancamento !== undefined) {
+            alert("Lançamento Excluido Com Sucesso!");
+            window.location.reload();
+        }else {
+            alert("Falha ao excluir Lançamento !");
+        }
+    });
 }
 
 

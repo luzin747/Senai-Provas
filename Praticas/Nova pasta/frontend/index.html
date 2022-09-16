@@ -16,7 +16,7 @@
 
         <nav>
             <ul>
-                <li>Clientes</li>
+                <li onclick="mostrarCli()">Clientes</li>
                 <li onclick="mostrarDev()">Devoluções</li>
             </ul>
         </nav>
@@ -29,47 +29,56 @@
         </div>
 
 
-        <table class="table-clientes">
-            <tr class="title-table">
-                <th>Código</th>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>Telefone</th>
-            </tr>
-
-            <tbody class="t-pai">
-                <tr class="tCliente model">
-                    <td class="codCli">Cod</td>
-                    <td class="nomeCli">n</td>
-                    <td class="endereco">e</td>
-                    <td class="tell">t</td>
+        <div id="cont-ableClie">
+            <table class="table-clientes">
+                <tr class="title-table">
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
                 </tr>
-            </tbody>
-        </table>
+
+                <tbody class="t-pai">
+                    <tr class="tCliente model">
+                        <td class="codCli">Cod</td>
+                        <td class="nomeCli">n</td>
+                        <td class="endereco">e</td>
+                        <td class="tell">t</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
 
 
-        <table class="tabela-devolucoes moel">
-            <tr class="title-table">
-                <th>Nome do Cliente</th>
-                <th>Telefone</th>
-                <th>Filme</th>
-                <th>Data Locação</th>
-                <th>Multa</th>
-                <th></th>
-            </tr>
+        <div id="cont-tableDev">
+            <table class="tabela-devolucoes sumir">
 
-            <tbody class="t-pai-dev">
-                <tr class="tDevolucoes model">
-                    <td class="nomeCli">n</td>
-                    <td class="telefoneCli">e</td>
-                    <td class="filme">t</td>
-                    <td class="dataLoca">a</td>
-                    <td class="dataDevo">a</td>
-                    <td class="tell"><img src="https://raw.githubusercontent.com/wellifabio/senai2022/2583e041ded88413881d885e5b18dcb42edc750c/2des/pwbe/aula08/docs/assets/return.svg" alt=""></td>
+                <tr class="title-table">
+                    <th>Nome do Cliente</th>
+                    <th>Telefone</th>
+                    <th>Filme</th>
+                    <th>Data Locação</th>
+                    <th>Multa</th>
+                    <th></th>
                 </tr>
-            </tbody>
 
-        </table>
+                <tbody class="t-pai-dev">
+                    <tr class="tDevolucoes model">
+                        <td class="nomeCli">n</td>
+                        <td class="telefoneCli">e</td>
+                        <td class="filme">t</td>
+                        <td class="dataLoca">a</td>
+                        <td class="dataDevo">a</td>
+                        <td class="tell"><img
+                                src="https://raw.githubusercontent.com/wellifabio/senai2022/2583e041ded88413881d885e5b18dcb42edc750c/2des/pwbe/aula08/docs/assets/return.svg"
+                                alt=""></td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+        </div>
 
     </div>
 

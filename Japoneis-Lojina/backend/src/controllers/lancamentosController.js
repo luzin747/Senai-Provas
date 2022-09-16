@@ -19,13 +19,25 @@ function preencherTabela2(req, res){
 };
 
 function cadastrarLancamento(req, res) {
-    let query = `INSERT INTO lancamentos VALUES (DEFAULT, CURDATE(), '${req.body.descricao}', ${req.body.valor}, '${req.body.tipo}')`;
+    let data = new Date()
+
+    let query = `INSERT INTO lancamentos VALUES (DEFAULT, '${(data.getFullYear() + "-" + ((data.getMonth() + 1)) + "-" + (data.getDate() ))}', '${req.body.descricao}', ${req.body.valor}, '${req.body.tipo}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
             res.status(201).json(req.body).end();
+        }else {
+            res.status(400).json(err).end();
+        }
+    });
+};
 
-            
+function excluirLancamento(req, res) {
+    let query = `DELETE FROM lancamentos WHERE  n_lancamentos = '${req.body.n_lancamento}'`;
+
+    conDB.query(query, (err, result) => {
+        if(err == null) {
+            res.status(200).json(req.body).end();
         }else {
             res.status(400).json(err).end();
         }
@@ -34,5 +46,6 @@ function cadastrarLancamento(req, res) {
 
 module.exports = {
     preencherTabela2,
-    cadastrarLancamento
+    cadastrarLancamento,
+    excluirLancamento
 }

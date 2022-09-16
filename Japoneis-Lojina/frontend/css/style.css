@@ -42,7 +42,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     margin: 25px auto;
-    width: 600px;
+    width: 900px;
     align-items: center;
     border: 1px solid black;
     padding: 20px;
@@ -56,6 +56,8 @@ h1 {
     padding-right: 20px;
 }
 
+
+
 .select-cont hr {
     width: 100%;
 }
@@ -67,7 +69,6 @@ h1 {
 .select-cont button {
     border-radius: 20px;
     border: none;
-    margin-left: 10px;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     cursor: pointer;
@@ -81,16 +82,30 @@ h1 {
 
 }
 
+.excluir div {
+    display: flex;
+}
+
+.excluir button {
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
 .bfiltrar {
     padding: 0px 25px;
     margin-top: 10px;
+    margin-left: 10px;
 }
 .bcadastrar {
     padding: 2px 25px;
-    margin-left: 20px;
+    margin-left: 0px;
     margin-top: 10px;
 }
-
+.bexcluir {
+    padding: 2px 25px;
+    margin-left: 0px;
+    margin-top: 10px; 
+}
 .title-select input {
     border-radius: 30px;
     padding-left: 4px;
@@ -274,4 +289,103 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 25px;
+}
+
+/* ************* MODAL EXCLUIR ************* */
+
+.modalExcluir {
+    position: absolute;
+    margin-left: 37%;
+    top: 30%;
+    width:  25%;  
+    box-shadow: 0px 0px 10px rgb(65, 65, 65);
+}
+
+.mdExcluir-cont-button {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.modalExcluir {
+    background-color: white;
+}
+
+.modalExcluir h6 {
+    text-align: center;
+    font-size: 13pt;
+}
+.cont-s-n {
+    margin-top: 20px;
+}
+.cont-s-n hr {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.modalExcluir button {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(59, 59, 59);
+    color: white;
+    cursor: pointer;
+}
+
+.modalExcluir button:hover {
+    background-color: rgb(0, 0, 0);
+
+}
+
+.conts-inps div {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.conts-inps div {
+    margin: 12px;
+    display: flex;
+}
+
+.conts-inps div p {
+    padding-right: 5px;
+    margin-left: 10px;
+}
+
+
+.conts-inps div input{
+    border: 1px solid rgba(0, 0, 0, 0.479);
+    text-align: center;
+}
+
+
+#inp-Id-Lancamento {
+    width: 50px;
+}
+
+#inp-id-Valor {
+    width: 100px;
+}
+
+#inp-id-Tipo {
+    width: 100px;
+}
+#inp-id-Descricao {
+    width: 200px;
+    text-align: center;
+}
+
+#cont-description {
+
+    margin-bottom: 5%;
+}
+
+#cont-value-tipo {
+    
 }
