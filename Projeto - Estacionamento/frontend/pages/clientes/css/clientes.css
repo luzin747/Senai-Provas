@@ -172,20 +172,26 @@ tbody tr {
 tbody tr td {
     width: 100%;
     padding: 10px;
+    text-align: center;
 
 }
 
 table tr th {
+    /* width: 100%; */
+    /* margin-left: 8vw; */
     width: 100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     font-weight: 500;
     color: rgba(34, 34, 34, 0.355);
 }
 table tr td{
     margin-top: 2px;
     text-align: center;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    font-size: 85%;
+    /* width: 13vw; */
+
 }
 
 table tr td:nth-child(7) {
