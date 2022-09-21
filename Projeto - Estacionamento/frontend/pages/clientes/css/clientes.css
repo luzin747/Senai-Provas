@@ -179,17 +179,56 @@ tbody tr td {
 table tr th {
     /* width: 100%; */
     /* margin-left: 8vw; */
-    width: 100%;
+    
     /* margin: 0 auto; */
     font-weight: 500;
+    font-size: 85%;
     color: rgba(34, 34, 34, 0.355);
 }
+
+table tr th:nth-child(1){width: 6%;}
+table tr th:nth-child(2){width: 20%;}
+table tr th:nth-child(3){width: 15%;}
+table tr th:nth-child(4){width: 25%;}
+table tr th:nth-child(5){width: 20%;}
+table tr th:nth-child(6){width: 7%;}
+table tr th:nth-child(7){width: 9%;}
+
+table tr td:nth-child(1){width: 5%;}
+table tr td:nth-child(2){width: 15%;}
+table tr td:nth-child(3){width: 15%;}
+table tr td:nth-child(4){width: 20%;}
+table tr td:nth-child(5){width: 17%;}
+table tr td:nth-child(6){width: 2.4%;}
+table tr td:nth-child(7){width: 8%;}
+
+
+tbody td:nth-child(1) {
+    width: 38%;
+}
+tbody td:nth-child(2) {
+    width: 100%;
+}
+tbody td:nth-child(3) {
+    width: 100%;
+}
+
+tbody td:nth-child(4) {
+    width: 500px;
+    /* background-color: brown; */
+    margin-left: 0px;
+}
+
+tbody td:nth-child(5) {
+    margin-left: 10px;
+}
+
 table tr td{
     margin-top: 2px;
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
     margin: 0 auto;
-    font-size: 85%;
+    font-size: 89%;
     /* width: 13vw; */
 
 }
