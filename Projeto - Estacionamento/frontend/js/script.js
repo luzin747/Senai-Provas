@@ -6,21 +6,31 @@ var rep = 51
 
 var novoCardsVagas = cardsVagas.cloneNode(true)
 
-for (var i = 2 ; i < 51 ; i++) {
-    
-    var paragrao1 = document.createElement('p')
-    paragrao1.innerHTML = i
+var tamanho = 0
 
-    var paragrao2 = document.createElement('p')
-    paragrao2.innerHTML = i
+for (var i = 1 ; i < 151 ; i++) {
 
-    var paragrao3 = document.createElement('p')
-    paragrao3.innerHTML = i
-    
-    document.querySelector('.mini1').appendChild(paragrao1)
-    document.querySelector('.mini2').appendChild(paragrao2)
-    document.querySelector('.mini3').appendChild(paragrao3)
-    
+    if(i <= 50) {
+        var paragrao1 = document.createElement('p')
+        paragrao1.innerHTML = i
+        document.querySelector('.mini1').appendChild(paragrao1)
+        tamanho +=1
+    }
+    else if(i >= 50 && i <= 100) {
+        var paragrao2 = document.createElement('p')
+        paragrao2.innerHTML = i
+        document.querySelector('.mini2').appendChild(paragrao2)
+        tamanho +=1
+    }
+    else {
+        var paragrao3 = document.createElement('p')
+        paragrao3.innerHTML = i
+        document.querySelector('.mini3').appendChild(paragrao3)
+        tamanho +=1
+    }
 
 }
+
+document.querySelector('.qtd-vagas').innerHTML = tamanho
+document.querySelector('.vagas-livres').innerHTML = tamanho
 

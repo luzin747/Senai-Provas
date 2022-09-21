@@ -17,6 +17,12 @@ h1 {
 }
 
 
+.model {
+    display: none;
+    visibility: hidden;
+}
+
+
 .nav-head {
     display: flex;
     align-items: center;
@@ -124,7 +130,7 @@ main {
 }
 
 .cards {
-    width: 19vw;
+    width: 100%;
     margin-left: 20px;
     display: flex;
     margin-top: 20px;
@@ -161,7 +167,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 65px;
+    margin-top: 40px;
     margin-bottom: 20px;
     
 }
@@ -247,11 +253,12 @@ main {
     margin: 2px;
     background-color: black;
     width: 32px;
+    padding: 10px 0px;
     color: white;
     font-size: 9pt;
     text-align: center;
     border-radius: 5px;
-    padding: 10px 10px;
+
 }
 
 .situation-vagas-mini-cards {
