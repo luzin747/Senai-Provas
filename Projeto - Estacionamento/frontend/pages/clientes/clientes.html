@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estacionar - Renas Parking</title>
+    <title>Clientes - Renas Parking</title>
 
     <!-- Css Links -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/clientes.css">
 </head>
-<body>
+
+<body onload="carregar()">
 
     <div class="container">
         <header>
@@ -63,7 +64,8 @@
                 </div>
 
                 <div class="linha-2">
-                    <button class="button-new"><a href="cadastarTicket/cadastrarTicket.html"><i class='bx bxs-file-plus'></i>NOVO</a></button>
+                    <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
+                                class='bx bxs-file-plus'></i>NOVO</a></button>
                 </div>
 
                 <div class="filtro">
@@ -78,29 +80,29 @@
                             <th>Nome</th>
                             <th>CPF</th>
                             <th>Email</th>
-                            <th>Celular</th>
                             <th>Ativo</th>
+                            <th>Telefones</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
 
 
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Luiz Fernando</td>
-                            <td>219.567.620-51</td>
-                            <td>luizfernandodesouza@gmail.com</td>
-                            <td>(19) 99600-7715</td>
-                            <td>Sim</td>
+                    <tbody class="contClientes">
+                        <tr class="clientes model">
+                            <td class="idCli">1</td>
+                            <td class="nomeCli">Luiz Fernando</td>
+                            <td class="cpfCli">219.567.620-51</td>
+                            <td class="emailCli">luizfernandodesouza@gmail.com</td>
+                            <td class="status">Sim</td>
+                            <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td>
                             <td>
                                 <i class='bx bx-edit'></i>
                                 <i class='bx bxs-trash-alt'></i>
                             </td>
                         </tr>
-                        
-                        
-                       
+
+
+
                     </tbody>
                 </table>
 
@@ -109,7 +111,35 @@
 
         </main>
 
+        <div class="modal model">
+            <h1>Telefones</h1>
+
+            <hr>
+
+            <p class="nomeCliente">Cliente</p>
+
+            <div class="contInputsModal">
+                <div>
+                    <p>Telefone Fixo</p>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <p>Telefone Móvel</p>
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="contButton">
+                <button>Salvar</button>
+                <button onclick="fecharModal()">Voltar</button>
+            </div>
+        </div>
+
     </div>
-    
+
 </body>
+
+<script src="js/clientes.js"></script>
+
 </html>

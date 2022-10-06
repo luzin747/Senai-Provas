@@ -226,7 +226,7 @@ function modalCadastrar() {
 
 function modalExcluir() {
 
-    var valorInpLanca = document.querySelector('#id-lanca').value
+   var valorInpLanca = document.querySelector('#id-lanca').value
 
    var inpId = document.querySelector('#inp-Id-Lancamento')
    var inpData = document.querySelector('#inp-Id-Data')
