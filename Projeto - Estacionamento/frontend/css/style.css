@@ -230,6 +230,7 @@ main {
     margin-bottom: 20px;
 }
 
+
 .cont-cards-vagas {
     display: flex;
     justify-content: center;
@@ -304,4 +305,7 @@ main {
     flex-wrap: wrap;
     width: 360px;
     margin: 0 auto;
+}
+.vagas-Ocupadas {
+    background-color: red;
 }
