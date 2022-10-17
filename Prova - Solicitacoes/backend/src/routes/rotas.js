@@ -13,6 +13,7 @@ router.get("/solicitacoes/produtos", Produtos.listarProdutos);
 router.get("/solicitacoes/vw_solicitacoes/:Nome_Produto", Produtos.listarProdutosNome);
 
 
+router.get("/solicitacoes/departamentos", Departamento.listarDepto);
 router.post("/solicitacoes/departamentos", Departamento.cadastrarDepto);
 router.delete("/solicitacoes/departamentos", Departamento.deletarDepto);
 

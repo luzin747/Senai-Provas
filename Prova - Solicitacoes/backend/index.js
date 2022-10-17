@@ -3,8 +3,6 @@ const cors = require('cors');
 
 const rotas = require('./src/routes/rotas');
 
-
-
 const app = express();
 app.use(express.json());
 app.use(cors());

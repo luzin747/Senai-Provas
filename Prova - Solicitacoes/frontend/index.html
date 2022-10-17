@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Solicitações</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="corpo" onload="carregar(),modal()">
+
+    <div id="container">
+
+        <header>
+            <nav>
+                <ul>
+                    <!-- <li>Solicitações</li> -->
+                </ul>
+            </nav>
+        </header>
+
+
+        <main>
+
+
+
+            <div class="conteudo">
+
+                <div>
+
+                    <img class="img-banner" src="img/icon.png" alt="">
+
+                </div>
+
+                <div class="modal">
+
+                    <h2>Cadastrar Solicitações</h2>
+
+                    <hr>
+
+                    <div class="cont-Modal">
+
+                        <div>
+                            <p>Numero Solicitação</p>
+                            <input class="inpSolicita" type="text">
+                        </div>
+
+                        <div>
+                            <p>Data Solicitação</p>
+                            <input class="dataSolicita" type="text">
+                        </div>
+
+                        <div>
+                            <p>Departamento</p>
+                            <select class="sel-Dpto" name="" id="">
+                                <option value="1000">(1000) - Vendas</option>
+                                <option value="2000">(2000) - Compras</option>
+                                <option value="2001">(2001) - Recursos Humanos</option>
+
+                            </select>
+                        </div>
+                        <div>
+                            <p>Funcionário</p>
+                            <select class="sel-Func" name="" id="">
+                                <option value="100">(100) José Pedro</option>
+                                <option value="150">(150) Ana Pereira</option>
+                                <option value="200">(200) Maria da Silva</option>
+                                <option value="300">(300) João Antônio</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <p>Produto</p>
+                            <select class="sel-Prod" name="" id="">
+                                <option value="125">(125) - Parafuso</option>
+                                <option value="135">(135) - Arruela</option>
+                                <option value="145">(145) - Difusor</option>
+                                <option value="155">(155) - Paralama</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <p>Quantidade</p>
+                            <input class="qtd" type="number">
+                        </div>
+
+                        <div class="cont-Total">
+                            <p>Total</p>
+                            <input class="total" type="text">
+
+                        </div>
+
+                        <div class="cont-Button-Cadastrar">
+                            <button onclick="cadastrarProduto()">Cadastrar</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="table-Principal">
+
+                <!-- <div class="cont-Button">
+                    <button onclick="modal()" class="CadastrarSolicitacoes">+ Solicitações</button>
+
+                </div> -->
+
+                <h1>Solicitações</h1>
+
+
+                <table class="table-solicitacoes">
+                    <tr>
+                        <th>Num_Sol</th>
+                        <th>Data_Sol</th>
+                        <th>Cod_Dpto</th>
+                        <th>Nome_Dpto</th>
+                        <th>Cod_Func</th>
+                        <th>Name_Func</th>
+                        <th>Cod_Produto</th>
+                        <th>Nome_Produto</th>
+                        <th>Qtde</th>
+                        <th>Valor</th>
+                        <th>Total</th>
+                    </tr>
+
+                    <tbody class="descri_solicita">
+                        <tr class="cont_descri_solicita model">
+                            <td class='Num_Sol'></td>
+                            <td class='Data_Sol'></td>
+                            <td class='Cod_Dpto'></td>
+                            <td class='Nome_Dpto'></td>
+                            <td class='Cod_Func'></td>
+                            <td class='Name_Func'></td>
+                            <td class='Cod_Produto'></td>
+                            <td class='Nome_Produto'></td>
+                            <td class='Qtde'></td>
+                            <td class='Valor'></td>
+                            <td class='Total'></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div>
+                <div id="contBody">
+                    <div class="departas">
+
+                        <h1 class="title_Departas">Departamentos</h1>
+
+
+                        <table>
+                            <tr>
+                                <th>Código Departamento</th>
+                                <th>Nome Departamento</th>
+                                <th>Ações</th>
+                            </tr>
+
+                            <tbody class="contTbody">
+                                <tr class="cont-Dpto model">
+                                    <td class="cod_Dpto">Teste</td>
+                                    <td class="nome_Dpto">Rasdasd</td>
+                                    <td><img onclick="excluir(this)" class="lixeira-Icon" src="img/lixeira-icon.png" alt=""></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="produtos">
+
+                        <h1>Produtos</h1>
+
+                        <table>
+                            <tr>
+                                <th>Código Produto</th>
+                                <th>Nome Produto</th>
+                            </tr>
+
+                            <tbody class="contTbodyProd">
+                                <tr class="cont-Prod model">
+                                    <td class="cod_Prod">Teste</td>
+                                    <td class="nome_Prod">Rasdasd</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </main>
+
+
+
+
+
+    </div>
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>

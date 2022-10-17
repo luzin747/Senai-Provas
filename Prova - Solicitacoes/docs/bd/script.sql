@@ -29,7 +29,7 @@ Create table Solicitacoes(
 	Cod_Depto numeric(4) not null,           
 	Cod_Func  numeric(4) not null,
 	constraint pk_sol_1 primary key(Num_Sol),
-	constraint fk_sol_dep_1 Foreign Key(Cod_Depto) references Departamentos(Cod_Depto),
+	constraint fk_sol_dep_1 Foreign Key(Cod_Depto) references Departamentos(Cod_Depto) ON DELETE CASCADE,
 	constraint fk_sol_fun_1 Foreign Key(Cod_Func) references Funcionarios(Cod_Func)
 );
 
@@ -39,7 +39,7 @@ Create table Itens_Solicitacao(
 	Qtde numeric(4) not null,
 	Valor numeric(12,2) not null,
 	constraint pk_itens_sol primary key(Num_Sol, cod_produto),
-	constraint fk_itens_sol_1 foreign Key(Num_Sol) references Solicitacoes(Num_Sol),
+	constraint fk_itens_sol_1 foreign Key(Num_Sol) references Solicitacoes(Num_Sol) ON DELETE CASCADE,
 	constraint fk_itens_prod_1 Foreign Key(Cod_Produto) references Produtos(Cod_Produto)
 );
 
