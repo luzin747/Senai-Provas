@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+
+    <link rel="stylesheet" href="css/produtos.css">
+</head>
+
+<body class="corpo" onload="carregar()">
+
+    <div class="tudo">
+
+        <div class="teste model">s</div>
+
+        <div id="cont">
+
+            <nav>
+                <ul>
+                    <li><a href="../home/home.html">Home</a></li>
+                    <li><a href="#"> Produtos </a></li>
+                </ul>
+
+                <ul>
+                    <li>Username</li>
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt=""></li>
+                </ul>
+            </nav>
+
+
+            <main class="cont-conteudo">
+                <button class="b-Modal" onclick="mostrarModal()">Cadastrar</button>
+
+                <div class="conteudo">
+
+                    <table>
+
+                        <tbody class="tbody">
+                            <tr class="cont-Conteudo model">
+                                <td><img class="img_prod" src="" alt=""></td>
+                                <td class="serial_prod"></td>
+                                <td class="cod_prod"></td>
+                                <td class="data_prod"></td>
+                                <td class="nome_prod"></td>
+                                <td class="valor_prod"></td>
+                                <td><img onclick="excluir(this)" class="excluirProd"
+                                        src="https://cdn-icons-png.flaticon.com/512/458/458594.png" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+                <div class="cont-modal">
+                    <div class="modal model">
+
+                    <input class="ni_prod" type="text" placeholder="NI">
+                    <input class="aquisi" type="text" placeholder="Aquisição">
+                    <input class="denomi" type="text" placeholder="Denominação">
+                    <input class="valor" type="text" placeholder="Valor">
+                    <input class="imagem" type="text" placeholder="Enviar Imagem">
+
+                    <div class="cont-button">
+                        <button class="b-cancel" onclick="fecharModal()">Cancelar</button>
+                        <button class="b-cadast" onclick="cadastrar()">Cadastrar</button>
+                    </div>
+                </div>
+            
+            
+            
+                </div>
+
+                <div class="mini-modal model">
+
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="">
+
+                    <h3>Produto Cadastrado Com Sucesso !</h3>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>
