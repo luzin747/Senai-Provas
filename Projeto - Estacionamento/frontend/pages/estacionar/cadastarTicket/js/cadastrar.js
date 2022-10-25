@@ -60,3 +60,14 @@ function valorHora() {
 
         document.querySelector('.valor-Hora').value = valorTotal
 }
+
+function cadastrar() {
+
+    fetch('http://localhost:3000/registro_estac', {
+        "method":"CREATE",
+        "headers": {
+            "Content-Type":"application/json"
+        },
+        "body":JSON.stringify()
+    })
+}

@@ -25,17 +25,6 @@ function carregar() {
         )
         .catch(err => console.error(err))
 
-        // //Excluir 
-        // fetch(uriDepartas, options)
-        // .then(res => res.json())
-        // .then(res => {
-        //     depto = res;
-        //     excluir();
-        // }
-        // )
-        // .catch(err => console.error(err));
-
-
     fetch(uriProdut, options)
         .then(res => res.json())
         .then(res => {

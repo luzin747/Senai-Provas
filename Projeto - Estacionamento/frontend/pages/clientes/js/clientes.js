@@ -1,4 +1,4 @@
-const uri = 'http://localhost:3000/clientes';
+const uri = 'http://localhost:3000/clientes/vw_clientes';
 var  cliTable = document.querySelector('.clientes')
 var clientes = []
 
@@ -22,9 +22,11 @@ function preencherTela() {
 
         novaListaCliente.classList.remove('model')
 
-        novaListaCliente.querySelector('.idCli').innerHTML = e.id_cliente
-        novaListaCliente.querySelector('.nomeCli').innerHTML = e.nome
+        novaListaCliente.querySelector('.idCli').innerHTML = e.cliente_id
+        novaListaCliente.querySelector('.nomeCli').innerHTML = e.Nome_cliente
         novaListaCliente.querySelector('.cpfCli').innerHTML = e.cpf
+        novaListaCliente.querySelector('.emailCli').innerHTML = e.status_cli
+        novaListaCliente.querySelector('.emailCli').innerHTML = e.tipo_tel
         novaListaCliente.querySelector('.emailCli').innerHTML = e.email
 
         console.log(e.cpf)

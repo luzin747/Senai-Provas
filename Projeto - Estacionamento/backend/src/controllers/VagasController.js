@@ -55,7 +55,7 @@ function excluirVaga(req, res) {
 };                                      
 
 function editarVaga(req, res){
-    let query = `UPDATE vagas SET id_vaga =  '${req.body.id_vaga}', categoria_vaga = '${req.body.categoria_vaga}', valor_h = '${req.body.valor_h}'`;
+    let query = `UPDATE vagas SET id_vaga =  '${req.body.id_vaga}', categoria_vaga = '${req.body.categoria_vaga}', valor_h = '${req.body.valor_h}'  WHERE id_vag = '${req.body.id_vag}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

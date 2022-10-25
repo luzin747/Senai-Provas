@@ -10,7 +10,7 @@
     <!-- Css Links -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="css/clientes.css">
+    <link rel="stylesheet" href="css/mensalistas.css">
 </head>
 
 <body onload="carregar()">
@@ -55,56 +55,65 @@
 
             <div class="conteudo">
                 <div class="linha-1">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-money'></i>
 
                     <div class="linha-1-sub">
-                        <h5>Cliestes Cadastrados</h5>
-                        <p>Chegou a Hora de Listar Clientes</b></p>
+                        <h5>Mensalidades Cadastradas</h5>
+                        <p>Chegou a Hora de listar os mensalistas Cadastrados</b></p>
                     </div>
                 </div>
 
-                <div class="linha-2">
-                    <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
-                                class='bx bxs-file-plus'></i>NOVO</a></button>
+                <div class="section">
+
+                    <div class="linha-2">
+                        <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
+                                    class='bx bxs-file-plus'></i>NOVO</a></button>
+                    </div>
+
+                    <div class="filtro">
+                        <input placeholder="Pesquisar" type="text">
+                        <button>Filtrar</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Mensalista</th>
+                                <th>CPF</th>
+                                <th>Categoria</th>
+                                <th>Valor Mensalidade</th>
+                                <th>Data Vencimento</th>
+                                <th>Data Pagamento</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody class="contMensalistas">
+                            <tr class="mensalistas mode">
+                                <td class="idCli">1</td>
+                                <td class="nomeMensalista">Luiz Fernando</td>
+                                <td class="cpfMensalista">219.567.620-51</td>
+                                <td class="categoria">Veículo Pequeno</td>
+                                <td class="valor_mensalidade">R$ 130,00</td>
+                                <td class="data_mensalidade">10/10/2010</td>
+                                <td class="data_pagamento">11/11/2011</td>
+                                <td class="Status">R$ 130,00</td>
+                                <!-- <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td> -->
+                                <td>
+                                    <i class='bx bx-edit'></i>
+                                    <i class='bx bxs-trash-alt'></i>
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+
                 </div>
-
-                <div class="filtro">
-                    <input placeholder="Pesquisar" type="text">
-                    <button>Filtrar</button>
-                </div>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Email</th>
-                            <th>Ativo</th>
-                            <th>Telefones</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-
-
-                    <tbody class="contClientes">
-                        <tr class="clientes model">
-                            <td class="idCli">1</td>
-                            <td class="nomeCli">Luiz Fernando</td>
-                            <td class="cpfCli">219.567.620-51</td>
-                            <td class="emailCli">luizfernandodesouza@gmail.com</td>
-                            <td class="status">Sim</td>
-                            <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td>
-                            <td>
-                                <i class='bx bx-edit'></i>
-                                <i class='bx bxs-trash-alt'></i>
-                            </td>
-                        </tr>
-
-
-
-                    </tbody>
-                </table>
 
             </div>
 

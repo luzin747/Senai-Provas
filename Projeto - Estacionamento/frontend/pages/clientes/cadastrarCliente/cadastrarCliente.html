@@ -89,7 +89,7 @@
                         <div class="inps">
                             <div>
                                 <p>Data de Nascimento</p>
-                                <input type="date" class="dataNasc">
+                                <input type="text" class="data_nasci">
                             </div>
 
                             <div >
@@ -133,30 +133,47 @@
                                 <p>Número</p>
                                 <input type="text" class="numero">
                             </div>
+
+                            
                         </div>
 
                         <div class="inps">
+
+                            <div class="cont-uf">
+                                <p>UF</p>
+                                <input type="text" class="uf">
+                            </div>
+
+                            <div class="">
+                                <p>Cidade</p>
+                                <input type="text" class="cidade">
+                            </div>
+
+                            <div>
+                                <p>Bairro</p>
+                                <input type="text" class="bairro">
+                            </div>
                             <div>
                                 <p>Ativo</p>
-                                <select name="" id="">
+                                <select class="select_status" name="" id="">
                                     <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
                                 </select>
                             </div>
 
                             <div>
-                                <p>Dia Vencimento Mensalidade</p>
-                                <input type="text" class="vencimento">
+                                <p>Complemento</p>
+                                <input type="text" class="complemento">
                             </div>
 
-                            <div>
+                            <!-- <div>
                                 <p>Observação</p>
                                 <textarea name="" id="" cols="30" rows="10"></textarea>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div>
-                            <button>Salvar</button>
+                            <button onclick="cadastrarCliente()">Salvar</button>
                             <button><a href="../clientes.html">Voltar</a></button>
                         </div>
 
@@ -178,4 +195,5 @@
 
 </body>
 
+<script src="js/cadastrarCliente.js"></script>
 </html>
