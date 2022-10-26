@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,500;1,600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    /* background-color: rgb(145, 5, 5); */
+    background-color: white;
+}
+
+.cont-img-banner  {
+    /* width: 100%; */
+    /* height: 500px; */
+    margin: 0 auto;
+}
+
+#container {
+    width: 90vw;
+    margin: 2% auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* justify-content: space-between; */
+}
+
+.login-cont {
+    width: 22vw;
+    margin: 10% auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.4);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login-cont img {
+    display: flex;
+    width: 29%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: -30px;
+    color: rgba(255, 4, 4, 0.774);
+    /* text-shadow: 0px 0px 10px rgba(170, 170, 170, 0.623); */
+}
+.cont-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-title hr {
+    width: 80%;
+    margin: 0 auto;
+    /* border: 1px solid rgba(121, 121, 121, 0.342); */
+}
+
+form{
+    width: 85%;
+    padding: 2%;
+    margin: 0 auto;
+}
+
+.single-input{
+    position: relative;
+    margin-top: 30px;
+}
+.single-input label{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: rgb(150,150,150);
+    cursor: text;
+    transition: 0.5s ease-in-out;
+    font-size: 11pt;
+}
+
+.input{
+    width: 100%;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid rgb(200,200,200);
+    outline: 0;
+    font-size: 16px;
+    color: rgb(80,80,80);
+    transition: 0.5s ease-in-out;
+}
+
+.input:focus,
+.input:valid{
+    border-bottom: 2px solid red;
+}
+.input:focus ~ label,
+.input:valid ~ label{
+    transform: translateY(-24px);
+    font-size: 12px;
+    color: red;
+}
+
+.esquece-cont a {
+    display: block;
+    text-align: end;
+    font-size: 9pt;
+    text-decoration: none;
+    color: black;
+    margin: 10px 20px;
+}
+
+.login-cont button {
+    display: flex;
+    margin: 0 auto;
+    background-color: red;
+    border: none;
+    padding: 5px 30px;
+    color: white;
+    font-weight: 800;
+    border-radius: 15px;
+    font-size: 10pt;
+    cursor: pointer;
+
+}
+
+.login-cont button:hover {
+    background-color: rgb(150, 28, 28);
+    font-weight: 600;
+
+
+}
+
+.cadastrar-cont a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 10pt;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.outros-meios-cadastros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 7%;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.outros-meios-cadastros p {
+    font-size: 10pt;
+    text-align: center;
+}
+
+.outros-meios-cadastros i {
+    font-size: 18pt;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+
+.outros-meios-cadastros i:hover {
+    color: red;
+}
+
+.cont-icons {
+    display: flex;
+    justify-content: center;
+}
