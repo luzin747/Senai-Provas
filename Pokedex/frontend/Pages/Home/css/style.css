@@ -1,20 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,500;1,600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+#container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #ffffff;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
-    background-color: black;
-    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.336);
+    /* justify-content: center; */
+    align-items: center;
+    height: 10vh;
+    padding: 5px;
+    margin: 3% auto;
+    border-radius: 15px;
+    
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+nav div button {
+    margin-left: 30px;
+    width: 2.5vw;
+    height: 2.5vw;
+    border: none;
+    background: none;
+    background-size: cover;
+    cursor: pointer;
+}
+nav div p {
+    margin-left: 0px;
+    font-weight: 600;
+}
+
+.caption-pokedex{margin-left: 8px;}
+
+
+.icones {
+    font-size: 40pt;
+    color: #2C1C36;
 }
 
 
 nav img {
     width: 45px;
+    
 }
+.pokebola {background-image: url(../img/pokeball.png);}   
+.pokebola:hover {background-image: url(../img/pokeball-aberta.png);}
+
+.home {background-image: url(../img/home.png);}
+
+.video-game { background-image: url(../img/video-games.png);}
+/* .video-game:hover { background-image: url(../img/video-games-cheio.png);} */
+/* .home:hover {background-image: url(../img/home-click.png);} */
+
 
 nav ul {
     display: flex;

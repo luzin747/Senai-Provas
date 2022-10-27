@@ -9,34 +9,32 @@
 
 body {
     /* background-color: rgb(145, 5, 5); */
-    background-color: white;
 }
 
-.cont-img-banner  {
-    /* width: 100%; */
-    /* height: 500px; */
-    margin: 0 auto;
+.cont-img-banner img {
+    width: 95%;
+    border-radius: 5px;
 }
+
+
 
 #container {
-    width: 90vw;
-    margin: 2% auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    /* justify-content: space-between; */
+    width: 70vw;
+    /* height: 60vh; */
+    margin: 8% auto;
 }
 
 .login-cont {
-    width: 22vw;
-    margin: 10% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0,0,0,.4);
     padding: 10px;
     border-radius: 5px;
 }
 
-.login-cont img {
+.img-logo  {
     display: flex;
     width: 29%;
     margin: 0 auto;
@@ -92,13 +90,13 @@ form{
 
 .input:focus,
 .input:valid{
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #2C1C36;
 }
 .input:focus ~ label,
 .input:valid ~ label{
     transform: translateY(-24px);
     font-size: 12px;
-    color: red;
+    color: #2C1C36;
 }
 
 .esquece-cont a {
@@ -115,7 +113,7 @@ form{
     margin: 0 auto;
     background-color: red;
     border: none;
-    padding: 5px 30px;
+    padding: 5px 40px;
     color: white;
     font-weight: 800;
     border-radius: 15px;
