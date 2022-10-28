@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,45 +11,171 @@
     <link rel="stylesheet" href="css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
 
     <div id="container">
 
         <header>
             <nav class="menu">
-                <ul>
+
+
+                <ul class="links">
                     <!-- <li>Pokedex</li> -->
+                    <!-- <img src="img/icon-pokemon.png" alt=""> -->
+
                     <div>
-                        <button class="home"></button>
-                         <p>Home</p>
+                        <!-- <button class="home"></button> -->
+                        <i class='bx bxs-home'></i>
+                        <p>Home</p>
                     </div>
 
                     <div>
-                        <button class="pokebola"></button>
+                        <i class='bx bx-football'></i>
                         <p class="caption-pokedex">Pokedex</p>
                     </div>
 
                     <div>
-                        <button class="video-game"></button>
-                         <p>Videogame</p>
+                        <i class='bx bxs-joystick-button'></i>
+                        <p>Videogame</p>
                     </div>
 
-                    
+
+
                     <!-- <iconify-icon class="icones" icon="mdi:pokeball"></iconify-icon> -->
-                    
+
                 </ul>
 
-                <ul>
-                    <li></li>
-                    <li></li>
+                <ul class="cont-busca">
+                    <div>
+                        <input type="text" class="buscar" placeholder="Procure seu Pokemon...">
+                        <i class='bx bx-search-alt-2'></i>
+                    </div>
                 </ul>
             </nav>
         </header>
 
-        <input type="text" class="buscar">
+
+
+        <div class="filter">
+
+            <div class="cont-selects">
+
+                <select name="Type" class="type" id="">
+                    <option class="type-caption" value="Type">Tipo</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fire">Fogo</option>
+                    <option value="Water">Água</option>
+                    <option value="Grass">Grama</option>
+                    <option value="Flying ">Voador</option>
+                    <option value="Fighting ">Lutador</option>
+                    <option value="Poison ">Veneno</option>
+                    <option value="Electric">Elétrico</option>
+                    <option value="Ground">Terra</option>
+                    <option value="Rock ">Pedra</option>
+                    <option value="Psychic">Psíquico</option>
+                    <option value="Ice">Gelo</option>
+                    <option value="Bug">Inseto</option>
+                    <option value="Ghost">Fantasma</option>
+                    <option value="Steel">Ferro</option>
+                    <option value="Dragon">Dragão</option>
+                    <option value="Dark">Sombrio</option>
+                    <option value="Fairy">Fada</option>
+                </select>
+            </div>
+
+            <div>
+                <img src="" alt="">
+                <select name="Weaknesses" class="waknesses" id="">
+                    <option class="type-caption" value="Type">Fraquezas</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fire">Fogo</option>
+                    <option value="Water">Água</option>
+                    <option value="Grass">Grama</option>
+                    <option value="Flying ">Voador</option>
+                    <option value="Fighting ">Lutador</option>
+                    <option value="Poison ">Veneno</option>
+                    <option value="Electric">Elétrico</option>
+                    <option value="Ground">Terra</option>
+                    <option value="Rock ">Pedra</option>
+                    <option value="Psychic">Psíquico</option>
+                    <option value="Ice">Gelo</option>
+                    <option value="Bug">Inseto</option>
+                    <option value="Ghost">Fantasma</option>
+                    <option value="Steel">Ferro</option>
+                    <option value="Dragon">Dragão</option>
+                    <option value="Dark">Sombrio</option>
+                    <option value="Fairy">Fada</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="conteudo">
+
+
+            <div class="cont-card-pokes">
+
+                <div class="card-pokes">
+                    <img class="gif-poke" src="img/gifs/turtwig.webp" alt="">
+
+                    <span class="number-poke">N°387</span>
+                    <p class="name-poke">Turtwig</p>
+                    <p class="type-poke grass">GRASS</p>
+                </div>
+
+                <div class="card-pokes">
+                    <img class="gif-poke" src="img/gifs/grottle.webp" alt="">
+
+                    <span class="number-poke">N°388</span>
+                    <p class="name-poke">Grottle</p>
+                    <p class="type-poke grass">GRASS</p>
+                </div>
+
+                <div class="card-pokes">
+                    <img class="gif-poke" src="img/gifs/torterra.gif" alt="">
+
+                    <span class="number-poke">N°387</span>
+                    <p class="name-poke">Torterra</p>
+                    <div class="type-poke-card">
+                        <p class="type-poke grass">GRASS</p>
+                        <p class="type-poke ground">GROUND</p>
+                    </div>
+                </div>
+
+                <div class="card-pokes">
+                    <img class="gif-poke" src="img/gifs/torterra.gif" alt="">
+
+                    <span class="number-poke">N°390</span>
+                    <p class="name-poke">Chimchar</p>
+                    <div class="type-poke-card">
+                        <p class="type-poke fire">Fire</p>
+                        <!-- <p class="type-poke ground"></p> -->
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="poke-info">
+                
+                <div>
+                    <img src="img/pics-poke/empoleon.png" alt="">
+
+                    <div class="genero">
+                        <i class='bx bx-male-sign male' ></i>
+                        <i class='bx bx-female-sign female' ></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
 
     </div>
-    
+
 </body>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
 </html>
