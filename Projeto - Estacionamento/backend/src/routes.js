@@ -36,10 +36,8 @@ router.delete("/vagas", VagasController.excluirVaga);
 router.put("/vagas", VagasController.editarVaga);
 
 router.get("/telefones", TelefoneController.listarTelefones);
-router.get("/telefones/:id_cli", TelefoneController.listaTelefone);
-router.post("/telefones", TelefoneController.cadastrarTelefone);
-router.delete("/telefones", TelefoneController.excluirTelefone);
-router.put("/telefones", TelefoneController.editarTelefone);
+router.get("/telefones/:cliente_id", TelefoneController.listaTelefone);
+
 
 
 

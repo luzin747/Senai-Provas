@@ -31,7 +31,7 @@ function listaVaga(req, res) {
 };
 
 function cadastrarVaga(req, res) {
-    let query = `INSERT INTO vagas VALUES (DEFAULT, '${req.body.categoria_vaga}', '${req.body.valor_h}')`;
+    let query = `INSERT INTO vagas VALUES ('${req.body.id_vaga}', '${req.body.categoria_vaga}', '${req.body.valor_h}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

@@ -17,13 +17,23 @@ function cadastrarCliente() {
     var cidade = document.querySelector('.cidade').value
     var uf = document.querySelector('.uf').value
     var complemento = document.querySelector('.complemento').value
-    // var status_cli = document.querySelector('.status_cli').value
 
     var select_status = document.querySelector(".select_status")
     let seleStatus = select_status.options[select_status.selectedIndex].value;
     if (seleStatus == 'Sim') {var ativo = 'Sim';} 
     if (seleStatus == 'Não') {var ativo = 'Não'; } 
 
+    var telFixo = document.querySelector('.telFixo').value
+    var telMovel = document.querySelector('.telMovel').value
+
+    var temFixo = false
+    var temMovel = false
+    
+    if(telFixo.length > 0) {
+         temFixo = true
+    }else if(telMovel.length > 0) {
+         temMovel = true
+    }
 
     let data = {
         "nome": nome,
@@ -39,7 +49,9 @@ function cadastrarCliente() {
         "cidade": cidade,
         "uf": uf,
         "complemento": complemento,
-        "status_cli": ativo
+        "status_cli": ativo,
+        "telefone_fixo": telFixo,
+        "celular": telMovel
     };
 
     console.log(data);
@@ -56,43 +68,12 @@ function cadastrarCliente() {
         .then(resp => {
             if (resp.nome !== undefined && resp.sobrenome !== undefined && resp.data_nasc !== undefined && resp.cpf !== undefined && resp.rg !== undefined && resp.email !== undefined && resp.cep !== undefined && resp.endereco !== undefined && resp.numero !== undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli !== undefined) {
                 alert("Cliente cadastrado com sucesso.")
-                window.location.reload()
             } else {
-                alert("Erro Quando Cadastra")
+                alert("Erro Quando Cadastra Cliente")
 
 
             }
         })
-
-
-        let telefone = {
-            // "id_cli": nome,
-            "tipo_tel": nome,
-            "telefone": 
-           
-        };
-    
-        console.log(data);
-    
-        fetch(uriTell, {
-            "method": "CREATE",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": JSON.stringify(data)
-        })
-    
-            .then(res => { return res.json() })
-            .then(resp => {
-                if (resp.nome !== undefined && resp.sobrenome !== undefined && resp.data_nasc !== undefined && resp.cpf !== undefined && resp.rg !== undefined && resp.email !== undefined && resp.cep !== undefined && resp.endereco !== undefined && resp.numero !== undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli !== undefined) {
-                    alert("Cliente cadastrado com sucesso.")
-                    window.location.reload()
-                } else {
-                    alert("Erro Quando Cadastra")
-    
-    
-                }
-            })
 
 }
 

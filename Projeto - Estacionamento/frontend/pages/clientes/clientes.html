@@ -94,10 +94,10 @@
                             <td class="cpfCli">219.567.620-51</td>
                             <td class="emailCli">luizfernandodesouza@gmail.com</td>
                             <td class="status">Sim</td>
-                            <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td>
+                            <td><i onclick="mostrarModal(this)" class='bx bxs-phone'></i></td>
                             <td>
                                 <i class='bx bx-edit'></i>
-                                <i class='bx bxs-trash-alt'></i>
+                                <i class='bx bxs-trash-alt' onclick="excluir(this)"></i>
                             </td>
                         </tr>
 
@@ -121,12 +121,12 @@
             <div class="contInputsModal">
                 <div>
                     <p>Telefone Fixo</p>
-                    <input type="text">
+                    <input type="text" class="telFixo">
                 </div>
 
                 <div>
                     <p>Telefone Móvel</p>
-                    <input type="text">
+                    <input type="text" class="celular">
                 </div>
             </div>
 

@@ -14,6 +14,15 @@ function carregar() {
       }
         )
       .catch(err => console.error(err));
+
+      fetch(uri, options)
+      .then(res => res.json())
+      .then(res => {
+        clientes = res;
+            mostrarModal();
+      }
+        )
+      .catch(err => console.error(err));
 }
 
 function preencherTela() {
@@ -37,8 +46,23 @@ function preencherTela() {
 
 }
 
-function mostrarModal() {
+function mostrarModal(e) {
+
+
     var modal = document.querySelector('.modal')
+
+   var id = e.parentNode.parentNode.querySelector('.idCli').innerHTML
+
+  console.log(id)
+   clientes.forEach((cli , i) => {
+    if(id == i) {
+      console.log(i)
+      
+      document.querySelector('.telFixo').value = cli.telefone_fixo
+      document.querySelector('.celular').value = cli.celular
+
+    }
+   })
 
     document.querySelector('body').style.background = '#5e5e5e27';
 
@@ -51,4 +75,8 @@ function fecharModal() {
 
   document.querySelector('body').style.background = '';
  
+}
+
+function preencherModal() {
+
 }

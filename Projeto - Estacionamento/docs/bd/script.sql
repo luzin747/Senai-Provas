@@ -60,9 +60,14 @@ create table registro_estac(
 
 alter table carros add foreign key (id_cli) references clientes(id_cliente);
 
+  
 insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','Fixo','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
 insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','Celular','19978570192','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
 insert into clientes values(default, 'Renas','Wellisson','01/02/2004','07937014067','256982324','Celular','21943559874','RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
+
+
+
+
 
 insert into carros values(default,1,'MWK7015','Scania','Caminhão');
 insert into carros values(default,3,'EDL3Z90','Ferrari','Carro');
@@ -70,9 +75,10 @@ insert into carros values(default,2,'CIZ8920','Honda','Moto');
 insert into carros values(default,3,'HXW3364','BMW','Carro');
 
 insert into vagas values(1,'Veículo Pequeno',5.00);
-insert into vagas values(2,'Veículo Médio',10.00);
-insert into vagas values(3,'Veículo Grande',20.00);
 
+insert into vagas values(2,'Veículo Médio',10.00);
+
+insert into vagas values(3,'Veículo Grande',20.00);
 
 insert into registro_estac values(default,1,3,2,DATE_SUB(curdate(),INTERVAL 5 DAY),'08:00','','','','Aberto');
 insert into registro_estac values(default,3,1,1,DATE_SUB(curdate(),INTERVAL 5 DAY),'09:30','','','','Aberto');
@@ -80,7 +86,7 @@ insert into registro_estac values(default,2,2,3,DATE_SUB(curdate(),INTERVAL 2 DA
 insert into registro_estac values(default,2,4,3,DATE_SUB(curdate(),INTERVAL 6 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
 
 create view vw_clientes as
-select id_cliente as cliente_id, nome as Nome_cliente, cpf, email , status_cli, tipo_tel, numero_tel as telefone from clientes;
+select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf, email , status_cli, tipo_tel, numero_tel as telefone from clientes;
 select * from vw_clientes;
 
 
