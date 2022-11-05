@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Novo Ticket</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body onload="carregar()">
+
+    <header>
+
+        <div class="nav-head">
+
+            <div>
+                <h1><i class='bx bxs-car-garage'></i>Renas Parking</h1>
+
+            </div>
+            <nav>
+                <ul>
+                    <li><i class='bx bxs-bell'></i></li>
+                    <li><i class='bx bxs-user'></i></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="menu">
+            <p>Menu</p>
+
+            <ul>
+                <li><a href="../../../home.html"><i class='bx bxs-home'></i>Home</a></li>
+                <li><a href="../estacionar.html"><i class='bx bxs-parking'></i>Estacionar</a></li>
+                <li><a href="../../clientes/clientes.html"><i class='bx bx-group'></i>Clientes</a></li>
+                <li><a href=""><i class='bx bx-money'></i>Mensalidades</a></li>
+            </ul>
+
+            <p>Configurações</p>
+
+            <ul>
+                <li><i class='bx bx-dollar'></i>Precificações</li>
+                <li><i class='bx bxs-user-detail'></i>Usuarios</li>
+                <li><i class='bx bx-cog'></i>Configurações</li>
+            </ul>
+        </div>
+
+        <div class="conteudo">
+            <div class="linha-1">
+                <i class='bx bxs-parking'></i>
+
+                <div class="linha-1-sub">
+                    <h5>Cadastrar novo Ticket</h5>
+                    <p>Chegou a Hora de Cadastrar um novo Tickets de Estacionamento</b></p>
+                </div>
+                
+            </div>
+
+            <div class="linha-3">
+                <div class="linha-3-title">
+                    <h5>Cadastrar Novo Ticket</h5>
+                    <hr>
+                </div>
+
+                <div class="section-01">
+                    <div>
+                        <p>Categoria</p>
+                        <select class="tipo-Veiculo" onclick="valorHora()" name="" id="">
+                            <option value="Véiculo Pequeno">Véiculo Pequeno</option>
+                            <option value="Véiculo Médio">Véiculo Médio</option>
+                            <option value="Véiculo Grande">Véiculo Grande</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Valor Hora</p>
+                        <input class="valor-Hora" type="text">
+                    </div>
+
+                    <div>
+                        <p>Número da Vaga</p>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="section-01">
+                    <div>
+                        <p>Placa Veículo</p>
+                        <input type="text" name="" id="">
+                    </div>
+
+                    <div>
+                        <p>Marca Veículo</p>
+                        <input type="text">
+                    </div>
+
+                    <div>
+                        <p>Modelo Veículo</p>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="section-01">
+                    <div>
+                        <p>Data Entrada</p>
+                        <input type="text" name="" class="data-Entrada" id="">
+                    </div>
+
+                    <div>
+                        <p>Data Saída</p>
+                        <input class="data-Saida" type="text">
+                    </div>
+
+                    <div>
+                        <p>Tempo decorrido (horas e minutos)</p>
+                        <input type="text">
+                    </div>
+                </div>
+
+            <div>
+                <button>Salvar</button>
+                <button><a href="../estacionar.html">Voltar</a></button>
+            </div>
+
+                
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+<script src="js/cadastrar.js"></script>
+
+</html>
