@@ -67,6 +67,9 @@ h1 {
 
 }
 
+.bx-cycling {
+    font-size: 20pt;
+}
 .menu ul {
     padding: 20px;
     list-style: none;
@@ -98,6 +101,10 @@ main {
     
 }
 
+#teste {
+    padding-left: 1px;
+    font-size: 150pt;
+}
 
 .linha-1 {
     font-size: 13pt;
@@ -223,6 +230,7 @@ main {
     margin-bottom: 20px;
 }
 
+
 .cont-cards-vagas {
     display: flex;
     justify-content: center;
@@ -251,14 +259,44 @@ main {
 
 .cards-vagas p {
     margin: 2px;
-    background-color: black;
+    background-color: #3b3b3b;
     width: 32px;
     padding: 10px 0px;
     color: white;
     font-size: 9pt;
     text-align: center;
     border-radius: 5px;
+    
 
+}
+
+.mini1 .bx-cycling, .mini1 .bx-car,.mini1 .bxs-truck  {
+    font-size: 15pt;
+    background-color: rgb(201, 37, 37);
+}
+.mini2 .bx-cycling, .mini2 .bx-car,.mini2 .bxs-truck  {
+    font-size: 15pt;
+    background-color: rgb(201, 37, 37);
+}
+.mini3 .bx-cycling, .mini3 .bx-car,.mini3 .bxs-truck  {
+    font-size: 15pt;
+    background-color: rgb(201, 37, 37);
+}
+
+/* .mini2   {
+    font-size: 15pt;
+    background-color: rgb(201, 37, 37);
+
+}
+.mini3   {
+    font-size: 15pt;
+    background-color: rgb(201, 37, 37);
+
+} */
+
+#teste {
+    font-size: 13pt;
+    
 }
 
 .situation-vagas-mini-cards {
@@ -267,4 +305,7 @@ main {
     flex-wrap: wrap;
     width: 360px;
     margin: 0 auto;
+}
+.vagas-Ocupadas {
+    background-color: red;
 }

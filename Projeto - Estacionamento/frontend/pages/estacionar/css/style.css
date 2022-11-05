@@ -16,6 +16,11 @@ h1 {
     margin-left: 10px;
 }
 
+.model {
+    display: none;
+    visibility: hidden;
+}
+
 
 .nav-head {
     display: flex;

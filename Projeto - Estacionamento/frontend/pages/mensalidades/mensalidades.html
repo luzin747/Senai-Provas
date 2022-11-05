@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensalidades - Renas Parking</title>
+
+    <!-- Css Links -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/mensalistas.css">
+</head>
+
+<body onload="carregar()">
+
+    <div class="container">
+        <header>
+
+            <div class="nav-head">
+
+                <div>
+                    <h1><i class='bx bxs-car-garage'></i>Renas Parking</h1>
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><i class='bx bxs-bell'></i></li>
+                        <li><i class='bx bxs-user'></i></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="menu">
+                <p>Menu</p>
+
+                <ul>
+                    <li><a href="../../home.html"><i class='bx bxs-home'></i>Home</a></li>
+                    <li><a href="../estacionar/estacionar.html"><i class='bx bxs-parking'></i>Estacionar</a></li>
+                    <li><a href="clientes.html"><i class='bx bx-group'></i>Clientes</a></li>
+                    <li><a href=""><i class='bx bx-money'></i>Mensalidades</a></li>
+                </ul>
+
+                <p>Configurações</p>
+
+                <ul>
+                    <li><i class='bx bx-dollar'></i>Precificações</li>
+                    <li><i class='bx bxs-user-detail'></i>Usuarios</li>
+                    <li><i class='bx bx-cog'></i>Configurações</li>
+                </ul>
+            </div>
+
+            <div class="conteudo">
+                <div class="linha-1">
+                    <i class='bx bx-money'></i>
+
+                    <div class="linha-1-sub">
+                        <h5>Mensalidades Cadastradas</h5>
+                        <p>Chegou a Hora de listar os mensalistas Cadastrados</b></p>
+                    </div>
+                </div>
+
+                <div class="section">
+
+                    <div class="linha-2">
+                        <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
+                                    class='bx bxs-file-plus'></i>NOVO</a></button>
+                    </div>
+
+                    <div class="filtro">
+                        <input placeholder="Pesquisar" type="text">
+                        <button>Filtrar</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Mensalista</th>
+                                <th>CPF</th>
+                                <th>Categoria</th>
+                                <th>Valor Mensalidade</th>
+                                <th>Data Vencimento</th>
+                                <th>Data Pagamento</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody class="contMensalistas">
+                            <tr class="mensalistas mode">
+                                <td class="idCli">1</td>
+                                <td class="nomeMensalista">Luiz Fernando</td>
+                                <td class="cpfMensalista">219.567.620-51</td>
+                                <td class="categoria">Veículo Pequeno</td>
+                                <td class="valor_mensalidade">R$ 130,00</td>
+                                <td class="data_mensalidade">10/10/2010</td>
+                                <td class="data_pagamento">11/11/2011</td>
+                                <td class="Status">R$ 130,00</td>
+                                <!-- <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td> -->
+                                <td>
+                                    <i class='bx bx-edit'></i>
+                                    <i class='bx bxs-trash-alt'></i>
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </main>
+
+        <div class="modal model">
+            <h1>Telefones</h1>
+
+            <hr>
+
+            <p class="nomeCliente">Cliente</p>
+
+            <div class="contInputsModal">
+                <div>
+                    <p>Telefone Fixo</p>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <p>Telefone Móvel</p>
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="contButton">
+                <button>Salvar</button>
+                <button onclick="fecharModal()">Voltar</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="js/clientes.js"></script>
+
+</html>
