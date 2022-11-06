@@ -12,6 +12,8 @@ const TelefoneController = require("./controllers/TelefonesController");
 
 router.get("/clientes/vw_clientes", ClienteController.listarClientes);
 router.get("/clientes/:cpf", ClienteController.listaCliente);
+router.get("/infoClientes", ClienteController.pegaInformacoes);
+router.get("/infoClientes/:cpf", ClienteController.pegaInformacoesDeUmCli);
 router.post("/clientes", ClienteController.cadastrarCliente);
 router.delete("/clientes", ClienteController.excluirCliente);
 router.put("/clientes", ClienteController.editarCliente);

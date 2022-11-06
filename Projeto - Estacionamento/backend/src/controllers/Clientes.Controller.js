@@ -19,6 +19,31 @@ function listarClientes(req, res) {
     })
 };
 
+function pegaInformacoes(req, res) {
+    let query = "SELECT * FROM clientes";
+
+    conDB.query(query, (err, result) => {
+        if(err == null) {
+            res.json(result).status(200).end();
+        }else {
+            res.json(err).status(400).end();
+        }
+    })
+};
+
+function pegaInformacoesDeUmCli(req, res) {
+    let query = `SELECT * FROM clientes WHERE cpf = '${req.params.cpf}'`;
+
+    conDB.query(query, (err, result) => {
+        if(err == null) {
+            res.json(result).status(200).end();
+        }else {
+            res.json(err).status(400).end();
+        }
+    })
+};
+
+
 function listaCliente(req, res) {
     let query = `SELECT * FROM vw_clientes WHERE cpf = '${req.params.cpf}'`;
     
@@ -31,8 +56,8 @@ function listaCliente(req, res) {
     })
 };
 
-function cadastrarCliente(req, res) {
-    let query = `INSERT INTO clientes VALUES (DEFAULT, '${req.body.nome}', '${req.body.sobrenome}', '${req.body.data_nasci}', '${req.body.cpf}', '${req.body.rg}','${req.body.tipo_tel}','${req.body.numero_tel}','${req.body.email}','${req.body.cep}', '${req.body.endereco}','${req.body.numero}', '${req.body.bairro}','${req.body.cidade}', '${req.body.uf}', '${req.body.complemento}','${req.body.status_cli}')`;
+function cadastrarCliente(req, res) { 
+    let query = `INSERT INTO clientes VALUES (DEFAULT, '${req.body.nome}', '${req.body.sobrenome}', '${req.body.data_nasci}', '${req.body.cpf}', '${req.body.rg}','${req.body.celular}','${req.body.telefone_fixo}','${req.body.email}','${req.body.cep}', '${req.body.endereco}','${req.body.numero}', '${req.body.bairro}','${req.body.cidade}', '${req.body.uf}', '${req.body.complemento}','${req.body.status_cli}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -57,7 +82,7 @@ function excluirCliente(req, res) {
 
 function editarCliente(req, res){
     let query = `UPDATE clientes SET nome = '${req.body.nome}', sobrenome = '${req.body.sobrenome}', data_nasci = '${req.body.data_nasci}', cpf =  '${req.body.cpf}', 
-    rg = '${req.body.rg}',email = '${req.body.email}',cep = '${req.body.cep}', endereco = '${req.body.endereco}', numero = '${req.body.numero}', bairro = '${req.body.bairro}', cidade = '${req.body.cidade}', 
+    rg = '${req.body.rg}', celular = '${req.body.celular}', telefone_fixo = '${req.body.telefone_fixo}', email = '${req.body.email}',cep = '${req.body.cep}', endereco = '${req.body.endereco}', numero = '${req.body.numero}', bairro = '${req.body.bairro}', cidade = '${req.body.cidade}', 
     uf =  '${req.body.uf}', complemento = '${req.body.complemento}', status_cli = '${req.body.status_cli}' WHERE cpf = '${req.body.cpf}'`;
 
     conDB.query(query, (err, result) => {
@@ -72,6 +97,8 @@ function editarCliente(req, res){
 module.exports = {
     listarClientes,
     listaCliente,
+    pegaInformacoes,
+    pegaInformacoesDeUmCli,
     cadastrarCliente,
     excluirCliente,
     editarCliente

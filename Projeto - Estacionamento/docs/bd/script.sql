@@ -10,8 +10,8 @@ create table clientes(
     data_nasci varchar(10) not null,
     cpf varchar(11) not null unique,
     rg varchar(10) not null unique,
-    tipo_tel varchar(10) not null,
-    numero_tel varchar(20) not null,
+    celular varchar(20),
+    telefone_fixo varchar(20),
     email varchar(50) not null,
     cep varchar(20) not null,
     endereco varchar(100) not null,
@@ -60,14 +60,9 @@ create table registro_estac(
 
 alter table carros add foreign key (id_cli) references clientes(id_cliente);
 
-  
-insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','Fixo','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
-insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','Celular','19978570192','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
-insert into clientes values(default, 'Renas','Wellisson','01/02/2004','07937014067','256982324','Celular','21943559874','RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
-
-
-
-
+insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','19988547502','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
+insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','19978570192','32260117','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
+insert into clientes values(default, 'Renas','Wellisson','01/02/2004','07937014067','256982324','21943559874',null,'RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
 
 insert into carros values(default,1,'MWK7015','Scania','Caminhão');
 insert into carros values(default,3,'EDL3Z90','Ferrari','Carro');
@@ -80,15 +75,18 @@ insert into vagas values(2,'Veículo Médio',10.00);
 
 insert into vagas values(3,'Veículo Grande',20.00);
 
-insert into registro_estac values(default,1,3,2,DATE_SUB(curdate(),INTERVAL 5 DAY),'08:00','','','','Aberto');
-insert into registro_estac values(default,3,1,1,DATE_SUB(curdate(),INTERVAL 5 DAY),'09:30','','','','Aberto');
+insert into registro_estac values(default,1,3,2,DATE_SUB(curdate(),INTERVAL 3 DAY),'08:00','','','','Aberto');
+insert into registro_estac values(default,3,1,1,DATE_SUB(curdate(),INTERVAL 3 DAY),'09:30','','','','Aberto');
 insert into registro_estac values(default,2,2,3,DATE_SUB(curdate(),INTERVAL 2 DAY),'10:00','','','','Aberto');
-insert into registro_estac values(default,2,4,3,DATE_SUB(curdate(),INTERVAL 6 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
+insert into registro_estac values(default,2,4,3,DATE_SUB(curdate(),INTERVAL 4 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
 
 create view vw_clientes as
-select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf, email , status_cli, tipo_tel, numero_tel as telefone from clientes;
+select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf, email , celular, telefone_fixo, status_cli  from clientes;
 select * from vw_clientes;
 
+create view vw_telefones as
+select id_cliente as cliente_id, celular as cel_cliente, telefone_fixo as fixo_Cliente from clientes;
+select * from vw_telefones;
 
 create view vw_estacionar as
 select r.id_registro,v.id_vaga as vagas, c.id_cliente as clientes, v.categoria_vaga , v.valor_h , ca.placa as carros, r.forma_pagamento, r.status_pag from clientes c

@@ -188,7 +188,7 @@ function excluir(e) {
     .then(res => { return res.json() })
     .then(resp => {
         console.log(resp)
-        if(resp._id !== undefined) {
+        if(resp.id !== undefined) {
             alert("Produto Excluido Com Suesso! de vez agora");
             window.location.reload();
             

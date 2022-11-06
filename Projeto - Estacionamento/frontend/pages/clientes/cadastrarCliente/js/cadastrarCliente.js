@@ -26,14 +26,16 @@ function cadastrarCliente() {
     var telFixo = document.querySelector('.telFixo').value
     var telMovel = document.querySelector('.telMovel').value
 
-    var temFixo = false
-    var temMovel = false
     
-    if(telFixo.length > 0) {
-         temFixo = true
-    }else if(telMovel.length > 0) {
-         temMovel = true
-    }
+
+    // var temFixo = false
+    // var temMovel = false
+    
+    // if(telFixo.length > 0) {
+    //      temFixo = true
+    // }else if(telMovel.length > 0) {
+    //      temMovel = true
+    // }
 
     let data = {
         "nome": nome,

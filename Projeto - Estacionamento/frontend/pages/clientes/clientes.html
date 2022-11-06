@@ -69,8 +69,8 @@
                 </div>
 
                 <div class="filtro">
-                    <input placeholder="Pesquisar" type="text">
-                    <button>Filtrar</button>
+                    <input placeholder="Pesquisar por Nome" class="filtro" type="text">
+                    <!-- <button>Filtrar</button> -->
                 </div>
 
                 <table>
@@ -96,8 +96,8 @@
                             <td class="status">Sim</td>
                             <td><i onclick="mostrarModal(this)" class='bx bxs-phone'></i></td>
                             <td>
-                                <i class='bx bx-edit'></i>
-                                <i class='bx bxs-trash-alt' onclick="excluir(this)"></i>
+                                <i class='bx bx-edit' onclick="editarCliente(this)"></i>
+                                <i class='bx bxs-trash-alt' onclick="excluirCliente(this)"></i>
                             </td>
                         </tr>
 
@@ -116,7 +116,7 @@
 
             <hr>
 
-            <p class="nomeCliente">Cliente</p>
+            <p class="nomeCliente"><b class="Cliente"></b> </p>
 
             <div class="contInputsModal">
                 <div>
@@ -131,10 +131,139 @@
             </div>
 
             <div class="contButton">
-                <button>Salvar</button>
+                <!-- <button>Salvar</button> -->
                 <button onclick="fecharModal()">Voltar</button>
             </div>
         </div>
+
+        <!-- MODAL EDITAR CLIENTE  -->
+        <div class="m-editar model">
+
+            <p class="nomeCliente"><b class="cliName"></b> </p>
+
+            <hr>
+
+            <div class="m-editar-inputs">
+                
+                <div class="cont-div-inps">
+
+                    <div class="inps">
+                        <div>
+                            <p>Nome</p>
+                            <input type="text" class="nome">
+                        </div>
+
+                        <div>
+                            <p>Sobrenome</p>
+                            <input type="text" class="sobrenome">
+                        </div>
+                    </div>
+
+                    <div class="inps">
+                        <div>
+                            <p>Data de Nascimento</p>
+                            <input type="text" class="data_nasci">
+                        </div>
+
+                        <div >
+                            <p>CPF</p>
+                            <input type="text" class="cpf">
+                        </div>
+
+                        <div>
+                            <p>RG</p>
+                            <input type="text" class="rg">
+                        </div>
+
+                        <div>
+                            <p>Email</p>
+                            <input type="text" class="email">
+                        </div>
+                    </div>
+
+                    <div class="inps">
+                        <div>
+                            <p>Telefone Fixo</p>
+                            <input type="text" class="fixo">
+                        </div>
+
+                        <div>
+                            <p>Telefone Móvel</p>
+                            <input type="text" class="telMovel">
+                        </div>
+
+                        <div>
+                            <p>CEP</p>
+                            <input type="text" class="cep">
+                        </div>
+
+                        <div>
+                            <p>Endereço</p>
+                            <input type="text" class="endereco">
+                        </div>
+                       
+                    </div>
+
+                    <div class="inps">
+
+                        <div>
+                            <p>Número</p>
+                            <input type="text" class="numero">
+                        </div>
+
+                        <div class="cont-uf">
+                            <p>UF</p>
+                            <input type="text" class="uf">
+                        </div>
+
+                        <div class="">
+                            <p>Cidade</p>
+                            <input type="text" class="cidade">
+                        </div>
+
+                        <div>
+                            <p>Bairro</p>
+                            <input type="text" class="bairro">
+                        </div>
+                        <div>
+                            <p>Ativo</p>
+                            <select class="select_status" name="" id="">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <p>Complemento</p>
+                            <input type="text" class="complemento">
+                        </div>
+
+                        <!-- <div>
+                            <p>Observação</p>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                        </div> -->
+                    </div>
+
+                    <div class="cont-button-status">
+                        <div>
+                            <button onclick="salvarEdicao(this)">Salvar</button>
+                            <button class="btn-voltar" onclick="fecharEditarCliente()">Fechar</button>
+                        </div>
+<!-- 
+                        <div class="cont-status">
+                            <p>Status do Cliente:</p>
+                            <input type="text" name="" class="status-cliente">
+                        </div> -->
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+        </div>
+        <!-- FIM DO MODAL EDITAR CLIENTE -->
 
     </div>
 
