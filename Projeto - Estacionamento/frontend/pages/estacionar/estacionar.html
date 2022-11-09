@@ -21,7 +21,7 @@
             <div class="nav-head">
 
                 <div>
-                    <h1><i class='bx bxs-car-garage'></i>Renas Parking</h1>
+                    <h1><i class='bx bxs-car-garage'></i>Bingo Renas Parking</h1>
 
                 </div>
                 <nav>
@@ -64,7 +64,8 @@
                 </div>
 
                 <div class="linha-2">
-                    <button class="button-new"><a href="cadastarTicket/cadastrarTicket.html"><i class='bx bxs-file-plus'></i>NOVO</a></button>
+                    <button class="button-new"><a href="cadastarTicket/cadastrarTicket.html"><i
+                                class='bx bxs-file-plus'></i>NOVO</a></button>
                 </div>
 
                 <div class="filtro">
@@ -95,25 +96,119 @@
                             <td class="clientes">1</td>
                             <td class="vagas">5</td>
                             <td class="categoria_vaga">Veiculo Pequeno</td>
-                            <td class="valor_h">R$  10,00</td>
+                            <td class="valor_h">R$ 10,00</td>
                             <td class="carros">EKS-3769</td>
                             <td class="forma_pagamento">PIX</td>
                             <td class="status_pag">Pago</td>
 
                             <td>
-                                <i class='bx bx-edit'></i>
+                                <i class='bx bx-edit' onclick="editarCliente(this)"></i>
                                 <i class='bx bxs-trash-alt'></i>
                             </td>
 
                         </tr>
-                        
-                        
-                       
+
+
+
                     </tbody>
                 </table>
 
             </div>
 
+            <!-- MODAL EDITAR CLIENTE  -->
+            <div class="m-editar model">
+
+                <p class="nomeCliente"><b class="cliName">Luiz Teste</b> </p>
+
+                <hr>
+
+                <div class="m-editar-inputs">
+
+                    <div class="cont-id_vaga">
+                        <p>Vaga Num :</p>
+                        <span class="id_vaga">2</span>
+
+                    </div>
+
+                    <div class="cont-div-inps">
+
+                        <div class="inps">
+                            <div>
+                                <p>CPF Cliente</p>
+                                <input type="text" class="cpf">
+                            </div>
+
+                            <div>
+                                <p>Placa Carro</p>
+                                <input type="text" class="placa">
+                            </div>
+                        </div>
+
+                        <div class="inps">
+                            <div>
+                                <p>Data de Entrada</p>
+                                <input type="text" class="data_entrada">
+                            </div>
+
+                            <div>
+                                <p>Horario de Entrada</p>
+                                <input type="text" class="h_entrada">
+                            </div>
+
+                            <div>
+                                <p>Horario de Saida</p>
+                                <input type="text" class="h_saida">
+                            </div>
+
+                            <div>
+                                <p>Tempo de Permanencia</p>
+                                <input type="text" class="tempo_permanencia">
+                            </div>
+                        </div>
+
+                        <div class="inps value-status">
+
+                            <div class="status-cont">
+                                <p>Status:</p>
+                                <select class="select_status" name="" id="">
+                                    <option value="Aberto">Aberto</option>
+                                    <option value="Fechado">Fechado</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <p>Total a Pagar:</p>
+                                <input type="text" class="valor_Total">
+                            </div>
+                            <div>
+                                <p>Formas de Pagamento:</p>
+                                <input type="text" class="formas_pagamentos">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="cont-button-status">
+                            <div>
+                                <button onclick="salvarEdicao(this)">Salvar</button>
+                                <button class="btn-voltar" onclick="fecharEditarCliente()">Fechar</button>
+                            </div>
+                            <!-- 
+                            <div class="cont-status">
+                                <p>Status do Cliente:</p>
+                                <input type="text" name="" class="status-cliente">
+                            </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- FIM DO MODAL EDITAR CLIENTE -->
 
 
 
@@ -124,4 +219,5 @@
 
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 <script src="js/estacionar.js"></script>
+
 </html>

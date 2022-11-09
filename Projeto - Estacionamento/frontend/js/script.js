@@ -169,9 +169,7 @@ function preencherVagas() {
                     paragrao3.classList = 'bx bxs-truck'
                     document.querySelector('.mini3').appendChild(paragrao3)
                     ocupadas+= 1
-                }
-                
-                
+                } 
             }
             else {
                 paragrao3.innerHTML = i

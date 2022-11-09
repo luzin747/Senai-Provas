@@ -1,4 +1,4 @@
-
+var uriCadastra = 'http://localhost:3000/registro_estac'
 
 
 function carregar() {
@@ -63,11 +63,12 @@ function valorHora() {
 
 function cadastrar() {
 
-    fetch('http://localhost:3000/registro_estac', {
-        "method":"CREATE",
-        "headers": {
-            "Content-Type":"application/json"
-        },
-        "body":JSON.stringify()
-    })
+    var valorHora = document.querySelector('.valor-Hora').value
+    var numVaga = document.querySelector('.num-vaga').value
+    var placa = document.querySelector('.placa-veiculo').value
+    var cpf = document.querySelector('.cpf-cliente').value
+    var modeloVeiculo = document.querySelector('.modelo-veiculo').value
+    const dataEntrada = document.querySelector('.data-Entrada').value
+    var dataSaida = document.querySelector('.data-Saida').value
+
 }
