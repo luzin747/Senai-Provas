@@ -150,6 +150,8 @@ main {
 }
 .button-new i {
     padding-right: 1px;
+    cursor: pointer;
+
 }
 
 table {
@@ -195,6 +197,8 @@ tbody td {
     border-radius: 10px;
     color: white;
     background-color: black;
+    cursor: pointer;
+
 }
 
 .filtro input {	
@@ -211,6 +215,8 @@ table tr td i {
     padding: 4px;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
+
 }
 
 table tr td i:nth-child(1) {
@@ -334,6 +340,7 @@ table tr td i:nth-child(2) {
     margin-top: 10px;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 .cont-button-status  button:nth-child(1) {

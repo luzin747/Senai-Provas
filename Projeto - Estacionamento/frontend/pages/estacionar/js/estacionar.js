@@ -25,6 +25,15 @@ function carregar() {
       }
         )
       .catch(err => console.error(err));
+
+      fetch(uriClientes, options)
+      .then(res => res.json())
+      .then(res => {
+        cpfs = res;
+            mostrarModal();
+      }
+        )
+      .catch(err => console.error(err));
 }
 
 function preencherTela() {

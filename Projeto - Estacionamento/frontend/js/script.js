@@ -1,4 +1,5 @@
 var uri = 'http://localhost:3000/vagas'
+var uriClientes = 'http://localhost:3000/clientes/vw_clientes'
 var vagas = []
 
 var cardsVagas = document.querySelector('.vagasSec')
@@ -15,6 +16,15 @@ function carregar() {
         .then(res => {
             vagas = res;
             preencherVagas();
+        }
+        )
+        .catch(err => console.error(err));
+
+        fetch(uriClientes, options)
+        .then(res => res.json())
+        .then(res => {
+            clientes = res;
+            preencheCards();
         }
         )
         .catch(err => console.error(err));
@@ -181,6 +191,11 @@ function preencherVagas() {
     }
     
 }
+
+//Qtd de Clientes Cadastrados
+
+
+
     
     document.querySelector('.qtd-vagas').innerHTML = tamanho
     document.querySelector('.vagas-livres').innerHTML = tamanho
@@ -191,6 +206,18 @@ function preencherVagas() {
 
 }
 
+
+function preencheCards() {
+
+    var qtd = 0
+
+    clientes.forEach(c => {
+        qtd += 1
+    })
+
+    document.querySelector('.qtd_clientes').innerHTML = qtd
+
+}
 
 
 

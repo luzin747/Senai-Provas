@@ -92,3 +92,14 @@ button:nth-child(2) {
     font-size: 11pt;
 }
 
+.cont-caption-inps {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.ja_possui {
+    color: red;
+}
+
