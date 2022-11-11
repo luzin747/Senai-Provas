@@ -277,7 +277,9 @@ table tr td i:nth-child(2) {
 }
 .inps {
     display: flex;
-    margin: 0px 10px 10px 10px;    
+    justify-content: center;
+    margin: 0px 10px 10px 10px;  
+    text-align: center;  
 
     /* padding: 20px; */
 }
@@ -291,7 +293,9 @@ table tr td i:nth-child(2) {
     font-size: 11pt;
 }
 .inps input {
-    height: 25px;
+    height: 28px;
+    text-align: center;
+    font-size: 11pt;
 }
 
 .inps select {

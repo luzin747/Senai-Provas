@@ -1,5 +1,7 @@
 var uriCadastra = 'http://localhost:3000/registro_estac'
 const uriClientes = 'http://localhost:3000/clientes/vw_clientes'
+const uriVagas = 'http://localhost:3000/vagas'
+
 
 var clientes = []
 
@@ -49,14 +51,12 @@ function valorHora() {
 
     let tipo = select.options[select.selectedIndex].value;
 
-    console.log(tipo)
-
-    if (tipo == 'Véiculo Pequeno') {
+    if (tipo == 'Veiculo-Pequeno') {
         var valorTotal = 'R$ 10,00'
-    } else if (tipo == 'Véiculo Médio') {
+    } else if (tipo == 'Veiculo-Medio') {
         var valorTotal = 'R$ 15,00'
 
-    } else {
+    } else if(tipo == 'Veiculo-Grande') {
         var valorTotal = 'R$ 20,00'
 
     }
@@ -66,7 +66,52 @@ function valorHora() {
 
 function cadastrarTiket() {
 
-    const options = { method: 'GET' };
+    
+
+
+// PRIMEIRO CADASTRANDO A VAGA
+    var number_vaga = document.querySelector('.num-vaga').value
+
+    var select_status = document.querySelector(".tipo-Veiculo")
+    let seleStatus = select_status.options[select_status.selectedIndex].value;
+    if (seleStatus == 'Veiculo-Pequeno') {var tipo = 'Veiculo Pequeno';} 
+    if (seleStatus == 'Veiculo-Medio') {var tipo = 'Veiculo Medio'; } 
+    if (seleStatus == 'Veiculo-Grande') {var tipo = 'Veiculo Grande'; } 
+    
+    var valor_hora = document.querySelector('.valor-Hora').value
+  
+
+    let vaga = {
+        "number_vaga": number_vaga,
+        "categoria_vaga": tipo,
+        "valor_h": valor_hora,
+    };
+
+    console.log(vaga);
+
+    fetch(uriVagas, {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(vaga)
+    })
+
+        .then(res => { return res.json() })
+        .then(resp => {
+            if (resp.number_vaga !== undefined && resp.categoria_vaga !== undefined && resp.valor_h !== undefined) {
+                alert("Vaga Cadastrada")
+            } else {
+                alert("Erro na Vaga")
+
+
+            }
+        })
+
+
+// Conferindo se o CPF é Válido
+
+const options = { method: 'GET' };
 
     fetch(uriClientes, options)
         .then(res => res.json())
@@ -76,41 +121,73 @@ function cadastrarTiket() {
         )
         .catch(err => console.error(err));
 
-    // var valorHora = document.querySelector('.valor-Hora').value
-    // var numVaga = document.querySelector('.num-vaga').value
-    // var placa = document.querySelector('.placa-veiculo').value
     var cpf = document.querySelector('.cpf-cliente').value
-    // var modeloVeiculo = document.querySelector('.modelo-veiculo').value
-    // const dataEntrada = document.querySelector('.data-Entrada').value
-    // var dataSaida = document.querySelector('.data-Saida').value
 
     var achou = false
     
-
-    if (cpf.length == 0) {
-        var erro = document.querySelector('.ja_possui')
-
-        erro.classList.toggle('model')
-    }
-
     clientes.forEach(c => {
+        console.log(c.cpf)
+
         if (cpf == c.cpf) {
             achou = true
-
             var erro = document.querySelector('.ja_possui')
 
-            erro.classList('model')
-        }
+            erro.classList.add('model')
+
+            console.log('Achou')
+        } 
     })
 
     if (achou == false) {
         var erro = document.querySelector('.ja_possui')
-
-        erro.classList.toggle('model')
+        console.log('teste')   
+        erro.classList.remove('model')
+    }else if(achou == true) {
+        var cpfEncontrado = cpf
     }
+ 
+    var number_vaga = document.querySelector('.num-vaga').value
+    var placa_car = document.querySelector('.placa-veiculo').value
+    // var h_entrada = document.querySelector('').value
+    // var h_saida = document.querySelector('').value
+    // var valor_final = document.querySelector('').value
+    // var forma_pagamento = document.querySelector('').value
+    // var status_pag  = document.querySelector('').value
+
+    let data = {
+        "number_vaga": number_vaga,
+        "placa_car": placa_car,
+        "cpf_cli": cpfEncontrado,
+        "h_entrada": '09:00',
+        "h_saida": null,
+        "valor_final": '',
+        "forma_pagamento": '',
+        "status_pag": 'Aberto',
+    };
+
+    console.log(data);
+
+    fetch(uriCadastra, {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(data)
+    })
+
+        .then(res => { return res.json() })
+        .then(resp => {
+            if (resp.number_vaga !== undefined && resp.placa_car !== undefined && resp.cpfEncontrado !== undefined && resp.h_entrada !== undefined && resp.h_saida !== undefined && resp.valor_final !== undefined && resp.status_pag !== undefined) {
+                alert("Cliente cadastrado com sucesso.")
+            } else {
+                alert("Erro Quando Cadastra Cliente")
 
 
-   
+            }
+        })
+
 
 
 }
+
+

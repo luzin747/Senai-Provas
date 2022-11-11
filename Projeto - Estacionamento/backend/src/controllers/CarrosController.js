@@ -31,7 +31,7 @@ function listaCarro(req, res) {
 };
 
 function cadastrarCarro(req, res) {
-    let query = `INSERT INTO carros VALUES (DEFAULT, '${req.body.id_cli}', '${req.body.placa}', '${req.body.marca}', '${req.body.categoria}')`;
+    let query = `INSERT INTO carros VALUES (DEFAULT , '${req.body.placa}','${req.body.cpf_cliente}' ,'${req.body.marca}','${req.body.modelo}' , '${req.body.categoria}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -55,7 +55,7 @@ function excluirCarro(req, res) {
 };                                      
 
 function editarCarro(req, res){
-    let query = `UPDATE carros SET id_cli =  '${req.body.id_cli}', placa = '${req.body.placa}', marca = '${req.body.marca}', categoria = '${req.body.categoria}' WHERE placa = '${req.body.placa}'`;
+    let query = `UPDATE carros SET  placa = '${req.body.placa}', cpf_cliente = '${req.body.cpf_cliente}', marca = '${req.body.marca}', modelo = '${req.body.modelo}', categoria = '${req.body.categoria}' WHERE id_carro = '${req.body.id_carro}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

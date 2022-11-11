@@ -6,7 +6,7 @@ const conDB = mysql.createConnection({
     "database": "renasparking"
 });
 function listarEstacionamentospagos(req, res) {
-    let query = "SELECT * FROM estacionamento_pagos";
+    let query = "SELECT * FROM ticket_pagos";
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -30,7 +30,7 @@ function listarEstacionamentos(req, res) {
 };
 
 function listaEstcacionamento(req, res) {
-    let query = `SELECT * FROM vw_estacionar WHERE vagas = '${req.params.vagas}'`;
+    let query = `SELECT * FROM registro_ticket WHERE ticket_id = '${req.params.ticket_id}'`;
     
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -42,7 +42,8 @@ function listaEstcacionamento(req, res) {
 };
 
 function cadastrarEstacionamento(req, res) {  
-    let query = `INSERT INTO registro_estac VALUES (DEFAULT, '${req.body.id_vag}', '${req.body.id_car}', '${req.body.id_cli}', '${req.body.data}', '${req.body.h_entrada}', '${req.body.h_saida}', '${req.body.valor_final}', '${req.body.forma_pagamento}', '${req.body.status_pag}')`;
+    let query = `INSERT INTO registro_ticket VALUES (DEFAULT, '${req.body.number_vaga}', '${req.body.placa_car}', '${req.body.cpf_cli}', '${req.body.h_entrada}', 
+    '${req.body.h_entrada}', '${req.body.h_saida}', '${req.body.valor_final}', '${req.body.forma_pagamento}', '${req.body.status_pag}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -54,7 +55,7 @@ function cadastrarEstacionamento(req, res) {
 };
 
 function excluirEstacionamento(req, res) {
-    let query = `DELETE FROM registro_estac WHERE id_vag = '${req.body.id_vag}'`;
+    let query = `DELETE FROM registro_estac WHERE ticket_id = '${req.body.ticket_id}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -66,7 +67,9 @@ function excluirEstacionamento(req, res) {
 };
 
 function editarEstacionamento(req, res){
-    let query = `UPDATE registro_estac SET id_vag = '${req.body.id_vag}', id_car = '${req.body.id_car}', id_cli = '${req.body.id_cli}', data = '${req.body.data}', h_entrada = '${req.body.h_entrada}', h_saida = '${req.body.h_saida}', valor_final = '${req.body.valor_final}', forma_pagamento = '${req.body.forma_pagamento}', status_pag = '${req.body.status_pag}' WHERE id_vag = '${req.body.id_vag}'`;
+    let query = `UPDATE registro_ticket SET number_vaga = '${req.body.number_vaga}', placa_car = '${req.body.placa_car}', cpf_cli = '${req.body.cpf_cli}', 
+    h_entrada = '${req.body.h_entrada}', h_saida = '${req.body.h_saida}', valor_final = '${req.body.valor_final}', forma_pagamento = '${req.body.forma_pagamento}', 
+    status_pag = '${req.body.status_pag}' WHERE ticket_id = '${req.body.ticket_id}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

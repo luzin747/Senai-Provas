@@ -1,5 +1,5 @@
 var uri = 'http://localhost:3000/vagas'
-var uriClientes = 'http://localhost:3000/clientes/vw_clientes'
+var uriClientes = 'http://localhost:3000/vw_estacionar'
 var vagas = []
 
 var cardsVagas = document.querySelector('.vagasSec')
@@ -49,7 +49,10 @@ function preencherVagas() {
             // var paragrao = document.createElement('p')
 
             vagas.forEach(e => {
-                if(i == e.id_vaga) {
+
+                console.log(e)
+
+                if(i == e.numero_vaga) {
                     // if(e.categoria_vaga == 'Ve?culo Pequeno')
                         
                         // paragrao1.id = 'teste'
@@ -57,12 +60,15 @@ function preencherVagas() {
                         achou = true
 
                         tipo = e.categoria_vaga
+
+
                         
                         
                 }
             })
 
             if(achou == true){
+
 
                 if(tipo == 'Ve?culo Pequeno') {
                     paragrao1.classList = 'bx bx-cycling'

@@ -1,8 +1,10 @@
 const uri = 'http://localhost:3000/vw_estacionar'
-const uriEditar = 'http://localhost:3000/registro_estac'
+const uriEditar = 'http://localhost:3000/vw_estacionar'
+const uriClientes = 'http://localhost:3000/clientes/vw_clientes'
 
 var  estacionaTalbe = document.querySelector('.tickets')
 var tickets = []
+var nomeClientes = []
 
 function carregar() {
 
@@ -21,7 +23,7 @@ function carregar() {
       .then(res => res.json())
       .then(res => {
         clientes = res;
-            mostrarModal();
+        editarCliente();
       }
         )
       .catch(err => console.error(err));
@@ -29,11 +31,12 @@ function carregar() {
       fetch(uriClientes, options)
       .then(res => res.json())
       .then(res => {
-        cpfs = res;
-            mostrarModal();
+        nomeClientes = res;
+        editarCliente();
       }
         )
       .catch(err => console.error(err));
+
 }
 
 function preencherTela() {
@@ -42,12 +45,12 @@ function preencherTela() {
 
         novaEstacionaTable.classList.remove('model')
 
-        novaEstacionaTable.querySelector('.id_registro').innerHTML = e.id_registro
-        novaEstacionaTable.querySelector('.clientes').innerHTML = e.clientes
-        novaEstacionaTable.querySelector('.vagas').innerHTML = e.vagas
+        novaEstacionaTable.querySelector('.id_registro').innerHTML = e.ticket_id
+        novaEstacionaTable.querySelector('.cpf-clientes').innerHTML = e.cpf_cliente
+        novaEstacionaTable.querySelector('.vagas').innerHTML = e.num_vaga
         novaEstacionaTable.querySelector('.categoria_vaga').innerHTML = e.categoria_vaga
         novaEstacionaTable.querySelector('.valor_h').innerHTML = e.valor_h
-        novaEstacionaTable.querySelector('.carros').innerHTML = e.carros
+        novaEstacionaTable.querySelector('.placa_veiculo').innerHTML = e.placa_carro
         novaEstacionaTable.querySelector('.forma_pagamento').innerHTML = e.forma_pagamento
         novaEstacionaTable.querySelector('.status_pag').innerHTML = e.status_pag
 
@@ -62,7 +65,7 @@ function preencherTela() {
 function editarCliente(e) {
   var mostrarModal = document.querySelector('.m-editar')
 
-  // var id = e.parentNode.parentNode.querySelector('.idCli').innerHTML
+  var id = e.parentNode.parentNode.querySelector('.cpf-clientes').innerHTML
 
   
   mostrarModal.classList.toggle('model')
@@ -71,28 +74,62 @@ function editarCliente(e) {
 
   //PREENCHER OS INPUTS COM AS INFORMAÇÕES DO CLIENTE DESEJADO
 
+  nomeClientes.forEach(n => {
+
+    
+    if(id == n.cpf) {
+
+    console.log(n.Nome_cliente)
+
+      
+        document.querySelector('.cliName').innerHTML = n.Nome_cliente
+
+    }
+  })
+
   clientes.forEach(c => {
 
-    // if(id == c.id_cliente) {
+    if(id == c.cpf_cliente) {
 
-    //     document.querySelector('.cliName').innerHTML = c.nome
 
-    //     var nome = document.querySelector('.nome').value  = c.nome
-    //     var sobrenome = document.querySelector('.sobrenome').value = c.sobrenome
-    //     var data_nasc = document.querySelector('.data_nasci').value = c.data_nasci
-    //     var cpf = document.querySelector('.cpf').value = c.cpf
-    //     var rg = document.querySelector('.rg').value = c.rg
-    //     var email = document.querySelector('.email').value = c.email
-    //     var telMovel = document.querySelector('.telMovel').value = c.celular
-    //     var telFixo = document.querySelector('.fixo').value = c.telefone_fixo
-    //     var cep = document.querySelector('.cep').value = c.cep
-    //     var endereco = document.querySelector('.endereco').value = c.endereco
-    //     var numero = document.querySelector('.numero').value = c.numero
-    //     var bairro = document.querySelector('.bairro').value = c.bairro
-    //     var cidade = document.querySelector('.cidade').value = c.cidade
-    //     var uf = document.querySelector('.uf').value = c.uf
-    //     var complemento = document.querySelector('.complemento').value = c.complemento
-    //     var select_status = document.querySelector(".select_status").value = c.status_cli
+      console.log(c.cpf_cliente)
+          var id_vaga = document.querySelector('.id_vaga').innerHTML  = c.num_vaga
+          var cpf = document.querySelector('.cpf').value = c.cpf_cliente
+          var placa = document.querySelector('.placa').value = c.placa_carro
+
+          var categoria_veiculo = c.categoria_vaga
+
+          if(categoria_veiculo == 'Ve?culo Pequeno') {
+            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Veículo Pequeno'
+          }
+
+          if(categoria_veiculo == 'Ve?culo M?dio') {
+            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Veículo Médio'
+            
+          }
+          if(categoria_veiculo == 'Ve?culo Grande') {
+            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Veículo Grande'           
+          }
+
+
+          
+
+          // var rg = document.querySelector('.rg').value = c.rg
+          // var email = document.querySelector('.email').value = c.email
+          // var telMovel = document.querySelector('.telMovel').value = c.celular
+          // var telFixo = document.querySelector('.fixo').value = c.telefone_fixo
+          // var cep = document.querySelector('.cep').value = c.cep
+          // var endereco = document.querySelector('.endereco').value = c.endereco
+          // var numero = document.querySelector('.numero').value = c.numero
+          // var bairro = document.querySelector('.bairro').value = c.bairro
+          // var cidade = document.querySelector('.cidade').value = c.cidade
+          // var uf = document.querySelector('.uf').value = c.uf
+          // var complemento = document.querySelector('.complemento').value = c.complemento
+          // var select_status = document.querySelector(".select_status").value = c.status_cli
+
+    }
+
+    //     
 
     // }
   })
@@ -112,3 +149,4 @@ function fecharModal() {
   document.querySelector('body').style.background = '';
 
 }
+

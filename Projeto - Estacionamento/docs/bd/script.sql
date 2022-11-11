@@ -1,14 +1,12 @@
 drop database if exists renasparking;
 create database renasparking charset=UTF8 collate utf8_general_ci;
-
 use renasparking;
-
 create table clientes(
-    id_cliente integer auto_increment not null primary key,
-    nome varchar(50) not null,
+    id_cliente integer not null  primary key auto_increment,
+    nome varchar(100) not null,
     sobrenome varchar(50) not null,
     data_nasci varchar(10) not null,
-    cpf varchar(11) not null unique,
+    cpf varchar(11) not null  ,
     rg varchar(10) not null unique,
     celular varchar(20),
     telefone_fixo varchar(20),
@@ -24,50 +22,45 @@ create table clientes(
 
 );
 
-
 create table carros(
-    id_carro integer auto_increment not null primary key,
-    id_cli integer not null,
-    placa varchar(10) not null unique,
+    id_carro integer not null  primary key auto_increment,
+    placa varchar(10) not null,
+    cpf_cliente varchar(11) not null not null,
     marca varchar(50) not null,
-    categoria varchar(30) not null
- 
+    modelo varchar(50) not null,
+    categoria varchar(30) not null 
 );
 
 create table vagas(
-    id_vaga numeric(10) not null primary key,
+    numero_vaga numeric(10) not null primary key,
     categoria_vaga varchar(30) not null,
     valor_h float(6,2) not null
-
-
 );
 
-create table registro_estac(
-    id_registro integer auto_increment not null primary key,
-    id_vag numeric(10) not null,
-    id_car integer not null,
-    id_cli integer not null, 
+create table registro_ticket(
+    ticket_id integer auto_increment not null primary key,
+    number_vaga numeric(10) not null,
+    placa_car varchar(10) not null ,
+    cpf_cli varchar(11) not null ,
     data date not null,
     h_entrada time not null,
     h_saida time,
     valor_final float(10,2),
     forma_pagamento varchar(30),
-    status_pag varchar(10) not null,
-    foreign key (id_vag) references vagas(id_vaga),
-    foreign key (id_cli) references clientes(id_cliente),
-    foreign key (id_car) references carros(id_carro)
+    status_pag varchar(10) not null
+ 
 );
 
-alter table carros add foreign key (id_cli) references clientes(id_cliente);
+alter table registro_ticket add foreign key (number_vaga) references vagas(numero_vaga);
 
 insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','19988547502','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
 insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','19978570192','32260117','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
-insert into clientes values(default, 'Renas','Wellisson','01/02/2004','07937014067','256982324','21943559874',null,'RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
+insert into clientes values(default,'Renas','Wellisson','01/02/2004','07937014067','256982324','21943559874',null,'RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
 
-insert into carros values(default,1,'MWK7015','Scania','Caminhão');
-insert into carros values(default,3,'EDL3Z90','Ferrari','Carro');
-insert into carros values(default,2,'CIZ8920','Honda','Moto');
-insert into carros values(default,3,'HXW3364','BMW','Carro');
+insert into carros values(default,'MWK7015','80821611089','Scania','XT','Caminhão');
+insert into carros values(default,'EDL3Z90','07937014067','Bugatti','La Voiture Noire','Carro');
+insert into carros values(default,'CIZ8920','44333810043','Honda','CB 500X','Moto');
+insert into carros values(default,'HXW3364','07937014067','BMW','Concept XM','Carro');
 
 insert into vagas values(1,'Veículo Pequeno',5.00);
 
@@ -75,13 +68,13 @@ insert into vagas values(2,'Veículo Médio',10.00);
 
 insert into vagas values(3,'Veículo Grande',20.00);
 
-insert into registro_estac values(default,1,3,2,DATE_SUB(curdate(),INTERVAL 3 DAY),'08:00','','','','Aberto');
-insert into registro_estac values(default,3,1,1,DATE_SUB(curdate(),INTERVAL 3 DAY),'09:30','','','','Aberto');
-insert into registro_estac values(default,2,2,3,DATE_SUB(curdate(),INTERVAL 2 DAY),'10:00','','','','Aberto');
-insert into registro_estac values(default,2,4,3,DATE_SUB(curdate(),INTERVAL 4 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
+insert into registro_ticket values(default,1,'CIZ8920','44333810043',DATE_SUB(curdate(),INTERVAL 1 DAY),'08:00','','','','Aberto');
+insert into registro_ticket values(default,3,'MWK7015','80821611089',DATE_SUB(curdate(),INTERVAL 1 DAY),'09:30','','','','Aberto');
+insert into registro_ticket values(default,2,'EDL3Z90','07937014067',DATE_SUB(curdate(),INTERVAL 1 DAY),'10:00','','','','Aberto');
+insert into registro_ticket values(default,2,'HXW3364','07937014067',DATE_SUB(curdate(),INTERVAL 2 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
 
 create view vw_clientes as
-select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf, email , celular, telefone_fixo, status_cli  from clientes;
+select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf ,email , celular, telefone_fixo, status_cli  from clientes;
 select * from vw_clientes;
 
 create view vw_telefones as
@@ -89,23 +82,21 @@ select id_cliente as cliente_id, celular as cel_cliente, telefone_fixo as fixo_C
 select * from vw_telefones;
 
 create view vw_estacionar as
-select r.id_registro,v.id_vaga as vagas, c.id_cliente as clientes, v.categoria_vaga , v.valor_h , ca.placa as carros, r.forma_pagamento, r.status_pag from clientes c
-inner join registro_estac r on c.id_cliente = r.id_cli
-inner join vagas v on r.id_vag = v.id_vaga 
-inner join carros ca on  r.id_car = ca.id_carro where r.h_saida  = "";
+select r.ticket_id,v.numero_vaga as num_vaga, c.cpf as cpf_cliente, v.categoria_vaga , v.valor_h , ca.placa as  placa_carro, r.forma_pagamento, r.status_pag from clientes c
+inner join registro_ticket r on c.cpf = r.cpf_cli
+inner join vagas v on r.number_vaga = v.numero_vaga 
+inner join carros ca on  r.placa_car = ca.placa where r.h_saida  = "";
 
 select * from vw_estacionar;
 
-create view estacionamento_pagos as
-select *, (valor_final) as v_final from registro_estac where h_saida  <> ""; 
+create view ticket_pagos as
+select *, (valor_final) as v_final from registro_ticket where h_saida  <> ""; 
 
-select * from estacionamento_pagos;
-
-
+select * from ticket_pagos;
 select * from `clientes`;
 select * from `carros`;
 select * from `vagas`;
-select * from `registro_estac`;
+select * from `registro_ticket`;
 select * from vw_clientes;
 select * from vw_estacionar;
-select * from estacionamento_pagos;
+select * from ticket_pagos;

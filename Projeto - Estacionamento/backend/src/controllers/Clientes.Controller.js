@@ -33,6 +33,7 @@ function pegaInformacoes(req, res) {
 
 function pegaInformacoesDeUmCli(req, res) {
     let query = `SELECT * FROM clientes WHERE cpf = '${req.params.cpf}'`;
+    
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -82,8 +83,9 @@ function excluirCliente(req, res) {
 
 function editarCliente(req, res){
     let query = `UPDATE clientes SET nome = '${req.body.nome}', sobrenome = '${req.body.sobrenome}', data_nasci = '${req.body.data_nasci}', cpf =  '${req.body.cpf}', 
-    rg = '${req.body.rg}', celular = '${req.body.celular}', telefone_fixo = '${req.body.telefone_fixo}', email = '${req.body.email}',cep = '${req.body.cep}', endereco = '${req.body.endereco}', numero = '${req.body.numero}', bairro = '${req.body.bairro}', cidade = '${req.body.cidade}', 
-    uf =  '${req.body.uf}', complemento = '${req.body.complemento}', status_cli = '${req.body.status_cli}' WHERE cpf = '${req.body.cpf}'`;
+    rg = '${req.body.rg}', celular = '${req.body.celular}', telefone_fixo = '${req.body.telefone_fixo}', email = '${req.body.email}',
+    cep = '${req.body.cep}', endereco = '${req.body.endereco}', numero = '${req.body.numero}', bairro = '${req.body.bairro}', cidade = '${req.body.cidade}', 
+    uf =  '${req.body.uf}', complemento = '${req.body.complemento}', status_cli = '${req.body.status_cli}' WHERE id_cliente = '${req.body.id_cliente}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

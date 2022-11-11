@@ -19,7 +19,7 @@ function listarVagas(req, res) {
 };
 
 function listaVaga(req, res) {
-    let query = `SELECT * FROM vagas WHERE id_vaga = '${req.params.id_vaga}'`;
+    let query = `SELECT * FROM vagas WHERE numero_vaga = '${req.params.numero_vaga}'`;
     
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -31,7 +31,7 @@ function listaVaga(req, res) {
 };
 
 function cadastrarVaga(req, res) {
-    let query = `INSERT INTO vagas VALUES ('${req.body.id_vaga}', '${req.body.categoria_vaga}', '${req.body.valor_h}')`;
+    let query = `INSERT INTO vagas VALUES ('${req.body.numero_vaga}', '${req.body.categoria_vaga}', '${req.body.valor_h}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -43,7 +43,7 @@ function cadastrarVaga(req, res) {
 };
 
 function excluirVaga(req, res) {
-    let query = `DELETE FROM vagas WHERE id_vaga = '${req.body.id_vaga}'`;
+    let query = `DELETE FROM vagas WHERE numero_vaga = '${req.body.numero_vaga}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -55,7 +55,7 @@ function excluirVaga(req, res) {
 };                                      
 
 function editarVaga(req, res){
-    let query = `UPDATE vagas SET id_vaga =  '${req.body.id_vaga}', categoria_vaga = '${req.body.categoria_vaga}', valor_h = '${req.body.valor_h}'  WHERE id_vag = '${req.body.id_vag}'`;
+    let query = `UPDATE vagas SET numero_vaga =  '${req.body.numero_vaga}', categoria_vaga = '${req.body.categoria_vaga}', valor_h = '${req.body.valor_h}'  WHERE numero_vaga = '${req.body.numero_vaga}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
