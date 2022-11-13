@@ -1,5 +1,4 @@
 var uri = 'http://localhost:3000/vagas'
-var uriClientes = 'http://localhost:3000/vw_estacionar'
 var vagas = []
 
 var cardsVagas = document.querySelector('.vagasSec')
@@ -16,15 +15,6 @@ function carregar() {
         .then(res => {
             vagas = res;
             preencherVagas();
-        }
-        )
-        .catch(err => console.error(err));
-
-        fetch(uriClientes, options)
-        .then(res => res.json())
-        .then(res => {
-            clientes = res;
-            preencheCards();
         }
         )
         .catch(err => console.error(err));
@@ -49,10 +39,7 @@ function preencherVagas() {
             // var paragrao = document.createElement('p')
 
             vagas.forEach(e => {
-
-                console.log(e)
-
-                if(i == e.numero_vaga) {
+                if(i == e.id_vaga) {
                     // if(e.categoria_vaga == 'Ve?culo Pequeno')
                         
                         // paragrao1.id = 'teste'
@@ -60,15 +47,12 @@ function preencherVagas() {
                         achou = true
 
                         tipo = e.categoria_vaga
-
-
                         
                         
                 }
             })
 
             if(achou == true){
-
 
                 if(tipo == 'Ve?culo Pequeno') {
                     paragrao1.classList = 'bx bx-cycling'
@@ -185,7 +169,9 @@ function preencherVagas() {
                     paragrao3.classList = 'bx bxs-truck'
                     document.querySelector('.mini3').appendChild(paragrao3)
                     ocupadas+= 1
-                } 
+                }
+                
+                
             }
             else {
                 paragrao3.innerHTML = i
@@ -197,11 +183,6 @@ function preencherVagas() {
     }
     
 }
-
-//Qtd de Clientes Cadastrados
-
-
-
     
     document.querySelector('.qtd-vagas').innerHTML = tamanho
     document.querySelector('.vagas-livres').innerHTML = tamanho
@@ -213,17 +194,12 @@ function preencherVagas() {
 }
 
 
-function preencheCards() {
+function teste() {
+   var testando = document.querySelector('.nav-title')
 
-    var qtd = 0
-
-    clientes.forEach(c => {
-        qtd += 1
-    })
-
-    document.querySelector('.qtd_clientes').innerHTML = qtd
-
+   testando.classList.toggle('model')
 }
+
 
 
 

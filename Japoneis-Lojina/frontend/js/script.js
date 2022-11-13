@@ -137,17 +137,6 @@ button.addEventListener('click', () => {
         document.querySelector('.saldo-title').innerHTML = 'Saldo do Dia - R$' + saldoTotal
     }
 
-    
-
-   
-
-    
-
-    
-
-    
-
-
 
     let expressao = INPUT_BUSCA.value
 

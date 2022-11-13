@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Novo Ticket</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../universally.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
@@ -71,9 +72,9 @@
                     <div>
                         <p>Categoria</p>
                         <select class="tipo-Veiculo" onclick="valorHora()" name="" id="">
-                            <option value="Veiculo-Pequeno">Véiculo Pequeno</option>
-                            <option value="Veiculo-Medio">Véiculo Médio</option>
-                            <option value="Veiculo-Grande">Véiculo Grande</option>
+                            <option value="Véiculo Pequeno">Véiculo Pequeno</option>
+                            <option value="Véiculo Médio">Véiculo Médio</option>
+                            <option value="Véiculo Grande">Véiculo Grande</option>
                         </select>
                     </div>
 
@@ -84,27 +85,24 @@
 
                     <div>
                         <p>Número da Vaga</p>
-                        <input type="text" class="num-vaga">
+                        <input type="text">
                     </div>
                 </div>
 
                 <div class="section-01">
                     <div>
                         <p>Placa Veículo</p>
-                        <input type="text" name="" class="placa-veiculo">
+                        <input type="text" name="" id="">
                     </div>
 
                     <div>
-                        <div class="cont-caption-inps">
-                            <p>CPF Cliente</p>
-                            <p class="ja_possui model">*CPF não Cadastrado</p>
-                        </div>
+                        <p>CPF Cliente</p>
                         <input type="text" class="cpf-cliente">
                     </div>
 
                     <div>
                         <p>Modelo Veículo</p>
-                        <input type="text" class="modelo-veiculo">
+                        <input type="text">
                     </div>
                 </div>
 
@@ -116,17 +114,17 @@
 
                     <div>
                         <p>Data Saída</p>
-                        <input type="text" class="data-Saida">
+                        <input class="data-Saida" type="text">
                     </div>
 
-                    <!-- <div>
+                    <div>
                         <p>Tempo decorrido (horas e minutos)</p>
                         <input type="text">
-                    </div> -->
+                    </div>
                 </div>
 
             <div>
-                <button onclick="cadastrarTiket()">Salvar</button>
+                <button>Salvar</button>
                 <button><a href="../estacionar.html">Voltar</a></button>
             </div>
 

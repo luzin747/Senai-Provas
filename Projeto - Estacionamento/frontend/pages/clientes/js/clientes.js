@@ -19,6 +19,7 @@ function carregar() {
       preencherTela();
       mostrarModal();
       editarCliente();
+      buscarCliente();
     }
     )
     .catch(err => console.error(err));
@@ -42,8 +43,22 @@ function carregar() {
     .catch(err => console.error(err));
 }
 
+var qtdAtivados = 0
+var qtdDesativados = 0
+
 function preencherTela() {
   clientes.forEach(e => {
+
+    console.log(clientes.length)
+
+    if(e.status_cli == 'Sim') {
+      qtdAtivados += 1
+    }else if(e.status_cli == 'Não') {
+      qtdDesativados += 1
+    }
+
+
+
     var novaListaCliente = cliTable.cloneNode(true)
 
     novaListaCliente.classList.remove('model')
@@ -59,6 +74,10 @@ function preencherTela() {
     document.querySelector(".contClientes").appendChild(novaListaCliente)
 
   })
+
+  document.querySelector('.desativados').innerHTML = qtdDesativados
+  document.querySelector('.ativados').innerHTML = qtdAtivados
+  document.querySelector('.qtd-clientes').innerHTML = clientes.length
 
 }
 
@@ -172,11 +191,9 @@ function editarCliente(e) {
   })
   
 }
-
 function trocaStatus() {
   
 }
-
 function salvarEdicao(e) {
     var nome = document.querySelector('.nome').value  
     var sobrenome = document.querySelector('.sobrenome').value 
@@ -239,7 +256,6 @@ function salvarEdicao(e) {
       })
     
 }
-
 function fecharEditarCliente() {
   var mostrarModal = document.querySelector('.m-editar')
   mostrarModal.classList.toggle('model')
@@ -248,6 +264,70 @@ function fecharEditarCliente() {
 
 
 // FUNÇÕES PARA BUSCAR CLIENTE POR NOME
-function buscarClientes() {
+
+// search_btn.addEventListener('click', buscarCliente) 
+
+
+// function buscarCliente() {
+
   
-}
+//   var search_input = document.querySelector('.search').value
+
+//   console.log(search_input)
+
+
+
+//   clientes.forEach(c => {
+//     if(search_input == c.cpf) {
+      
+//       var novaListaClientePersonalizada = cliTable.cloneNode(true)
+
+//       novaListaClientePersonalizada.style.display = 'block'
+
+
+//       document.querySelector(".contClientes").appendChild(novaListaClientePersonalizada)
+
+//     }else {
+//       var novaListaClientePersonalizada = cliTable.cloneNode(true)
+
+//       novaListaClientePersonalizada.style.display = 'none'
+
+//       document.querySelector(".contClientes").appendChild(novaListaClientePersonalizada)
+
+//     }
+
+    
+//   })
+
+ 
+//   console.log(teste)
+
+// }
+
+var search_btn = document.querySelector('.btn-filter')
+const INPUT_BUSCA = document.querySelector('.search')
+const TABELA_CLIENTES = document.querySelector('.contClientes')
+
+search_btn.addEventListener('click', () => {
+
+  let expressao = INPUT_BUSCA.value
+
+  let linhas = TABELA_CLIENTES.getElementsByTagName('tr')
+
+  for (let posicao in linhas) {
+      if (true === isNaN(posicao)) {
+          continue
+      }
+
+      let conteudoDaLinha = linhas[posicao].innerHTML
+
+      if (true === conteudoDaLinha.includes(expressao)) {
+          linhas[posicao].style.display = ''
+      } else {
+          linhas[posicao].style.display = 'none'
+
+      }
+
+  }
+
+})

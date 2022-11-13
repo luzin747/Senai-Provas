@@ -9,7 +9,7 @@
 
     <!-- Css Links -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../universally.css">
     <link rel="stylesheet" href="css/mensalistas.css">
 </head>
 
@@ -65,14 +65,38 @@
 
                 <div class="section">
 
-                    <div class="linha-2">
-                        <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
-                                    class='bx bxs-file-plus'></i>NOVO</a></button>
-                    </div>
+                    <div class="cont-tools">
 
-                    <div class="filtro">
-                        <input placeholder="Pesquisar" type="text">
-                        <button>Filtrar</button>
+                        <div class="cont-qtd">
+                            <i class='bx bxs-user user'></i>
+                            <p>Clientes: <b class="qtd">10</b></p>
+                        </div>
+    
+                        <div class="cont-qtd">
+                            <i class='bx bx-x disabled' ></i>
+                            <p>Desativados: <b class="qtd">1</b></p>
+                        </div>
+    
+                        <div class="cont-qtd">
+                            <i class='bx bx-check right'></i>
+                            <p>Ativados: <b class="qtd">2</b></p>
+                        </div>
+    
+                        <div class="tools">
+                            
+                            <div class="linha-2">
+                                <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
+                                            class='bx bxs-file-plus'></i>Novo</a></button>
+                            </div>
+    
+                            <div class="filtro">
+                                <input placeholder="Pesquisar Cliente" class="search" type="text">
+                                <!-- <button class="">Filtrar</button> -->
+                                <i class='bx bx-search-alt-2 btn-filter'></i>
+                            </div>
+    
+                        </div>
+        
                     </div>
 
                     <table>

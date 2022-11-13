@@ -12,7 +12,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body onload="carregar()">
 
     <div id="container">
 
@@ -54,8 +54,6 @@
                 </ul>
             </nav>
         </header>
-
-
 
         <div class="filter">
 
@@ -115,15 +113,15 @@
 
             <div class="cont-card-pokes">
 
-                <div class="card-pokes">
+                <div class="card-pokes model" onclick="pokemonsDetails(this)">
                     <img class="gif-poke" src="img/gifs/turtwig.webp" alt="">
 
-                    <span class="number-poke">N°387</span>
-                    <p class="name-poke">Turtwig</p>
-                    <p class="type-poke grass">GRASS</p>
+                    <span class="number-poke"></span>
+                    <p class="name-poke"></p>
+                    <p class="type-poke grass"></p>
                 </div>
 
-                <div class="card-pokes">
+                <!-- <div class="card-pokes">
                     <img class="gif-poke" src="img/gifs/grottle.webp" alt="">
 
                     <span class="number-poke">N°388</span>
@@ -148,24 +146,39 @@
                     <span class="number-poke">N°390</span>
                     <p class="name-poke">Chimchar</p>
                     <div class="type-poke-card">
-                        <p class="type-poke fire">Fire</p>
-                        <!-- <p class="type-poke ground"></p> -->
+                        <p class="type-poke fire">FIRE</p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
-            <div class="poke-info">
+            <div class="cont-poke-info">
                 
-                <div>
-                    <img src="img/pics-poke/empoleon.png" alt="">
 
-                    <div class="genero">
-                        <i class='bx bx-male-sign male' ></i>
-                        <i class='bx bx-female-sign female' ></i>
+                <div class="poke-info model">
+                    <div>
+                        <img class="img-poke" src="img/images-pokes/1.png" alt="">
+    
+                        <div class="genero">
+                            <i class='bx bx-male-sign male' ></i>
+                            <i class='bx bx-female-sign female' ></i>
+                        </div>
+                    </div>
+    
+                    <div class="conteudo-pokemon">
+    
+                        <span class="number-poke">N385</span>
+                        <p class="name-poke">Empoleon</p>
+    
+                        <div class="type-poke-card">
+
+                            <p class="type-poke">s</p>
+                            <!-- <p class="type-poke water">WATER</p>
+                            <p class="type-poke steel">STEEL</p> -->
+                        </div>
                     </div>
                 </div>
-
+               
             </div>
 
         </div>
@@ -177,5 +190,6 @@
 
 </body>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="js/script.js"></script>
 
 </html>

@@ -10,6 +10,7 @@
     <!-- Css Links -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../universally.css">
 </head>
 
 <body onload="carregar()">
@@ -21,7 +22,7 @@
             <div class="nav-head">
 
                 <div>
-                    <h1><i class='bx bxs-car-garage'></i>Bingo Renas Parking</h1>
+                    <h1><i class='bx bxs-car-garage'></i>Renas Parking</h1>
 
                 </div>
                 <nav>
@@ -63,14 +64,38 @@
                     </div>
                 </div>
 
-                <div class="linha-2">
-                    <button class="button-new"><a href="cadastarTicket/cadastrarTicket.html"><i
-                                class='bx bxs-file-plus'></i>NOVO</a></button>
-                </div>
+                <div class="cont-tools">
 
-                <div class="filtro">
-                    <input placeholder="Pesquisar" type="text">
-                    <button>Filtrar</button>
+                    <div class="cont-qtd">
+                        <i class='bx bxs-quote-single-right user' ></i>
+                        <p>Tickets: <b class="qtd">10</b></p>
+                    </div>
+
+                    <div class="cont-qtd">
+                        <i class='bx bx-lock locked' ></i>
+                        <p>Fechados: <b class="qtd">1</b></p>
+                    </div>
+
+                    <div class="cont-qtd">
+                        <i class='bx bx-lock-open open' ></i>
+                        <p>Abertos: <b class="qtd">2</b></p>
+                    </div>
+
+                    <div class="tools">
+                        
+                        <div class="linha-2">
+                            <button class="button-new"><a href="cadastarTicket/cadastrarTicket.html"><i
+                                        class='bx bxs-file-plus'></i>Novo</a></button>
+                        </div>
+
+                        <div class="filtro">
+                            <input placeholder="Pesquisar Cliente" class="search" type="text">
+                            <!-- <button class="">Filtrar</button> -->
+                            <i class='bx bx-search-alt-2 btn-filter'></i>
+                        </div>
+
+                    </div>
+    
                 </div>
 
                 <table>
@@ -107,15 +132,14 @@
                             </td>
 
                         </tr>
-
-
-
+                        
+                        
+                       
                     </tbody>
                 </table>
 
             </div>
 
-            <!-- MODAL EDITAR CLIENTE  -->
             <div class="m-editar model">
 
                 <p class="nomeCliente"><b class="cliName"></b> </p>
@@ -217,6 +241,7 @@
 
 
 
+
         </main>
     </div>
 
@@ -224,5 +249,4 @@
 
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 <script src="js/estacionar.js"></script>
-
 </html>

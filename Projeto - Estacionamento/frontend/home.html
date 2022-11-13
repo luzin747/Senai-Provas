@@ -10,10 +10,11 @@
     <!-- Css Links -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="pages/universally.css">
 </head>
 
 <body onload="carregar()">
-
+    
     <div id="container">
 
         <header>
@@ -34,22 +35,23 @@
         </header>
 
         <main>
-            <div class="menu">
+            <div class="menu modal-menu">
+                <!-- <p><i onclick="teste()" class='bx bx-menu'></i></p> -->
                 <p>Menu</p>
 
                 <ul>
-                    <li><a href="home.html"><i class='bx bxs-home'></i>Home</a></li>
-                    <li><a href="pages/estacionar/estacionar.html"><i class='bx bxs-parking'></i>Estacionar</a></li>
-                    <li><a href="pages/clientes/clientes.html"><i class='bx bx-group'></i>Clientes</a></li>
-                    <li><a href="pages/mensalidades/mensalidades.html"><i class='bx bx-money'></i>Mensalidades</a></li>
+                    <li><a href="home.html"><i class='bx bxs-home'></i><span class="nav-title">Home</span></a></li>
+                    <li><a href="pages/estacionar/estacionar.html"><i class='bx bxs-parking'></i><span class="nav-title">Estacionar</span></a></li>
+                    <li><a href="pages/clientes/clientes.html"><i class='bx bx-group'></i><span class="nav-title">Clientes</span></a></li>
+                    <li><a href="pages/mensalidades/mensalidades.html"><i class='bx bx-money'></i><span class="nav-title">Mensalidades</span></a></li>
                 </ul>
 
-                <p>Configurações</p>
+                <p class="section-config">Configurações</p>                            
 
                 <ul>
-                    <li><i class='bx bx-dollar'></i>Precificações</li>
-                    <li><i class='bx bxs-user-detail'></i>Usuarios</li>
-                    <li><i class='bx bx-cog'></i>Configurações</li>
+                    <li><i class='bx bx-dollar'></i><span class="nav-title">Precificações</span></li>
+                    <li><i class='bx bxs-user-detail'></i><span class="nav-title">Usuarios</span></li>
+                    <li><i class='bx bx-cog'></i><span class="nav-title">Configurações</span></li>
                 </ul>
             </div>
 
@@ -186,7 +188,7 @@
 
                                 <div class="linha-2-sub">
                                     <h5>Clientes</h5>
-                                    <p class="qtd_clientes">5</p>
+                                    <p>5</p>
                                 </div>
 
                             </div>

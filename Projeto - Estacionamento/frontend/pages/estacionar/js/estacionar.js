@@ -39,8 +39,18 @@ function carregar() {
 
 }
 
+var qtdAbertos = 0
+var qtdFechados = 0
+
 function preencherTela() {
     tickets.forEach(e => {
+
+      if(e.status_pag == 'Sim') {
+        qtdAtivados += 1
+      }else if(e.status_cli == 'Não') {
+        qtdDesativados += 1
+      }
+
         var novaEstacionaTable = estacionaTalbe.cloneNode(true)
 
         novaEstacionaTable.classList.remove('model')
@@ -149,4 +159,3 @@ function fecharModal() {
   document.querySelector('body').style.background = '';
 
 }
-

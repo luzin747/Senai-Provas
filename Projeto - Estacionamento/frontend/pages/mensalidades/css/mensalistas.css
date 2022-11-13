@@ -64,7 +64,6 @@ h1 {
     background-color: rgb(78, 79, 80);
     color: rgb(155, 155, 155);
 
-
 }
 
 .menu ul {
@@ -126,31 +125,7 @@ main {
     background-color: rgba(15, 8, 8, 0.842);
 }
 
-.linha-2 {
-    display: flex;
-    justify-content: end;
-    
-}
 
-.button-new {
-    margin-top: 40px;
-    margin-right: 50px;
-    font-size: 12pt;
-    border-radius: 10px;
-    border: none;
-    font-family: 100;
-    background-color: black;
-    color: white;
-    padding: 5px 15px;
-}
-
-.button-new a {
-    color: white;
-    text-decoration: none;
-}
-.button-new i {
-    padding-right: 1px;
-}
 
 table {
     width: 80vw;
@@ -179,30 +154,6 @@ thead tr {
 tbody td {
     border-bottom: 2px solid rgba(0, 0, 0, 0.253);    
     padding: 10px;
-}
-
-
-.filtro {
-    margin-top: 40px;
-    margin-right: 55px;
-    display: flex;
-    justify-content: end;
-}
-
-.filtro button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border-radius: 10px;
-    color: white;
-    background-color: black;
-}
-
-.filtro input {	
-    padding: 5px 5px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid black;
-
 }
 
 table tr td i {
