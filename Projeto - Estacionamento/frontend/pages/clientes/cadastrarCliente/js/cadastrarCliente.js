@@ -69,13 +69,32 @@ function cadastrarCliente() {
         .then(res => { return res.json() })
         .then(resp => {
             if (resp.nome !== undefined && resp.sobrenome !== undefined && resp.data_nasc !== undefined && resp.cpf !== undefined && resp.rg !== undefined && resp.email !== undefined && resp.cep !== undefined && resp.endereco !== undefined && resp.numero !== undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli !== undefined) {
-                alert("Cliente cadastrado com sucesso.")
+                var modalCerto = document.querySelector('.modal-certo')
+
+                modalCerto.classList.remove('model')
+
             } else {
-                alert("Erro Quando Cadastra Cliente")
 
+                var modalErro = document.querySelector('.modal-errado')
 
+                modalErro.classList.remove('model')
             }
         })
+
+}
+
+function esconderModalCheck() {
+    var modalCerto = document.querySelector('.modal-certo')
+
+    modalCerto.classList.add('model')
+
+    window.location.reload();
+}
+
+function esconderModalError() {
+    var modalErro = document.querySelector('.modal-errado')
+
+    modalErro.classList.add('model')
 
 }
 

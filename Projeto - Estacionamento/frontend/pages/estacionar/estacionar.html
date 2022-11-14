@@ -67,22 +67,22 @@
                 <div class="cont-tools">
 
                     <div class="cont-qtd">
-                        <i class='bx bxs-quote-single-right user' ></i>
-                        <p>Tickets: <b class="qtd">10</b></p>
+                        <i class='bx bxs-quote-single-right user'></i>
+                        <p>Tickets: <b class="qtd-tickets">10</b></p>
                     </div>
 
                     <div class="cont-qtd">
-                        <i class='bx bx-lock locked' ></i>
-                        <p>Fechados: <b class="qtd">1</b></p>
+                        <i class='bx bx-lock locked'></i>
+                        <p>Fechados: <b class="fechados">1</b></p>
                     </div>
 
                     <div class="cont-qtd">
-                        <i class='bx bx-lock-open open' ></i>
-                        <p>Abertos: <b class="qtd">2</b></p>
+                        <i class='bx bx-lock-open open'></i>
+                        <p>Abertos: <b class="abertos">2</b></p>
                     </div>
 
                     <div class="tools">
-                        
+
                         <div class="linha-2">
                             <button class="button-new"><a href="cadastarTicket/cadastrarTicket.html"><i
                                         class='bx bxs-file-plus'></i>Novo</a></button>
@@ -95,7 +95,7 @@
                         </div>
 
                     </div>
-    
+
                 </div>
 
                 <table>
@@ -126,15 +126,13 @@
                             <td class="forma_pagamento">PIX</td>
                             <td class="status_pag">Pago</td>
 
-                            <td>
-                                <i class='bx bx-edit' onclick="editarCliente(this)"></i>
-                                <i class='bx bxs-trash-alt'></i>
+                            <td class="cont-btns">
+                                <i class='bx bx-edit ' onclick="editarCliente(this)"></i>
+                                <i class='bx bxs-trash-alt' onclick="deletarVaga(this) , deletarRegistro(this)"></i>
                             </td>
 
                         </tr>
-                        
-                        
-                       
+
                     </tbody>
                 </table>
 
@@ -239,7 +237,18 @@
             </div>
             <!-- FIM DO MODAL EDITAR CLIENTE -->
 
+            <div class="modal-excluir model">
 
+                <img src="img/excluir.gif" alt="">
+
+                <p>Deseja Excluir Ticket?</p>
+
+                <div class="cont-btn">
+                    <!-- <button onclick="deletarRegistro(this)" class="btn-excluir-sim">SIM</button> -->
+                    <!-- <button onclick="esconderModalExcluir()" class="btn-excluir-nao">NÃO</button> -->
+                    <button onclick="esconderModalExcluir()" class="btn-excluir-nao">OK</button>
+                </div>
+            </div>
 
 
         </main>
@@ -249,4 +258,5 @@
 
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 <script src="js/estacionar.js"></script>
+
 </html>

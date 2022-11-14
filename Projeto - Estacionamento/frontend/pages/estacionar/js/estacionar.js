@@ -1,6 +1,8 @@
 const uri = 'http://localhost:3000/vw_estacionar'
 const uriEditar = 'http://localhost:3000/vw_estacionar'
 const uriClientes = 'http://localhost:3000/clientes/vw_clientes'
+const uriDeletar = 'http://localhost:3000/carros'
+const uriDeletarVagas = 'http://localhost:3000/vagas'
 
 var  estacionaTalbe = document.querySelector('.tickets')
 var tickets = []
@@ -45,10 +47,10 @@ var qtdFechados = 0
 function preencherTela() {
     tickets.forEach(e => {
 
-      if(e.status_pag == 'Sim') {
-        qtdAtivados += 1
-      }else if(e.status_cli == 'Não') {
-        qtdDesativados += 1
+      if(e.status_pag == 'Aberto') {
+        qtdAbertos += 1
+      }else if(e.status_cli == 'Pagos') {
+        qtdFechados += 1
       }
 
         var novaEstacionaTable = estacionaTalbe.cloneNode(true)
@@ -57,21 +59,22 @@ function preencherTela() {
 
         novaEstacionaTable.querySelector('.id_registro').innerHTML = e.ticket_id
         novaEstacionaTable.querySelector('.cpf-clientes').innerHTML = e.cpf_cliente
-        novaEstacionaTable.querySelector('.vagas').innerHTML = e.num_vaga
+        novaEstacionaTable.querySelector('.vagas').innerHTML = e.number_vaga
         novaEstacionaTable.querySelector('.categoria_vaga').innerHTML = e.categoria_vaga
         novaEstacionaTable.querySelector('.valor_h').innerHTML = e.valor_h
         novaEstacionaTable.querySelector('.placa_veiculo').innerHTML = e.placa_carro
         novaEstacionaTable.querySelector('.forma_pagamento').innerHTML = e.forma_pagamento
         novaEstacionaTable.querySelector('.status_pag').innerHTML = e.status_pag
 
-        console.log(e.cpf)
-
         document.querySelector(".contTickets").appendChild(novaEstacionaTable)
 
     })
 
-}
+    document.querySelector('.abertos').innerHTML = qtdAbertos
+    document.querySelector('.fechados').innerHTML = qtdFechados
+    document.querySelector('.qtd-tickets').innerHTML = tickets.length
 
+}
 function editarCliente(e) {
   var mostrarModal = document.querySelector('.m-editar')
 
@@ -103,7 +106,7 @@ function editarCliente(e) {
 
 
       console.log(c.cpf_cliente)
-          var id_vaga = document.querySelector('.id_vaga').innerHTML  = c.num_vaga
+          var id_vaga = document.querySelector('.id_vaga').innerHTML  = c.number_vaga
           var cpf = document.querySelector('.cpf').value = c.cpf_cliente
           var placa = document.querySelector('.placa').value = c.placa_carro
 
@@ -146,6 +149,70 @@ function editarCliente(e) {
   
 }
 
+
+function deletarRegistro(e) {
+
+  var id_ticket = e.parentNode.parentNode.querySelector('.placa_veiculo').innerHTML
+  console.log(id_ticket)
+
+  let data = {
+    "placa": id_ticket
+    
+};
+
+
+fetch(uriDeletar, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.placa !== undefined) {
+        }
+    })
+
+
+}
+function deletarVaga(e) {
+  var num_vaga = e.parentNode.parentNode.querySelector('.vagas').innerHTML
+
+  console.log(num_vaga)
+
+  let data = {
+    "numero_vaga": num_vaga
+    
+  };
+  console.log(data)
+
+fetch(uriDeletarVagas, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.numero_vaga !== undefined) {
+            modalExcluir()
+            alert('Vaga Deletada com sucesso')
+        }
+        else {
+
+          alert('Erro ao Excluir Vaga')
+
+            // var modalErro = document.querySelector('.modal-errado-vagas')
+
+            // modalErro.classList.remove('model')
+        }
+    })
+}
+
+
+
 function fecharEditarCliente() {
   var mostrarModal = document.querySelector('.m-editar')
   mostrarModal.classList.toggle('model')
@@ -157,5 +224,25 @@ function fecharModal() {
   modal.classList.toggle('model')
 
   document.querySelector('body').style.background = '';
+
+}
+
+function modalExcluir() {
+
+  document.querySelector('body').style.background = '#5e5e5e27';
+
+  var modalExcluir = document.querySelector('.modal-excluir')
+
+  modalExcluir.classList.remove('model')
+}
+
+function esconderModalExcluir() {
+  document.querySelector('body').style.background = '';
+
+  var modalExcluir = document.querySelector('.modal-excluir')
+
+  modalExcluir.classList.add('model')
+
+  window.location.reload();
 
 }

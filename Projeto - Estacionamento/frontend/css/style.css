@@ -220,6 +220,8 @@ main {
 
 @media (max-width:1520px) {
 
+    
+
     .menu ul li {
         display: flex;
         flex-direction: column;
@@ -258,7 +260,7 @@ main {
         text-align: start;
     }
     .modal-menu ul   {
-        width: 10vh;
+        width: 1vh;
     }
 
     .modal-menu ul li {

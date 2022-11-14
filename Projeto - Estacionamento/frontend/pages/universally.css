@@ -35,6 +35,7 @@ h1 {
 
 .nav-head i {
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .nav-head ul {
@@ -50,7 +51,7 @@ h1 {
 
 
 .menu {
-    width: 350px;
+    width: 20%;
     height: 94.3vh;
     background-color: rgb(46, 46, 46);
     color: white;
@@ -90,6 +91,8 @@ h1 {
     padding-right: 5px;
     color: white;
     margin-bottom: 28px;
+    cursor: pointer;
+
 }
 
 
@@ -165,6 +168,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: end;
+    cursor: pointer;
+
 }
 
 .filtro i {
@@ -221,3 +226,79 @@ h1 {
 .right {color: green;}
 .locked {color: black;}
 .open {color: black;}
+
+.modal-certo , .modal-errado, .modal-errado-vagas {
+    width: 25%;
+    position: fixed;
+    background-color: white;
+    left: 42%;
+    top: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.336);
+}
+.modal-excluir {
+    width: 25%;
+    position: fixed;
+    background-color: white;
+    left: 42%;
+    top: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.336);
+}
+
+.modal-excluir p {
+    margin: 10px auto;
+}
+
+.modal-errado  img{width: 50%;}
+.modal-errado-vagas img {width: 50%;}
+.modal-excluir img {width: 60%;}
+
+.modal-certo button {
+    background-color: #12D76E;
+    color: white;
+    font-weight: 500;
+}
+
+.btn-check {
+    background-color: #12D76E;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-error {
+    background-color: #eb1c1c;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.btn-excluir-sim {
+    background-color: #f70404;
+}
+.btn-excluir-nao {
+    background-color: #0e0e0e;
+    
+}
+.cont-btn {
+    display: flex;
+}
+.cont-btn button {
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 25px;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+}

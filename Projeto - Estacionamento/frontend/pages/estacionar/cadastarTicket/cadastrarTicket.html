@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
+
 <body onload="carregar()">
 
     <header>
@@ -59,7 +61,7 @@
                     <h5>Cadastrar novo Ticket</h5>
                     <p>Chegou a Hora de Cadastrar um novo Tickets de Estacionamento</b></p>
                 </div>
-                
+
             </div>
 
             <div class="linha-3">
@@ -72,9 +74,9 @@
                     <div>
                         <p>Categoria</p>
                         <select class="tipo-Veiculo" onclick="valorHora()" name="" id="">
-                            <option value="Véiculo Pequeno">Véiculo Pequeno</option>
-                            <option value="Véiculo Médio">Véiculo Médio</option>
-                            <option value="Véiculo Grande">Véiculo Grande</option>
+                            <option value="Véiculo-Pequeno">Véiculo Pequeno</option>
+                            <option value="Véiculo-Médio">Véiculo Médio</option>
+                            <option value="Véiculo-Grande">Véiculo Grande</option>
                         </select>
                     </div>
 
@@ -85,14 +87,14 @@
 
                     <div>
                         <p>Número da Vaga</p>
-                        <input type="text">
+                        <input type="text" class="numero-vaga">
                     </div>
                 </div>
 
                 <div class="section-01">
                     <div>
                         <p>Placa Veículo</p>
-                        <input type="text" name="" id="">
+                        <input type="text" class="placa-veiculo" id="">
                     </div>
 
                     <div>
@@ -102,7 +104,7 @@
 
                     <div>
                         <p>Modelo Veículo</p>
-                        <input type="text">
+                        <input type="text" class="modelo-veiculo">
                     </div>
                 </div>
 
@@ -117,20 +119,47 @@
                         <input class="data-Saida" type="text">
                     </div>
 
-                    <div>
-                        <p>Tempo decorrido (horas e minutos)</p>
-                        <input type="text">
-                    </div>
+
                 </div>
 
-            <div>
-                <button>Salvar</button>
-                <button><a href="../estacionar.html">Voltar</a></button>
-            </div>
+                <div>
+                    <button onclick="ativar()">Salvar</button>
+                    <button><a href="../estacionar.html">Voltar</a></button>
+                </div>
 
-                
+
             </div>
         </div>
+
+        <div class="modal-certo model">
+
+            <img src="img/2.gif" alt="">
+
+            <p>Ticket Cadastrado Com Sucesso!</p>
+
+            <button onclick="esconderModalCheck()" class="btn-check">OK</button>
+        </div>
+
+        <div class="modal-errado model">
+
+            <img src="img/error01 (1).gif" alt="">
+
+            <p>Erro CPF Não Cadastrado!</p>
+
+            <button onclick="esconderModalErrorCpfs()" class="btn-error">OK</button>
+        </div>
+
+        <div class="modal-errado-vagas model">
+
+            <img src="img/error01 (1).gif" alt="">
+
+            <p>Erro  - Vagas Já Cadastradas</p>
+
+            <button onclick="esconderModalErrorVagas()" class="btn-error">OK</button>
+        </div>
+
+
+
     </main>
 
 </body>
