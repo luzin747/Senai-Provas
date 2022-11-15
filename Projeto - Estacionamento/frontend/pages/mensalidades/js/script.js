@@ -1,6 +1,16 @@
+const uriEditar = 'http://localhost:3000/registro_ticket/'
+const uriDeletar = 'http://localhost:3000/carros'
+const uriDeletarVagas = 'http://localhost:3000/vagas'
+
+
 const uri = 'http://localhost:3000/ticket_pagos'
 
 var mensalistas = []
+
+var tickets = []
+var nomeClientes = []
+var clientes = []
+var nomeCliente = [] 
 
 var trMensalistas = document.querySelector('.mensalistas')
 
@@ -30,7 +40,7 @@ function preencherTabelaMensalidades() {
     novoTrMensalistas.classList.remove('model')
 
     novoTrMensalistas.querySelector('.idCli').innerHTML = m.ticket_id
-    novoTrMensalistas.querySelector('.number_vaga').innerHTML = m.number_vaga
+    novoTrMensalistas.querySelector('.placa_veiculo').innerHTML = m.placa_carro
     // novoTrMensalistas.querySelector('.nomeMensalista').innerHTML = 
     novoTrMensalistas.querySelector('.cpfMensalista').innerHTML = m.cpf_cliente
     novoTrMensalistas.querySelector('.categoria').innerHTML = m.categoria_vaga
@@ -44,4 +54,88 @@ function preencherTabelaMensalidades() {
 
     document.querySelector('.qtd-cliente-pagos').innerHTML = mensalistas.length
 
+}
+
+
+function deletarPlaca(e) {
+
+  var placa_cara = e.parentNode.parentNode.querySelector('.placa_veiculo').innerHTML
+  
+  let data = {
+    "placa": placa_cara
+    
+};
+
+
+fetch(uriDeletar, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.placa !== undefined) {
+
+          deletarRegistro(e)
+        }
+    })
+
+
+}
+
+function deletarRegistro(e) {
+
+  var id_ticket = e.parentNode.parentNode.querySelector('.id_registro').innerHTML
+
+  let data = {
+    "ticket_id": id_ticket
+    
+};
+
+
+fetch(uriEditar, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.ticket_id !== undefined) {
+
+          deletarVaga(e)
+        }
+    })
+
+
+
+}
+
+function deletarVaga(e) {
+  var num_vaga = e.parentNode.parentNode.querySelector('.vagas').innerHTML
+
+  console.log(' Numero Vaga' + num_vaga)
+
+  let data = {
+    "numero_vaga": num_vaga
+    
+  };
+  console.log(data)
+
+fetch(uriDeletarVagas, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.numero_vaga !== undefined) {
+          modalExcluir()
+        }
+    })
 }

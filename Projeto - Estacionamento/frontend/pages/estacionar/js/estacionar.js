@@ -216,6 +216,8 @@ function edicao() {
                 // modalCerto.classList.remove('model')
 
                 alert('Funcionando')
+
+                deletarVagaPosFechamento()
                 
             } else {
                 // var modalErro = document.querySelector('.modal-errado')
@@ -226,38 +228,9 @@ function edicao() {
         })
 }
 
+function deletarVagaPosFechamento() {
+  var num_vaga = document.querySelector('.id_vaga').innerHTML
 
-
-function deletarRegistro(e) {
-
-  var id_ticket = e.parentNode.parentNode.querySelector('.placa_veiculo').innerHTML
-  console.log(id_ticket)
-
-  let data = {
-    "placa": id_ticket
-    
-};
-
-
-fetch(uriDeletar, {
-    "method":"DELETE",
-    "headers": {
-        "Content-Type":"application/json"
-    },
-    "body":JSON.stringify(data)
-})
-.then(res => { return res.json() })
-    .then(resp => {
-        if (resp.placa !== undefined) {
-        }
-    })
-
-
-}
-function deletarVaga(e) {
-  var num_vaga = e.parentNode.parentNode.querySelector('.vagas').innerHTML
-
-  console.log(num_vaga)
 
   let data = {
     "numero_vaga": num_vaga
@@ -275,16 +248,92 @@ fetch(uriDeletarVagas, {
 .then(res => { return res.json() })
     .then(resp => {
         if (resp.numero_vaga !== undefined) {
-            modalExcluir()
-            alert('Vaga Deletada com sucesso')
+          modalExcluir()
         }
-        else {
+    })
+}
 
-          alert('Erro ao Excluir Vaga')
 
-            // var modalErro = document.querySelector('.modal-errado-vagas')
 
-            // modalErro.classList.remove('model')
+function deletarPlaca(e) {
+
+  var placa_cara = e.parentNode.parentNode.querySelector('.placa_veiculo').innerHTML
+  
+  let data = {
+    "placa": placa_cara
+    
+};
+
+
+fetch(uriDeletar, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.placa !== undefined) {
+
+          deletarRegistro(e)
+        }
+    })
+
+
+}
+
+function deletarRegistro(e) {
+
+  var id_ticket = e.parentNode.parentNode.querySelector('.id_registro').innerHTML
+
+  let data = {
+    "ticket_id": id_ticket
+    
+};
+
+
+fetch(uriEditar, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.ticket_id !== undefined) {
+
+          deletarVaga(e)
+        }
+    })
+
+
+
+}
+
+function deletarVaga(e) {
+  var num_vaga = e.parentNode.parentNode.querySelector('.vagas').innerHTML
+
+  console.log(' Numero Vaga' + num_vaga)
+
+  let data = {
+    "numero_vaga": num_vaga
+    
+  };
+  console.log(data)
+
+fetch(uriDeletarVagas, {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.numero_vaga !== undefined) {
+          modalExcluir()
         }
     })
 }
@@ -305,25 +354,25 @@ function fecharModal() {
 
 }
 
-// function modalExcluir() {
+function modalExcluir() {
 
-//   document.querySelector('body').style.background = '#5e5e5e27';
+  document.querySelector('body').style.background = '#5e5e5e27';
 
-//   var modalExcluir = document.querySelector('.modal-excluir')
+  var modalExcluir = document.querySelector('.modal-excluir')
 
-//   modalExcluir.classList.remove('model')
-// }
+  modalExcluir.classList.remove('model')
+}
 
-// function esconderModalExcluir() {
-//   document.querySelector('body').style.background = '';
+function esconderModalExcluir() {
+  document.querySelector('body').style.background = '';
 
-//   var modalExcluir = document.querySelector('.modal-excluir')
+  var modalExcluir = document.querySelector('.modal-excluir')
 
-//   modalExcluir.classList.add('model')
+  modalExcluir.classList.add('model')
 
-//   window.location.reload();
+  window.location.reload();
 
-// }
+}
 
 
 function conferir() {
