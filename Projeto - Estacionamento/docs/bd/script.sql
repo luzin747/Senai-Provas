@@ -41,8 +41,9 @@ create table registro_ticket(
     ticket_id integer auto_increment not null primary key,
     number_vaga numeric(10) not null,
     placa_car varchar(10) not null ,
+    categoria_carro varchar(11),
     cpf_cli varchar(11) not null ,
-    data date not null,
+    data_est varchar(20) not null,
     h_entrada time not null,
     h_saida time,
     valor_final float(10,2),
@@ -53,25 +54,25 @@ create table registro_ticket(
 
 alter table registro_ticket add foreign key (number_vaga) references vagas(numero_vaga);
 
-insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','19988547502','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
-insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','19978570192','32260117','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
-insert into clientes values(default,'Renas','Wellisson','01/02/2004','07937014067','256982324','21943559874',null,'RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
+-- insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','19988547502','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
+-- insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','19978570192','32260117','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
+-- insert into clientes values(default,'Renas','Wellisson','01/02/2004','07937014067','256982324','21943559874',null,'RenasWelli@yahoo.com','25854122','Rua dos Descolados ',656, 'Cambuí','Jaguariúna','SP', 'Mansão','Sim');
 
-insert into carros values(default,'MWK7015','80821611089','Scania','XT','Caminhão');
-insert into carros values(default,'EDL3Z90','07937014067','Bugatti','La Voiture Noire','Carro');
-insert into carros values(default,'CIZ8920','44333810043','Honda','CB 500X','Moto');
-insert into carros values(default,'HXW3364','07937014067','BMW','Concept XM','Carro');
+-- insert into carros values(default,'MWK7015','80821611089','Scania','XT','Caminhão');
+-- insert into carros values(default,'EDL3Z90','07937014067','Bugatti','La Voiture Noire','Carro');
+-- insert into carros values(default,'CIZ8920','44333810043','Honda','CB 500X','Moto');
+-- insert into carros values(default,'HXW3364','07937014067','BMW','Concept XM','Carro');
 
-insert into vagas values(1,'Veículo Pequeno',5.00);
+-- insert into vagas values(1,'Veículo Pequeno',5.00);
 
-insert into vagas values(2,'Veículo Médio',10.00);
+-- insert into vagas values(2,'Veículo Médio',10.00);
 
-insert into vagas values(3,'Veículo Grande',20.00);
+-- insert into vagas values(3,'Veículo Grande',20.00);
 
-insert into registro_ticket values(default,1,'CIZ8920','44333810043',DATE_SUB(curdate(),INTERVAL 1 DAY),'08:00','','','','Aberto');
-insert into registro_ticket values(default,3,'MWK7015','80821611089',DATE_SUB(curdate(),INTERVAL 1 DAY),'09:30','','','','Aberto');
-insert into registro_ticket values(default,2,'EDL3Z90','07937014067',DATE_SUB(curdate(),INTERVAL 1 DAY),'10:00','','','','Aberto');
-insert into registro_ticket values(default,2,'HXW3364','07937014067',DATE_SUB(curdate(),INTERVAL 2 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
+-- insert into registro_ticket values(default,1,'CIZ8920','Grande','44333810043','22/02/2022','08:00','','','','Aberto');
+-- insert into registro_ticket values(default,3,'MWK7015','Pequeno','80821611089','22/03/2022','09:30','','','','Aberto');
+-- insert into registro_ticket values(default,2,'EDL3Z90','Médio','07937014067','22/04/2022','10:00','','','','Aberto');
+-- insert into registro_ticket values(default,2,'HXW3364','Grande','07937014067''22/05/2022','08:30','12:30',40.00,'Cartão Débito','Pago');
 
 create view vw_clientes as
 select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf ,email , celular, telefone_fixo, status_cli  from clientes;
@@ -82,7 +83,7 @@ select id_cliente as cliente_id, celular as cel_cliente, telefone_fixo as fixo_C
 select * from vw_telefones;
 
 create view vw_estacionar as
-select r.ticket_id,v.numero_vaga as number_vaga, c.cpf as cpf_cliente, v.categoria_vaga , v.valor_h , ca.placa as  placa_carro, r.forma_pagamento, r.status_pag from clientes c
+select r.ticket_id,v.numero_vaga as number_vaga, c.cpf as cpf_cliente, r.data_est, v.categoria_vaga , v.valor_h , ca.placa as  placa_carro, r.categoria_carro,  r.forma_pagamento, r.status_pag from clientes c
 inner join registro_ticket r on c.cpf = r.cpf_cli
 inner join vagas v on r.number_vaga = v.numero_vaga 
 inner join carros ca on  r.placa_car = ca.placa where r.status_pag  = "Aberto";
@@ -90,7 +91,10 @@ inner join carros ca on  r.placa_car = ca.placa where r.status_pag  = "Aberto";
 select * from vw_estacionar;
 
 create view ticket_pagos as
-select *, (valor_final) as v_final from registro_ticket where status_pag  <> "Aberto"; 
+select r.ticket_id,v.numero_vaga as number_vaga, c.cpf as cpf_cliente, r.data_est, v.categoria_vaga , v.valor_h , ca.placa as  placa_carro, r.categoria_carro, r.valor_final , r.forma_pagamento, r.status_pag from clientes c
+inner join registro_ticket r on c.cpf = r.cpf_cli
+inner join vagas v on r.number_vaga = v.numero_vaga 
+inner join carros ca on  r.placa_car = ca.placa where status_pag  <> "Aberto"; 
 
 select * from ticket_pagos;
 select * from `clientes`;

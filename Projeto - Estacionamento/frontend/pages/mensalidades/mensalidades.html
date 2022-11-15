@@ -58,7 +58,7 @@
                     <i class='bx bx-money'></i>
 
                     <div class="linha-1-sub">
-                        <h5>Mensalidades Cadastradas</h5>
+                        <h5>Mensalidades Pagas</h5>
                         <p>Chegou a Hora de listar os mensalistas Cadastrados</b></p>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
                         <div class="cont-qtd">
                             <i class='bx bxs-user user'></i>
-                            <p>Clientes: <b class="qtd">10</b></p>
+                            <p>Clientes: <b class="qtd-cliente-pagos">10</b></p>
                         </div>
     
                         <div class="cont-qtd">
@@ -84,10 +84,10 @@
     
                         <div class="tools">
                             
-                            <div class="linha-2">
+                            <!-- <div class="linha-2">
                                 <button class="button-new"><a href="cadastrarCliente/cadastrarCliente.html"><i
                                             class='bx bxs-file-plus'></i>Novo</a></button>
-                            </div>
+                            </div> -->
     
                             <div class="filtro">
                                 <input placeholder="Pesquisar Cliente" class="search" type="text">
@@ -103,31 +103,31 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Vaga</th>
                                 <th>Mensalista</th>
                                 <th>CPF</th>
                                 <th>Categoria</th>
-                                <th>Valor Mensalidade</th>
-                                <th>Data Vencimento</th>
-                                <th>Data Pagamento</th>
-                                <th>Status</th>
+                                <th>Data Entrada</th>
+                                <th>Valor Total</th>
+                                <th>Forma de Pagamento</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
 
 
                         <tbody class="contMensalistas">
-                            <tr class="mensalistas mode">
+                            <tr class="mensalistas model">
                                 <td class="idCli">1</td>
+                                <td class="number_vaga">2</td>
                                 <td class="nomeMensalista">Luiz Fernando</td>
                                 <td class="cpfMensalista">219.567.620-51</td>
                                 <td class="categoria">Veículo Pequeno</td>
-                                <td class="valor_mensalidade">R$ 130,00</td>
                                 <td class="data_mensalidade">10/10/2010</td>
-                                <td class="data_pagamento">11/11/2011</td>
-                                <td class="Status">R$ 130,00</td>
+                                <td class="valor_mensalidade">R$ 130,00</td>
+                                <td class="forma_pagamento">PIX</td>
                                 <!-- <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td> -->
                                 <td>
-                                    <i class='bx bx-edit'></i>
+                                    <i class='bx bx-edit model'></i>
                                     <i class='bx bxs-trash-alt'></i>
                                 </td>
                             </tr>
@@ -173,6 +173,6 @@
 
 </body>
 
-<script src="js/clientes.js"></script>
+<script src="js/script.js"></script>
 
 </html>

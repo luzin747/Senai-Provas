@@ -147,9 +147,9 @@ function cadastrarCarros() {
     
     var select_status = document.querySelector(".tipo-Veiculo")
     let seleStatus = select_status.options[select_status.selectedIndex].value;
-    if (seleStatus == 'Véiculo-Pequeno') {var tipo = 'Veículo Pequeno';} 
-    if (seleStatus == 'Véiculo-Médio') {var tipo = 'Veículo Médio'; } 
-    if (seleStatus == 'Véiculo-Grande') {var tipo = 'Veículo Grande'; } 
+    if (seleStatus == 'Véiculo-Pequeno') {var tipo = 'Pequeno';} 
+    if (seleStatus == 'Véiculo-Médio') {var tipo = 'Médio'; } 
+    if (seleStatus == 'Véiculo-Grande') {var tipo = 'Grande'; } 
 
     var data = {
         "placa": placa,
@@ -183,29 +183,43 @@ function registrarTickets() {
     var numeroVaga = document.querySelector('.numero-vaga').value
     var placa = document.querySelector('.placa-veiculo').value
     var cpf = document.querySelector('.cpf-cliente').value
-    // var horario_entrada = document.querySelector('.data-Entrada').value
 
-    // let data = {
-    //     "number_vaga": numero_vaga,
-    //     "placa_car": placa,
-    //     "cpf_cli": cpf,
-    //     "h_entrada": "10:59",
-    //     "h_saida": null,
-    //     "valor_final": "",
-    //     "forma_pagamento": null,
-    //     "status_pag": "Aberto"
-    // };
+    var select_status = document.querySelector(".tipo-Veiculo")
+    let seleStatus = select_status.options[select_status.selectedIndex].value;
+    if (seleStatus == 'Véiculo-Pequeno') {var tipo = 'Pequeno';} 
+    if (seleStatus == 'Véiculo-Médio') {var tipo = 'Médio'; } 
+    if (seleStatus == 'Véiculo-Grande') {var tipo = 'Grande'; } 
+
+    var inpDataEntrada = document.querySelector('.data_entrada')
+
+    var hoje = new Date()
+    var dia = String(hoje.getDate()).padStart(2, '0')
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+    var ano = hoje.getFullYear()
+
+    var hora = hoje.getHours()
+    var minutos = hoje.getMinutes()
+    var segundos = hoje.getSeconds()
+    // var segundos = hoje.getSeconds()
+
+    dataAtual = dia + '/' + mes + '/' + ano;
+    horaAtual = hora + ':' + minutos + ':' + segundos
 
     
+
+    console.log()
+
 
     let data = {
         "number_vaga": numeroVaga,
         "placa_car":placa,
+        "categoria_carro": tipo,
         "cpf_cli":cpf,
-        "h_entrada":"10:30",
+        "data_est": dataAtual,
+        "h_entrada": horaAtual,
         "h_saida": null,
         "valor_final":"",
-        "forma_pagamento":null,
+        "forma_pagamento":'Em Aberto',
         "status_pag":"Aberto"
     }
 

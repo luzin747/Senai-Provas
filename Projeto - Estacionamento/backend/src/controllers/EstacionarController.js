@@ -42,8 +42,7 @@ function listaEstcacionamento(req, res) {
 };
 
 function cadastrarEstacionamento(req, res) {  
-    let query = `INSERT INTO registro_ticket VALUES (DEFAULT, '${req.body.number_vaga}', '${req.body.placa_car}', '${req.body.cpf_cli}', '${req.body.h_entrada}', 
-    '${req.body.h_entrada}', '${req.body.h_saida}', '${req.body.valor_final}', '${req.body.forma_pagamento}', '${req.body.status_pag}')`;
+    let query = `INSERT INTO registro_ticket VALUES (DEFAULT, '${req.body.number_vaga}', '${req.body.placa_car}','${req.body.categoria_carro}', '${req.body.cpf_cli}','${req.body.data_est}', '${req.body.h_entrada}',  '${req.body.h_saida}', '${req.body.valor_final}', '${req.body.forma_pagamento}', '${req.body.status_pag}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -67,7 +66,7 @@ function excluirEstacionamento(req, res) {
 };
 
 function editarEstacionamento(req, res){
-    let query = `UPDATE registro_ticket SET number_vaga = '${req.body.number_vaga}', placa_car = '${req.body.placa_car}', cpf_cli = '${req.body.cpf_cli}', 
+    let query = `UPDATE registro_ticket SET number_vaga = '${req.body.number_vaga}', placa_car = '${req.body.placa_car}',categoria_carro = '${req.body.categoria_carro}',cpf_cli = '${req.body.cpf_cli}', 
     h_entrada = '${req.body.h_entrada}', h_saida = '${req.body.h_saida}', valor_final = '${req.body.valor_final}', forma_pagamento = '${req.body.forma_pagamento}', 
     status_pag = '${req.body.status_pag}' WHERE ticket_id = '${req.body.ticket_id}'`;
 

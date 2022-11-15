@@ -1,5 +1,5 @@
 const uri = 'http://localhost:3000/vw_estacionar'
-const uriEditar = 'http://localhost:3000/vw_estacionar'
+const uriEditar = 'http://localhost:3000/registro_ticket/'
 const uriClientes = 'http://localhost:3000/clientes/vw_clientes'
 const uriDeletar = 'http://localhost:3000/carros'
 const uriDeletarVagas = 'http://localhost:3000/vagas'
@@ -7,6 +7,8 @@ const uriDeletarVagas = 'http://localhost:3000/vagas'
 var  estacionaTalbe = document.querySelector('.tickets')
 var tickets = []
 var nomeClientes = []
+var clientes = []
+var nomeCliente = [] 
 
 function carregar() {
 
@@ -21,23 +23,14 @@ function carregar() {
         )
       .catch(err => console.error(err));
 
-      fetch(uriEditar, options)
-      .then(res => res.json())
-      .then(res => {
-        clientes = res;
-        editarCliente();
-      }
-        )
-      .catch(err => console.error(err));
-
-      fetch(uriClientes, options)
-      .then(res => res.json())
-      .then(res => {
-        nomeClientes = res;
-        editarCliente();
-      }
-        )
-      .catch(err => console.error(err));
+      // fetch(uriClientes, options)
+      // .then(res => res.json())
+      // .then(res => {
+      //   nomeClientes = res;
+      //   editarCliente();
+      // }
+      //   )
+      // .catch(err => console.error(err));
 
 }
 
@@ -60,7 +53,7 @@ function preencherTela() {
         novaEstacionaTable.querySelector('.id_registro').innerHTML = e.ticket_id
         novaEstacionaTable.querySelector('.cpf-clientes').innerHTML = e.cpf_cliente
         novaEstacionaTable.querySelector('.vagas').innerHTML = e.number_vaga
-        novaEstacionaTable.querySelector('.categoria_vaga').innerHTML = e.categoria_vaga
+        novaEstacionaTable.querySelector('.categoria_vaga').innerHTML = e.categoria_carro
         novaEstacionaTable.querySelector('.valor_h').innerHTML = e.valor_h
         novaEstacionaTable.querySelector('.placa_veiculo').innerHTML = e.placa_carro
         novaEstacionaTable.querySelector('.forma_pagamento').innerHTML = e.forma_pagamento
@@ -71,15 +64,57 @@ function preencherTela() {
     })
 
     document.querySelector('.abertos').innerHTML = qtdAbertos
-    document.querySelector('.fechados').innerHTML = qtdFechados
+    // document.querySelector('.fechados').innerHTML = qtdFechados
     document.querySelector('.qtd-tickets').innerHTML = tickets.length
 
 }
+
+function ativar(e) {
+
+  var id = e.parentNode.parentNode.querySelector('.id_registro').innerHTML
+
+  const options = {method: 'GET'};
+
+  fetch(uriEditar + id, options)
+      .then(res => res.json())
+      .then(res => {
+        clientes = res;
+        editarCliente(e);
+      }
+        )
+      .catch(err => console.error(err));
+
+
+  fetch(uriClientes, options)
+      .then(res => res.json())
+      .then(res => {
+        nomeCliente = res;
+        nomearCliente(e);
+      }
+        )
+      .catch(err => console.error(err));
+}
+
+//Função que Nomeia o Cliente no Modal 
+function nomearCliente(e) {
+
+  var cpfCliente = document.querySelector('.cpf').value
+
+  nomeCliente.forEach(n => {
+   
+    if(cpfCliente == n.cpf) {
+      
+    document.querySelector('.cliName').innerHTML = n.Nome_cliente
+
+    }
+
+  })
+
+}
+
 function editarCliente(e) {
+
   var mostrarModal = document.querySelector('.m-editar')
-
-  var id = e.parentNode.parentNode.querySelector('.cpf-clientes').innerHTML
-
   
   mostrarModal.classList.toggle('model')
   document.querySelector('body').style.background = '#5e5e5e27';
@@ -87,67 +122,110 @@ function editarCliente(e) {
 
   //PREENCHER OS INPUTS COM AS INFORMAÇÕES DO CLIENTE DESEJADO
 
-  nomeClientes.forEach(n => {
+  var id = e.parentNode.parentNode.querySelector('.cpf-clientes').innerHTML
+
+
+  // nomeClientes.forEach(n => {
 
     
-    if(id == n.cpf) {
+  //   if(id == n.cpf) {
 
-    console.log(n.Nome_cliente)
+  //   console.log(n.Nome_cliente)
 
       
-        document.querySelector('.cliName').innerHTML = n.Nome_cliente
+  //       document.querySelector('.cliName').innerHTML = n.Nome_cliente
 
-    }
-  })
+  //   }
+  // })
 
   clientes.forEach(c => {
+    if(id == c.cpf_cli) {
 
-    if(id == c.cpf_cliente) {
 
+      console.log(c.cpf_cli)
 
-      console.log(c.cpf_cliente)
           var id_vaga = document.querySelector('.id_vaga').innerHTML  = c.number_vaga
-          var cpf = document.querySelector('.cpf').value = c.cpf_cliente
-          var placa = document.querySelector('.placa').value = c.placa_carro
 
-          var categoria_veiculo = c.categoria_vaga
+          document.querySelector('.ticket-id').value = c.ticket_id
+          document.querySelector('.cpf').value = c.cpf_cli
+          document.querySelector('.placa').value = c.placa_car
+          document.querySelector('.data_entrada').value = c.data_est
+          document.querySelector('.h_entrada').value = c.h_entrada
 
-          if(categoria_veiculo == 'Ve?culo Pequeno') {
-            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Veículo Pequeno'
+          var categoria_veiculo = c.categoria_carro
+
+          if(categoria_veiculo == 'Pequeno' || categoria_veiculo == 'Veículo Pequeno' || categoria_veiculo == 'Ve?culo Pequeno') {
+            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Pequeno'
           }
 
-          if(categoria_veiculo == 'Ve?culo M?dio') {
-            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Veículo Médio'
+          if(categoria_veiculo == 'Médio' || categoria_veiculo == 'Veículo Médio' || categoria_veiculo == 'Ve?culo M?dio') {
+            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Médio'
             
           }
-          if(categoria_veiculo == 'Ve?culo Grande') {
-            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Veículo Grande'           
+          if(categoria_veiculo == 'Grande'|| categoria_veiculo == 'Veículo Pequeno' || categoria_veiculo == 'Ve?culo Grande') {
+            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Grande'           
           }
-
-
-          
-
-          // var rg = document.querySelector('.rg').value = c.rg
-          // var email = document.querySelector('.email').value = c.email
-          // var telMovel = document.querySelector('.telMovel').value = c.celular
-          // var telFixo = document.querySelector('.fixo').value = c.telefone_fixo
-          // var cep = document.querySelector('.cep').value = c.cep
-          // var endereco = document.querySelector('.endereco').value = c.endereco
-          // var numero = document.querySelector('.numero').value = c.numero
-          // var bairro = document.querySelector('.bairro').value = c.bairro
-          // var cidade = document.querySelector('.cidade').value = c.cidade
-          // var uf = document.querySelector('.uf').value = c.uf
-          // var complemento = document.querySelector('.complemento').value = c.complemento
-          // var select_status = document.querySelector(".select_status").value = c.status_cli
-
     }
 
-    //     
-
-    // }
   })
-  
+    
 }
+
+function edicao() {
+      var ticket_id = document.querySelector('.ticket-id').value 
+      var number_vaga = document.querySelector('.id_vaga').innerHTML
+      var placa_car = document.querySelector('.placa').value
+      var cpf_cli = document.querySelector('.cpf').value
+      var h_entrada = document.querySelector('.h_entrada').value
+      var h_saida = document.querySelector('.h_saida').value
+      var valor_final = document.querySelector('.valor_Total').value
+      var forma_pagamento = document.querySelector('.formas_pagamentos').value
+      var categoria_carro = document.querySelector('.categoria_veiculo').value
+
+      const [n,valor,s] = valor_final.split(' ')
+
+      console.log(valor)
+
+      let data = {
+        "ticket_id": ticket_id,
+        "number_vaga": number_vaga,
+        "categoria_carro": categoria_carro,
+        "placa_car":placa_car,
+        "cpf_cli": cpf_cli,
+        "h_entrada":h_entrada,
+        "h_saida": h_saida,
+        "valor_final":valor,
+        "forma_pagamento":forma_pagamento,
+        "status_pag":"Pago"
+    }
+
+    console.log(data)
+
+    fetch('http://localhost:3000/registro_estac', {
+        "method":"PUT",
+        "headers": {
+            "Content-Type":"application/json"
+        },
+        "body":JSON.stringify(data)
+    })
+    .then(res => { return res.json() })
+        .then(resp => {
+            if (resp.ticket_id !== undefined &&resp.number_vaga !== undefined && resp.placa_car !== undefined && resp.cpf_cli !== undefined && resp.h_entrada !== undefined && resp.h_saida !== undefined && resp.valor_final !== undefined && resp.forma_pagamento !== undefined && resp.status_pag !== undefined ) {
+                
+                // var modalCerto = document.querySelector('.modal-certo')
+                // modalCerto.classList.remove('model')
+
+                alert('Funcionando')
+                
+            } else {
+                // var modalErro = document.querySelector('.modal-errado')
+
+                // modalErro.classList.remove('model')
+
+            }
+        })
+}
+
 
 
 function deletarRegistro(e) {
@@ -227,22 +305,151 @@ function fecharModal() {
 
 }
 
-function modalExcluir() {
+// function modalExcluir() {
 
-  document.querySelector('body').style.background = '#5e5e5e27';
+//   document.querySelector('body').style.background = '#5e5e5e27';
 
-  var modalExcluir = document.querySelector('.modal-excluir')
+//   var modalExcluir = document.querySelector('.modal-excluir')
 
-  modalExcluir.classList.remove('model')
+//   modalExcluir.classList.remove('model')
+// }
+
+// function esconderModalExcluir() {
+//   document.querySelector('body').style.background = '';
+
+//   var modalExcluir = document.querySelector('.modal-excluir')
+
+//   modalExcluir.classList.add('model')
+
+//   window.location.reload();
+
+// }
+
+
+function conferir() {
+  
+  var select_status = document.querySelector(".select_status")
+  let seleStatus = select_status.options[select_status.selectedIndex].value;
+  if (seleStatus == 'Fechado') {calcularHoras()} 
+  
+}
+function calcularHoras() {
+    
+  var inpDataEntrada = document.querySelector('.data_entrada').value
+  var inpHoraEntrada = document.querySelector('.h_entrada').value
+
+  var dataHoraIn = inpDataEntrada + ' ' + inpHoraEntrada
+
+    var hoje = new Date()
+    var dia = String(hoje.getDate()).padStart(2, '0')
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+    var ano = hoje.getFullYear()
+
+    var hora = hoje.getHours()
+    var minutos = hoje.getMinutes()
+    var segundos = hoje.getSeconds()
+
+    dataAtual = dia + '/' + mes + '/' + ano;
+    horaAtual = hora + ':' + minutos + ':' + segundos
+
+    var dataHoraOut = dataAtual + ' ' + horaAtual
+
+
+  const dayHourIn = dataHoraIn
+
+  const dayHourOut = dataHoraOut
+
+  function convertDateHoursToMs(dateHour) {
+
+    const [date, hours] = dateHour.split(' ')
+    const [day, month, year] = date.split('/')
+    const [hour , minutes , seconds] = hours.split(':')
+  
+    const newDate = new Date(year, month - 1, day , hour , minutes, seconds) 
+  
+    console.log(newDate.getTime())
+    
+    return newDate.getTime()
+
+
+  }
+
+  const stayedTimeInSeconds = (convertDateHoursToMs(dayHourOut) - convertDateHoursToMs(dayHourIn)) / 1000
+
+  console.log(stayedTimeInSeconds)
+  const dayInSeconds = 24 * 60 * 60
+  const hourInSeconds = 60 * 60
+  const minutesInSeconds = 60
+
+  //formatar meus tempos de estadia
+  const day = Math.floor(stayedTimeInSeconds / dayInSeconds)
+  const hours = Math.floor(stayedTimeInSeconds / hourInSeconds) % 24
+  const minutes = Math.floor(stayedTimeInSeconds / minutesInSeconds) % 60
+  const seconds = stayedTimeInSeconds % 60
+
+  //Acrecentando
+  var hora_saida = document.querySelector('.h_saida').value = horaAtual
+  var temp_permanencia = document.querySelector('.tempo_permanencia').value = hours + ':' + minutes + ':' + '' + seconds
+
+
+  //Condições Para Fazer o Calculo Final
+  var categoria_veiculo = document.querySelector('.categoria_veiculo').value
+  
+  if(categoria_veiculo == 'Pequeno') {
+    
+    if(hours == 0) {
+
+      var valorTotal = 10 * 1
+
+      document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
+      
+    }
+    else {
+      var valorTotal = 10 * hours
+
+      document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
+
+    }
+
+  }
+
+  if(categoria_veiculo == 'Médio') {
+    
+    if(hours == 0) {
+
+      var valorTotal = 15 * 1
+
+      document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
+      
+    }
+    else {
+      var valorTotal = 15 * hours
+
+      document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
+
+    }
+
+  }
+
+  if(categoria_veiculo == 'Grande') {
+    
+    if(hours == 0) {
+
+      var valorTotal = 20 * 1
+
+      document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
+      
+    }
+    else {
+      var valorTotal = 20 * hours
+
+      document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
+
+    }
+
+  }
+
+
 }
 
-function esconderModalExcluir() {
-  document.querySelector('body').style.background = '';
 
-  var modalExcluir = document.querySelector('.modal-excluir')
-
-  modalExcluir.classList.add('model')
-
-  window.location.reload();
-
-}
