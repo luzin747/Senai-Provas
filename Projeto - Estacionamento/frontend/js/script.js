@@ -61,9 +61,9 @@ function preencherVagas() {
     var tamanho = 0
     var achou = false
     var ocupadas = 0
-    vagas.map(e => [
-        
-    ])
+    
+    
+
     for (var i = 1; i < 151; i++) {
     
         if (i <= 50) {
@@ -75,6 +75,7 @@ function preencherVagas() {
             // var paragrao = document.createElement('p')
 
             vagas.forEach(e => {
+
                 if(i == e.numero_vaga) {
                     // if(e.categoria_vaga == 'Ve?culo Pequeno')
                         
