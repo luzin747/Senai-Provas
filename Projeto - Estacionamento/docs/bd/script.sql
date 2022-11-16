@@ -34,7 +34,9 @@ create table carros(
 create table vagas(
     numero_vaga numeric(10) not null primary key,
     categoria_vaga varchar(30) not null,
-    valor_h float(6,2) not null
+    valor_h float(6,2) not null,
+    status_vaga varchar(10) not null
+
 );
 
 create table registro_ticket(
@@ -43,7 +45,7 @@ create table registro_ticket(
     placa_car varchar(10) not null ,
     categoria_carro varchar(11),
     cpf_cli varchar(11) not null ,
-    data_est varchar(20) not null,
+    data_est varchar(20)  not null,
     h_entrada time not null,
     h_saida time,
     valor_final float(10,2),
@@ -63,16 +65,16 @@ alter table registro_ticket add foreign key (number_vaga) references vagas(numer
 -- insert into carros values(default,'CIZ8920','44333810043','Honda','CB 500X','Moto');
 -- insert into carros values(default,'HXW3364','07937014067','BMW','Concept XM','Carro');
 
--- insert into vagas values(1,'Veículo Pequeno',5.00);
+-- insert into vagas values(1,'Veículo Pequeno',5.00,'Aberta');
 
--- insert into vagas values(2,'Veículo Médio',10.00);
+-- insert into vagas values(2,'Veículo Médio',10.00,'Aberta');
 
--- insert into vagas values(3,'Veículo Grande',20.00);
+-- insert into vagas values(3,'Veículo Grande',20.00,'Aberta');
 
--- insert into registro_ticket values(default,1,'CIZ8920','Grande','44333810043','22/02/2022','08:00','','','','Aberto');
--- insert into registro_ticket values(default,3,'MWK7015','Pequeno','80821611089','22/03/2022','09:30','','','','Aberto');
--- insert into registro_ticket values(default,2,'EDL3Z90','Médio','07937014067','22/04/2022','10:00','','','','Aberto');
--- insert into registro_ticket values(default,2,'HXW3364','Grande','07937014067''22/05/2022','08:30','12:30',40.00,'Cartão Débito','Pago');
+-- insert into registro_ticket values(default,1,'CIZ8920','Grande','44333810043',DATE_SUB(curdate(),INTERVAL 1 DAY),'08:00','','','','Aberto');
+-- insert into registro_ticket values(default,3,'MWK7015','Pequeno','80821611089',DATE_SUB(curdate(),INTERVAL 1 DAY),'09:30','','','','Aberto');
+-- insert into registro_ticket values(default,2,'EDL3Z90','Médio','07937014067',DATE_SUB(curdate(),INTERVAL 1 DAY),'10:00','','','','Aberto');
+-- insert into registro_ticket values(default,2,'HXW3364','Grande','07937014067',DATE_SUB(curdate(),INTERVAL 2 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
 
 create view vw_clientes as
 select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf ,email , celular, telefone_fixo, status_cli  from clientes;

@@ -31,7 +31,7 @@ function listaVaga(req, res) {
 };
 
 function cadastrarVaga(req, res) {
-    let query = `INSERT INTO vagas VALUES ('${req.body.numero_vaga}', '${req.body.categoria_vaga}', '${req.body.valor_h}')`;
+    let query = `INSERT INTO vagas VALUES ('${req.body.numero_vaga}', '${req.body.categoria_vaga}', '${req.body.valor_h}','${req.body.status_vaga}')`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -55,7 +55,7 @@ function excluirVaga(req, res) {
 };                                      
 
 function editarVaga(req, res){
-    let query = `UPDATE vagas SET categoria_vaga = '${req.body.categoria_vaga}', valor_h = '${req.body.valor_h}'  WHERE numero_vaga = '${req.body.numero_vaga}'`;
+    let query = `UPDATE vagas SET categoria_vaga = '${req.body.categoria_vaga}', valor_h = '${req.body.valor_h}', status_vaga = '${req.body.status_vaga}' WHERE numero_vaga = '${req.body.numero_vaga}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

@@ -1,6 +1,6 @@
 var uriVagas = 'http://localhost:3000/vagas'
 var uriCarros = 'http://localhost:3000/carros'
-var uriRegistros = 'http://localhost:3000/registro_estac'
+var uriRegistros = 'http://localhost:3000/registro_ticket'
 var uriClientes = 'http://localhost:3000/clientes/vw_clientes'
 
 var clientes = []
@@ -111,7 +111,8 @@ function cadastrarVagas() {
         let data = {
             "numero_vaga": number_vaga,
             "categoria_vaga": tipo,
-            "valor_h": 15  
+            "valor_h": 15,
+            "status_vaga": "Aberta"
         };
 
         fetch(uriVagas, {

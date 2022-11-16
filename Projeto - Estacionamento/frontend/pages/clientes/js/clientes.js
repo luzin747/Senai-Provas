@@ -169,23 +169,23 @@ function editarCliente(e) {
     if(id == c.id_cliente) {
 
         document.querySelector('.cliName').innerHTML = c.nome
-
-        var nome = document.querySelector('.nome').value  = c.nome
-        var sobrenome = document.querySelector('.sobrenome').value = c.sobrenome
-        var data_nasc = document.querySelector('.data_nasci').value = c.data_nasci
-        var cpf = document.querySelector('.cpf').value = c.cpf
-        var rg = document.querySelector('.rg').value = c.rg
-        var email = document.querySelector('.email').value = c.email
-        var telMovel = document.querySelector('.telMovel').value = c.celular
-        var telFixo = document.querySelector('.fixo').value = c.telefone_fixo
-        var cep = document.querySelector('.cep').value = c.cep
-        var endereco = document.querySelector('.endereco').value = c.endereco
-        var numero = document.querySelector('.numero').value = c.numero
-        var bairro = document.querySelector('.bairro').value = c.bairro
-        var cidade = document.querySelector('.cidade').value = c.cidade
-        var uf = document.querySelector('.uf').value = c.uf
-        var complemento = document.querySelector('.complemento').value = c.complemento
-        var select_status = document.querySelector(".select_status").value = c.status_cli
+        document.querySelector('.cliente_id').value  = c.id_cliente
+        document.querySelector('.nome').value  = c.nome
+        document.querySelector('.sobrenome').value = c.sobrenome
+        document.querySelector('.data_nasci').value = c.data_nasci
+        document.querySelector('.cpf').value = c.cpf
+        document.querySelector('.rg').value = c.rg
+        document.querySelector('.email').value = c.email
+        document.querySelector('.telMovel').value = c.celular
+        document.querySelector('.fixo').value = c.telefone_fixo
+        document.querySelector('.cep').value = c.cep
+        document.querySelector('.endereco').value = c.endereco
+        document.querySelector('.numero').value = c.numero
+        document.querySelector('.bairro').value = c.bairro
+        document.querySelector('.cidade').value = c.cidade
+        document.querySelector('.uf').value = c.uf
+        document.querySelector('.complemento').value = c.complemento
+        document.querySelector(".select_status").value = c.status_cli
 
     }
   })
@@ -195,6 +195,8 @@ function trocaStatus() {
   
 }
 function salvarEdicao(e) {
+
+    var id_cliente = document.querySelector('.cliente_id').value
     var nome = document.querySelector('.nome').value  
     var sobrenome = document.querySelector('.sobrenome').value 
     var data_nasc = document.querySelector('.data_nasci').value
@@ -215,9 +217,9 @@ function salvarEdicao(e) {
     if (seleStatus == 'Sim') {var ativo = 'Sim';} 
     if (seleStatus == 'Não') {var ativo = 'Não'; } 
   
-    console.log(cpf)
 
     var data = {
+      "id_cliente": id_cliente,
       "nome": nome,
       "sobrenome": sobrenome,
       "data_nasci": data_nasc,
@@ -233,8 +235,10 @@ function salvarEdicao(e) {
       "cidade": cidade,
       "uf": uf,
       "complemento": complemento,
-      "status_cli": ativo,
+      "status_cli": ativo
     }
+
+  console.log(data)
 
     fetch(uriEditar, {
       "method": "PUT",
@@ -246,7 +250,7 @@ function salvarEdicao(e) {
 
       .then(res => { return res.json() })
       .then(resp => {
-          if (resp.nome != undefined && resp.sobrenome != undefined && resp.data_nasci != undefined && resp.cpf != undefined && resp.rg != undefined && resp.celular != undefined && resp.telefone_fixo != undefined &&  resp.email != undefined && resp.cep != undefined && resp.endereco != undefined && resp.numero != undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli != undefined) {
+          if (resp.id_cliente != undefined && resp.nome != undefined && resp.sobrenome != undefined && resp.data_nasci != undefined && resp.cpf != undefined && resp.rg != undefined && resp.celular != undefined && resp.telefone_fixo != undefined &&  resp.email != undefined && resp.cep != undefined && resp.endereco != undefined && resp.numero != undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli != undefined) {
               alert("Cliente Editado com sucesso.")
               window.location.reload(true);
           } else {

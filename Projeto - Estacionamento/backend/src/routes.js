@@ -27,9 +27,9 @@ router.put("/carros", CarroController.editarCarro);
 router.get("/ticket_pagos", EstcacionamentoController.listarEstacionamentospagos);
 router.get("/vw_estacionar", EstcacionamentoController.listarEstacionamentos);
 router.get("/registro_ticket/:ticket_id", EstcacionamentoController.listaEstcacionamento);
-router.post("/registro_estac", EstcacionamentoController.cadastrarEstacionamento);
+router.post("/registro_ticket", EstcacionamentoController.cadastrarEstacionamento);
 router.delete("/registro_ticket", EstcacionamentoController.excluirEstacionamento);
-router.put("/registro_estac", EstcacionamentoController.editarEstacionamento);
+router.put("/registro_ticket", EstcacionamentoController.editarEstacionamento);
 
 router.get("/vagas", VagasController.listarVagas);
 router.get("/vagas/:numero_vaga", VagasController.listaVaga);

@@ -121,22 +121,9 @@ function editarCliente(e) {
 
 
   //PREENCHER OS INPUTS COM AS INFORMAÇÕES DO CLIENTE DESEJADO
-
+   
   var id = e.parentNode.parentNode.querySelector('.cpf-clientes').innerHTML
 
-
-  // nomeClientes.forEach(n => {
-
-    
-  //   if(id == n.cpf) {
-
-  //   console.log(n.Nome_cliente)
-
-      
-  //       document.querySelector('.cliName').innerHTML = n.Nome_cliente
-
-  //   }
-  // })
 
   clientes.forEach(c => {
     if(id == c.cpf_cli) {
@@ -172,6 +159,7 @@ function editarCliente(e) {
 }
 
 function edicao() {
+      
       var ticket_id = document.querySelector('.ticket-id').value 
       var number_vaga = document.querySelector('.id_vaga').innerHTML
       var placa_car = document.querySelector('.placa').value
@@ -184,7 +172,6 @@ function edicao() {
 
       const [n,valor,s] = valor_final.split(' ')
 
-      console.log(valor)
 
       let data = {
         "ticket_id": ticket_id,
@@ -201,7 +188,7 @@ function edicao() {
 
     console.log(data)
 
-    fetch('http://localhost:3000/registro_estac', {
+    fetch('http://localhost:3000/registro_ticket', {
         "method":"PUT",
         "headers": {
             "Content-Type":"application/json"
@@ -212,20 +199,56 @@ function edicao() {
         .then(resp => {
             if (resp.ticket_id !== undefined &&resp.number_vaga !== undefined && resp.placa_car !== undefined && resp.cpf_cli !== undefined && resp.h_entrada !== undefined && resp.h_saida !== undefined && resp.valor_final !== undefined && resp.forma_pagamento !== undefined && resp.status_pag !== undefined ) {
                 
-                // var modalCerto = document.querySelector('.modal-certo')
-                // modalCerto.classList.remove('model')
 
                 alert('Funcionando')
 
-                deletarVagaPosFechamento()
+                fechandoVagas()
                 
-            } else {
-                // var modalErro = document.querySelector('.modal-errado')
-
-                // modalErro.classList.remove('model')
-
-            }
+            } 
         })
+}
+
+function fechandoVagas() {
+
+
+  var id_vaga = document.querySelector('.id_vaga').innerHTML
+  var categoria_veiculo = document.querySelector('.categoria_veiculo').value
+
+  if(categoria_veiculo == 'Veículo Pequeno') {
+    var valor_Hora = 10
+  }
+  else if(categoria_veiculo == 'Veículo Médio' ) {
+    var valor_Hora = 15
+  }else if(categoria_veiculo == 'Veículo Grande') {
+    var valor_Hora = 20
+  }
+
+  let data = {
+    "numero_vaga": id_vaga,
+		"categoria_vaga": "Veículo Médio",
+		"valor_h": valor_Hora,
+		"status_vaga": "Fechada"
+  }
+
+console.log(data)
+
+fetch('http://localhost:3000/vagas', {
+    "method":"PUT",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.numero_vaga !== undefined &&resp.categoria_vaga !== undefined && resp.valor_h !== undefined && resp.status_vaga !== undefined) {
+
+            alert('Vagas Editadas')
+
+            
+        } 
+    })
+
 }
 
 function deletarVagaPosFechamento() {

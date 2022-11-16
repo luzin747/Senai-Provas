@@ -54,7 +54,7 @@ function cadastrarEstacionamento(req, res) {
 };
 
 function excluirEstacionamento(req, res) {
-    let query = `DELETE FROM registro_ticket WHERE ticket_id = '${req.body.ticket_id}'`;
+    let query = `DELETE FROM registro_ticket  WHERE ticket_id = '${req.body.ticket_id}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {
