@@ -4,6 +4,12 @@ var uriCLientes = 'http://localhost:3000/clientes/vw_clientes'
 var uriStatusAberto = 'http://localhost:3000/vw_estacionar'
 var uriTicketsFechados = 'http://localhost:3000/ticket_pagos'
 
+var uriMensaPagas = 'http://localhost:3000/ticket_pagos'
+var uriMensaAbertas = 'http://localhost:3000/vw_estacionar'
+
+var qtdMensaPagas = []
+var qtdMensaAbertas = []
+
 var vagas = []
 var qtdClientes = []
 
@@ -54,9 +60,29 @@ function carregar() {
         }
         )
         .catch(err => console.error(err));
+
+        fetch(uriMensaPagas, options)
+        .then(res => res.json())
+        .then(res => {
+            qtdMensaPagas = res;
+            mensaPagas();
+        }
+        )
+        .catch(err => console.error(err));
+
+        fetch(uriMensaAbertas, options)
+        .then(res => res.json())
+        .then(res => {
+            qtdMensaAbertas = res;
+            mensaAbertas();
+        }
+        )
+        .catch(err => console.error(err));
 }
 
 function preencherVagas() {
+
+
 
     var tamanho = 0
     var achou = false
@@ -98,18 +124,21 @@ function preencherVagas() {
             if (achou == true) {
 
                 if (tipo == 'Ve?culo Pequeno' || tipo == 'Veículo Pequeno') {
-                    paragrao1.classList = 'bx bx-cycling'
+                    paragrao1.classList = 'bx bx-cycling vaga'
+                    paragrao1.addEventListener('click', modalVagas)
                     document.querySelector('.mini1').appendChild(paragrao1)
                     ocupadas += 1
                 }
                 else if (tipo == 'Ve?culo M?dio' || tipo == 'Veículo Médio') {
-                    paragrao1.classList = 'bx bx-car'
+                    paragrao1.classList = 'bx bx-car vaga'
+                    paragrao1.addEventListener('click', modalVagas)
                     document.querySelector('.mini1').appendChild(paragrao1)
                     ocupadas += 1
                 }
 
                 else if (tipo == 'Ve?culo Grande' || tipo == 'Veículo Grande') {
-                    paragrao1.classList = 'bx bxs-truck'
+                    paragrao1.classList = 'bx bxs-truck vaga'
+                    paragrao1.addEventListener('click', modalVagas)
                     document.querySelector('.mini1').appendChild(paragrao1)
                     ocupadas += 1
                 }
@@ -157,18 +186,30 @@ function preencherVagas() {
 
 
                 if (tipo == 'Ve?culo Pequeno' || tipo == 'Veículo Pequeno') {
-                    paragrao2.classList = 'bx bx-cycling'
+                    paragrao2.classList = 'bx bx-cycling vaga'
+                    paragrao2.addEventListener('click', modalVagas)
                     document.querySelector('.mini2').appendChild(paragrao2)
                     ocupadas += 1
                 }
                 else if (tipo == 'Ve?culo M?dio' || tipo == 'Veículo Médio') {
-                    paragrao2.classList = 'bx bx-car'
+                    paragrao2.classList = 'bx bx-car vaga'
+                    paragrao2.addEventListener('click',  () => {
+                        modalVagas(this)
+
+                        
+                        // var vagar = document.querySelector('.vaga').innerHTML
+                        
+                        // console.log(vagar)
+                        
+                        
+                    })
                     document.querySelector('.mini2').appendChild(paragrao2)
                     ocupadas += 1
                 }
 
                 else if (tipo == 'Ve?culo Grande' || tipo == 'Veículo Grande') {
-                    paragrao2.classList = 'bx bxs-truck'
+                    paragrao2.classList = 'bx bxs-truck vaga'
+                    paragrao2.addEventListener('click', modalVagas)
                     document.querySelector('.mini2').appendChild(paragrao2)
                     ocupadas += 1
                 }
@@ -210,18 +251,24 @@ function preencherVagas() {
             if (achou == true) {
 
                 if (tipo == 'Ve?culo Pequeno' || tipo == 'Veículo Pequeno') {
-                    paragrao3.classList = 'bx bx-cycling'
+                    paragrao3.classList = 'bx bx-cycling vaga'
+                    paragrao3.addEventListener('click', modalVagas)
+
                     document.querySelector('.mini3').appendChild(paragrao3)
                     ocupadas += 1
                 }
                 else if (tipo == 'Ve?culo M?dio' || tipo == 'Veículo Médio') {
-                    paragrao3.classList = 'bx bx-car'
+                    paragrao3.classList = 'bx bx-car vaga'
+                    paragrao3.addEventListener('click', modalVagas)
+
                     document.querySelector('.mini3').appendChild(paragrao3)
                     ocupadas += 1
                 }
 
                 else if (tipo == 'Ve?culo Grande' || tipo == 'Veículo Grande') {
-                    paragrao3.classList = 'bx bxs-truck'
+                    paragrao3.classList = 'bx bxs-truck vaga'
+                    paragrao3.addEventListener('click', modalVagas)
+
                     document.querySelector('.mini3').appendChild(paragrao3)
                     ocupadas += 1
                 }
@@ -258,9 +305,9 @@ function cardsDetailsClientes() {
 
     qtdClientes.forEach(q => {
 
-        if (q.status_cli == 'Sim') {
+        if(q.status_cli == 'Sim') {
             qtdClientesAtivos += 1
-        } else if (q.status_cli == 'Nao') {
+        } else if (q.status_cli == 'Não') {
             qtdClientesInativos += 1
         }
     })
@@ -270,6 +317,27 @@ function cardsDetailsClientes() {
     document.querySelector('.clientes-inativos').innerHTML = qtdClientesInativos
 }
 
+function mensaAbertas() {
+    
+    document.querySelector('.mensa-abertas').innerHTML = qtdMensaAbertas.length
+
+}
+
+function mensaPagas() {
+    
+
+    var valorTotal = 0
+
+    qtdMensaPagas.forEach(p => {
+
+        valorTotal = p.valor_final
+
+    })
+
+    document.querySelector('.valor_total').innerHTML = valorTotal
+    document.querySelector('.mensa-pagas').innerHTML = qtdMensaAbertas.length
+}
+
 function ticketsAbertos() {
 
     document.querySelector('.abertos').innerHTML = qtdTicketsAbertos.length
@@ -277,6 +345,15 @@ function ticketsAbertos() {
 function ticketsFechados() {
 
     document.querySelector('.pagas').innerHTML = qtdTicketsFechados.length
+
+}
+
+
+function modalVagas(e) {
+
+    var number_vaga = e.parentNode.querySelector('.vaga').innerHTML
+
+    console.log(number_vaga)
 
 }
 

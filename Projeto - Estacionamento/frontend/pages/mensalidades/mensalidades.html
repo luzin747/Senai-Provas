@@ -44,12 +44,13 @@
                     <li><a href="#"><i class='bx bx-money'></i>Mensalidades</a></li>
                 </ul>
 
-                <p>Configurações</p>
+                <p class="section-config">Configurações <i class='bx bx-error-alt'></i></p>                            
 
                 <ul>
-                    <li><i class='bx bx-dollar'></i>Precificações</li>
-                    <li><i class='bx bxs-user-detail'></i>Usuarios</li>
-                    <li><i class='bx bx-cog'></i>Configurações</li>
+                    <li><i class='bx bx-dollar'></i><span class="nav-title">Precificações <i class='bx bx-error-alt'></i></span></li>
+                    <li><i class='bx bxs-user-detail'></i><span class="nav-title">Usuarios <i class='bx bx-error-alt'></i></span></li>
+                    <li><i class='bx bx-cog'></i><span class="nav-title">Configurações <i class='bx bx-error-alt'></i></span></li>
+                </ul>
                 </ul>
             </div>
 
@@ -73,13 +74,13 @@
                         </div>
     
                         <div class="cont-qtd">
-                            <i class='bx bx-lock  disabled'></i>
-                            <p>Fechados: <b class="qtd">1</b></p>
+                            <i class='bx bx-lock  unlocked'></i>
+                            <p>Pagas: <b class="qtd">0</b></p>
                         </div>
     
-                        <div class="cont-qtd">
-                            <i class='bx bx-check right'></i>
-                            <p>Ativados: <b class="qtd">2</b></p>
+                        <div class="cont-qtd money">
+                            <i class='bx bx-wallet-alt unlocked'></i>
+                            <p>Valor Total: R$<b class="qtd valor-total">2</b>,00</p>
                         </div>
     
                         <div class="tools">
@@ -118,6 +119,7 @@
                         <tbody class="contMensalistas">
                             <tr class="mensalistas model">
                                 <td class="idCli">1</td>
+                                <td class="vagas model">1</td>
                                 <td class="nomeMensalista">Luiz Fernando</td>
                                 <td class="cpfMensalista">219.567.620-51</td>
                                 <td class="placa_veiculo">ASFGAS</td>
@@ -128,7 +130,7 @@
                                 <!-- <td><i onclick="mostrarModal()" class='bx bxs-phone'></i></td> -->
                                 <td>
                                     <i class='bx bx-edit model'></i>
-                                    <i class='bx bxs-trash-alt' onclick="deletarPlaca()"></i>
+                                    <i class='bx bxs-trash-alt' onclick="deletarPlaca(this)"></i>
                                 </td>
                             </tr>
 
@@ -144,7 +146,7 @@
 
         </main>
 
-        <div class="modal model">
+        <!-- <div class="modal model">
             <h1>Telefones</h1>
 
             <hr>
@@ -166,6 +168,20 @@
             <div class="contButton">
                 <button>Salvar</button>
                 <button onclick="fecharModal()">Voltar</button>
+            </div>
+        </div> -->
+
+
+        <div class="modal-excluir model">
+
+            <img src="img/excluir.gif" alt="">
+
+            <p>Mensalidade Paga Excluida com Sucesso !</p>
+
+            <div class="cont-btn">
+                <!-- <button onclick="deletarRegistro(this)" class="btn-excluir-sim">SIM</button> -->
+                <!-- <button onclick="esconderModalExcluir()" class="btn-excluir-nao">NÃO</button> -->
+                <button onclick="esconderModalExcluir()" class="btn-excluir-nao">OK</button>
             </div>
         </div>
 

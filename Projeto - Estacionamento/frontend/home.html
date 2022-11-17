@@ -46,12 +46,12 @@
                     <li><a href="pages/mensalidades/mensalidades.html"><i class='bx bx-money'></i><span class="nav-title">Mensalidades</span></a></li>
                 </ul>
 
-                <p class="section-config">Configurações</p>                            
+                <p class="section-config">Configurações <i class='bx bx-error-alt'></i></p>                            
 
                 <ul>
-                    <li><i class='bx bx-dollar'></i><span class="nav-title">Precificações</span></li>
-                    <li><i class='bx bxs-user-detail'></i><span class="nav-title">Usuarios</span></li>
-                    <li><i class='bx bx-cog'></i><span class="nav-title">Configurações</span></li>
+                    <li><i class='bx bx-dollar'></i><span class="nav-title">Precificações <i class='bx bx-error-alt'></i></span></li>
+                    <li><i class='bx bxs-user-detail'></i><span class="nav-title">Usuarios <i class='bx bx-error-alt'></i></span></li>
+                    <li><i class='bx bx-cog'></i><span class="nav-title">Configurações <i class='bx bx-error-alt'></i></span></li>
                 </ul>
             </div>
 
@@ -115,8 +115,8 @@
                                 <i class='bx bxs-dollar-circle' ></i>
 
                                 <div class="linha-2-sub">
-                                    <h5>Mensalidades</h5>
-                                    <p>R$ 500,00</p>
+                                    <h5>Mensalidades Pagas</h5>
+                                    <p>R$<span class="valor_total"></span>,00</p>
                                 </div>
 
                             </div>
@@ -126,21 +126,21 @@
 
                                 <div class="mensa">
                                     <h6>Pagas</h6>
-                                    <span>100</span>
+                                    <span class="mensa-pagas">0</span>
                                 </div>
 
                                 <i class='bx bx-transfer-alt'></i>
 
                                 <div>
                                     <h6>Abertas</h6>
-                                    <span>0</span>
+                                    <span class="mensa-abertas">0</span>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     
-                    <div class="cards">
+                    <div class="cards model">
 
                         <div class="linha-2">
                             <!-- <div class="title-linha">
@@ -152,7 +152,6 @@
 
                                 <div class="linha-2-sub">
                                     <h5>Estacionar</h5>
-                                    <p>R$ 1250,00</p>
                                 </div>
 
                             </div>
@@ -265,6 +264,110 @@
 
                         </div>
                     </div>
+
+                </div>
+
+                <div class="modal-details-vagas model">
+
+                    <div class="vagas-title">
+
+                        <h1>Informações da Vaga</h1>
+
+                        <hr>
+                    </div>
+
+                    <div class="cont-div-inps">
+
+                        <div class="inps">
+
+                            <div class="model">
+                                <p>Id Ticket</p>
+                                <input type="text" class="ticket-id" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Número da Vaga</p>
+                                <input type="text" class="nome_cliente" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Categoria do Veículo</p>
+                                <input type="text" class="categoria_veiculo" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Modelo</p>
+                                <input type="text" class="cpf" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Placa</p>
+                                <input type="text" class="placa" disabled="">
+                            </div>
+
+
+                            <div>
+                                <p>Data Entrada</p>
+                                <input type="text" class="categoria_veiculo" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Hora Entrada</p>
+                                <input type="text" class="categoria_veiculo" disabled="">
+                            </div>
+                            
+                        </div>
+
+                        <div class="vagas-title">
+
+                            <h1>Informações do Cliente</h1>
+    
+                            <hr>
+                        </div>
+
+                        <div class="inps">
+
+                            <div class="model">
+                                <p>Id Ticket</p>
+                                <input type="text" class="ticket-id" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Cliente</p>
+                                <input type="text" class="nome_cliente" disabled="">
+                            </div>
+
+                            <div>
+                                <p>CPF</p>
+                                <input type="text" class="cpf" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Email</p>
+                                <input type="text" class="placa" disabled="">
+                            </div>
+
+                            <div>
+                                <p>Telefone</p>
+                                <input type="text" class="categoria_veiculo" disabled="">
+                            </div>
+                        </div>
+
+                       
+
+                        
+
+                        <div class="cont-button-status">
+                            <div>
+                                <button class="btn-voltar" onclick="fecharModalVaga()">Fechar</button>
+                            </div>
+                            
+                          
+
+                        </div>
+
+                    </div>
+
 
                 </div>
             </div>

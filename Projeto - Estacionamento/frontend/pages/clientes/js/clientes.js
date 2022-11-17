@@ -139,12 +139,8 @@ function excluirCliente(e) {
     .then(resp => {
       console.log(resp)
       if (resp.cpf !== undefined) {
-        alert("Cliente Excluido Com Suesso!");
-        window.location.reload();
-      } else {
-        alert("Erro ao Excluir Cliente")
-        window.location.reload();
-      }
+        modalExcluir()
+      } 
     });
 
 }
@@ -266,6 +262,25 @@ function fecharEditarCliente() {
   document.querySelector('body').style.background = '';
 }
 
+function modalExcluir() {
+
+  document.querySelector('body').style.background = '#5e5e5e27';
+
+  var modalExcluir = document.querySelector('.modal-excluir')
+
+  modalExcluir.classList.remove('model')
+}
+
+function esconderModalExcluir() {
+  document.querySelector('body').style.background = '';
+
+  var modalExcluir = document.querySelector('.modal-excluir')
+
+  modalExcluir.classList.add('model')
+
+  window.location.reload();
+
+}
 
 // FUNÇÕES PARA BUSCAR CLIENTE POR NOME
 

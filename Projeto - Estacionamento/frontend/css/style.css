@@ -44,10 +44,11 @@ main {
 }
 
 .cards {
-    width: 100%;
+    width: 30%;
     margin-left: 20px;
     display: flex;
-    margin-top: 20px;
+    margin: 0 auto;
+    margin-top: 30px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.288);
     background-color: white;
 }
@@ -141,6 +142,7 @@ main {
 .cont-cards-vagas {
     display: flex;
     justify-content: center;
+    
 }
 
 .cards-vagas {
@@ -266,4 +268,79 @@ main {
     .modal-menu ul li {
         align-items: start;
     }
+}
+
+
+.modal-details-vagas {
+    padding: 10px;
+    position: fixed;
+    width: 70%;
+    left: 23%;
+    top: 23%;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.288);
+}
+
+.modal-details-vagas h1 {
+    text-align: center;
+    color: white;
+    background-color: #3B3B3B;
+}
+
+.modal-details-vagas button {
+    margin: 0 auto;
+    display: flex;
+    background-color: #3B3B3B;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: none;
+}
+
+
+.cont-id_vaga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-id_vaga span {
+    margin-left: 10px;
+    height: 4vh;
+    width: 2vw;
+    padding-top: 7px;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: #3B3B3B;
+    border-radius: 5px;
+}
+.inps {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 20px 0px;  
+    text-align: center;  
+
+    /* padding: 20px; */
+}
+
+.inps div {
+    /* margin-top: 10px; */
+    margin: 10px;
+    
+}
+.inps p{
+    font-size: 11pt;
+}
+.inps input {
+    height: 28px;
+    text-align: center;
+    font-size: 11pt;
+}
+
+.inps select {
+    height: 27px;
+    width: 5vw;
 }
