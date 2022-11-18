@@ -322,6 +322,7 @@ fetch(uriDeletarVagas, {
 .then(res => { return res.json() })
     .then(resp => {
         if (resp.numero_vaga !== undefined) {
+          alert('Vagas Excluidas')
           window.location.reload();
 
         }

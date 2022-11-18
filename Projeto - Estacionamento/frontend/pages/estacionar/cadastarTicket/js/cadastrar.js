@@ -79,6 +79,7 @@ function ativar() {
 
 
 var achou = false
+var isMenor = false
 
 function cadastrarVagas() {
 
@@ -88,19 +89,22 @@ function cadastrarVagas() {
 
     console.log(clientes)
 
+
+
+
+
+    clientes.forEach(c => {
+
     if (num_vaga < 150) {
+            isMenor = true
+    }
+        if (cpf_cliente == c.cpf) {
+            achou = true
+        }
+    })
 
-
-
-        clientes.forEach(c => {
-
-
-            if (cpf_cliente == c.cpf) {
-                achou = true
-            }
-        })
-
-        if (achou == true) {
+    
+        if (achou == true && isMenor == true) {
 
             var number_vaga = document.querySelector('.numero-vaga').value
             console.log(number_vaga)
@@ -139,26 +143,23 @@ function cadastrarVagas() {
 
                         modalErro.classList.remove('model')
 
-                        window.location.reload();
 
                     }
                 })
-        } else {
+        } else if(achou == false) {
             var modalErro = document.querySelector('.modal-errado')
 
             modalErro.classList.remove('model')
+        }
+        else {
+            alert('Vagas Inexistentes')
 
             window.location.reload();
 
         }
     }
-    else {
-        alert('Erro! Vaga Não Existe')
-        window.location.reload();
 
-    }
 
-}
 function cadastrarCarros() {
 
     var placa = document.querySelector('.placa-veiculo').value
@@ -267,9 +268,6 @@ function registrarTickets() {
             }
         })
 }
-
-
-
 
 
 function esconderModalCheck() {

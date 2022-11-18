@@ -70,7 +70,7 @@ create table mensalidades(
 
 );
 
-alter table registro_ticket add foreign key (number_vaga) references vagas(numero_vaga);
+-- alter table registro_ticket add foreign key (number_vaga) references vagas(numero_vaga);
 
 -- insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','19988547502','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
 -- insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','19978570192','32260117','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');

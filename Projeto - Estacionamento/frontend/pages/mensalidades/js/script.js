@@ -57,7 +57,6 @@ function preencherTabelaMensalidades() {
     })
 
     document.querySelector('.valor-total').innerHTML = valorTotal
-
     document.querySelector('.qtd-cliente-pagos').innerHTML = mensalistas.length
 
 }
