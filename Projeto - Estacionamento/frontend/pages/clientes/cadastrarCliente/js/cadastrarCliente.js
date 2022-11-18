@@ -99,7 +99,9 @@ function cadastrarCliente() {
                 }
             })
     }else {
-        alert('Cpf Já Cadastrado')
+        var modalErroCPFExiste = document.querySelector('.modal-errado-cpf-existente')
+    
+        modalErroCPFExiste.classList.remove('model')
     }
     
 
@@ -117,6 +119,13 @@ function esconderModalError() {
     var modalErro = document.querySelector('.modal-errado')
 
     modalErro.classList.add('model')
+
+}
+
+function esconderModalErrorCPFexistente() {
+    var modalErroCPFExiste = document.querySelector('.modal-errado-cpf-existente')
+
+    modalErroCPFExiste.classList.add('model')
 
 }
 

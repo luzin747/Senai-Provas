@@ -158,105 +158,83 @@ function editarCliente(e) {
     
 }
 
-function edicao() {
-      
-      var placa_car = document.querySelector('.placa').value
-      var cpf_cli = document.querySelector('.cpf').value
-      var data_entrada = document.querySelector('.cpf').value
-      var h_entrada = document.querySelector('.h_entrada').value
-      var h_saida = document.querySelector('.h_saida').value
-      var valor_final = document.querySelector('.valor_Total').value
-      var forma_pagamento = document.querySelector('.formas_pagamentos').value
-      var categoria_carro = document.querySelector('.categoria_veiculo').value
+function ativarFechamento() {
 
-      const [n,valor,s] = valor_final.split(' ')
+  var id = e.parentNode.parentNode.querySelector('.id_registro').innerHTML
 
-      console.log(valor)
+  const options = {method: 'GET'};
 
-      let data = {
-        "mensalista":"Usuario", 
-        "cpf_mensalista": cpf_cli,
-        "placa_car": placa_car, 
-        "categoria_car": categoria_carro,
-        "data_ent": data_entrada, 
-        "hora_ent": h_entrada,
-        "hora_sai": h_saida,
-        "valor_tot": valor, 
-        "forma_pagamento": forma_pagamento,
-        "stats_mensal":"Pago"
-    }
-
-    console.log(data)
-
-    fetch('http://localhost:3000/mensalidades', {
-        "method":"POST",
-        "headers": {
-            "Content-Type":"application/json"
-        },
-        "body":JSON.stringify(data)
-    })
-    .then(res => { return res.json() })
-        .then(resp => {
-            if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_sai !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
-                
-                alert('indo pro vagas')
-
-                deletarVagaPosFechamento()
-                
-            } 
-        })
+  fetch(uriEditar + id, options)
+      .then(res => res.json())
+      .then(res => {
+        fecharIsTrue= res;
+        edicao(e);
+      }
+        )
+      .catch(err => console.error(err));
 }
 
-// function edicao() {
+var fecharIsTrue = false
+
+function edicao() {
+      var status_vaga = document.querySelector(".select_status")
+      let statusVvaga = status_vaga.options[status_vaga.selectedIndex].value;
       
-//       var ticket_id = document.querySelector('.ticket-id').value 
-//       var number_vaga = document.querySelector('.id_vaga').innerHTML
-//       var placa_car = document.querySelector('.placa').value
-//       var cpf_cli = document.querySelector('.cpf').value
-//       var h_entrada = document.querySelector('.h_entrada').value
-//       var h_saida = document.querySelector('.h_saida').value
-//       var valor_final = document.querySelector('.valor_Total').value
-//       var forma_pagamento = document.querySelector('.formas_pagamentos').value
-//       var categoria_carro = document.querySelector('.categoria_veiculo').value
+      if (statusVvaga == 'Fechado') { fecharIsTrue = true }
 
-//       const [n,valor,s] = valor_final.split(' ')
+      if(fecharIsTrue == true) {
+        var placa_car = document.querySelector('.placa').value
+        var cpf_cli = document.querySelector('.cpf').value
+        var data_entrada = document.querySelector('.data_entrada').value
+        var h_entrada = document.querySelector('.h_entrada').value
+        var h_saida = document.querySelector('.h_saida').value
+        var valor_final = document.querySelector('.valor_Total').value
+        var forma_pagamento = document.querySelector('.formas_pagamentos').value
+        var categoria_carro = document.querySelector('.categoria_veiculo').value
+  
+        const [n,valor,s] = valor_final.split(' ')
+  
+        console.log(valor)
+  
+        let data = {
+          "mensalista":"Usuario", 
+          "cpf_mensalista": cpf_cli,
+          "placa_car": placa_car, 
+          "categoria_car": categoria_carro,
+          "data_ent": data_entrada, 
+          "hora_ent": h_entrada,
+          "hora_sai": h_saida,
+          "valor_tot": valor, 
+          "forma_pagamento": forma_pagamento,
+          "stats_mensal":"Pago"
+          }
+  
+      console.log(data)
+  
+      fetch('http://localhost:3000/mensalidades', {
+          "method":"POST",
+          "headers": {
+              "Content-Type":"application/json"
+          },
+          "body":JSON.stringify(data)
+      })
+      .then(res => { return res.json() })
+          .then(resp => {
+              if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_sai !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
+                  
+  
+                  deletarVagaPosFechamento()
+                  
+              } 
+          })
+    }
+      else {
+        var modalErroFecharAntes = document.querySelector('.modal-errado-nao-existe')
 
-
-//       let data = {
-//         "ticket_id": ticket_id,
-//         "number_vaga": number_vaga,
-//         "categoria_carro": categoria_carro,
-//         "placa_car":placa_car,
-//         "cpf_cli": cpf_cli,
-//         "h_entrada":h_entrada,
-//         "h_saida": h_saida,
-//         "valor_final":valor,
-//         "forma_pagamento":forma_pagamento,
-//         "status_pag":"Pago"
-//     }
-
-//     console.log(data)
-
-//     fetch('http://localhost:3000/registro_ticket', {
-//         "method":"PUT",
-//         "headers": {
-//             "Content-Type":"application/json"
-//         },
-//         "body":JSON.stringify(data)
-//     })
-//     .then(res => { return res.json() })
-//         .then(resp => {
-//             if (resp.ticket_id !== undefined &&resp.number_vaga !== undefined && resp.placa_car !== undefined && resp.cpf_cli !== undefined && resp.h_entrada !== undefined && resp.h_saida !== undefined && resp.valor_final !== undefined && resp.forma_pagamento !== undefined && resp.status_pag !== undefined ) {
-                
-
-//                 alert('Funcionando')
-
-//                 fechandoVagas()
-                
-//             } 
-//         })
-// }
-
+        modalErroFecharAntes.classList.remove('model')
+      }
+      
+}       
 
 
 function fechandoVagas() {
@@ -294,7 +272,6 @@ fetch('http://localhost:3000/vagas', {
     .then(resp => {
         if (resp.numero_vaga !== undefined &&resp.categoria_vaga !== undefined && resp.valor_h !== undefined && resp.status_vaga !== undefined) {
 
-            alert('Vagas Editadas')
 
             
         } 
@@ -322,8 +299,11 @@ fetch(uriDeletarVagas, {
 .then(res => { return res.json() })
     .then(resp => {
         if (resp.numero_vaga !== undefined) {
-          alert('Vagas Excluidas')
-          window.location.reload();
+
+          var modalCerto = document.querySelector('.modal-certo')
+    
+          modalCerto.classList.remove('model')
+          
 
         }
     })
@@ -420,6 +400,9 @@ function fecharEditarCliente() {
   var mostrarModal = document.querySelector('.m-editar')
   mostrarModal.classList.toggle('model')
   document.querySelector('body').style.background = '';
+
+  window.location.reload();
+
 }
 
 function fecharModal() {
@@ -427,6 +410,9 @@ function fecharModal() {
   modal.classList.toggle('model')
 
   document.querySelector('body').style.background = '';
+
+  window.location.reload();
+
 
 }
 
@@ -439,6 +425,7 @@ function modalExcluir() {
   modalExcluir.classList.remove('model')
 }
 
+
 function esconderModalExcluir() {
   document.querySelector('body').style.background = '';
 
@@ -447,6 +434,13 @@ function esconderModalExcluir() {
   modalExcluir.classList.add('model')
 
   window.location.reload();
+
+}
+
+function esconderModalFecharAntes() {
+  var modalErroFecharAntes = document.querySelector('.modal-errado-nao-existe')
+
+  modalErroFecharAntes.classList.add('model')
 
 }
 
@@ -576,6 +570,15 @@ function calcularHoras() {
 
 
 }
+
+function esconderModalCheck() {
+  var modalCerto = document.querySelector('.modal-certo')
+
+  modalCerto.classList.add('model')
+
+  window.location.reload();
+}
+
 
 
 var search_btn = document.querySelector('.btn-filter')

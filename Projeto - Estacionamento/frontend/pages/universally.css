@@ -233,7 +233,7 @@ h1 {
     width: 30%;
 }
 
-.modal-certo , .modal-errado, .modal-errado-vagas {
+.modal-certo , .modal-errado, .modal-errado-vagas, .modal-errado-nao-existe , .modal-errado-cpf-existente, .modal-certo-editar {
     width: 25%;
     position: fixed;
     background-color: white;
@@ -266,6 +266,8 @@ h1 {
 
 .modal-errado  img{width: 50%;}
 .modal-errado-vagas img {width: 50%;}
+.modal-errado-nao-existe img {width: 50%;}
+.modal-errado-cpf-existente img {width: 50%;}
 .modal-excluir img {width: 60%;}
 
 .modal-certo button {

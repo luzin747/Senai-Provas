@@ -89,10 +89,6 @@ function cadastrarVagas() {
 
     console.log(clientes)
 
-
-
-
-
     clientes.forEach(c => {
 
     if (num_vaga < 150) {
@@ -101,6 +97,7 @@ function cadastrarVagas() {
         if (cpf_cliente == c.cpf) {
             achou = true
         }
+        
     })
 
     
@@ -152,9 +149,10 @@ function cadastrarVagas() {
             modalErro.classList.remove('model')
         }
         else {
-            alert('Vagas Inexistentes')
 
-            window.location.reload();
+            var modalErroInexistente = document.querySelector('.modal-errado-nao-existe')
+
+            modalErroInexistente.classList.remove('model')
 
         }
     }
@@ -287,6 +285,12 @@ function esconderModalErrorCpfs() {
     var modalErro = document.querySelector('.modal-errado')
 
     modalErro.classList.add('model')
+
+}
+function esconderModalErrorInexistente() {
+    var modalErroInexistente = document.querySelector('.modal-errado-nao-existe')
+
+    modalErroInexistente.classList.add('model')
 
 }
 

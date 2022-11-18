@@ -48,6 +48,7 @@ function preencherTabelaMensalidades() {
     novoTrMensalistas.querySelector('.categoria').innerHTML = m.categoria_car
     novoTrMensalistas.querySelector('.valor_mensalidade').innerHTML = 'R$'+ m.valor_tot +',00' 
     novoTrMensalistas.querySelector('.data_mensalidade').innerHTML = m.data_ent
+    console.log(m.data_ent)
     novoTrMensalistas.querySelector('.hora_entrada').innerHTML = m.hora_ent
     novoTrMensalistas.querySelector('.hora_saida').innerHTML = m.hora_sai
     novoTrMensalistas.querySelector('.forma_pagamento').innerHTML = m.forma_pagamento

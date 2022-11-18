@@ -302,7 +302,7 @@ function mensaPagas() {
 
     qtdMensaPagas.forEach(p => {
 
-        valorTotal = p.valor_tot
+        valorTotal += p.valor_tot
 
     })
 

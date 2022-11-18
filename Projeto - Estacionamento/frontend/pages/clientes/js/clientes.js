@@ -247,8 +247,10 @@ function salvarEdicao(e) {
       .then(res => { return res.json() })
       .then(resp => {
           if (resp.id_cliente != undefined && resp.nome != undefined && resp.sobrenome != undefined && resp.data_nasci != undefined && resp.cpf != undefined && resp.rg != undefined && resp.celular != undefined && resp.telefone_fixo != undefined &&  resp.email != undefined && resp.cep != undefined && resp.endereco != undefined && resp.numero != undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli != undefined) {
-              alert("Cliente Editado com sucesso.")
-              window.location.reload(true);
+            var modalCertoEditar = document.querySelector('.modal-certo-editar')
+    
+            modalCertoEditar.classList.remove('model')
+
           } else {
               alert("Erro Quando Edita Cliente")
 
@@ -281,6 +283,16 @@ function esconderModalExcluir() {
   window.location.reload();
 
 }
+
+function esconderModalCheckEditar() {
+  var modalCertoEditar = document.querySelector('.modal-certo-editar')
+
+  modalCertoEditar.classList.add('model')
+
+  window.location.reload();
+}
+
+
 
 // FUNÇÕES PARA BUSCAR CLIENTE POR NOME
 

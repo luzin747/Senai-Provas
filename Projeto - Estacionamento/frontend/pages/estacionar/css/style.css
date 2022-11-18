@@ -240,5 +240,27 @@ table tr td i:nth-child(2) {
     cursor: pointer;
 }
 
+.modal-certo button {
+    background-color: #12D76E;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 25px;
+    margin-top: 10px;
+}
+
+.modal-errado-nao-existe button {
+    background-color: #ee0f0f;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 25px;
+    margin-top: 10px;
+}
+
+
+
 
 
