@@ -180,7 +180,7 @@ function edicao() {
         "categoria_car": categoria_carro,
         "data_ent": data_entrada, 
         "hora_ent": h_entrada,
-        "hora_saida": h_saida,
+        "hora_sai": h_saida,
         "valor_tot": valor, 
         "forma_pagamento": forma_pagamento,
         "stats_mensal":"Pago"
@@ -200,7 +200,6 @@ function edicao() {
             if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_saida !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
                 
 
-                alert('Funcionando')
 
                 deletarVagaPosFechamento()
                 
@@ -327,7 +326,8 @@ fetch(uriDeletarVagas, {
 .then(res => { return res.json() })
     .then(resp => {
         if (resp.numero_vaga !== undefined) {
-         
+          window.location.reload();
+
         }
     })
 }

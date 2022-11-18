@@ -162,6 +162,8 @@ table tr td i {
     padding: 4px;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
+
 }
 
 table tr td i:nth-child(1) {
