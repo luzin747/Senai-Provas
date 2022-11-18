@@ -160,10 +160,9 @@ function editarCliente(e) {
 
 function edicao() {
       
-      var ticket_id = document.querySelector('.ticket-id').value 
-      var number_vaga = document.querySelector('.id_vaga').innerHTML
       var placa_car = document.querySelector('.placa').value
       var cpf_cli = document.querySelector('.cpf').value
+      var data_entrada = document.querySelector('.cpf').value
       var h_entrada = document.querySelector('.h_entrada').value
       var h_saida = document.querySelector('.h_saida').value
       var valor_final = document.querySelector('.valor_Total').value
@@ -172,24 +171,25 @@ function edicao() {
 
       const [n,valor,s] = valor_final.split(' ')
 
+      console.log(valor)
 
       let data = {
-        "ticket_id": ticket_id,
-        "number_vaga": number_vaga,
-        "categoria_carro": categoria_carro,
-        "placa_car":placa_car,
-        "cpf_cli": cpf_cli,
-        "h_entrada":h_entrada,
-        "h_saida": h_saida,
-        "valor_final":valor,
-        "forma_pagamento":forma_pagamento,
-        "status_pag":"Pago"
+        "mensalista":"Usuario", 
+        "cpf_mensalista": cpf_cli,
+        "placa_car": placa_car, 
+        "categoria_car": categoria_carro,
+        "data_ent": data_entrada, 
+        "hora_ent": h_entrada,
+        "hora_saida": h_saida,
+        "valor_tot": valor, 
+        "forma_pagamento": forma_pagamento,
+        "stats_mensal":"Pago"
     }
 
     console.log(data)
 
-    fetch('http://localhost:3000/registro_ticket', {
-        "method":"PUT",
+    fetch('http://localhost:3000/mensalidades', {
+        "method":"POST",
         "headers": {
             "Content-Type":"application/json"
         },
@@ -197,16 +197,72 @@ function edicao() {
     })
     .then(res => { return res.json() })
         .then(resp => {
-            if (resp.ticket_id !== undefined &&resp.number_vaga !== undefined && resp.placa_car !== undefined && resp.cpf_cli !== undefined && resp.h_entrada !== undefined && resp.h_saida !== undefined && resp.valor_final !== undefined && resp.forma_pagamento !== undefined && resp.status_pag !== undefined ) {
+            if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_saida !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
                 
 
                 alert('Funcionando')
 
-                fechandoVagas()
+                deletarVagaPosFechamento()
                 
             } 
         })
 }
+
+// function edicao() {
+      
+//       var ticket_id = document.querySelector('.ticket-id').value 
+//       var number_vaga = document.querySelector('.id_vaga').innerHTML
+//       var placa_car = document.querySelector('.placa').value
+//       var cpf_cli = document.querySelector('.cpf').value
+//       var h_entrada = document.querySelector('.h_entrada').value
+//       var h_saida = document.querySelector('.h_saida').value
+//       var valor_final = document.querySelector('.valor_Total').value
+//       var forma_pagamento = document.querySelector('.formas_pagamentos').value
+//       var categoria_carro = document.querySelector('.categoria_veiculo').value
+
+//       const [n,valor,s] = valor_final.split(' ')
+
+
+//       let data = {
+//         "ticket_id": ticket_id,
+//         "number_vaga": number_vaga,
+//         "categoria_carro": categoria_carro,
+//         "placa_car":placa_car,
+//         "cpf_cli": cpf_cli,
+//         "h_entrada":h_entrada,
+//         "h_saida": h_saida,
+//         "valor_final":valor,
+//         "forma_pagamento":forma_pagamento,
+//         "status_pag":"Pago"
+//     }
+
+//     console.log(data)
+
+//     fetch('http://localhost:3000/registro_ticket', {
+//         "method":"PUT",
+//         "headers": {
+//             "Content-Type":"application/json"
+//         },
+//         "body":JSON.stringify(data)
+//     })
+//     .then(res => { return res.json() })
+//         .then(resp => {
+//             if (resp.ticket_id !== undefined &&resp.number_vaga !== undefined && resp.placa_car !== undefined && resp.cpf_cli !== undefined && resp.h_entrada !== undefined && resp.h_saida !== undefined && resp.valor_final !== undefined && resp.forma_pagamento !== undefined && resp.status_pag !== undefined ) {
+                
+
+//                 alert('Funcionando')
+
+//                 fechandoVagas()
+                
+//             } 
+//         })
+// }
+
+function relatorioFechamento() {
+  
+
+}
+
 
 function fechandoVagas() {
 
@@ -271,7 +327,7 @@ fetch(uriDeletarVagas, {
 .then(res => { return res.json() })
     .then(resp => {
         if (resp.numero_vaga !== undefined) {
-          modalExcluir()
+         
         }
     })
 }

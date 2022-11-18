@@ -3,7 +3,7 @@ const uriDeletar = 'http://localhost:3000/carros'
 const uriDeletarVagas = 'http://localhost:3000/vagas'
 
 
-const uri = 'http://localhost:3000/ticket_pagos'
+const uri = 'http://localhost:3000/mensalidades'
 
 var mensalistas = []
 
@@ -40,16 +40,14 @@ function preencherTabelaMensalidades() {
 
     novoTrMensalistas.classList.remove('model')
 
-    valorTotal += m.valor_final
+    valorTotal += m.valor_tot
 
-    novoTrMensalistas.querySelector('.idCli').innerHTML = m.ticket_id
-    novoTrMensalistas.querySelector('.vagas').innerHTML = m.number_vaga
-    novoTrMensalistas.querySelector('.placa_veiculo').innerHTML = m.placa_carro
+    novoTrMensalistas.querySelector('.placa_veiculo').innerHTML = m.placa_car
     // novoTrMensalistas.querySelector('.nomeMensalista').innerHTML = 
-    novoTrMensalistas.querySelector('.cpfMensalista').innerHTML = m.cpf_cliente
-    novoTrMensalistas.querySelector('.categoria').innerHTML = m.categoria_vaga
+    novoTrMensalistas.querySelector('.cpfMensalista').innerHTML = m.cpf_mensalista
+    novoTrMensalistas.querySelector('.categoria').innerHTML = m.categoria_car
     novoTrMensalistas.querySelector('.valor_mensalidade').innerHTML = 'R$'+ m.valor_final +',00' 
-    novoTrMensalistas.querySelector('.data_mensalidade').innerHTML = m.data_est
+    novoTrMensalistas.querySelector('.data_mensalidade').innerHTML = m.data_ent
     novoTrMensalistas.querySelector('.forma_pagamento').innerHTML = m.forma_pagamento
 
 

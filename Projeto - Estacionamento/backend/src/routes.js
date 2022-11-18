@@ -2,11 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
-const ClienteController = require("./controllers/Clientes.Controller");
-const CarroController = require("./controllers/CarrosController");
-const EstcacionamentoController = require("./controllers/EstacionarController");
-const VagasController = require("./controllers/VagasController");
-const TelefoneController = require("./controllers/TelefonesController");
+const ClienteController = require("./controllers/clientes.Controller");
+const CarroController = require("./controllers/carrosController");
+const EstcacionamentoController = require("./controllers/estacionarController");
+const MensalidadesController = require("./controllers/mensalidadesController");
+const VagasController = require("./controllers/vagasController");
+const TelefoneController = require("./controllers/telefonesController");
 
 
 
@@ -24,12 +25,15 @@ router.post("/carros", CarroController.cadastrarCarro);
 router.delete("/carros", CarroController.excluirCarro);
 router.put("/carros", CarroController.editarCarro);
 
-router.get("/ticket_pagos", EstcacionamentoController.listarEstacionamentospagos);
 router.get("/vw_estacionar", EstcacionamentoController.listarEstacionamentos);
 router.get("/registro_ticket/:ticket_id", EstcacionamentoController.listaEstcacionamento);
 router.post("/registro_ticket", EstcacionamentoController.cadastrarEstacionamento);
 router.delete("/registro_ticket", EstcacionamentoController.excluirEstacionamento);
 router.put("/registro_ticket", EstcacionamentoController.editarEstacionamento);
+
+router.get("/mensalidades", MensalidadesController.listarEstacionamentosPagos);
+router.post("/mensalidades", MensalidadesController.registraMensalidade);
+router.delete("/mensalidades", MensalidadesController.excluirMensalidade);
 
 router.get("/vagas", VagasController.listarVagas);
 router.get("/vagas/:numero_vaga", VagasController.listaVaga);
@@ -39,8 +43,5 @@ router.put("/vagas", VagasController.editarVaga);
 
 router.get("/telefones", TelefoneController.listarTelefones);
 router.get("/telefones/:cliente_id", TelefoneController.listaTelefone);
-
-
-
 
 module.exports = router;

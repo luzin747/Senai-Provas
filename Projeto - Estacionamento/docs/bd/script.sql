@@ -54,7 +54,23 @@ create table registro_ticket(
  
 );
 
-alter table registro_ticket add foreign key (number_vaga) references vagas(numero_vaga);
+create table mensalidades(
+    mensal_id integer auto_increment not null primary key,
+    mensalista varchar(50) not null,
+    cpf_mensalista varchar(11) not null,
+    placa_car varchar(10) not null,
+    categoria_car varchar(10) not null,
+    data_ent varchar(20)  not null,
+    hora_ent time not null,
+    hora_sai time,
+    valor_tot float(10,2) not null,
+    forma_pagamento varchar(30)not null,
+    stats_mensal varchar(30) not null
+
+
+);
+
+-- alter table registro_ticket add foreign key (number_vaga) references vagas(numero_vaga);
 
 -- insert into clientes values(default,'Tony','Halls','05/09/1999','80821611089','558782780','19988547502','33768990','TonyH@gmail.com','13055910','Rua Joaquin Cardoso ',400, 'Vila formosa','Jaguariúna','SP','casa','Sim');
 -- insert into clientes values(default,'Juzyssara','Montes','16/03/1993','44333810043','268726548','19978570192','32260117','JuzyMonte@hotmail.com','15048639','Rua São Bernado' ,600 , 'Esmeraldina','Jaguariúna','SP','Apartamento bloco C','Sim');
@@ -74,7 +90,7 @@ alter table registro_ticket add foreign key (number_vaga) references vagas(numer
 -- insert into registro_ticket values(default,1,'CIZ8920','Grande','44333810043',DATE_SUB(curdate(),INTERVAL 1 DAY),'08:00','','','','Aberto');
 -- insert into registro_ticket values(default,3,'MWK7015','Pequeno','80821611089',DATE_SUB(curdate(),INTERVAL 1 DAY),'09:30','','','','Aberto');
 -- insert into registro_ticket values(default,2,'EDL3Z90','Médio','07937014067',DATE_SUB(curdate(),INTERVAL 1 DAY),'10:00','','','','Aberto');
--- insert into registro_ticket values(default,2,'HXW3364','Grande','07937014067',DATE_SUB(curdate(),INTERVAL 2 DAY),'08:30','12:30',40.00,'Cartão Débito','Pago');
+-- insert into mensalidades values(default, "Luiz Ferdinando","88356488349","EMZ90Z2","Médio" ,curdate(),"08:00","10:00","10","PIX", "Pago");
 
 create view vw_clientes as
 select id_cliente as cliente_id, nome as Nome_cliente, sobrenome as Sobrenome, cpf ,email , celular, telefone_fixo, status_cli  from clientes;
@@ -92,17 +108,18 @@ inner join carros ca on  r.placa_car = ca.placa where r.status_pag  = "Aberto";
 
 select * from vw_estacionar;
 
-create view ticket_pagos as
-select r.ticket_id,v.numero_vaga as number_vaga, c.cpf as cpf_cliente, r.data_est, v.categoria_vaga , v.valor_h , ca.placa as  placa_carro, r.categoria_carro, r.valor_final , r.forma_pagamento, r.status_pag from clientes c
-inner join registro_ticket r on c.cpf = r.cpf_cli
-inner join vagas v on r.number_vaga = v.numero_vaga 
-inner join carros ca on  r.placa_car = ca.placa where status_pag  <> "Aberto"; 
+-- create view ticket_pagos as
+-- select r.ticket_id,v.numero_vaga as number_vaga, c.cpf as cpf_cliente, r.data_est, v.categoria_vaga , v.valor_h , ca.placa as  placa_carro, r.categoria_carro, r.valor_final , r.forma_pagamento, r.status_pag from clientes c
+-- inner join registro_ticket r on c.cpf = r.cpf_cli
+-- inner join vagas v on r.number_vaga = v.numero_vaga 
+-- inner join carros ca on  r.placa_car = ca.placa where status_pag  <> "Aberto"; 
 
-select * from ticket_pagos;
+-- select * from ticket_pagos;
+
 select * from `clientes`;
 select * from `carros`;
 select * from `vagas`;
 select * from `registro_ticket`;
+select * from `mensalidades`;
 select * from vw_clientes;
 select * from vw_estacionar;
-select * from ticket_pagos;

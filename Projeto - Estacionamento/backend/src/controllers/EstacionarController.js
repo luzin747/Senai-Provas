@@ -5,17 +5,6 @@ const conDB = mysql.createConnection({
     "user": "root",
     "database": "renasparking"
 });
-function listarEstacionamentospagos(req, res) {
-    let query = "SELECT * FROM ticket_pagos";
-
-    conDB.query(query, (err, result) => {
-        if(err == null) {
-            res.json(result).status(200).end();
-        }else {
-            res.json(err).status(400).end();
-        }
-    })
-};
 
 function listarEstacionamentos(req, res) {
     let query = "SELECT * FROM vw_estacionar";
@@ -82,7 +71,6 @@ function editarEstacionamento(req, res){
 module.exports = {
     listarEstacionamentos,
     listaEstcacionamento,
-    listarEstacionamentospagos,
     cadastrarEstacionamento,
     excluirEstacionamento,
     editarEstacionamento

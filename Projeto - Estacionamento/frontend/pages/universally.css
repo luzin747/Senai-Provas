@@ -228,8 +228,9 @@ h1 {
 .unlocked {color: black;}
 .open {color: black;}
 
+
 .money {
-    width: 25%;
+    width: 30%;
 }
 
 .modal-certo , .modal-errado, .modal-errado-vagas {
