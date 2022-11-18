@@ -197,9 +197,9 @@ function edicao() {
     })
     .then(res => { return res.json() })
         .then(resp => {
-            if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_saida !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
+            if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_sai !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
                 
-
+                alert('indo pro vagas')
 
                 deletarVagaPosFechamento()
                 
@@ -257,10 +257,6 @@ function edicao() {
 //         })
 // }
 
-function relatorioFechamento() {
-  
-
-}
 
 
 function fechandoVagas() {

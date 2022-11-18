@@ -40,7 +40,7 @@ function cadastrarCliente() {
     let data = {
         "nome": nome,
         "sobrenome": sobrenome,
-        "data_nasc": data_nasc,
+        "data_nasci": data_nasc,
         "cpf": cpf,
         "rg": rg,
         "email": email,
@@ -68,7 +68,7 @@ function cadastrarCliente() {
 
         .then(res => { return res.json() })
         .then(resp => {
-            if (resp.nome !== undefined && resp.sobrenome !== undefined && resp.data_nasc !== undefined && resp.cpf !== undefined && resp.rg !== undefined && resp.email !== undefined && resp.cep !== undefined && resp.endereco !== undefined && resp.numero !== undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli !== undefined) {
+            if (resp.nome !== undefined && resp.sobrenome !== undefined && resp.data_nasci !== undefined && resp.cpf !== undefined && resp.rg !== undefined && resp.email !== undefined && resp.cep !== undefined && resp.endereco !== undefined && resp.numero !== undefined && resp.bairro !== undefined && resp.cidade !== undefined && resp.uf !== undefined && resp.complemento !== undefined && resp.status_cli !== undefined) {
                 var modalCerto = document.querySelector('.modal-certo')
 
                 modalCerto.classList.remove('model')
