@@ -42,8 +42,8 @@ function preencherTabelaMensalidades() {
 
     valorTotal += m.valor_tot
 
+    novoTrMensalistas.querySelector('.mensal_id').innerHTML = m.mensal_id
     novoTrMensalistas.querySelector('.placa_veiculo').innerHTML = m.placa_car
-    // novoTrMensalistas.querySelector('.nomeMensalista').innerHTML = 
     novoTrMensalistas.querySelector('.cpfMensalista').innerHTML = m.cpf_mensalista
     novoTrMensalistas.querySelector('.categoria').innerHTML = m.categoria_car
     novoTrMensalistas.querySelector('.valor_mensalidade').innerHTML = 'R$'+ m.valor_tot +',00' 
@@ -143,6 +143,33 @@ fetch(uriDeletarVagas, {
 .then(res => { return res.json() })
     .then(resp => {
         if (resp.numero_vaga !== undefined) {
+          modalExcluir()
+
+        }
+    })
+}
+
+function deletarMensalidade(e) {
+  var mensal_id = e.parentNode.parentNode.querySelector('.mensal_id').innerHTML
+
+
+  let data = {
+    "mensal_id": mensal_id
+    
+  };
+  console.log(data)
+
+fetch('http://localhost:3000/mensalidades', {
+    "method":"DELETE",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body":JSON.stringify(data)
+})
+.then(res => { return res.json() })
+    .then(resp => {
+        if (resp.mensal_id !== undefined) {
+            
           modalExcluir()
 
         }
