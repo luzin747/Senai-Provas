@@ -46,139 +46,153 @@
 
                 </ul>
 
-                <ul class="cont-busca">
-                    <div>
-                        <input type="text" class="buscar" placeholder="Procure seu Pokemon...">
-                        <i class='bx bx-search-alt-2'></i>
-                    </div>
-                </ul>
             </nav>
-        </header>
+        </header>     
 
-        <div class="filter">
-
-            <div class="cont-selects">
-
-                <select name="Type" class="type" id="">
-                    <option class="type-caption" value="Type">Tipo</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Fire">Fogo</option>
-                    <option value="Water">Água</option>
-                    <option value="Grass">Grama</option>
-                    <option value="Flying ">Voador</option>
-                    <option value="Fighting ">Lutador</option>
-                    <option value="Poison ">Veneno</option>
-                    <option value="Electric">Elétrico</option>
-                    <option value="Ground">Terra</option>
-                    <option value="Rock ">Pedra</option>
-                    <option value="Psychic">Psíquico</option>
-                    <option value="Ice">Gelo</option>
-                    <option value="Bug">Inseto</option>
-                    <option value="Ghost">Fantasma</option>
-                    <option value="Steel">Ferro</option>
-                    <option value="Dragon">Dragão</option>
-                    <option value="Dark">Sombrio</option>
-                    <option value="Fairy">Fada</option>
-                </select>
-            </div>
-
-            <div>
-                <img src="" alt="">
-                <select name="Weaknesses" class="waknesses" id="">
-                    <option class="type-caption" value="Type">Fraquezas</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Fire">Fogo</option>
-                    <option value="Water">Água</option>
-                    <option value="Grass">Grama</option>
-                    <option value="Flying ">Voador</option>
-                    <option value="Fighting ">Lutador</option>
-                    <option value="Poison ">Veneno</option>
-                    <option value="Electric">Elétrico</option>
-                    <option value="Ground">Terra</option>
-                    <option value="Rock ">Pedra</option>
-                    <option value="Psychic">Psíquico</option>
-                    <option value="Ice">Gelo</option>
-                    <option value="Bug">Inseto</option>
-                    <option value="Ghost">Fantasma</option>
-                    <option value="Steel">Ferro</option>
-                    <option value="Dragon">Dragão</option>
-                    <option value="Dark">Sombrio</option>
-                    <option value="Fairy">Fada</option>
-                </select>
-            </div>
+        <div class="cont-busca">
+            <input type="text" class="buscar" placeholder="Procure seu Pokemon...">
+            <i class='bx bx-search-alt-2' onclick="procurarPokes()"></i>
         </div>
 
         <div class="conteudo">
 
-
             <div class="cont-card-pokes">
 
-                <div class="card-pokes model" onclick="pokemonsDetails(this)">
-                    <img class="gif-poke" src="img/gifs/turtwig.webp" alt="">
+                <div class="model">
+                    <div class="card-pokes" onclick="ativarModal(this)">
+                        <img class="gif-poke" src="img/gifs/turtwig.webp" alt="">
 
-                    <span class="number-poke"></span>
-                    <p class="name-poke"></p>
-                    <p class="type-poke grass"></p>
-                </div>
-
-                <!-- <div class="card-pokes">
-                    <img class="gif-poke" src="img/gifs/grottle.webp" alt="">
-
-                    <span class="number-poke">N°388</span>
-                    <p class="name-poke">Grottle</p>
-                    <p class="type-poke grass">GRASS</p>
-                </div>
-
-                <div class="card-pokes">
-                    <img class="gif-poke" src="img/gifs/torterra.gif" alt="">
-
-                    <span class="number-poke">N°387</span>
-                    <p class="name-poke">Torterra</p>
-                    <div class="type-poke-card">
-                        <p class="type-poke grass">GRASS</p>
-                        <p class="type-poke ground">GROUND</p>
+                        <span class="number-poke"></span>
+                        <p class="name-poke"></p>
+                        <p class="type-poke"></p>
                     </div>
                 </div>
-
-                <div class="card-pokes">
-                    <img class="gif-poke" src="img/gifs/torterra.gif" alt="">
-
-                    <span class="number-poke">N°390</span>
-                    <p class="name-poke">Chimchar</p>
-                    <div class="type-poke-card">
-                        <p class="type-poke fire">FIRE</p>
-                    </div>
-                </div> -->
 
             </div>
 
             <div class="cont-poke-info">
-                
+
 
                 <div class="poke-info model">
                     <div>
                         <img class="img-poke" src="img/images-pokes/1.png" alt="">
-    
+
                         <div class="genero">
-                            <i class='bx bx-male-sign male' ></i>
-                            <i class='bx bx-female-sign female' ></i>
+                            <i class='bx bx-male-sign male'></i>
+                            <i class='bx bx-female-sign female'></i>
                         </div>
                     </div>
-    
+
                     <div class="conteudo-pokemon">
-    
+
                         <span class="number-poke">N385</span>
-                        <p class="name-poke">Empoleon</p>
-    
+                        <p class="name-poke"></p>
+
                         <div class="type-poke-card">
 
-                            <p class="type-poke">s</p>
-                            <!-- <p class="type-poke water">WATER</p>
-                            <p class="type-poke steel">STEEL</p> -->
+                            <p class="type-poke-1">s</p>
+                            <!-- <p class="type-poke-2"></p> -->
+
                         </div>
+
+                        <div>
+                            <p>HABILIDADES</p>
+
+                            <div class="cont-habilidades">
+                                <p class="hb-1"></p>
+                                <p class="hb-2"></p>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <!-- <p>Detalhes</p> -->
+
+                            <div class="details-cont-pokemon">
+                                <div class="cont-pokemon">
+                                    <p class="title-details">ALTURA</p>
+
+                                    <span class="details-pokemon height">1.7m</span>
+                                </div>
+
+                                <div class="cont-pokemon">
+                                    <p class="title-details">PESO</p>
+
+                                    <span class="details-pokemon weight">84.5kg</span>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="cont-status">
+                            <p class="status-title">STATUS</p>
+
+                            <div class="status">
+
+                                <div class="model" style="margin-left: -10px;">
+
+
+                                </div>
+
+                                <div>
+                                    <span class="hp-cont">HP</span>
+                                    <p class="hp"></p>
+                                </div>
+
+                                <div>
+                                    <span class="atk-cont">ATK</span>
+                                    <p class="atack">44</p>
+                                </div>
+
+                                <div>
+                                    <span class="def-cont">DEF</span>
+                                    <p class="def">44</p>
+                                </div>
+
+                                <div>
+                                    <span class="spa-cont">SpA</span>
+                                    <p class="special-atack">44</p>
+                                </div>
+
+                                <div>
+                                    <span class="spo-cont">SpO</span>
+                                    <p class="special-defense">44</p>
+                                </div>
+
+                                <div>
+                                    <span class="spd-cont">SPD</span>
+                                    <p class="speed">44</p>
+                                </div>
+
+                                <div>
+                                    <span class="tot-cont">TOT</span>
+                                    <p class="total">44</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="cont-evolution">
+                            <p class="title-evolution">SEQUENCIA</p>
+
+                            <div class="evolution">
+                                <img src="" class="img-evolution-before" alt="">
+                                <p>-></p>
+
+                                <img src="" class="img-evolution-atual" alt="">
+                                <p>-></p>
+
+                                <img src="" class="img-evolution-after" alt="">
+
+                            </div>
+                        </div>
+
+
                     </div>
+
+
                 </div>
-               
+
             </div>
 
         </div>
