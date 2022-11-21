@@ -81,37 +81,109 @@ function pokemonsDetails(e) {
     detailsPokes.querySelector('.number-poke').innerHTML = 'Nª' + pokem.id
     detailsPokes.querySelector('.name-poke').innerHTML = pokem.name
 
-    var habilidade01 = pokem.abilities[0].ability.name
-    var habilidade02 = pokem.abilities[1].ability.name
+    var hb = pokem.abilities.length
 
-    detailsPokes.querySelector('.hb-1').innerHTML = habilidade01
-    detailsPokes.querySelector('.hb-2').innerHTML = habilidade02
+    if(hb > 1) {
+        detailsPokes.querySelector('.hb-1').innerHTML = pokem.abilities[0].ability.name
+        detailsPokes.querySelector('.hb-2').innerHTML = pokem.abilities[1].ability.name
+    }
+    if(hb = 1) {
+        detailsPokes.querySelector('.hb-1').innerHTML = pokem.abilities[0].ability.name
+    }
 
+
+    var tipo = pokem.types.length
+
+    console.log(tipo)
+
+//aq
+if(tipo = 1) {
     var teste = pokem.types[0].type.name
+
+    var tipePoke = document.querySelector('.type-poke-1')
+
+    tipePoke.classList.remove('model')
+
+    if(teste == 'normal'){tipePoke.style.background = '#ccc'; tipePoke.innerHTML = teste}
+    if(teste == 'fighting'){tipePoke.style.background = '#fcc'; tipePoke.innerHTML = teste}
+    if(teste == 'flying'){tipePoke.style.background = '#ccf'; tipePoke.innerHTML = teste}
+    if(teste == 'poison'){tipePoke.style.background = '#79556f'; tipePoke.innerHTML = teste}
+    if(teste == 'ground'){tipePoke.style.background = '#ba8b65'; tipePoke.innerHTML = teste}
+    if(teste == 'rock'){tipePoke.style.background = '#888'; tipePoke.innerHTML = teste}
+    if(teste == 'bug'){tipePoke.style.background = '#e3cc74'; tipePoke.innerHTML = teste}
+    if(teste == 'ghost'){tipePoke.style.background = '#d8c9f5'; tipePoke.innerHTML = teste}
+    if(teste == 'steel'){tipePoke.style.background = '#cfcfcf'; tipePoke.innerHTML = teste}
+    if(teste == 'fire'){tipePoke.style.background = '#c15d4d'; tipePoke.innerHTML = teste}
+    if(teste == 'water'){tipePoke.style.background = '#669fb2'; tipePoke.innerHTML = teste}
+    if(teste == 'grass'){tipePoke.style.background = '#8bbe8b'; tipePoke.innerHTML = teste}
+    if(teste == 'electric'){tipePoke.style.background = '#faed75'; tipePoke.innerHTML = teste}
+    if(teste == 'psychic'){tipePoke.style.background = '#fa9bec'; tipePoke.innerHTML = teste}
+    if(teste == 'ice'){tipePoke.style.background = '#9ff5ec'; tipePoke.innerHTML = teste}
+    if(teste == 'dragon'){tipePoke.style.background = '#ffedc9';tipePoke.innerHTML.innerHTML = teste}
+    if(teste == 'dark'){tipePoke.style.background = '#8f76c4'; tipePoke.innerHTML = teste}
+    if(teste == 'fairy'){tipePoke.style.background = '#f8cfd3'; tipePoke.innerHTML = teste}
+    if(teste == 'red'){tipePoke.style.background = 'red'; tipePoke.innerHTML = teste}
+}
+
+if(tipo > 1) {
+    var teste = pokem.types[0].type.name
+    var type02 = pokem.types[1].type.name
+
+    console.log(type02)
+
+
+    var tipePoke = document.querySelector('.type-poke-1')
+
+    tipePoke.classList.remove('model')
+
+    if(teste == 'normal'){tipePoke.style.background = '#ccc'; tipePoke.innerHTML = teste}
+    if(teste == 'fighting'){tipePoke.style.background = '#fcc'; tipePoke.innerHTML = teste}
+    if(teste == 'flying'){tipePoke.style.background = '#ccf'; tipePoke.innerHTML = teste}
+    if(teste == 'poison'){tipePoke.style.background = '#79556f'; tipePoke.innerHTML = teste}
+    if(teste == 'ground'){tipePoke.style.background = '#ba8b65'; tipePoke.innerHTML = teste}
+    if(teste == 'rock'){tipePoke.style.background = '#888'; tipePoke.innerHTML = teste}
+    if(teste == 'bug'){tipePoke.style.background = '#e3cc74'; tipePoke.innerHTML = teste}
+    if(teste == 'ghost'){tipePoke.style.background = '#d8c9f5'; tipePoke.innerHTML = teste}
+    if(teste == 'steel'){tipePoke.style.background = '#cfcfcf'; tipePoke.innerHTML = teste}
+    if(teste == 'fire'){tipePoke.style.background = '#c15d4d'; tipePoke.innerHTML = teste}
+    if(teste == 'water'){tipePoke.style.background = '#669fb2'; tipePoke.innerHTML = teste}
+    if(teste == 'grass'){tipePoke.style.background = '#8bbe8b'; tipePoke.innerHTML = teste}
+    if(teste == 'electric'){tipePoke.style.background = '#faed75'; tipePoke.innerHTML = teste}
+    if(teste == 'psychic'){tipePoke.style.background = '#fa9bec'; tipePoke.innerHTML = teste}
+    if(teste == 'ice'){tipePoke.style.background = '#9ff5ec'; tipePoke.innerHTML = teste}
+    if(teste == 'dragon'){tipePoke.style.background = '#ffedc9';tipePoke.innerHTML.innerHTML = teste}
+    if(teste == 'dark'){tipePoke.style.background = '#8f76c4'; tipePoke.innerHTML = teste}
+    if(teste == 'fairy'){tipePoke.style.background = '#f8cfd3'; tipePoke.innerHTML = teste}
+    if(teste == 'red'){tipePoke.style.background = 'red'; tipePoke.innerHTML = teste}
+
+
+        var tipePoke2 = document.querySelector('.type-poke-2')
+
+        tipePoke2.classList.remove('model')
+
+        if(type02 == 'normal'){tipePoke2.style.background = '#ccc'; tipePoke2.innerHTML = type02}
+        if(type02 == 'fighting'){tipePoke2.style.background = '#fcc'; tipePoke2.innerHTML = type02}
+        if(type02 == 'flying'){tipePoke2.style.background = '#ccf'; tipePoke2.innerHTML = type02}
+        if(type02 == 'poison'){tipePoke2.style.background = '#79556f'; tipePoke2.innerHTML = type02}
+        if(type02 == 'ground'){tipePoke2.style.background = '#ba8b65'; tipePoke2.innerHTML = type02}
+        if(type02 == 'rock'){tipePoke2.style.background = '#888'; tipePoke2.innerHTML = type02}
+        if(type02 == 'bug'){tipePoke2.style.background = '#e3cc74'; tipePoke2.innerHTML = type02}
+        if(type02 == 'ghost'){tipePoke2.style.background = '#d8c9f5'; tipePoke2.innerHTML = type02}
+        if(type02 == 'steel'){tipePoke2.style.background = '#cfcfcf'; tipePoke2.innerHTML = type02}
+        if(type02 == 'fire'){tipePoke2.style.background = '#c15d4d'; tipePoke2.innerHTML = type02}
+        if(type02 == 'water'){tipePoke2.style.background = '#669fb2'; tipePoke2.innerHTML = type02}
+        if(type02 == 'grass'){tipePoke2.style.background = '#8bbe8b'; tipePoke2.innerHTML = type02}
+        if(type02 == 'electric'){tipePoke2.style.background = '#faed75'; tipePoke2.innerHTML = type02}
+        if(type02 == 'psychic'){tipePoke2.style.background = '#fa9bec'; tipePoke2.innerHTML = type02}
+        if(type02 == 'ice'){tipePoke2.style.background = '#9ff5ec'; tipePoke2.innerHTML = type02}
+        if(type02 == 'dragon'){tipePoke2.style.background = '#ffedc9';tipePoke2.innerHTML.innerHTML = type02}
+        if(type02 == 'dark'){tipePoke2.style.background = '#8f76c4'; tipePoke2.innerHTML = type02}
+        if(type02 == 'fairy'){tipePoke2.style.background = '#f8cfd3'; tipePoke2.innerHTML = type02}
+        if(type02 == 'red'){tipePoke2.style.background = 'red'; tipePoke2.innerHTML = type02}
+
+        // console.log(tipePoke + tipePoke2)
     
-        var tipePoke = document.querySelector('.type-poke-1')
-
-        tipePoke.classList.remove('model')
-
-        if(teste == 'normal'){detailsPokes.querySelector('.type-poke-1').style.background = '#ccc'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'fighting'){detailsPokes.querySelector('.type-poke-1').style.background = '#fcc'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'flying'){detailsPokes.querySelector('.type-poke'-1).style.background = '#ccf'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'poison'){detailsPokes.querySelector('.type-poke-1').style.background = '#79556f'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'ground'){detailsPokes.querySelector('.type-poke-1').style.background = '#ba8b65'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'rock'){detailsPokes.querySelector('.type-poke-1').style.background = '#888'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'bug'){detailsPokes.querySelector('.type-poke-1').style.background = '#e3cc74'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'ghost'){detailsPokes.querySelector('.type-poke-1').style.background = '#d8c9f5'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'steel'){detailsPokes.querySelector('.type-poke-1').style.background = '#cfcfcf'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'fire'){detailsPokes.querySelector('.type-poke-1').style.background = '#c15d4d'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'water'){detailsPokes.querySelector('.type-poke-1').style.background = '#669fb2'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'grass'){detailsPokes.querySelector('.type-poke-1').style.background = '#8bbe8b'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'electric'){detailsPokes.querySelector('.type-poke-1').style.background = '#faed75'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'psychic'){detailsPokes.querySelector('.type-poke-1').style.background = '#fa9bec'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'ice'){detailsPokes.querySelector('.type-poke-1').style.background = '#9ff5ec'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'dragon'){detailsPokes.querySelector('.type-poke-1').style.background = '#ffedc9'; detailsPokes.querySelector('.type-poke').innerHTML = teste}
-        if(teste == 'dark'){detailsPokes.querySelector('.type-poke-1').style.background = '#8f76c4'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'fairy'){detailsPokes.querySelector('.type-poke-1').style.background = '#f8cfd3'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'red'){detailsPokes.querySelector('.type-poke-1').style.background = 'red'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
+}
 
 
     var hp = detailsPokes.querySelector('.hp').innerHTML = pokem.stats[0].base_stat
@@ -150,41 +222,105 @@ function pokemonsDetailsNome(e) {
     detailsPokes.querySelector('.number-poke').innerHTML = 'Nª' + pokem.id
     detailsPokes.querySelector('.name-poke').innerHTML = pokem.name
 
-    var habilidade01 = pokem.abilities[0].ability.name
-    var habilidade02 = pokem.abilities[1].ability.name
+    var hb = pokem.abilities.length
 
-    detailsPokes.querySelector('.hb-1').innerHTML = habilidade01
-    
-    if(habilidade02 != undefined) {
-        detailsPokes.querySelector('.hb-2').innerHTML = habilidade02
+    if(hb > 1) {
+        detailsPokes.querySelector('.hb-1').innerHTML = pokem.abilities[0].ability.name
+        detailsPokes.querySelector('.hb-2').innerHTML = pokem.abilities[1].ability.name
+    }
+    if(hb = 1) {
+        detailsPokes.querySelector('.hb-1').innerHTML = pokem.abilities[0].ability.name
     }
 
-    var teste = pokem.types[0].type.name
     
-        var tipePoke = document.querySelector('.type-poke-1')
 
-        tipePoke.classList.remove('model')
+    var tipo = pokem.types.length
 
-        if(teste == 'normal'){detailsPokes.querySelector('.type-poke-1').style.background = '#ccc'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'fighting'){detailsPokes.querySelector('.type-poke-1').style.background = '#fcc'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'flying'){detailsPokes.querySelector('.type-poke'-1).style.background = '#ccf'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'poison'){detailsPokes.querySelector('.type-poke-1').style.background = '#79556f'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'ground'){detailsPokes.querySelector('.type-poke-1').style.background = '#ba8b65'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'rock'){detailsPokes.querySelector('.type-poke-1').style.background = '#888'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'bug'){detailsPokes.querySelector('.type-poke-1').style.background = '#e3cc74'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'ghost'){detailsPokes.querySelector('.type-poke-1').style.background = '#d8c9f5'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'steel'){detailsPokes.querySelector('.type-poke-1').style.background = '#cfcfcf'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'fire'){detailsPokes.querySelector('.type-poke-1').style.background = '#c15d4d'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'water'){detailsPokes.querySelector('.type-poke-1').style.background = '#669fb2'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'grass'){detailsPokes.querySelector('.type-poke-1').style.background = '#8bbe8b'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'electric'){detailsPokes.querySelector('.type-poke-1').style.background = '#faed75'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'psychic'){detailsPokes.querySelector('.type-poke-1').style.background = '#fa9bec'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'ice'){detailsPokes.querySelector('.type-poke-1').style.background = '#9ff5ec'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'dragon'){detailsPokes.querySelector('.type-poke-1').style.background = '#ffedc9'; detailsPokes.querySelector('.type-poke').innerHTML = teste}
-        if(teste == 'dark'){detailsPokes.querySelector('.type-poke-1').style.background = '#8f76c4'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'fairy'){detailsPokes.querySelector('.type-poke-1').style.background = '#f8cfd3'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
-        if(teste == 'red'){detailsPokes.querySelector('.type-poke-1').style.background = 'red'; detailsPokes.querySelector('.type-poke-1').innerHTML = teste}
+//aq
+if(tipo = 1) {
+    var teste = pokem.types[0].type.name
 
+    var tipePoke = document.querySelector('.type-poke-1')
+
+    tipePoke.classList.remove('model')
+
+    if(teste == 'normal'){tipePoke.style.background = '#ccc'; tipePoke.innerHTML = teste}
+    if(teste == 'fighting'){tipePoke.style.background = '#fcc'; tipePoke.innerHTML = teste}
+    if(teste == 'flying'){tipePoke.style.background = '#ccf'; tipePoke.innerHTML = teste}
+    if(teste == 'poison'){tipePoke.style.background = '#79556f'; tipePoke.innerHTML = teste}
+    if(teste == 'ground'){tipePoke.style.background = '#ba8b65'; tipePoke.innerHTML = teste}
+    if(teste == 'rock'){tipePoke.style.background = '#888'; tipePoke.innerHTML = teste}
+    if(teste == 'bug'){tipePoke.style.background = '#e3cc74'; tipePoke.innerHTML = teste}
+    if(teste == 'ghost'){tipePoke.style.background = '#d8c9f5'; tipePoke.innerHTML = teste}
+    if(teste == 'steel'){tipePoke.style.background = '#cfcfcf'; tipePoke.innerHTML = teste}
+    if(teste == 'fire'){tipePoke.style.background = '#c15d4d'; tipePoke.innerHTML = teste}
+    if(teste == 'water'){tipePoke.style.background = '#669fb2'; tipePoke.innerHTML = teste}
+    if(teste == 'grass'){tipePoke.style.background = '#8bbe8b'; tipePoke.innerHTML = teste}
+    if(teste == 'electric'){tipePoke.style.background = '#faed75'; tipePoke.innerHTML = teste}
+    if(teste == 'psychic'){tipePoke.style.background = '#fa9bec'; tipePoke.innerHTML = teste}
+    if(teste == 'ice'){tipePoke.style.background = '#9ff5ec'; tipePoke.innerHTML = teste}
+    if(teste == 'dragon'){tipePoke.style.background = '#ffedc9';tipePoke.innerHTML.innerHTML = teste}
+    if(teste == 'dark'){tipePoke.style.background = '#8f76c4'; tipePoke.innerHTML = teste}
+    if(teste == 'fairy'){tipePoke.style.background = '#f8cfd3'; tipePoke.innerHTML = teste}
+    if(teste == 'red'){tipePoke.style.background = 'red'; tipePoke.innerHTML = teste}
+}
+
+if(tipo > 1) {
+    var teste = pokem.types[0].type.name
+    var type02 = pokem.types[1].type.name
+
+    console.log(type02)
+
+
+    var tipePoke = document.querySelector('.type-poke-1')
+
+    tipePoke.classList.remove('model')
+
+    if(teste == 'normal'){tipePoke.style.background = '#ccc'; tipePoke.innerHTML = teste}
+    if(teste == 'fighting'){tipePoke.style.background = '#fcc'; tipePoke.innerHTML = teste}
+    if(teste == 'flying'){tipePoke.style.background = '#ccf'; tipePoke.innerHTML = teste}
+    if(teste == 'poison'){tipePoke.style.background = '#79556f'; tipePoke.innerHTML = teste}
+    if(teste == 'ground'){tipePoke.style.background = '#ba8b65'; tipePoke.innerHTML = teste}
+    if(teste == 'rock'){tipePoke.style.background = '#888'; tipePoke.innerHTML = teste}
+    if(teste == 'bug'){tipePoke.style.background = '#e3cc74'; tipePoke.innerHTML = teste}
+    if(teste == 'ghost'){tipePoke.style.background = '#d8c9f5'; tipePoke.innerHTML = teste}
+    if(teste == 'steel'){tipePoke.style.background = '#cfcfcf'; tipePoke.innerHTML = teste}
+    if(teste == 'fire'){tipePoke.style.background = '#c15d4d'; tipePoke.innerHTML = teste}
+    if(teste == 'water'){tipePoke.style.background = '#669fb2'; tipePoke.innerHTML = teste}
+    if(teste == 'grass'){tipePoke.style.background = '#8bbe8b'; tipePoke.innerHTML = teste}
+    if(teste == 'electric'){tipePoke.style.background = '#faed75'; tipePoke.innerHTML = teste}
+    if(teste == 'psychic'){tipePoke.style.background = '#fa9bec'; tipePoke.innerHTML = teste}
+    if(teste == 'ice'){tipePoke.style.background = '#9ff5ec'; tipePoke.innerHTML = teste}
+    if(teste == 'dragon'){tipePoke.style.background = '#ffedc9';tipePoke.innerHTML.innerHTML = teste}
+    if(teste == 'dark'){tipePoke.style.background = '#8f76c4'; tipePoke.innerHTML = teste}
+    if(teste == 'fairy'){tipePoke.style.background = '#f8cfd3'; tipePoke.innerHTML = teste}
+    if(teste == 'red'){tipePoke.style.background = 'red'; tipePoke.innerHTML = teste}
+
+
+        var tipePoke2 = document.querySelector('.type-poke-2')
+
+        tipePoke2.classList.remove('model')
+
+        if(type02 == 'normal'){tipePoke2.style.background = '#ccc'; tipePoke2.innerHTML = type02}
+        if(type02 == 'fighting'){tipePoke2.style.background = '#fcc'; tipePoke2.innerHTML = type02}
+        if(type02 == 'flying'){tipePoke2.style.background = '#ccf'; tipePoke2.innerHTML = type02}
+        if(type02 == 'poison'){tipePoke2.style.background = '#79556f'; tipePoke2.innerHTML = type02}
+        if(type02 == 'ground'){tipePoke2.style.background = '#ba8b65'; tipePoke2.innerHTML = type02}
+        if(type02 == 'rock'){tipePoke2.style.background = '#888'; tipePoke2.innerHTML = type02}
+        if(type02 == 'bug'){tipePoke2.style.background = '#e3cc74'; tipePoke2.innerHTML = type02}
+        if(type02 == 'ghost'){tipePoke2.style.background = '#d8c9f5'; tipePoke2.innerHTML = type02}
+        if(type02 == 'steel'){tipePoke2.style.background = '#cfcfcf'; tipePoke2.innerHTML = type02}
+        if(type02 == 'fire'){tipePoke2.style.background = '#c15d4d'; tipePoke2.innerHTML = type02}
+        if(type02 == 'water'){tipePoke2.style.background = '#669fb2'; tipePoke2.innerHTML = type02}
+        if(type02 == 'grass'){tipePoke2.style.background = '#8bbe8b'; tipePoke2.innerHTML = type02}
+        if(type02 == 'electric'){tipePoke2.style.background = '#faed75'; tipePoke2.innerHTML = type02}
+        if(type02 == 'psychic'){tipePoke2.style.background = '#fa9bec'; tipePoke2.innerHTML = type02}
+        if(type02 == 'ice'){tipePoke2.style.background = '#9ff5ec'; tipePoke2.innerHTML = type02}
+        if(type02 == 'dragon'){tipePoke2.style.background = '#ffedc9';tipePoke2.innerHTML.innerHTML = type02}
+        if(type02 == 'dark'){tipePoke2.style.background = '#8f76c4'; tipePoke2.innerHTML = type02}
+        if(type02 == 'fairy'){tipePoke2.style.background = '#f8cfd3'; tipePoke2.innerHTML = type02}
+        if(type02 == 'red'){tipePoke2.style.background = 'red'; tipePoke2.innerHTML = type02}
+    }
 
     var hp = detailsPokes.querySelector('.hp').innerHTML = pokem.stats[0].base_stat
     var atack = detailsPokes.querySelector('.atack').innerHTML = pokem.stats[1].base_stat
