@@ -141,8 +141,7 @@ function pokemonsDetails(e) {
 
 function pokemonsDetailsNome(e) {
 
-    var id_poke = e.querySelector('.number-poke').innerHTML
-
+    var id_poke = pokem.id
 
     console.log(pokem)
 
@@ -155,7 +154,10 @@ function pokemonsDetailsNome(e) {
     var habilidade02 = pokem.abilities[1].ability.name
 
     detailsPokes.querySelector('.hb-1').innerHTML = habilidade01
-    detailsPokes.querySelector('.hb-2').innerHTML = habilidade02
+    
+    if(habilidade02 != undefined) {
+        detailsPokes.querySelector('.hb-2').innerHTML = habilidade02
+    }
 
     var teste = pokem.types[0].type.name
     
@@ -213,13 +215,17 @@ function pokemonsDetailsNome(e) {
 function procurarPokes() {
     var nomePoke = document.querySelector('.buscar').value  
 
+    var novoNome = nomePoke.toLowerCase()
+
     const options = { method: 'GET' };
 
-    fetch(uriPokemon + nomePoke, options)
+    // console.log(uriPokemon + novoNome)
+
+    fetch(uriPokemon + novoNome, options)
     .then(res => res.json())
     .then(data => {
             pokem = data;  
-            pokemonsDetailsNome(e) 
+            pokemonsDetailsNome() 
             // console.log(uriPokemon + id_poke)
         }
         )
