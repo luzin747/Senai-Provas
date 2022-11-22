@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,500;1,600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+#container {
+    width: 75vw;
+    margin: 0 auto;
+}
+
+.nav-img {
+    width: 83%;
+}
+
+.img-banner{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    margin-top: 5px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+nav ul  {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-top: -5px;
+    background-color: #212124;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav ul li {
+    font-size: 14pt;
+    padding: 0 20px;
+    /* border-left: 1px solid white;
+    border-right: 1px solid white; */
+
+}
+nav ul li i {
+    margin-right: 5px;
+}
+
+nav ul h1 {
+    margin-left: 6px;
+    padding-right: 5%;
+}
+
+.img-menu {
+    width: 2%;
+    color: white;
+}
+
+.inf-user {
+    margin-top: 10%;
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+    color: white;
+    background-color: #212124;
+    border-radius: 10px;
+    padding: 10px;
+}
+.inf-user .email, .cargo {
+    font-size: 10pt;
+    margin-top: 7px;
+    font-weight: 300;
+}
+
+.user-icon {
+    font-size: 25pt;
+    /* color: black; */
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+.actions i{
+    font-size: 20pt;
+    color: #ffffff;
+    margin: 8% 5px;
+}
+
+
+.cont-pergunta {
+    margin-top: 10%;
+    /* margin-left: 5%; */
+    background-color: #212124;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cont-pergunta button {
+    border: none;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+}
