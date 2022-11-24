@@ -192,7 +192,7 @@ nav ul h1 {
     padding: 10px;
     margin: 10px;
     border-radius: 25px;
-    background-color: #494950;
+    background-color: #515153;
 }
 
 .img-user {
@@ -211,6 +211,18 @@ nav ul h1 {
     border-radius: 5px;
     font-weight: 500;
 }
+
+
+.agradecimentos {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 1%;
+    height: 40.5vh;
+    background-color: #212124;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.322);
+}
+
 
 .cont-section-01 {
     max-width: 62vw;
