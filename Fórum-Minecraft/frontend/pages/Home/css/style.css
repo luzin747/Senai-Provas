@@ -232,10 +232,14 @@ nav ul h1 {
 
 
 .title {
+    width: 95%;
     display: flex;
     align-items: center;
     padding: 5px;
     color: black;
+    background-color: #212124;
+    color: rgb(252, 252, 252);
+    border-radius: 20px;
 
 }
 
@@ -255,10 +259,11 @@ nav ul h1 {
     display: flex;
     margin: 15px 0px;
     width: 94%;
-    background-color: #212124;
+    /* background-color: #212124; */
 }
 
 .cards {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.37);
     margin: 10px;
     background-color: white;
     padding: 5px 0px;
