@@ -148,16 +148,14 @@ nav ul h1 {
     font-size: 13pt;
 }
 
-.cont-inf h1 {
 
-}
 
 .c-1  {
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 12pt;
-    padding: 8px 5px;
+    padding: 16px 5px;
 }
 
 .c-1 div {
@@ -166,6 +164,29 @@ nav ul h1 {
 
 .c-1 i {
     font-size: 16pt;
+}
+
+.cont-contribuidores{
+    margin-top: 1%;
+    padding-top: 10px;
+    background-color: #212124;
+    color: white;
+    text-align: center;
+    font-size: 13pt;
+}
+
+.title-contribuidores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-contribuidores h5 {
+    padding: 1px;
+}
+
+.img-user {
+    width: 10px;
 }
 
 
@@ -178,8 +199,9 @@ nav ul h1 {
 }
 
 .cont-section-01 {
-    max-width: 62.2vw;
+    max-width: 62vw;
     margin: 5px 5px;
+    margin-top: -6%;
     
 }
 
@@ -200,7 +222,10 @@ nav ul h1 {
 
 
 
-
+.cont-section-01 {
+    display: flex;
+    flex-direction: column;
+}
 .cont-cards {
     display: flex;
     margin: 15px 0px;
