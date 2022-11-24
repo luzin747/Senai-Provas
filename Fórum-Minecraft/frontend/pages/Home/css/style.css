@@ -10,7 +10,6 @@
 body {
     background-image: url('https://www.todofondos.net/wp-content/uploads/4k-minecraft-wallpapers-los-mejores-fondos-4k-minecraft-gratis.-fondo-de-pantalla-hd-1080p-de-minecraft.png');
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .model {
@@ -21,7 +20,7 @@ body {
     width: 75vw;
     margin: 0 auto;
     background-color: white;
-    height: 100vh;
+    height: 120vh;
 }
 
 .nav-img {
@@ -130,7 +129,7 @@ nav ul h1 {
 
 
 .cont-pergunta {
-    margin-top: 1%;
+    margin-top: 1px;
     background-color: #212124;
     display: flex;
     justify-content: center;
@@ -141,7 +140,7 @@ nav ul h1 {
 
 
 .cont-inf {
-    margin-top: 1%;
+    margin-top: 1px;
     padding-top: 10px;
     background-color: #212124;
     color: white;
@@ -168,7 +167,7 @@ nav ul h1 {
 }
 
 .cont-contribuidores{
-    margin-top: 1%;
+    margin-top: 1px;
     padding-top: 10px;
     background-color: #212124;
     color: white;
@@ -216,7 +215,7 @@ nav ul h1 {
 .agradecimentos {
     display: flex;
     flex-direction: column-reverse;
-    margin-top: 1%;
+    margin-top: 1px;
     height: 40.5vh;
     background-color: #212124;
     text-align: center;
@@ -282,8 +281,25 @@ nav ul h1 {
 #section-02 {
     margin: 2px;
     position: fixed;
-    left: 72%;
+    left: 72.4%;
     width: 15vw;
 }
 
+.cont-questions {
+    width: 58vw;
+    margin-top: 10px;
+   
+    border: 1px solid black;
+}
+.questions  {
+    display: flex;
+    margin: 0px;
+    
+}
+.questions div {
+    padding-left: 0px;
+}
+.questions img {
+    width: 5%;
+}
 
