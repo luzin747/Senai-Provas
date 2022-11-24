@@ -48,7 +48,7 @@ header {
     background-color: #212124;
     color: white;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 
 .dropDown {
@@ -72,7 +72,9 @@ header {
     text-decoration: none;
     color: white;
 }
-
+nav  {
+    margin-left: -8px;
+}
 nav ul li {
     font-size: 14pt;
     padding: 0 20px;
@@ -170,6 +172,7 @@ nav ul h1 {
     padding-top: 10px;
     background-color: #212124;
     color: white;
+    padding-bottom: 10px;
     text-align: center;
     font-size: 13pt;
 }
@@ -189,14 +192,14 @@ nav ul h1 {
     padding: 10px;
     margin: 10px;
     border-radius: 25px;
-    background-color: #070720;
+    background-color: #494950;
 }
 
 .img-user {
     width: 25px;
     height: 25px;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 15px;
     margin-right: 10px;
 }
 
