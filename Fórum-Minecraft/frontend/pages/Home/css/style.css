@@ -96,14 +96,13 @@ nav ul h1 {
 }
 
 .inf-user {
-    /* margin-top: 10%; */
-    width: 16vw;
+    
+    /* width: 16vw; */
     margin: 0 auto;
-    /* height: 20vh; */
+    
     text-align: center;
     color: white;
     background-color: #212124;
-    /* border-radius: 10px; */
     padding: 20px 10px 0px 10px;
 }
 .inf-user .email, .cargo {
@@ -184,9 +183,21 @@ nav ul h1 {
 .title-contribuidores h5 {
     padding: 1px;
 }
+.contribuidores {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 25px;
+    background-color: #070720;
+}
 
 .img-user {
-    width: 10px;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 10px;
 }
 
 
@@ -201,7 +212,6 @@ nav ul h1 {
 .cont-section-01 {
     max-width: 62vw;
     margin: 5px 5px;
-    margin-top: -6%;
     
 }
 
@@ -240,9 +250,6 @@ nav ul h1 {
     border-radius: 2px;
 }
 
-.cards {
-
-}
 
 .cards p , h4 {
     padding-left: 10px;
@@ -252,8 +259,11 @@ nav ul h1 {
     width: 100%;
 }
 
-.last-questions h5{
-
+#section-02 {
+    margin: 2px;
+    position: fixed;
+    left: 72%;
+    width: 15vw;
 }
 
 
