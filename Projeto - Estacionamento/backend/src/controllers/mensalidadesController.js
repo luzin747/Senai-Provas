@@ -19,7 +19,7 @@ function listarEstacionamentosPagos(req, res) {
 };
 
 function excluirMensalidade(req, res) {
-    let query = `DELETE FROM mensalidades  WHERE mensal_id = '${req.body.mensal_id}'`;
+    let query = `DELETE FROM mensalidades WHERE mensal_id = '${req.body.mensal_id}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

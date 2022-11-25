@@ -286,18 +286,15 @@ nav ul {
     text-align: start;
 }
 
-/* .hb-1 {
-    padding-right: 50px;
-    padding-left: 10px;
-
+.cont-title-evolution {
+    display: flex;
+    margin-top: 35px;
+    justify-content: space-between;
 }
 
-.hb-2 {
-    padding-left: 50px;
-    padding-right: 10px;
-
-} */
-
+.cont-title-evolution p {
+    margin: 0 35px;
+}
 .details-cont-pokemon {
     display: flex;
     justify-content: space-around;
@@ -392,4 +389,29 @@ nav ul {
 
 /* .img-evolution-before {width: 10px;} */
 /* .img-evolution-atual {width: 10px;} */
+.cont-btn-mais-poke {
+    display: flex;
+    /* justify-content: center; */
+    margin-bottom: 230px;
+    margin-top: 30px;
+    margin-left: 30%;
+}
 
+.btnMaisPoke {
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: none;
+    background: red;
+    color: white;
+    font-weight: 500;
+    /* color: white; */
+    /* border: none; */
+    cursor: pointer;
+   
+}
+
+.btnMaisPoke:hover {
+    background: rgb(163, 7, 7);
+
+}
