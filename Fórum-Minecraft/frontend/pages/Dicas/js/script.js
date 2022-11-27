@@ -51,7 +51,7 @@ function preencher() {
 
     usuarios.forEach(u => {
 
-        if(u.status_user == 'usuario') {
+        if (u.status_user == 'usuario') {
             var novoUser = secUserModal.cloneNode(true)
             novoUser.classList.remove('model')
             novoUser.style.display = 'flex'
@@ -60,7 +60,7 @@ function preencher() {
             document.querySelector('.agradecimentos').appendChild(novoUser)
         }
 
-        if(u.status_user == 'admin') {
+        if (u.status_user == 'admin') {
 
             var novoadmin = secAdminModal.cloneNode(true)
             novoadmin.classList.remove('model')
@@ -110,38 +110,41 @@ function cardsPerguntas() {
     if (qtdRep == 1) {
         questions.forEach((q, i) => {
 
-            if (i < 3) {
-                var novoCardQuestion = cardQuestion.cloneNode(true)
+            // if (i < 3) {
+                if (q.tema == 'DICAS') {
 
-                novoCardQuestion.classList.toggle('model')
+                    var novoCardQuestion = cardQuestion.cloneNode(true)
 
-                var idUsuario = q.id_User
+                    novoCardQuestion.classList.toggle('model')
 
-                usuarios.forEach(u => {
+                    var idUsuario = q.id_User
 
-                    if (idUsuario == u.id_user) {
-                        novoCardQuestion.querySelector('.nome-user-card').innerHTML = u.nome_user
+                    usuarios.forEach(u => {
 
-                    }
+                        if (idUsuario == u.id_user) {
+                            novoCardQuestion.querySelector('.nome-user-card').innerHTML = u.nome_user
 
-                })
+                        }
 
-                var data = q.data
+                    })
 
-                const [ano, mes, juncao] = data.split('-')
+                    var data = q.data
 
-                var dia = juncao[0] + juncao[1]
+                    const [ano, mes, juncao] = data.split('-')
 
-                var dataCompleta = dia + ' ' + mes + ' ' + ano
+                    var dia = juncao[0] + juncao[1]
 
-                novoCardQuestion.querySelector('.id_usuario').innerHTML = q.id_User
-                novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
-                novoCardQuestion.querySelector('.data-question').innerHTML = '- ' + dataCompleta
-                novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
-                novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
+                    var dataCompleta = dia + ' ' + mes + ' ' + ano
 
-                document.querySelector('.container-cards').appendChild(novoCardQuestion)
-            }
+                    novoCardQuestion.querySelector('.id_usuario').innerHTML = q.id_User
+                    novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
+                    novoCardQuestion.querySelector('.data-question').innerHTML = '- ' + dataCompleta
+                    novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
+                    novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
+
+                    document.querySelector('.container-cards').appendChild(novoCardQuestion)
+                }
+            // }
 
         })
     }
@@ -182,7 +185,7 @@ function ativarModalResposta(e) {
         )
         .catch(err => console.error(err));
 
-        fetch(uriRespostas, options)
+    fetch(uriRespostas, options)
         .then(res => res.json(e))
         .then(res => {
             respostas = res;
@@ -197,59 +200,59 @@ function ativarModalResposta(e) {
 
 var qtdRep2 = 0
 function modalRespostas() {
-    
+
     var modalResposta = document.querySelector('.answer')
-    
+
     modalResposta.classList.remove('model')
-    
+
     questions.forEach(q => {
 
         var id_pergunta = q.id_pergunta
 
-            var data = q.data
+        var data = q.data
 
-            const [ano, mes, juncao] = data.split('-')
+        const [ano, mes, juncao] = data.split('-')
 
-            var dia = juncao[0] + juncao[1]
+        var dia = juncao[0] + juncao[1]
 
-            var dataCompleta = dia + '/' + mes + '/' + ano
+        var dataCompleta = dia + '/' + mes + '/' + ano
 
-            document.querySelector('.data-question-answer').innerHTML = dataCompleta
-            document.querySelector('.pergunta-answer').innerHTML = q.pergunta
-            document.querySelector('.tema-answer').innerHTML = q.tema
+        document.querySelector('.data-question-answer').innerHTML = dataCompleta
+        document.querySelector('.pergunta-answer').innerHTML = q.pergunta
+        document.querySelector('.tema-answer').innerHTML = q.tema
 
-            usuariosAnsert.forEach(u => {
+        usuariosAnsert.forEach(u => {
 
-                    document.querySelector('.nome-usuario').innerHTML = u.nickname
-                
-            })
+            document.querySelector('.nome-usuario').innerHTML = u.nickname
 
-            respostas.forEach(r  => {
+        })
+
+        respostas.forEach(r => {
 
             var teste = false
 
-                if(id_pergunta == r.id_perg ) {
-                        var novaResposta = questRespostas.cloneNode(true)
-                        
-                        novaResposta.classList.remove('model')
-            
-                        novaResposta.querySelector('.answer-r').innerHTML = r.resposta
-    
-                        document.querySelector('.user-answer').appendChild(novaResposta)
-                        
-                    }
-               
-            })
+            if (id_pergunta == r.id_perg) {
+                var novaResposta = questRespostas.cloneNode(true)
 
-            
+                novaResposta.classList.remove('model')
+
+                novaResposta.querySelector('.answer-r').innerHTML = r.resposta
+
+                document.querySelector('.user-answer').appendChild(novaResposta)
+
+            }
+
         })
 
-   
+
+    })
+
+
 
 
 }
 
- 
+
 function modalPergunta() {
     var modalQuestion = document.querySelector('.modal-pergunta')
     var texto = document.querySelector('#txtPerguntar')
@@ -271,46 +274,45 @@ function modalPergunta() {
     document.querySelector('.data-modal-quest').innerHTML = dataAtual
 }
 
-function fecharModalPergunta()
- {
+function fecharModalPergunta() {
     var modalQuestion = document.querySelector('.modal-pergunta')
 
     modalQuestion.classList.toggle('model')
     document.querySelector('#container').style.opacity = ''
 
- }
+}
 function cadastrarPergunta() {
     var txtPergunta = document.querySelector('#txtPerguntar').value
 
-    if(txtPergunta.length > 0) {
+    if (txtPergunta.length > 0) {
         var select_status = document.querySelector(".select_status")
         let seleStatus = select_status.options[select_status.selectedIndex].value;
-        if (seleStatus == 'crafts') { var tema = 'CRAFT'} 
-        if (seleStatus == 'bugs') { var tema = 'BUGS'} 
-        if (seleStatus == 'dicas') { var tema = 'DICAS'} 
-        if (seleStatus == 'mods') { var tema = 'MODS'} 
-    
-    
-    
+        if (seleStatus == 'crafts') { var tema = 'CRAFT' }
+        if (seleStatus == 'bugs') { var tema = 'BUGS' }
+        if (seleStatus == 'dicas') { var tema = 'DICAS' }
+        if (seleStatus == 'mods') { var tema = 'MODS' }
+
+
+
         let data = {
             "id_user": 2,
             "tema": tema,
             "pergunta": txtPergunta,
             "data": dataAtual
-    
+
         }
         console.log(data)
-    
+
         fetch(uriQuestions, {
-            "method":"POST",
+            "method": "POST",
             "headers": {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
             },
-            "body":JSON.stringify(data)
+            "body": JSON.stringify(data)
         })
-        
-        .then(res => { return res.json() })
-        .then(resp => {
+
+            .then(res => { return res.json() })
+            .then(resp => {
                 if (resp.id_user !== undefined && resp.tema !== undefined && resp.pergunta !== undefined && resp.data !== undefined) {
                     alert('Deu Certo!')
                 }
@@ -319,9 +321,9 @@ function cadastrarPergunta() {
     else {
         alert('Insira a Sua Pergunta antes de enviar!')
     }
-    
-    
-    
+
+
+
 
 
 }

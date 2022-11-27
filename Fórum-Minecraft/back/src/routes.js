@@ -14,8 +14,8 @@ router.delete("/Usuarios", UsuariosController.excluirUsuarios);
 router.put("/Usuarios", UsuariosController.editarUsuarios);
 
 router.get("/Perguntas", PerguntasController.listarPerguntas);
-router.get("/Perguntas/:id_user", PerguntasController.listarPerguntaUser);
-router.get("/Perguntas/:id_pergunta", PerguntasController.listarIdPergunta);
+router.get("/Perguntas/user/:id_user", PerguntasController.listarPerguntaUser);
+router.get("/Perguntas/quest/:id_pergunta", PerguntasController.listarIdPergunta);
 router.post("/Perguntas", PerguntasController.cadastrarPerguntas);
 router.delete("/Perguntas", PerguntasController.excluirPerguntas);
 router.put("/Perguntas", PerguntasController.editarPerguntas);

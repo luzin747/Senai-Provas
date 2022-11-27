@@ -23,43 +23,43 @@
                     <ul class="cont-ul">
                         <img class="img-menu" src="img/output-onlinepngtools.png" alt="">
                         <h1>RENASCRAFT</h1>
-                        <li><i class='bx bxs-home' ></i>HOME</li>
+                        <li><i class='bx bxs-home'></i>HOME</li>
                         <li><i class='bx bxs-user-account'></i>INTEGRANTES</li>
                         <li onclick="menuDow()">TÓPICOS<i class='bx bx-caret-down'></i>
-                        <ul class="dropDown model">
-                            <li><a href=""><i class='bx bxs-pin'></i>CRAFTS</a></li>
-                            <li><a href=""><i class='bx bxs-error'></i>BUGS</a></li>
-                            <li><a href=""><i class='bx bxs-invader'></i>DICAS</a></li>
-                            <li><a href=""><i class='bx bx-card' ></i>MODS</a></li>
-                        </ul>
+                            <ul class="dropDown model">
+                                <li><a href=""><i class='bx bxs-pin'></i>CRAFTS</a></li>
+                                <li><a href=""><i class='bx bxs-error'></i>BUGS</a></li>
+                                <li><a href=""><i class='bx bxs-invader'></i>DICAS</a></li>
+                                <li><a href=""><i class='bx bx-card'></i>MODS</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>
             </div>
-            
-           
+
+
 
             <div id="section-02">
-                
+
                 <div class="inf-user">
                     <img src="" alt="">
 
-                    <i class='bx bxs-user-circle user-icon' ></i>
-                        <p class="email">usuario@gmail.com</p>
-                        <p class="cargo"><span>Usuario</span></p>
+                    <i class='bx bxs-user-circle user-icon'></i>
+                    <p class="email">usuario@gmail.com</p>
+                    <p class="cargo"><span>Usuario</span></p>
 
-                        <div class="actions">
-                            <i class='bx bx-cog' ></i>
-                            <i class='bx bx-log-out'></i>
-                        </div>
+                    <div class="actions">
+                        <i class='bx bx-cog'></i>
+                        <i class='bx bx-log-out'></i>
+                    </div>
 
-                        <!-- <hr> -->
-                        
-                        <!-- <hr> -->
+                    <!-- <hr> -->
+
+                    <!-- <hr> -->
                 </div>
 
                 <div class="cont-pergunta">
-                    <button>+NOVA PERGUNTA</button>
+                    <button onclick="modalPergunta()">+NOVA PERGUNTA</button>
                 </div>
 
                 <div class="cont-inf">
@@ -68,7 +68,7 @@
 
                     <div class="c-1">
                         <div>
-                            <i class='bx bxs-user' ></i>
+                            <i class='bx bxs-user'></i>
                             <p> - <span class="qtdUsuarios"></span></p>
 
                         </div>
@@ -81,52 +81,60 @@
                 </div>
 
                 <div class="cont-contribuidores">
-                    
-                        <div class="title-contribuidores">
-                            <i class='bx bxs-heart' ></i>
-                            <h5>Moderadores</h5>
-                            <i class='bx bxs-heart' ></i>
-                        </div>
 
+                    <div class="title-contribuidores">
+                        <i class='bx bxs-heart'></i>
+                        <h5>Moderadores</h5>
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+
+                    <div class="contribuidores model" style="display: none;">
+                        <img class="img-user"
+                            src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg"
+                            alt="">
                         <div>
-                            <div class="contribuidores">
-                                    <img class="img-user" src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" alt="">
-                                    <div>
-                                        <h5>Rennas Ala Fulano</h5>
-                                    </div>
-                            </div>
-
-                            <div class="contribuidores">
-                                <img class="img-user" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc" alt="">
-                                <div>
-                                    <h5>Luiz Ala Fernando</h5>
-                                </div>
-                            </div>
-
-                            <div class="contribuidores">
-                                <img class="img-user" src="https://lh6.googleusercontent.com/proxy/F4k_s23t2wBrvqqgJhZvL-uNImWyWD9tsnyw_UHPrr3FQGdgwRGME-aUc9Y8BU_uPBCWXWT70iJElRVY5Gy_t-rkP6ti4ZlS7RM6ntdRyB5xvfhZcRTv=s0-d" alt="">
-                                <div>
-                                    <h5>Ana Ana Clara Ana</h5>
-                                </div>
-                            </div>
-
-                            
-                            
-
+                            <h5 class="nome-admin-modal">Rennas Ala Fulano</h5>
                         </div>
-                    
+                    </div>
+
+
+
+
+
+
+
                 </div>
 
 
                 <div class="agradecimentos">
-                    <span>Fórum by Ana e Luiz.</span>
+
+                    <div class="title-agradecimentos">
+                        <i class='bx bxs-heart'></i>
+                        <h5 class="contribuidores-">USUARIOS</h5>
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <hr>
+
+                    <div class="usuarios-modal model" style="display: none;">
+
+                        <img class="img-user-modal"
+                            src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg"
+                            alt="">
+                        <div>
+                            <h5 class="nome-user-modal">s</h5>
+                        </div>
+                    </div>
+
+
                 </div>
 
-               
-                
+
+
 
             </div>
-            
+
 
         </header>
 
@@ -147,87 +155,90 @@
                         <h4>Ransomware disfarçado de arquivo para Minecraft!</h4>
                         <img src="img/banner-02.jpg" alt="">
                         <label></label>
-                        <p>De acordo com o relatório, o ransomware está disfarçado de um arquivo de texto contendo alt lists, que são conjuntos de contas vazadas de Minecraft disponíveis para usuários logar</p>
+                        <p>De acordo com o relatório, o ransomware está disfarçado de um arquivo de texto contendo alt
+                            lists, que são conjuntos de contas vazadas de Minecraft disponíveis para usuários logar</p>
                     </div>
 
                     <div class="cards">
                         <h4>Minecraft de graça no Android?</h4>
                         <img src="img/banner-03.jpg" alt="">
                         <label></label>
-                        <p class="legenda-cards">Quem ficou acordado até tarde na noite desta segunda-feira (9) pode ter aproveitado uma grande "promoção" que aconteceu na Play Store</p>
+                        <p class="legenda-cards">Quem ficou acordado até tarde na noite desta segunda-feira (9) pode ter
+                            aproveitado uma grande "promoção" que aconteceu na Play Store</p>
                     </div>
 
                 </div>
 
 
-                    <div class="last-questions">
+                <div class="last-questions">
 
-                        <div class="title">
-                            <h1><i class='bx bxs-hot'></i>Ultimas Perguntas!</h1>
-                        </div>
-
+                    <div class="title">
+                        <h1><i class='bx bxs-hot'></i>Ultimas Perguntas!</h1>
                     </div>
+
+                </div>
 
 
                 <div class="cont-questions">
 
                     <div class="container-cards">
-                        
+
                         <div class="questions model">
 
                             <div class="header-question">
                                 <div class="h-sec-01">
 
                                     <div class="model">
-                                        <p>Id Pergunta</p>
                                         <span class="id_pergunta"></span>
+                                        <span class="id_usuario"></span>
                                     </div>
 
-                                    <img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" alt="">
+                                    <img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg"
+                                        alt="">
                                     <div>
                                         <div class="tittle-question">
                                             <h5 class="nome-user-card">Rennas Ala Fulano </h5>
                                             <p class="data-question">ss</p>
                                         </div>
 
-                                        <p>Tema: <span class="tema-card-question"></span></p>        
+                                        <p>Tema: <span class="tema-card-question"></span></p>
                                     </div>
                                 </div>
-    
+
                                 <div class="cont-bujigangas">
                                     <i class='bx bx-bookmark favoritar-vazio' onclick="favoritar()"></i>
-                                    <i class='bx bxs-bookmark model favoritar-cheio' onclick="favoritar()" ></i>
-    
-                                    <i class='bx bx-heart curtir-vazio' onclick="curtir()" ></i>
-                                    <i class='bx bxs-heart model curtir-cheio' onclick="curtir()" ></i>
+                                    <i class='bx bxs-bookmark model favoritar-cheio' onclick="favoritar()"></i>
+
+                                    <i class='bx bx-heart curtir-vazio' onclick="curtir()"></i>
+                                    <i class='bx bxs-heart model curtir-cheio' onclick="curtir()"></i>
                                 </div>
-                                
-                                    <!-- <hr> -->
+
+                                <!-- <hr> -->
                             </div>
-                           
+
                             <div>
-                                <p class="question-p"></p>    
+                                <p class="question-p"></p>
                             </div>
-    
+
                             <hr>
                             <div class="input-answer">
                                 <div class="cont-input">
                                     <input type="text" placeholder="Insira a sua Resposta. . . .">
-                                    
+
                                     <i class='bx bxs-right-arrow-circle i-enviar'></i>
                                 </div>
-                                
-    
+
+
                                 <div class="cont-ver-mais-resposta" onclick="ativarModalResposta(this)">
                                     <p>VER RESPOSTAS</p>
-                                    <i class='bx bx-chevrons-down' ></i>
+                                    <i class='bx bx-chevrons-down'></i>
                                 </div>
-                                
+
                             </div>
-                            
-                            
+
+
                         </div>
-                    
+
                     </div>
 
                     <div class="answer model">
@@ -235,12 +246,12 @@
                         <div class="title-answer">
 
                             <div class="cont-title-answer">
-                                <h4 class="nome-usuario">Usuario</h4>
-                                <span class="data-question-answer">22/02/2005</span>
+                                <h4 class="nome-usuario"></h4>
+                                <span class="data-question-answer"></span>
 
                             </div>
-                            <p class="tema-question-answer">CRAFT</p>
-                            <p class="pergunta-answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. iditate optio. Sed, quam! Perspiciatis.</p>
+                            <p class="tema-answer"></p>
+                            <p class="pergunta-answer"></p>
                         </div>
 
                         <hr>
@@ -249,75 +260,43 @@
                             <h2>RESPOSTAS</h2>
 
                             <hr>
-                        
-                            <div class="answer-card">
+
+                            <div class="answer-card model">
                                 <div class="header-user-answer">
-                                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc" alt="">
-                                
+                                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc"
+                                        alt="">
+
                                     <div class="user-answer-title">
                                         <div>
                                             <h5>sdadada</h5>
                                             <span>LORE</span>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
-                                
-                                <div class="answer-r">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, autem eum et voluptate nobis repellat quis molestias voluptatum nam sed sint quam beatae eius non esse totam ullam quasi? Facere.</p>
+
+                                <div class="cont-answer-r">
+                                    <p class="answer-r">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Incidunt, autem eum et voluptate nobis repellat quis molestias voluptatum nam
+                                        sed sint quam beatae eius non esse totam ullam quasi? Facere.</p>
                                 </div>
 
                             </div>
 
-                            <div class="answer-card">
-                                <div class="header-user-answer">
-                                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc" alt="">
-                                
-                                    <div class="user-answer-title">
-                                        <div>
-                                            <h5>sdadada</h5>
-                                            <span>LORE</span>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="-cont-answer-r">
-                                    <p class="answer-r">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, autem eum et voluptate nobis repellat quis molestias voluptatum nam sed sint quam beatae eius non esse totam ullam quasi? Facere.</p>
-                                </div>
 
-                            </div>
 
-                            <div class="answer-card">
-                                <div class="header-user-answer">
-                                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc" alt="">
-                                
-                                    <div class="user-answer-title">
-                                        <div>
-                                            <h5>sdadada</h5>
-                                            <span>LORE</span>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="answer-r">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, autem eum et voluptate nobis repellat quis molestias voluptatum nam sed sint quam beatae eius non esse totam ullam quasi? Facere.</p>
-                                </div>
 
-                            </div>
-                           
- 
- 
+
+
                         </div>
-                        
-                    </div>
-                   
-                   
-                    <img class="img-noth" src="img/Designs/pngs/notch.png" alt="">
-                   
 
-                    
+                    </div>
+
+
+                    <img class="img-noth" src="img/Designs/pngs/notch.png" alt="">
+
+
+
 
                 </div>
 
@@ -330,66 +309,99 @@
                     <div class="cont-topics">
 
                         <div class="topicos">
-                            
-                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400" alt="">
-                            
+
+                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400"
+                                alt="">
+
                             <div class="caption-topics">
                                 <h5>CRAFTS</h5>
                                 <p class="conferir-topico-button">CONFERIR</p>
                             </div>
-                            
+
                         </div>
 
                         <div class="topicos">
-                            
+
                             <img src="https://cdn-icons-png.flaticon.com/512/785/785104.png" alt="">
-                            
+
                             <div class="caption-topics">
                                 <h5>CRAFTS</h5>
                                 <p class="conferir-topico-button">CONFERIR</p>
                             </div>
-                            
+
                         </div>
 
                         <div class="topicos">
-                            
-                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400" alt="">
-                            
+
+                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400"
+                                alt="">
+
                             <div class="caption-topics">
                                 <h5>CRAFTS</h5>
                                 <p class="conferir-topico-button">CONFERIR</p>
                             </div>
-                            
+
                         </div>
 
                         <div class="topicos">
-                            
-                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400" alt="">
-                            
+
+                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400"
+                                alt="">
+
                             <div class="caption-topics">
                                 <h5>CRAFTS</h5>
                                 <p class="conferir-topico-button">CONFERIR</p>
                             </div>
-                            
+
                         </div>
-                        
-                        
+
+
                     </div>
 
-                  
+
                 </div>
             </div>
-            
+
+
+
+
+
         </main>
 
 
 
     </div>
 
-    
-    <footer>
+    <div class="modal-pergunta model">
+
+        <div class="cont-title-modal-pergunta">
+            <span>Tema da Pergunta:</span>
+            <select class="select_status" name="" id="">
+                <option value="crafts">CRAFTS</option>
+                <option value="bugs">BUGS</option>
+                <option value="dicas">DICAS</option>
+                <option value="mods">MODS</option>
+            </select>
+        </div>
+
+        <div class="cont-modal-quest-data">
+            <p class="data-modal-quest"></p>
+        </div>
+
+        <div>
+            <textarea name="" id="txtPerguntar" cols="30" rows="10" placeholder=" Insira Aqui a sua Dúvida...."></textarea>
+            <div class="cont-btn">
+                <P onclick="fecharModalPergunta()">Cancelar</P>
+                <p onclick="cadastrarPergunta()">ENVIAR</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- <footer>
         s
-    </footer>
+    </footer> -->
 </body>
 
 <script src="js/script.js"></script>
