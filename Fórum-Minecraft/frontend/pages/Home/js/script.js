@@ -3,8 +3,11 @@ var uriUsuarios = 'http://localhost:3000/Usuarios'
 
 
 var questions = []
+var questionsAnswer = []
 var usuarios = []
 
+
+var cardResposta = document.querySelector('.answer')
 var cardQuestion = document.querySelector('.questions')
 
 
@@ -66,10 +69,7 @@ function ativarFetchesPerguntas() {
         .catch(err => console.error(err));
 
 }
-
-
 var qtdRep = 0
-
 function cardsPerguntas() {
 
     console.log('entrando')
@@ -106,7 +106,7 @@ function cardsPerguntas() {
                 
                 var dataCompleta = dia + ' ' + mes + ' ' + ano
 
-
+                novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
                 novoCardQuestion.querySelector('.data-question').innerHTML = '- ' +dataCompleta
                 novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
                 novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
@@ -120,6 +120,45 @@ function cardsPerguntas() {
 
 }
 
+function ativarModalResposta(e) {
+
+    
+    var id_card = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
+    
+    var uriTest = 'http://localhost:3000/Perguntas/' + id_card
+
+    console.log(uriTest)
+    
+    const options = { method: 'GET' };
+
+    fetch(uriTest, options)
+        .then(res => res.json())
+        .then(res => {
+            questionsAnswer = res;
+            modalRespostas();
+        }
+        )
+        .catch(err => console.error(err));
+
+        // fetch(uriUsuarios, options)
+        // .then(res => res.json(e))
+        // .then(res => {
+        //     usuarios = res;
+        //     modalRespostas();
+        // }
+        // )
+        // .catch(err => console.error(err));
+
+    
+}
+
+
+function modalRespostas() {
+
+    
+
+
+}
 
 
 

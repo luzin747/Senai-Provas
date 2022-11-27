@@ -437,8 +437,16 @@ nav ul h1 {
     margin-bottom: 10px;
 }
 
+.title-answer {
+    padding: 10px;
+}
+
 .pergunta-answer {
     text-align: justify;
+}
+
+.tema-question-answer {
+    text-align: center;
 }
 
 .answer-card {
@@ -451,14 +459,29 @@ nav ul h1 {
 .cont-title-answer {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
+.data-question-answer {
+    margin-left: 10px;
+    font-size: 11pt;
+}
 .user-answer {
     overflow-y: scroll;
     background-color: #212124;
     padding: 10px;
-    height: 52vh;
+    height: 48vh;
 
+}
+
+.user-answer::-webkit-scrollbar{
+    width: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.486);
+    
+}
+
+.user-answer::-webkit-scrollbar-thumb {
+    background-color: #515153;
 }
 .answer h2 {
     font-size: 13pt;
