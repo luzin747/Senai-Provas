@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="carregar()">
 
     <div id="container">
 
@@ -69,13 +69,13 @@
                     <div class="c-1">
                         <div>
                             <i class='bx bxs-user' ></i>
-                            <p>Usuarios:<span class="">18</span> </p>
+                            <p> - <span class="qtdUsuarios"></span></p>
 
                         </div>
 
                         <div>
-                            <i class='bx bxs-star' ></i>
-                            <p>Perguntas:<span class="">5</span> </p>
+                            <i class='bx bxs-star'></i>
+                            <p>Perguntas: <span class="qtdPerguntas"></span> </p>
                         </div>
                     </div>
                 </div>
@@ -144,15 +144,15 @@
 
 
                     <div class="cards">
-                        <h4>ASADSADAASAD</h4>
-                        <img src="img/banner.jpg" alt="">
+                        <h4>Ransomware disfarçado de arquivo para Minecraft!</h4>
+                        <img src="img/banner-02.jpg" alt="">
                         <label></label>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit facere, veniam sed quasi harum earum eligendi illum rerum exercitationem asperiores omnis doloremque non, quos expedita fugiat obcaecati porro iste provident.</p>
+                        <p>De acordo com o relatório, o ransomware está disfarçado de um arquivo de texto contendo alt lists, que são conjuntos de contas vazadas de Minecraft disponíveis para usuários logar</p>
                     </div>
 
                     <div class="cards">
                         <h4>Minecraft de graça no Android?</h4>
-                        <img src="img/banner.jpg" alt="">
+                        <img src="img/banner-03.jpg" alt="">
                         <label></label>
                         <p class="legenda-cards">Quem ficou acordado até tarde na noite desta segunda-feira (9) pode ter aproveitado uma grande "promoção" que aconteceu na Play Store</p>
                     </div>
@@ -170,140 +170,63 @@
 
 
                 <div class="cont-questions">
-                    <div class="questions">
 
-                        <div class="header-question">
-                            <div class="h-sec-01">
-                                <img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" alt="">
-                                <div>
-                                    <h5>Rennas Ala Fulano</h5>
-                                    <p>Tema: <span>SSASS</span></p>
+                    <div class="container-cards">
+                        
+                        <div class="questions model">
+
+                            <div class="header-question">
+                                <div class="h-sec-01">
+                                    <img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" alt="">
+                                    <div>
+                                        <div class="tittle-question">
+                                            <h5 class="nome-user-card">Rennas Ala Fulano </h5>
+                                            <p class="data-question">ss</p>
+                                        </div>
+
+                                        <p>Tema: <span class="tema-card-question"></span></p>        
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="cont-bujigangas">
-                                <i class='bx bx-bookmark favoritar-vazio' onclick="favoritar()"></i>
-                                <i class='bx bxs-bookmark model favoritar-cheio' onclick="favoritar()" ></i>
-
-                                <i class='bx bx-heart curtir-vazio' onclick="curtir()" ></i>
-                                <i class='bx bxs-heart model curtir-cheio' onclick="curtir()" ></i>
-                            </div>
-                            
-                                <!-- <hr> -->
-                        </div>
-                       
-                        <div>
-                            <p class="quetion-p">Qual foi a  última atualização do mine?</p>    
-                        </div>
-
-                        <hr>
-                        <div class="input-answer">
-                            <div class="cont-input">
-                                <input type="text" placeholder="Insira a sua Resposta. . . .">
-                                
-                                <i class='bx bxs-right-arrow-circle i-enviar'></i>
-                            </div>
-                            
-
-                            <div class="cont-ver-mais-resposta">
-                                <p>VER RESPOSTAS</p>
-                                <i class='bx bx-chevrons-down' ></i>
-                            </div>
-                            
-                        </div>
-                        
-                        
-                    </div>
-
-                    <div class="questions">
-
-                        <div class="header-question">
-                            <div class="h-sec-01">
-                                <img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" alt="">
-                                <div>
-                                    <h5>Rennas Ala Fulano</h5>
-                                    <p>Tema: <span>SSASS</span></p>
+    
+                                <div class="cont-bujigangas">
+                                    <i class='bx bx-bookmark favoritar-vazio' onclick="favoritar()"></i>
+                                    <i class='bx bxs-bookmark model favoritar-cheio' onclick="favoritar()" ></i>
+    
+                                    <i class='bx bx-heart curtir-vazio' onclick="curtir()" ></i>
+                                    <i class='bx bxs-heart model curtir-cheio' onclick="curtir()" ></i>
                                 </div>
-                            </div>
-
-                            <div class="cont-bujigangas">
-                                <i class='bx bx-bookmark favoritar-vazio' onclick="favoritar()"></i>
-                                <i class='bx bxs-bookmark model favoritar-cheio' onclick="favoritar()" ></i>
-
-                                <i class='bx bx-heart curtir-vazio' onclick="curtir()" ></i>
-                                <i class='bx bxs-heart model curtir-cheio' onclick="curtir()" ></i>
-                            </div>
-                            
-                                <!-- <hr> -->
-                        </div>
-                       
-                        <div>
-                            <p class="quetion-p">Qual foi a  última atualização do mine?</p>    
-                        </div>
-
-                        <hr>
-                        <div class="input-answer">
-                            <div class="cont-input">
-                                <input type="text" placeholder="Insira a sua Resposta. . . .">
                                 
-                                <i class='bx bxs-right-arrow-circle i-enviar'></i>
+                                    <!-- <hr> -->
                             </div>
-                            
-
-                            <div class="cont-ver-mais-resposta">
-                                <p>VER RESPOSTAS</p>
-                                <i class='bx bx-chevrons-down' ></i>
+                           
+                            <div>
+                                <p class="question-p"></p>    
                             </div>
-                            
-                        </div>
-                        
-                        
-                    </div>
-
-                    <div class="questions">
-
-                        <div class="header-question">
-                            <div class="h-sec-01">
-                                <img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" alt="">
-                                <div>
-                                    <h5>Rennas Ala Fulano</h5>
-                                    <p>Tema: <span>SSASS</span></p>
+    
+                            <hr>
+                            <div class="input-answer">
+                                <div class="cont-input">
+                                    <input type="text" placeholder="Insira a sua Resposta. . . .">
+                                    
+                                    <i class='bx bxs-right-arrow-circle i-enviar'></i>
                                 </div>
-                            </div>
-
-                            <div class="cont-bujigangas">
-                                <i class='bx bx-bookmark favoritar-vazio' onclick="favoritar()"></i>
-                                <i class='bx bxs-bookmark model favoritar-cheio' onclick="favoritar()" ></i>
-
-                                <i class='bx bx-heart curtir-vazio' onclick="curtir()" ></i>
-                                <i class='bx bxs-heart model curtir-cheio' onclick="curtir()" ></i>
-                            </div>
-                            
-                                <!-- <hr> -->
-                        </div>
-                       
-                        <div>
-                            <p class="quetion-p">Qual foi a  última atualização do mine?</p>    
-                        </div>
-
-                        <hr>
-                        <div class="input-answer">
-                            <div class="cont-input">
-                                <input type="text" placeholder="Insira a sua Resposta. . . .">
                                 
-                                <i class='bx bxs-right-arrow-circle i-enviar'></i>
+    
+                                <div class="cont-ver-mais-resposta">
+                                    <p>VER RESPOSTAS</p>
+                                    <i class='bx bx-chevrons-down' ></i>
+                                </div>
+                                
                             </div>
                             
-
-                            <div class="cont-ver-mais-resposta">
-                                <p>VER RESPOSTAS</p>
-                                <i class='bx bx-chevrons-down' ></i>
-                            </div>
                             
                         </div>
-                        
-                        
+                    
                     </div>
+                   
+                   
+                    <img class="img-noth" src="img/Designs/pngs/notch.png" alt="">
+                   
 
                     
 
@@ -327,10 +250,28 @@
                             </div>
                             
                         </div>
-                        
-                    </div>
 
-                    <div class="cont-topics">
+                        <div class="topicos">
+                            
+                            <img src="https://cdn-icons-png.flaticon.com/512/785/785104.png" alt="">
+                            
+                            <div class="caption-topics">
+                                <h5>CRAFTS</h5>
+                                <p class="conferir-topico-button">CONFERIR</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="topicos">
+                            
+                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400" alt="">
+                            
+                            <div class="caption-topics">
+                                <h5>CRAFTS</h5>
+                                <p class="conferir-topico-button">CONFERIR</p>
+                            </div>
+                            
+                        </div>
 
                         <div class="topicos">
                             
@@ -343,46 +284,23 @@
                             
                         </div>
                         
-                    </div>
-
-                    <div class="cont-topics">
-
-                        <div class="topicos">
-                            
-                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400" alt="">
-                            
-                            <div class="caption-topics">
-                                <h5>CRAFTS</h5>
-                                <p class="conferir-topico-button">CONFERIR</p>
-                            </div>
-                            
-                        </div>
                         
                     </div>
 
-                     <div class="cont-topics">
-
-                        <div class="topicos">
-                            
-                            <img src="https://lh3.googleusercontent.com/S80JG78JeREyrFsuy0dFzQ8lxkhFcwQ7OYPHz2mVl-Hly1xLgZfURCZ_dWXkXueMyVTh3b_YPEKHz0QuOw_vyvUzh2a-dgxWAg=s400" alt="">
-                            
-                            <div class="caption-topics">
-                                <h5>CRAFTS</h5>
-                                <p class="conferir-topico-button">CONFERIR</p>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-
+                  
                 </div>
             </div>
             
         </main>
 
 
+
     </div>
 
+    
+    <footer>
+        s
+    </footer>
 </body>
 
 <script src="js/script.js"></script>
