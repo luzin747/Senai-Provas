@@ -1,5 +1,6 @@
 var uriQuestions = 'http://localhost:3000/Perguntas'
 var uriUsuarios = 'http://localhost:3000/Usuarios'
+var uriRespostas = 'http://localhost:3000/Respostas'
 
 
 var questions = []
@@ -39,6 +40,8 @@ function carregar() {
         }
         )
         .catch(err => console.error(err));
+
+        
 
     ativarFetchesPerguntas()
 }
@@ -96,6 +99,15 @@ function ativarFetchesPerguntas() {
         )
         .catch(err => console.error(err));
 
+        fetch(uriRespostas, options)
+        .then(res => res.json())
+        .then(res => {
+            respostas = res;
+            cardsPerguntas();
+        }
+        )
+        .catch(err => console.error(err));
+
 }
 var qtdRep = 0
 function cardsPerguntas() {
@@ -143,6 +155,25 @@ function cardsPerguntas() {
                     novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
 
                     document.querySelector('.container-cards').appendChild(novoCardQuestion)
+                   
+                    var id_pergunta = q.id_pergunta
+
+                    respostas.forEach(r => {
+
+
+                        if(r.id_perg == id_pergunta) {
+                           
+                            var novoUserResposta = questRespostas.cloneNode(true)
+
+                            novoUserResposta.classList.remove('model')
+
+                            novoUserResposta.querySelector('.answer-r').innerHTML = r.resposta
+                            novoUserResposta.querySelector('.data-resp').innerHTML = dataCompleta
+                        }
+                    })
+
+
+                    
                 }
             // }
 
@@ -167,20 +198,11 @@ function ativarModalResposta(e) {
 
     const options = { method: 'GET' };
 
-    fetch(uriTest, options)
-        .then(res => res.json())
-        .then(res => {
-            questions = res;
-            modalRespostas();
-        }
-        )
-        .catch(err => console.error(err));
-
     fetch(uriTest2, options)
         .then(res => res.json(e))
         .then(res => {
             usuariosAnsert = res;
-            modalRespostas();
+            modalRespostas(e);
         }
         )
         .catch(err => console.error(err));
@@ -189,7 +211,7 @@ function ativarModalResposta(e) {
         .then(res => res.json(e))
         .then(res => {
             respostas = res;
-            modalRespostas();
+            modalRespostas(e);
         }
         )
         .catch(err => console.error(err));
@@ -199,37 +221,20 @@ function ativarModalResposta(e) {
 
 
 var qtdRep2 = 0
-function modalRespostas() {
+function modalRespostas(e) {
 
-    var modalResposta = document.querySelector('.answer')
+    var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
+
+    console.log(id_perg)
+
+    var modalResposta = document.querySelector('.user-answer')
 
     modalResposta.classList.remove('model')
 
-    questions.forEach(q => {
-
-        var id_pergunta = q.id_pergunta
-
-        var data = q.data
-
-        const [ano, mes, juncao] = data.split('-')
-
-        var dia = juncao[0] + juncao[1]
-
-        var dataCompleta = dia + '/' + mes + '/' + ano
-
-        document.querySelector('.data-question-answer').innerHTML = dataCompleta
-        document.querySelector('.pergunta-answer').innerHTML = q.pergunta
-        document.querySelector('.tema-answer').innerHTML = q.tema
-
-        usuariosAnsert.forEach(u => {
-
-            document.querySelector('.nome-usuario').innerHTML = u.nickname
-
-        })
+    var id_pergunta = document.querySelector('.id_pergunta').innerHTML
 
         respostas.forEach(r => {
 
-            var teste = false
 
             if (id_pergunta == r.id_perg) {
                 var novaResposta = questRespostas.cloneNode(true)
@@ -245,7 +250,7 @@ function modalRespostas() {
         })
 
 
-    })
+    
 
 
 
