@@ -41,7 +41,7 @@ function carregar() {
         )
         .catch(err => console.error(err));
 
-        
+
 
     ativarFetchesPerguntas()
 }
@@ -99,7 +99,7 @@ function ativarFetchesPerguntas() {
         )
         .catch(err => console.error(err));
 
-        fetch(uriRespostas, options)
+    fetch(uriRespostas, options)
         .then(res => res.json())
         .then(res => {
             respostas = res;
@@ -123,58 +123,58 @@ function cardsPerguntas() {
         questions.forEach((q, i) => {
 
             // if (i < 3) {
-                if (q.tema == 'DICAS') {
+            if (q.tema == 'DICAS') {
 
-                    var novoCardQuestion = cardQuestion.cloneNode(true)
+                var novoCardQuestion = cardQuestion.cloneNode(true)
 
-                    novoCardQuestion.classList.toggle('model')
+                novoCardQuestion.classList.toggle('model')
 
-                    var idUsuario = q.id_User
+                var idUsuario = q.id_User
 
-                    usuarios.forEach(u => {
+                usuarios.forEach(u => {
 
-                        if (idUsuario == u.id_user) {
-                            novoCardQuestion.querySelector('.nome-user-card').innerHTML = u.nome_user
+                    if (idUsuario == u.id_user) {
+                        novoCardQuestion.querySelector('.nome-user-card').innerHTML = u.nome_user
 
-                        }
+                    }
 
-                    })
+                })
 
-                    var data = q.data
+                var data = q.data
 
-                    const [ano, mes, juncao] = data.split('-')
+                const [ano, mes, juncao] = data.split('-')
 
-                    var dia = juncao[0] + juncao[1]
+                var dia = juncao[0] + juncao[1]
 
-                    var dataCompleta = dia + ' ' + mes + ' ' + ano
+                var dataCompleta = dia + ' ' + mes + ' ' + ano
 
-                    novoCardQuestion.querySelector('.id_usuario').innerHTML = q.id_User
-                    novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
-                    novoCardQuestion.querySelector('.data-question').innerHTML = '- ' + dataCompleta
-                    novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
-                    novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
+                novoCardQuestion.querySelector('.id_usuario').innerHTML = q.id_User
+                novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
+                novoCardQuestion.querySelector('.data-question').innerHTML = '- ' + dataCompleta
+                novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
+                novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
 
-                    document.querySelector('.container-cards').appendChild(novoCardQuestion)
-                   
-                    var id_pergunta = q.id_pergunta
+                document.querySelector('.container-cards').appendChild(novoCardQuestion)
 
-                    respostas.forEach(r => {
+                var id_pergunta = q.id_pergunta
 
-
-                        if(r.id_perg == id_pergunta) {
-                           
-                            var novoUserResposta = questRespostas.cloneNode(true)
-
-                            novoUserResposta.classList.remove('model')
-
-                            novoUserResposta.querySelector('.answer-r').innerHTML = r.resposta
-                            novoUserResposta.querySelector('.data-resp').innerHTML = dataCompleta
-                        }
-                    })
+                respostas.forEach(r => {
 
 
-                    
-                }
+                    if (r.id_perg == id_pergunta) {
+
+                        var novoUserResposta = questRespostas.cloneNode(true)
+
+                        novoUserResposta.classList.remove('model')
+
+                        novoUserResposta.querySelector('.answer-r').innerHTML = r.resposta
+                        novoUserResposta.querySelector('.data-resp').innerHTML = dataCompleta
+                    }
+                })
+
+
+
+            }
             // }
 
         })
@@ -224,33 +224,34 @@ var qtdRep2 = 0
 function modalRespostas(e) {
 
     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
+    var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
+    var secResp = document.querySelector('.answer-card')
+    var novaResposta = secResp.cloneNode(true)
 
-    console.log(id_perg)
+    respostas.forEach(r => {
 
-    var modalResposta = document.querySelector('.user-answer')
+        if (id_perg == r.id_perg) {
+        
+            mResposta.classList.toggle('model')
 
-    modalResposta.classList.remove('model')
+            // document.querySelector('.id_pergunta').innerHTML
 
-    var id_pergunta = document.querySelector('.id_pergunta').innerHTML
+            novaResposta.classList.remove('model')
+            console.log(novaResposta)
 
-        respostas.forEach(r => {
-
-
-            if (id_pergunta == r.id_perg) {
-                var novaResposta = questRespostas.cloneNode(true)
-
-                novaResposta.classList.remove('model')
-
-                novaResposta.querySelector('.answer-r').innerHTML = r.resposta
-
-                document.querySelector('.user-answer').appendChild(novaResposta)
-
-            }
-
-        })
+            novaResposta.querySelector('.answer-r').innerHTML = r.resposta
+              
+            mResposta.appendChild(novaResposta)
+        }
+        else {
+            
+        }
 
 
-    
+    })
+
+
+
 
 
 
