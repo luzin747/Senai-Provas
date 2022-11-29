@@ -221,13 +221,20 @@ function ativarModalResposta(e) {
 
 
 var qtdRep2 = 0
+
+var abrir = false
+
+var fechar = false
+
 function modalRespostas(e) {
+
 
     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
     var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
     var secResp = document.querySelector('.answer-card')
     var novaResposta = secResp.cloneNode(true)
 
+    
     respostas.forEach(r => {
 
         if (id_perg == r.id_perg) {
@@ -236,26 +243,28 @@ function modalRespostas(e) {
 
             // document.querySelector('.id_pergunta').innerHTML
 
-            novaResposta.classList.remove('model')
-            console.log(novaResposta)
+            novaResposta.classList.toggle('model')
 
             novaResposta.querySelector('.answer-r').innerHTML = r.resposta
               
             mResposta.appendChild(novaResposta)
         }
-        else {
-            
-        }
-
 
     })
 
+}
 
+function fechandoModal(e) {
 
+    console.log('asadad')
 
+    // var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
+    var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
+    var secResp = document.querySelector('.answer-card')
+    // var novaResposta = secResp.cloneNode(true)
 
-
-
+    // mResposta.e.parentNode.removeChild('.answer-card')
+    mResposta.removeChild(secResp)
 }
 
 
