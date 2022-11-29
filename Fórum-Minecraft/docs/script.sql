@@ -82,6 +82,7 @@ insert into respostas values(8,2,'Sim meu mano, da para baixar',curDate());
 
 insert into perguntas values(6,default,'Como achar o portal do End?','DICAS', '2022-11-20');
 insert into respostas values(14,3,'Você precisa pegar o olho do enderman e ele vai te guiando ate o portal',curDate());
+insert into respostas values(15,3,'Teste Resposta2',curDate());
 
 insert into perguntas values(7,default,'Como entrar na colmeia do minecraft?','DICAS', '2022-10-20');
 insert into respostas values(11,4,'Não tem como entrar sem usar mod, o mod que eu uso é o Bumblezone','2022-10-21');

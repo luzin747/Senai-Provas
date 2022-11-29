@@ -158,19 +158,19 @@ function cardsPerguntas() {
 
                 var id_pergunta = q.id_pergunta
 
-                respostas.forEach(r => {
+                // respostas.forEach(r => {
 
 
-                    if (r.id_perg == id_pergunta) {
+                //     if (r.id_perg == id_pergunta) {
 
-                        var novoUserResposta = questRespostas.cloneNode(true)
+                //         var novoUserResposta = questRespostas.cloneNode(true)
 
-                        novoUserResposta.classList.remove('model')
+                //         novoUserResposta.classList.remove('model')
 
-                        novoUserResposta.querySelector('.answer-r').innerHTML = r.resposta
-                        novoUserResposta.querySelector('.data-resp').innerHTML = dataCompleta
-                    }
-                })
+                //         novoUserResposta.querySelector('.answer-r').innerHTML = r.resposta
+                //         novoUserResposta.querySelector('.data-resp').innerHTML = dataCompleta
+                //     }
+                // })
 
 
 
@@ -231,40 +231,75 @@ function modalRespostas(e) {
 
     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
     var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
-    var secResp = document.querySelector('.answer-card')
-    var novaResposta = secResp.cloneNode(true)
-
+    
+    mResposta.classList.remove('model')
     
     respostas.forEach(r => {
-
-        if (id_perg == r.id_perg) {
         
-            mResposta.classList.toggle('model')
+        if (id_perg == r.id_perg) {
+            
+            var divAC = document.createElement('div')
+            divAC.classList.add('answer-card')
 
-            // document.querySelector('.id_pergunta').innerHTML
+            // PRIMEIRA DIV
+            var divHUA = document.createElement('div')
+            divHUA.classList.add('header-user-answer')
 
-            novaResposta.classList.toggle('model')
+            var imgResp = document.createElement('img')
+            imgResp.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc'
+        
+            var divUAT = document.createElement('div')
+            divUAT.classList.add('user-answer-title')
 
-            novaResposta.querySelector('.answer-r').innerHTML = r.resposta
-              
-            mResposta.appendChild(novaResposta)
+            var hTitleResp = document.createElement('h5')
+            hTitleResp.classList.add('usuario-resp')   
+            
+            var spanDR = document.createElement('span')
+            spanDR.classList.add('data-resp')
+
+            divHUA.appendChild(imgResp)
+            divHUA.appendChild(divUAT)
+            divUAT.appendChild(hTitleResp)
+            divUAT.appendChild(spanDR)
+
+            //SEGUNDA DIV
+            var divCAR = document.createElement('div')
+            divCAR.classList.add('cont-answer-r')
+
+            var pAR = document.createElement('p')
+            pAR.classList.add('answer-r')
+            pAR.innerHTML = r.resposta
+
+            divCAR.appendChild(pAR)
+
+            divAC.appendChild(divHUA)
+            divAC.appendChild(divCAR)
+
+            console.log(divAC)
+            
+            mResposta.appendChild(divAC)
         }
 
     })
 
 }
 
+
 function fechandoModal(e) {
 
-    console.log('asadad')
+    
 
-    // var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
-    var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
-    var secResp = document.querySelector('.answer-card')
-    // var novaResposta = secResp.cloneNode(true)
+    for(let i = 1; i > 0; i++) {
+        var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
+        var secResp = document.querySelector('.answer-card')
+        
+        mResposta.classList.add('model')
+        mResposta.removeChild(secResp)
 
-    // mResposta.e.parentNode.removeChild('.answer-card')
-    mResposta.removeChild(secResp)
+    }
+
+
+        
 }
 
 
