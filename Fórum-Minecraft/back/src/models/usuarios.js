@@ -1,7 +1,9 @@
 const toCreate  = (model) =>{
     return `INSERT INTO usuarios VALUES (DEFAULT, '${model.nome_user}', '${model.nickname}', '${model.email}', '${model.senha}', '${model.status_user}')`;
 }
-
+const credenciais = (model) => {
+    return `INSERT INTO usuarios VALUES ('${model.email}', '${model.senha}')`;
+}
 const toReadAll = () => {
 return "SELECT * FROM usuarios ORDER BY id_user asc";
 }
@@ -23,5 +25,6 @@ toReadAll,
 toCreate,
 toDel,
 toUpdate,
-toRead
+toRead,
+credenciais
 }

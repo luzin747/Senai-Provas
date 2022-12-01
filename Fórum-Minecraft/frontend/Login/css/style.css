@@ -7,12 +7,6 @@
     font-family: 'Poppins';
 }
 
-body {
-    /* background-color: rgb(145, 5, 5); */
-}
-.cont-img-banner  {
-    
-}
 .cont-img-banner img {
     width: 54vw;
     /* padding-right:200px; */
@@ -184,4 +178,12 @@ a:hover {
 .cont-icons {
     display: flex;
     justify-content: center;
+}
+
+form > p{
+    color: red;
+    text-align: center;
+}
+.modal{
+    display: none;
 }

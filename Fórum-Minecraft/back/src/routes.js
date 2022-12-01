@@ -10,6 +10,7 @@ const StatusController = require("./controller/statusController");
 router.get("/Usuarios", UsuariosController.listarUsuarios);
 router.get("/Usuarios/:id_user", UsuariosController.listarUsuario);
 router.post("/Usuarios", UsuariosController.cadastrarUsuarios);
+router.post("/Usuarios/credenciais", UsuariosController.Credenciais);
 router.delete("/Usuarios", UsuariosController.excluirUsuarios);
 router.put("/Usuarios", UsuariosController.editarUsuarios);
 

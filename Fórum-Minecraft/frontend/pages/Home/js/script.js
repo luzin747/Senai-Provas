@@ -351,3 +351,12 @@ function favoritar() {
     favoritarVazio.classList.toggle('model')
     favoritarCheio.classList.toggle('model')
 }
+
+
+const emailUser = document.querySelector(".email");
+const nickUser = document.querySelector(".nick");
+
+var userinfo = JSON.parse(localStorage.getItem("info"));
+
+emailUser.innerHTML = userinfo.email;
+nickUser.innerHTML = userinfo.nickname;

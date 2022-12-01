@@ -469,6 +469,7 @@ nav ul h1 {
 
 .answer hr {
     margin-bottom: 10px;
+    /* margin-top: 0; */
 }
 
 .title-answer {
@@ -505,6 +506,7 @@ nav ul h1 {
     background-color: #212124;
     border-radius: 10px;
     padding: 10px;
+    margin-top: 20px;
     height: 32.6vh;
 
 }
@@ -519,7 +521,7 @@ nav ul h1 {
     background-color: #515153;
 }
 .answer h2 {
-    font-size: 13pt;
+    font-size: 17pt;
     color: white;
     text-align: center;
     
@@ -529,15 +531,24 @@ nav ul h1 {
     object-fit: cover;
     border-radius: 5px;
 }
+
+.btn-fechar {
+    display: block;
+    text-align: end;
+    margin-top: -23px;
+    font-size: 20pt;
+}
+
 .header-user-answer {
     display: flex;
     border-radius: 20px;
     
 }
 
-.user-answer-title {
-    margin-left: 10px;
-    color: white;
+
+
+.user-answer-title i {
+    text-align: end;
 }
 
 .answer-r {

@@ -23,13 +23,13 @@
                     <ul class="cont-ul">
                         <img class="img-menu" src="img/output-onlinepngtools.png" alt="">
                         <h1>RENASCRAFT</h1>
-                        <li><i class='bx bxs-home'></i>HOME</li>
+                        <li><a href="../Home/index.html"><i class='bx bxs-home'></a></i>HOME</li>
                         <li><i class='bx bxs-user-account'></i>INTEGRANTES</li>
                         <li onclick="menuDow()">TÓPICOS<i class='bx bx-caret-down'></i>
                             <ul class="dropDown model">
                                 <li><a href=""><i class='bx bxs-pin'></i>CRAFTS</a></li>
                                 <li><a href=""><i class='bx bxs-error'></i>BUGS</a></li>
-                                <li><a href=""><i class='bx bxs-invader'></i>DICAS</a></li>
+                                <li><a href="#"><i class='bx bxs-invader'></i>DICAS</a></li>
                                 <li><a href=""><i class='bx bx-card'></i>MODS</a></li>
                             </ul>
                         </li>
@@ -223,7 +223,7 @@
                                 </div>
 
 
-                                <div class="cont-ver-mais-resposta" onclick="modalRespostas(this)">
+                                <div class="cont-ver-mais-resposta" onclick="ativarModalResposta(this)">
                                     <p>VER RESPOSTAS</p>
                                     <i class='bx bx-chevrons-down'></i>
                                 </div>
@@ -236,11 +236,14 @@
                                 <div class="user-answer model">
 
                                     
-
-
+                                   
                                         <h2>RESPOSTAS</h2>
+                                        
+                                    
+                                    
+                                    <i class='bx bx-x btn-fechar' onclick="fechandoModal(this)"></i>
 
-                                        <hr>
+                                     <hr>
 
                             
                                     
@@ -249,10 +252,11 @@
 
 
 
+                                        
                                 </div>
 
-                                <button onclick="fechandoModal(this)">fechar</button>
-
+                                <div>
+                                </div>
 
                             </div>
 

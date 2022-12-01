@@ -6,6 +6,8 @@ var uriRespostas = 'http://localhost:3000/Respostas'
 var questions = []
 var questionsAnswer = []
 var usuariosAnsert = []
+
+var userPergunta = []
 var respostas = []
 
 var usuarios = []
@@ -195,17 +197,9 @@ function ativarModalResposta(e) {
     var uriTest2 = 'http://localhost:3000/Usuarios/' + id_user
     var uriRespostas = 'http://localhost:3000/Respostas/'
 
-
+    
+    
     const options = { method: 'GET' };
-
-    fetch(uriTest2, options)
-        .then(res => res.json(e))
-        .then(res => {
-            usuariosAnsert = res;
-            modalRespostas(e);
-        }
-        )
-        .catch(err => console.error(err));
 
     fetch(uriRespostas, options)
         .then(res => res.json(e))
@@ -216,15 +210,18 @@ function ativarModalResposta(e) {
         )
         .catch(err => console.error(err));
 
+    
+    fetch(uriTest2, options)
+    .then(res => res.json(e))
+    .then(res => {
+        questionsAnswer = res;
+            nomeUserResp(e);
+        }
+        )
+        .catch(err => console.error(err));
+
 
 }
-
-
-var qtdRep2 = 0
-
-var abrir = false
-
-var fechar = false
 
 function modalRespostas(e) {
 
@@ -234,6 +231,7 @@ function modalRespostas(e) {
     
     mResposta.classList.remove('model')
     
+
     respostas.forEach(r => {
         
         if (id_perg == r.id_perg) {
@@ -251,11 +249,17 @@ function modalRespostas(e) {
             var divUAT = document.createElement('div')
             divUAT.classList.add('user-answer-title')
 
+            // var pegaValue = document.createElement('p')
+            // pegaValue.classList.add('v-user') 
+            // pegaValue.innerHTML = r.id_usuario 
+
             var hTitleResp = document.createElement('h5')
-            hTitleResp.classList.add('usuario-resp')   
+            hTitleResp.classList.add('usuario-resp') 
+            hTitleResp.innerHTML = r.id_usuario 
             
             var spanDR = document.createElement('span')
             spanDR.classList.add('data-resp')
+            spanDR.innerHTML = r.dataResp
 
             divHUA.appendChild(imgResp)
             divHUA.appendChild(divUAT)
@@ -282,8 +286,27 @@ function modalRespostas(e) {
 
     })
 
+    
+
 }
 
+function nomeUserResp(e) {
+
+    var idUser = e.parentNode.querySelector('.usuario-resp').innerHTML
+
+    questionsAnswer.forEach(q => {
+
+        if(idUser == q.id_user) {
+            
+            console.log(idUser , q.id_user)
+            
+            document.querySelector('.usuario-resp').innerHTML = q.nome_user
+           
+
+        }
+    })
+
+}
 
 function fechandoModal(e) {
 

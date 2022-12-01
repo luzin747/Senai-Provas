@@ -31,6 +31,16 @@ const cadastrarUsuarios = (req, res) => {
     });
 };
 
+const Credenciais = (req, res) => {
+    conDB.query(Usuarios.credenciais(req.body), (err, result) => {
+        if(err == null) {
+            res.status(201).end();
+        }else {
+            res.status(500).json(err).end();
+        }
+    });
+};
+
 const excluirUsuarios = (req, res) => {
     conDB.query(Usuarios.toDel(req.body), (err, result) => {
         if(err == null) {
@@ -57,5 +67,6 @@ module.exports = {
     excluirUsuarios,
     cadastrarUsuarios,
     editarUsuarios,
-    listarUsuario
+    listarUsuario,
+    Credenciais
 }
