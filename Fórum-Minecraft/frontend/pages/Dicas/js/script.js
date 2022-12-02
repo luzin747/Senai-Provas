@@ -81,6 +81,7 @@ function preencher() {
 
 function ativarFetchesPerguntas() {
 
+
     const options = { method: 'GET' };
 
     fetch(uriQuestions, options)
@@ -158,26 +159,8 @@ function cardsPerguntas() {
 
                 document.querySelector('.container-cards').appendChild(novoCardQuestion)
 
-                var id_pergunta = q.id_pergunta
-
-                // respostas.forEach(r => {
-
-
-                //     if (r.id_perg == id_pergunta) {
-
-                //         var novoUserResposta = questRespostas.cloneNode(true)
-
-                //         novoUserResposta.classList.remove('model')
-
-                //         novoUserResposta.querySelector('.answer-r').innerHTML = r.resposta
-                //         novoUserResposta.querySelector('.data-resp').innerHTML = dataCompleta
-                //     }
-                // })
-
-
 
             }
-            // }
 
         })
     }
@@ -187,18 +170,12 @@ function cardsPerguntas() {
 
 function ativarModalResposta(e) {
 
+    var btnVerMais = e.parentNode.querySelector('.cont-ver-mais-resposta')
 
-    var id_quest = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
-    var id_user = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
+    btnVerMais.classList.add('model')
 
-    console.log(id_user)
+    var uriRespostas = 'http://localhost:3000/Feed'
 
-    var uriTest = 'http://localhost:3000/Perguntas/quest/' + id_quest
-    var uriTest2 = 'http://localhost:3000/Usuarios/' + id_user
-    var uriRespostas = 'http://localhost:3000/Respostas/'
-
-    
-    
     const options = { method: 'GET' };
 
     fetch(uriRespostas, options)
@@ -210,15 +187,7 @@ function ativarModalResposta(e) {
         )
         .catch(err => console.error(err));
 
-    
-    fetch(uriTest2, options)
-    .then(res => res.json(e))
-    .then(res => {
-        questionsAnswer = res;
-            nomeUserResp(e);
-        }
-        )
-        .catch(err => console.error(err));
+  
 
 
 }
@@ -234,7 +203,7 @@ function modalRespostas(e) {
 
     respostas.forEach(r => {
         
-        if (id_perg == r.id_perg) {
+        if (id_perg == r.id_pergunta) {
             
             var divAC = document.createElement('div')
             divAC.classList.add('answer-card')
@@ -249,17 +218,24 @@ function modalRespostas(e) {
             var divUAT = document.createElement('div')
             divUAT.classList.add('user-answer-title')
 
-            // var pegaValue = document.createElement('p')
-            // pegaValue.classList.add('v-user') 
-            // pegaValue.innerHTML = r.id_usuario 
+            // ******* FORMATANDO A DATA ***********
+            var data = r.dataResp
+
+            const [ano, mes, juncao] = data.split('-')
+
+            var dia = juncao[0] + juncao[1]
+
+            var dataCompleta = dia + '/' + mes + '/' + ano
+
+            //*********** FIM DA FORMATAÇÃO DA DATA *********** 
 
             var hTitleResp = document.createElement('h5')
             hTitleResp.classList.add('usuario-resp') 
-            hTitleResp.innerHTML = r.id_usuario 
+            hTitleResp.innerHTML = r.nickname 
             
             var spanDR = document.createElement('span')
             spanDR.classList.add('data-resp')
-            spanDR.innerHTML = r.dataResp
+            spanDR.innerHTML = dataCompleta
 
             divHUA.appendChild(imgResp)
             divHUA.appendChild(divUAT)
@@ -275,7 +251,6 @@ function modalRespostas(e) {
             pAR.innerHTML = r.resposta
 
             divCAR.appendChild(pAR)
-
             divAC.appendChild(divHUA)
             divAC.appendChild(divCAR)
 
@@ -290,27 +265,13 @@ function modalRespostas(e) {
 
 }
 
-function nomeUserResp(e) {
-
-    var idUser = e.parentNode.querySelector('.usuario-resp').innerHTML
-
-    questionsAnswer.forEach(q => {
-
-        if(idUser == q.id_user) {
-            
-            console.log(idUser , q.id_user)
-            
-            document.querySelector('.usuario-resp').innerHTML = q.nome_user
-           
-
-        }
-    })
-
-}
-
 function fechandoModal(e) {
 
-    
+    var btnVerMais = e.parentNode.querySelector('.cont-ver-mais-resposta')
+
+    console.log(btnVerMais)
+
+    btnVerMais.style.display = 'block'
 
     for(let i = 1; i > 0; i++) {
         var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
@@ -320,11 +281,8 @@ function fechandoModal(e) {
         mResposta.removeChild(secResp)
 
     }
-
-
         
 }
-
 
 function modalPergunta() {
     var modalQuestion = document.querySelector('.modal-pergunta')
@@ -410,7 +368,6 @@ function menuDow() {
     down.classList.toggle('model')
 
 }
-
 function curtir(e) {
     var curtirVazio = document.querySelector('.curtir-vazio')
     var curtirCheio = document.querySelector('.curtir-cheio')
@@ -418,7 +375,6 @@ function curtir(e) {
     curtirVazio.classList.toggle('model')
     curtirCheio.classList.toggle('model')
 }
-
 function favoritar() {
     var favoritarVazio = document.querySelector('.favoritar-vazio')
     var favoritarCheio = document.querySelector('.favoritar-cheio')

@@ -41,9 +41,9 @@ select * from vw_status;
 
 drop view if exists vw_feed;
 create VIEW vw_feed as
-select p.id_User,u.nickname, p.id_pergunta, p.pergunta, p.tema, p.data, r.id_usuario, r.resposta, r.dataResp from perguntas p 
+select p.id_User, p.id_pergunta, p.pergunta, p.tema, p.data, r.id_usuario,u.nickname, r.resposta, r.dataResp from perguntas p 
 inner join respostas r on p.id_pergunta = r.id_perg
-inner join usuarios u on  u.id_user = p.id_User;
+inner join usuarios u on  u.id_user = r.id_usuario;
 select * from vw_feed;
 
 
@@ -89,6 +89,7 @@ insert into respostas values(11,4,'Não tem como entrar sem usar mod, o mod que 
 insert into perguntas values(9,default,'Como chocar o ovo do ender dragon?','DICAS', '2022-11-05');
 insert into respostas values(2,5,'Olá filhodoN3y, infelizmente não é possível chocar o ovo do ender dragon sem utilizar MODS. 
 O ovo fica apenas como um troféu após concluir o jogo.','2022-11-07');
+insert into respostas values(3,5,'TESTE','2022-11-07');
 
 insert into perguntas values(12,default,'Como fazer uma armadura de tartaruga?','DICAS', '2022-11-01');
 insert into respostas values(5,6,'Olá jotóba_MOkano, utilizando as escamas que dropam de filhotes de tartaruga, com elas se formam apenas um CAPACETE.','2022-11-03');
