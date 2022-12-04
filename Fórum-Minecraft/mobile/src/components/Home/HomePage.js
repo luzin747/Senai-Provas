@@ -1,22 +1,19 @@
-import React from 'react'
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useState } from "react"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // IMPORTANDO ICONS
-import { BsFillChatLeftDotsFill } from 'react-icons/bs';
-import { IoMdAdd } from 'react-icons/io';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { BsBookmark } from 'react-icons/bs';
+import { BsFillChatLeftDotsFill } from "react-icons/bs";
+import { IoMdAdd } from "react-icons/io";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsBookmark } from "react-icons/bs";
 
-import Teste from './js/script.js'
+import Teste from "./js/script.js"
 
-
-
-import '../../App.css';
-import './css/home.css'
-import './css/button.css'
-// import './js/script.js'
+import "../../App.css";
+import "./css/home.css"
+import "./js/script.js"
 
 const settings = {
   dots: true,
@@ -26,19 +23,39 @@ const settings = {
   slidesToScroll: 1
 };
 
+
 function Home() {
+
+  // const [active, setMode] = useState(false);
+  // const ToggleMode = () => {
+  //   setMode(!active);
+  // }
+
 
   return (
     <div className="App" >
+
+      {/* <div className={active ? "icon iconActive" : "icon"} >
+        <div className="hamburguer hamburguerIcon"></div>
+      </div>
+
+      <div className={active ? "menu menuOpen" : "menu menuClose"}>
+        <div className="list">
+          <ul className="listItems">
+            <li>HOME</li>
+            <li>TOPICOS</li>
+            <li>TOPICOS</li>
+            <li>TOPICOS</li>
+          </ul>
+        </div>
+      </div> */}
+
       <header className="App-header">
 
-
-        <img src="https://images6.alphacoders.com/108/1082090.jpg" className="bannerLogo" alt="logo" />
-
-        <div id="header">
+        {/* <div id="header">
           <nav id="nav">
-            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu"
-              aria-expanded="false">
+            <button aria-label="Abrir Menu" className="btnHamburger" id="btn-mobile" aria-haspopup="true" aria-controls="menu"
+              aria-expanded="true">
               <span id="hamburger"></span>
             </button>
             <ul id="menu" role="menu">
@@ -48,10 +65,15 @@ function Home() {
               <li><i className="fa-solid fa-message"></i><a href="/">Entre em Contato</a></li>
             </ul>
           </nav>
-        </div>
+        </div> */}
+
+
+
+        <img src="https://images6.alphacoders.com/108/1082090.jpg" className="bannerLogo" alt="logo" />
+
 
         <Slider {...settings}>
-          <div className='slide_Noticias'>
+          <div className="slide_Noticias">
             <h3>Ransomware disfarçado de arquivo para Minecraft!</h3>
             <img src="https://w.wallha.com/ws/13/wazWHeP1.jpg" />
             <p>De acordo com o relatório, o ransomware está disfarçado de um arquivo de texto contendo.... ver mais</p>
@@ -86,6 +108,7 @@ function Home() {
 
 
       </header>
+
 
       <main className="conteudo">
 
@@ -123,7 +146,7 @@ function Home() {
                   </div>
 
                   <div>
-                    <BsFillChatLeftDotsFill className='verRespostas' onClick={Teste} />
+                    <BsFillChatLeftDotsFill className="verRespostas" onClick={Teste} />
                   </div>
 
                 </div>
@@ -131,32 +154,32 @@ function Home() {
               </div>
 
 
-              <div className='answer model'>
+              <div className="answer model">
 
-                <div className='cont-title-modal-answer'>
+                <div className="cont-title-modal-answer">
                   <h2>RESPOSTAS</h2>
 
-                  <hr/>
+                  <hr />
                 </div>
 
-                <div className='answer-card'>
+                <div className="answer-card">
 
 
-                   <div className='cards'>
+                  <div className="cards">
 
-                    <div className='head-answer-card'>
-                      <img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc' />
+                    <div className="head-answer-card">
+                      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc" />
 
-                      <div className='head-answer-title'>
+                      <div className="head-answer-title">
                         <h3>asdadadsa</h3>
                         <p>12/12/1222</p>
                       </div>
                     </div>
-                <span className="resposta">Lorem Ipsum is simply dummy text ots co</span>
+                    <span className="resposta">Lorem Ipsum is simply dummy text ots co</span>
 
-                   </div>      
-            
-                     
+                  </div>
+
+
                 </div>
 
 
@@ -167,14 +190,7 @@ function Home() {
           </div>
 
 
-
-
-
-
         </div>
-
-
-
 
         <div className="cont-topicos">
 
@@ -184,22 +200,22 @@ function Home() {
 
           <div className="topicos">
 
-            <div className='container-cards-topics'>
+            <div className="container-cards-topics">
 
               <img src="http://127.0.0.1:5501/frontend/pages/Home/img/1.png" />
 
-              <div className='topicos-title'>
+              <div className="topicos-title">
                 <p>CRAFTS</p>
                 <button>CONFERIR</button>
               </div>
 
             </div>
 
-            <div className='container-cards-topics'>
+            <div className="container-cards-topics">
 
               <img src="http://127.0.0.1:5501/frontend/pages/Home/img/2.png" />
 
-              <div className='topicos-title'>
+              <div className="topicos-title">
                 <p>CRAFTS</p>
                 <button>CONFERIR</button>
 
@@ -207,11 +223,11 @@ function Home() {
 
             </div>
 
-            <div className='container-cards-topics'>
+            <div className="container-cards-topics">
 
               <img src="http://127.0.0.1:5501/frontend/pages/Home/img/4.png" />
 
-              <div className='topicos-title'>
+              <div className="topicos-title">
                 <p>CRAFTS</p>
                 <button>CONFERIR</button>
 
@@ -219,11 +235,11 @@ function Home() {
 
             </div>
 
-            <div className='container-cards-topics'>
+            <div className="container-cards-topics">
 
               <img src="http://127.0.0.1:5501/frontend/pages/Home/img/3.png" />
 
-              <div className='topicos-title'>
+              <div className="topicos-title">
                 <p>CRAFTS</p>
                 <button>CONFERIR</button>
 
@@ -240,9 +256,6 @@ function Home() {
     </div>
   );
 }
-
-// var resp = document.querySelector('.verRespostas')
-
 
 
 export default Home;
