@@ -11,18 +11,15 @@ body {
     background-image: url('https://www.todofondos.net/wp-content/uploads/4k-minecraft-wallpapers-los-mejores-fondos-4k-minecraft-gratis.-fondo-de-pantalla-hd-1080p-de-minecraft.png');
     background-size: cover;
     height: 85vh;
-    /* background-repeat: no-repeat; */
 }
 
 .cont-img-banner img {
     width: 54vw;
-    /* padding-right:200px; */
     border-radius: 5px;
 }
 
 #container {
     width: 90vw;
-    /* height: 60vh; */
     margin: 35% auto;
 }
 
@@ -46,7 +43,6 @@ h1 {
     text-align: center;
     margin-bottom: -30px;
     color: #151615;
-    /* text-shadow: 0px 0px 10px rgba(170, 170, 170, 0.623); */
 }
 .cont-title {
     display: flex;
@@ -57,11 +53,9 @@ h1 {
 .cont-title hr {
     width: 80%;
     margin: 0 auto;
-    /* border: 1px solid rgba(121, 121, 121, 0.342); */
 }
 
 form{
-    /* width: 95%; */
     padding: 2%;
     margin: 0 auto;
 }
@@ -125,11 +119,8 @@ form{
     font-weight: 800;
     border-radius: 15px;
     font-size: 10pt;
-    cursor: pointer;
-    
+    cursor: pointer;    
 }
-
-
 
 .img-btn {
     width: 15px;
@@ -146,8 +137,6 @@ form{
 .login-cont button:hover {
     background-color: #08791b;
     font-weight: 600;
-
-
 }
 
 .cadastrar-cont a {

@@ -9,26 +9,14 @@ import { BsTwitter } from "react-icons/bs";
 function App() {
 
     var btnLogar = document.querySelector('.button-login')
-
-    React.useEffect(() => {
-        btnLogar.addEventListener('click', (event) => {
-          
-        });
-      });
     
 
     return (
         <div className="container">
 
-
             <div id="container">
 
-
-
-
                 <div className="login-cont">
-
-
 
                     <div className="cont-login">
                         <img className="img-logo" src="http://127.0.0.1:5501/frontend/Login/img/IMAGES/Minecraft-2-icon.png" alt="" />
