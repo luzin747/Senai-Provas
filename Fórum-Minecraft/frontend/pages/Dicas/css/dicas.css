@@ -10,6 +10,7 @@
 body {
     background-image: url('https://www.todofondos.net/wp-content/uploads/4k-minecraft-wallpapers-los-mejores-fondos-4k-minecraft-gratis.-fondo-de-pantalla-hd-1080p-de-minecraft.png');
     background-size: cover;
+    /* background-color: rgba(7, 7, 7, 0.774); */
 }
 
 .model {
@@ -18,6 +19,7 @@ body {
 }
 #container {
     width: 75vw;
+    height: 100%;
     margin: 0 auto;
     background-color: white;
     /* height: 120vh; */
@@ -276,40 +278,17 @@ nav ul h1 {
     color: white;
 }
 
+/********* FIM DO MENU FIXADO  ************/
 
+/* INICIO DO CONTEUDO DA PÁGIA */
 .cont-section-01 {
     max-width: 62vw;
     margin: 5px 5px;
-    
-}
-
-
-.title {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    color: black;
-    /* margin-left: -15px; */
-    background-color: #212124;
-    color: rgb(252, 252, 252);
-    border-radius: 10px;
-    
-
-}
-
-.title i, h1 {
-    margin-left: 5px;
-    font-size: 15pt;
-
-}
-
-
-
-.cont-section-01 {
     display: flex;
     flex-direction: column;
+    
 }
+
 .cont-cards {
     display: flex;
     margin: 15px 0px;
@@ -324,6 +303,27 @@ nav ul h1 {
     padding: 5px 0px;
     border-radius: 2px;
 }
+
+/********** TITULO DA PÁGINA *************/
+.title {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: black;
+    /* margin-left: -15px; */
+    background-color: #212124;
+    color: rgb(252, 252, 252);
+    border-radius: 10px;   
+}
+
+.title i, h1 {
+    margin-left: 5px;
+    font-size: 15pt;
+
+}
+
+/******** FIM DO TÍTULO DA PÁGINA ***********/
 
 
 .cards p , h4 {
@@ -340,6 +340,11 @@ nav ul h1 {
     position: fixed;
     left: 72.4%;
     width: 15vw;
+}
+
+.img-noth {
+    width: 35%;
+    object-fit: contain;
 }
 
 .cont-questions {
@@ -359,10 +364,6 @@ nav ul h1 {
     padding: 10px;    
 }
 
-.img-noth {
-    width: 35%;
-    object-fit: contain;
-}
 
 .header-question {
     display: flex;
@@ -403,10 +404,16 @@ nav ul h1 {
     align-items: center;
     justify-content: space-evenly;
 }
+
+.input-answer input:focus {
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.315);
+}
 .i-enviar {
     font-size: 15pt;
-    margin-left: -40px;
+    margin-left: -45px;
     cursor: pointer;
+    color: #212124;
 }
 .cont-input {
     width: 60%;
@@ -445,21 +452,23 @@ nav ul h1 {
     padding: 5px;
 }
 
+/************** CURTIR E FAVORITAR ***********/
 .favoritar-vazio:hover {
     transition: 0.1s;
     color: rgb(160, 160, 10);
 }
-.favoritar-cheio {
+.favoritar-cheio , .favoritar-vazio {
     color: #ffd700;
 }
 
+.curtir-cheio , .curtir-vazio {
+    color: rgba(255, 0, 0, 0.815);
+}
 .curtir-vazio:hover {
     transition: 0.1s;
     color: rgba(255, 0, 0, 0.815);
 }
-.curtir-cheio {
-    color: rgba(255, 0, 0, 0.815);
-}
+/************ FIM DO CURTIR E FAVORITAR *********/
 
 .answer h4 {
     text-align: center;
@@ -472,6 +481,13 @@ nav ul h1 {
 
 .title-answer {
     padding: 10px;
+}
+
+/********* FILTRO DAS PERGUNTAS  ***********/
+.filtro {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .pergunta-answer {

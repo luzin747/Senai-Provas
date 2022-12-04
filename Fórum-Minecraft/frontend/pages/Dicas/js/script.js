@@ -53,7 +53,6 @@ function preencher() {
     document.querySelector('.qtdPerguntas').innerHTML = questions.length
     document.querySelector('.qtdUsuarios').innerHTML = usuarios.length
 
-
     usuarios.forEach(u => {
 
         if (u.status_user == 'usuario') {
@@ -114,57 +113,62 @@ function ativarFetchesPerguntas() {
 }
 var qtdRep = 0
 function cardsPerguntas() {
-
-    console.log('entrando')
-
-    qtdRep += 1
-
+    
+    // var select_filtro = document.querySelector(".select_filtro")
+    // let seleFilter = select_filtro.options[select_filtro.selectedIndex].value;
+    // if (seleFilter == 'lasts') { var filtro = 'lasts' }
+    // if (seleFilter == 'firts') { var filtro = 'firts' }
+ 
+    
     questions.reverse()
-
-
+    
+    
+    qtdRep += 1
     if (qtdRep == 1) {
+        
         questions.forEach((q, i) => {
-
-            // if (i < 3) {
+            
             if (q.tema == 'DICAS') {
-
-                var novoCardQuestion = cardQuestion.cloneNode(true)
-
-                novoCardQuestion.classList.toggle('model')
-
-                var idUsuario = q.id_User
-
-                usuarios.forEach(u => {
-
-                    if (idUsuario == u.id_user) {
-                        novoCardQuestion.querySelector('.nome-user-card').innerHTML = u.nome_user
-
+                    
+                        var novoCardQuestion = cardQuestion.cloneNode(true)
+        
+                        novoCardQuestion.classList.toggle('model')
+        
+                        var idUsuario = q.id_User
+        
+                        usuarios.forEach(u => {
+        
+                            if (idUsuario == u.id_user) {
+                                novoCardQuestion.querySelector('.nome-user-card').innerHTML = u.nome_user
+        
+                            }
+        
+                        })
+    
+                        var data = q.data
+        
+                        const [ano, mes, juncao] = data.split('-')
+        
+                        var dia = juncao[0] + juncao[1]
+        
+                        var dataCompleta = dia + '/' + mes + '/' + ano
+    
+                        novoCardQuestion.querySelector('.id_usuario').innerHTML = q.id_User
+                        novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
+                        novoCardQuestion.querySelector('.data-question').innerHTML = '- ' + dataCompleta
+                        novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
+                        novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
+        
+                        document.querySelector('.container-cards').appendChild(novoCardQuestion)
                     }
 
-                })
 
-                var data = q.data
+            })
+        }
 
-                const [ano, mes, juncao] = data.split('-')
+}
 
-                var dia = juncao[0] + juncao[1]
-
-                var dataCompleta = dia + ' ' + mes + ' ' + ano
-
-                novoCardQuestion.querySelector('.id_usuario').innerHTML = q.id_User
-                novoCardQuestion.querySelector('.id_pergunta').innerHTML = q.id_pergunta
-                novoCardQuestion.querySelector('.data-question').innerHTML = '- ' + dataCompleta
-                novoCardQuestion.querySelector('.question-p').innerHTML = q.pergunta
-                novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
-
-                document.querySelector('.container-cards').appendChild(novoCardQuestion)
-
-
-            }
-
-        })
-    }
-
+function filtrandoUltimas() {
 
 }
 
@@ -266,13 +270,12 @@ function modalRespostas(e) {
 }
 
 function fechandoModal(e) {
-
-    var btnVerMais = e.parentNode.querySelector('.cont-ver-mais-resposta')
-
+    
+    var btnVerMais = e.parentNode.parentNode.parentNode.querySelector('.cont-ver-mais-resposta')
+    
+    btnVerMais.classList.remove('model') 
     console.log(btnVerMais)
-
-    btnVerMais.style.display = 'block'
-
+    
     for(let i = 1; i > 0; i++) {
         var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
         var secResp = document.querySelector('.answer-card')
@@ -281,6 +284,9 @@ function fechandoModal(e) {
         mResposta.removeChild(secResp)
 
     }
+
+
+
         
 }
 
@@ -312,7 +318,16 @@ function fecharModalPergunta() {
     document.querySelector('#container').style.opacity = ''
 
 }
+
 function cadastrarPergunta() {
+
+    var hoje = new Date()
+    var dia = String(hoje.getDate()).padStart(2, '0')
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+    var ano = hoje.getFullYear()
+
+    dataFinal = ano + '/' + mes + '/' + dia;
+
     var txtPergunta = document.querySelector('#txtPerguntar').value
 
     if (txtPergunta.length > 0) {
@@ -323,13 +338,11 @@ function cadastrarPergunta() {
         if (seleStatus == 'dicas') { var tema = 'DICAS' }
         if (seleStatus == 'mods') { var tema = 'MODS' }
 
-
-
         let data = {
             "id_user": 2,
             "tema": tema,
             "pergunta": txtPergunta,
-            "data": dataAtual
+            "data": dataFinal
 
         }
         console.log(data)
@@ -369,16 +382,45 @@ function menuDow() {
 
 }
 function curtir(e) {
-    var curtirVazio = document.querySelector('.curtir-vazio')
-    var curtirCheio = document.querySelector('.curtir-cheio')
+    var curtirVazio = e.parentNode.querySelector('.curtir-vazio')
+    var curtirCheio = e.parentNode.querySelector('.curtir-cheio')
 
     curtirVazio.classList.toggle('model')
     curtirCheio.classList.toggle('model')
 }
-function favoritar() {
-    var favoritarVazio = document.querySelector('.favoritar-vazio')
-    var favoritarCheio = document.querySelector('.favoritar-cheio')
+function favoritar(e) {
+    var favoritarVazio =  e.parentNode.querySelector('.favoritar-vazio')
+    var favoritarCheio =  e.parentNode.querySelector('.favoritar-cheio')
 
     favoritarVazio.classList.toggle('model')
     favoritarCheio.classList.toggle('model')
 }
+
+//FILTRANDO
+var search_btn = document.querySelector('.btn-filter')
+const INPUT_BUSCA = document.querySelector('.inpFiltrar')
+const PERGUNTAS = document.querySelector('.container-cards')
+
+search_btn.addEventListener('click', () => {
+
+  let expressao = INPUT_BUSCA.value
+
+  let linhas = PERGUNTAS.getElementsByClassName('questions')
+
+  for (let posicao in linhas) {
+      if (true === isNaN(posicao)) {
+          continue
+      }
+
+      let conteudoDaLinha = linhas[posicao].innerHTML
+
+      if (true === conteudoDaLinha.includes(expressao)) {
+          linhas[posicao].style.display = ''
+      } else {
+          linhas[posicao].style.display = 'none'
+
+      }
+
+  }
+
+})
