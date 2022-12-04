@@ -520,6 +520,8 @@ nav ul h1 {
 
 /********* FIM DO FILTRO DAS PERGUNTAS *********/
 
+
+/********** RESPOSTAS **********/
 .pergunta-answer {
     text-align: justify;
 }
@@ -604,6 +606,9 @@ nav ul h1 {
 .v-user {
     display: none;
 }
+
+
+
 /********* SESSÃO DOS TÓPICOSS ******/
 .sub-topics {
     display: flex;
