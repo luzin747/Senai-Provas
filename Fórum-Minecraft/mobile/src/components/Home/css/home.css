@@ -44,7 +44,7 @@
 /** FIM DO TITULO DO MENU **/
 
 /** MENU HAMBURGUER **/
-  /* #header{
+  #header{
         display: block;
         position: absolute;
         top: 2%;
@@ -116,7 +116,7 @@
   #nav.active #hamburger::after {
   transform: rotate(-135deg);
   top: -7px;
-  } */
+  }
 /** FIM DO MENU HAMBURGUER **/
 
 /*------------ FIM DA SESSAO <HEADER>  ------------*/

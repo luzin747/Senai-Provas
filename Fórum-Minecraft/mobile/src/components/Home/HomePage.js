@@ -9,7 +9,7 @@ import { IoMdAdd } from "react-icons/io";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 
-import Teste from "./js/script.js"
+import { teste } from "./js/script.js"
 
 import "../../App.css";
 import "./css/home.css"
@@ -52,7 +52,7 @@ function Home() {
 
       <header className="App-header">
 
-        {/* <div id="header">
+        <div id="header">
           <nav id="nav">
             <button aria-label="Abrir Menu" className="btnHamburger" id="btn-mobile" aria-haspopup="true" aria-controls="menu"
               aria-expanded="true">
@@ -65,7 +65,7 @@ function Home() {
               <li><i className="fa-solid fa-message"></i><a href="/">Entre em Contato</a></li>
             </ul>
           </nav>
-        </div> */}
+        </div>
 
 
 
@@ -146,7 +146,7 @@ function Home() {
                   </div>
 
                   <div>
-                    <BsFillChatLeftDotsFill className="verRespostas" onClick={Teste} />
+                    <BsFillChatLeftDotsFill className="verRespostas" onClick={teste} />
                   </div>
 
                 </div>

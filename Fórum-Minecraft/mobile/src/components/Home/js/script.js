@@ -30,6 +30,7 @@ function teste(e) {
 // btnMobile.addEventListener('touchstart', toggleMenu);
 
 
-export default teste;
-// export default toggleMenu;
+module.exports = {
+  teste
 
+}
