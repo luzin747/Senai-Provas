@@ -3,14 +3,16 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 // import { BsFillChatLeftDotsFill } from "react-icons/bs";
 
-import styleM from '../Main/styleM'
+import styleM from './styleM'
+
+console.log(styleM)
 
 export default function Main() {
     return (
+      <View>
 
-      <View>     
-        <View styles={styleM.contTitle}>
-            <Text styles={styleM.title}>Últimas Perguntas</Text>
+        <View style={styleM.contTitle}>
+            <Text style={styleM.title}>Últimas Perguntas</Text>
         </View>
 
       </View>

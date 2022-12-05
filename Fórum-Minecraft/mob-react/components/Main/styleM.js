@@ -7,7 +7,9 @@ export default StyleSheet.create({
     },
     title: {
         fontWeight: 500,
-        fontSize:222, 
+        fontSize:22, 
+        color: 'white',
+        padding: 5,
         backgroundColor: '#212124'
 
     }
