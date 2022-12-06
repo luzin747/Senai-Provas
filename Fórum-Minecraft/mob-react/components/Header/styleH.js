@@ -21,7 +21,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         justifyContent: 'space-around',
-        backgroundColor: "#150126",
+        backgroundColor: "#212124",
         top: -20,
         padding: 5
     },
@@ -33,8 +33,8 @@ export default StyleSheet.create({
     },
 
     imageIconCreeper: {
-        width: "15%",
-        height: "4.5vh",
+        width: "12%",
+        height: "3.5vh",
         marginRight: 10,
     },
     contImageAdd: {
