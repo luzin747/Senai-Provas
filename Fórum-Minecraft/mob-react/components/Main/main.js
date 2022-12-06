@@ -20,8 +20,6 @@ console.log(iconCraft)
 export default function Main() {
   return (
     <View>
-          <NavigationContainer>{/* Rest of your app code */}</NavigationContainer>
-
 
       <View style={styleM.contTitle}>
         <Text style={styleM.title}>Últimas Perguntas</Text>
