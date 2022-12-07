@@ -1,6 +1,8 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button,TextInput  } from 'react-native';
+
 
 import Home from '../src/pages/Home/HomePage'
 import Topics from '../src/pages/Topics/TopicsPage'
@@ -56,17 +58,28 @@ export default function Routes() {
 
             <Tab.Screen name="Home" 
             component={Home}
+            options={{
+                title: '',
+                headerTransparent: true,
+                headerShow: false
+            }}
             />
             
 
             <Tab.Screen name="Topics" 
             component={Topics} 
+            options={{
+                title: '',
+                headerTransparent: true,
+                headerShow: false
+            }}
             />
 
             <Tab.Screen 
             name="New" 
             component={ButtonNew}
             options={{
+                
                 tabBarLabel: '',
                 tabBarIcon: ({ focused, size, color}) => (
                     size = "25pt",
@@ -77,12 +90,22 @@ export default function Routes() {
 
             <Tab.Screen 
                 name="Users" 
-                component={User} 
+                component={User}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShow: false
+                }} 
             />
 
             <Tab.Screen 
                 name="Logout" 
                 component={Logout} 
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShow: false
+                }}
             />  
         </Tab.Navigator>
     )

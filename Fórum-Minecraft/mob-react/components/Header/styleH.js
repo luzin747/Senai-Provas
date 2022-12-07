@@ -20,7 +20,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         backgroundColor: "#212124",
         top: -20,
         padding: 5
@@ -33,21 +33,12 @@ export default StyleSheet.create({
     },
 
     imageIconCreeper: {
-        width: "12%",
-        height: "3.5vh",
+        width: "7%",
+        height: "4vh",
         marginRight: 10,
+        marginLeft: 10,
     },
-    contImageAdd: {
-        backgroundColor: 'white',
-        borderRadius: 5,
-        paddingLeft: 6,
-        paddingRight: 6,
-        marginTop: 5
-    },
-    imageAdd: {
-        width: 33,
-        height : 30,
-    }
+
     
 })
 

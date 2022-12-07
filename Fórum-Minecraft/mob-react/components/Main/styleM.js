@@ -39,7 +39,8 @@ export default StyleSheet.create({
     imgUser: {
         marginRight: 5,
         width: 50,
-        height: 50
+        height: 50,
+        borderRadius: 10
     },
 
 
@@ -53,21 +54,32 @@ export default StyleSheet.create({
         paddingLeft: 10
 
     },
+    containerSaveViewAnswer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 12,
 
-    contImageAdd: {
-        width: '13%',
-        marginTop: 15,
-        marginBottom: 10,
-        marginLeft: '83%'
-       
     },
-    imageAdd: {
-        width: 45,
-        height : 40,
-        
-    }
-    ,
 
+    contSaveCurtir: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+
+    iconIon: {
+        fontSize: 22,
+        marginLeft: 5,
+        marginRight: 5,
+    },
+
+    iconIonMoreAnswer: {
+        fontSize: 25,
+        marginLeft: 5,
+        marginRight: 5,
+    },
     cardTopicsCrafts: {
         display: 'flex',
         flexDirection: 'row',
@@ -144,6 +156,18 @@ export default StyleSheet.create({
     titleBtnConefrir: {
         color: 'white',
 
+    },
+
+    modalRespostas: {
+        backgroundColor: '#212124',
+        padding: 2,
+        marginTop: 7
+    },
+    titleModalRespostas: {
+        fontSize: 17,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 500
     }
     
 })

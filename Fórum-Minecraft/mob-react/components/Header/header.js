@@ -16,15 +16,17 @@ export default function Home() {
         
         <View style={style.contTitleHeader}>
 
-          <View style={style.contImageTittle}>
+          {/* <View style={style.contImageTittle}> */}
           <Image style={style.imageIconCreeper} source={creeper}/> 
           <Text style={style.titleHeader}>RENASCRAFT</Text>
+          <Image style={style.imageIconCreeper} source={creeper}/> 
 
-          </View>
+
+          {/* </View> */}
             
-          <TouchableOpacity style={style.contImageAdd}>
+          {/* <TouchableOpacity style={style.contImageAdd}>
             <Image style={style.imageAdd} source="https://icons.veryicon.com/png/o/internet--web/55-common-web-icons/add-43.png"/> 
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
 
       </View>

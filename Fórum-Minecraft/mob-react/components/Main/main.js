@@ -1,6 +1,7 @@
 // import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Button,TextInput  } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput } from 'react-native';
 import * as React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import 'react-native-gesture-handler';
 // import { BsFillChatLeftDotsFill } from "react-icons/bs";
 
@@ -15,6 +16,10 @@ import iconChat from './img/chatIcon.png'
 // import {FaFacebook} from 'react-icons/fa'
 
 console.log(iconCraft)
+
+let Bookmark = 'Bookmark'
+let Heart
+
 
 
 export default function Main() {
@@ -40,13 +45,30 @@ export default function Main() {
 
         <Text>loremasdadadsadadasdsadsadsada</Text>
 
-          <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta"/>
+        <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
 
-          <View>
-            <TouchableOpacity style={styleM.contImageAdd}>
-                <Image style={styleM.imageAdd} source={iconChat}/> 
-              </TouchableOpacity>
+
+        <View style={styleM.containerSaveViewAnswer}>
+          <View style={styleM.contSaveCurtir}>
+            <TouchableOpacity>
+              <Ionicons style={styleM.iconIon} name={'bookmark-outline'} />
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <Ionicons style={styleM.iconIon} name={'heart-outline'} />
+            </TouchableOpacity>
           </View>
+
+          <TouchableOpacity style={styleM.contImageAdd}>
+            <Ionicons style={styleM.iconIonMoreAnswer} name={'chatbox-ellipses-outline'} />
+
+            {/* <Image style={styleM.imageAdd} source={iconChat}/>  */}
+          </TouchableOpacity>
+        </View>
+
+        <View style={styleM.modalRespostas}>
+          <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
+        </View>
 
       </View>
 
@@ -104,7 +126,7 @@ export default function Main() {
         </View>
       </View>
 
-   
+
     </View>
 
   );
