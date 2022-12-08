@@ -59,8 +59,8 @@ export default function Main() {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styleM.contImageAdd}>
-            <Ionicons style={styleM.iconIonMoreAnswer} name={'chatbox-ellipses-outline'} />
+          <TouchableOpacity style={styleM.contImageAdd} onPress={teste}>
+            <Ionicons style={styleM.iconIonMoreAnswer}  name={'chatbox-ellipses-outline'} />
 
             {/* <Image style={styleM.imageAdd} source={iconChat}/>  */}
           </TouchableOpacity>
@@ -130,6 +130,10 @@ export default function Main() {
     </View>
 
   );
+}
+
+function teste() {
+  console.log('asdad')
 }
 
 
