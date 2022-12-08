@@ -15,7 +15,7 @@ router.post("/Usuarios", UsuariosController.cadastrarUsuarios);
 router.post("/Usuarios/credenciais", UsuariosController.Credenciais);
 router.delete("/Usuarios", UsuariosController.excluirUsuarios);
 router.put("/Usuarios", UsuariosController.editarUsuarios);
-router.get("/Usuarios/:nickname", UsuariosController.procurarNickname);
+router.get("/nick/:nickname", UsuariosController.procurarNickname);
 
 router.get("/Perguntas", PerguntasController.listarPerguntas);
 router.get("/Perguntas/user/:id_user", PerguntasController.listarPerguntaUser);

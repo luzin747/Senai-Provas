@@ -41,11 +41,11 @@ function carregar() {
         .catch(err => console.error(err));
 
     ativarFetchesPerguntas()
-    
+
     var acoes = document.querySelector(".acoes")
     var st = document.querySelector(".status").innerHTML
     console.log(st)
-    if(st === "Moderador"){
+    if (st === "Moderador") {
         var up = document.createElement('i')
         up.classList = ' bx bx-edit'
         up.setAttribute('onClick', 'abrirInfos(this)')
@@ -53,9 +53,15 @@ function carregar() {
     }
 }
 
-function abrirInfos(){
-    
-    
+function abrirInfos(e) {
+    const sta = e.parentNode.parentNode.querySelector(".nome-user-modal").innerHTML
+    const options = { method: 'GET' };
+
+    fetch('http://localhost:3000/nick/' + sta, options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+        console.log(sta)
 }
 
 function preencher() {
@@ -90,7 +96,7 @@ function preencher() {
 
 // -------------- MODAL E CAD RESPOSTAS -----------------
 
-var cardRespostaHome =  document.querySelector('.answer-card')
+var cardRespostaHome = document.querySelector('.answer-card')
 
 function ativarModalResposta(e) {
 
@@ -123,7 +129,7 @@ function ativarModalResposta(e) {
                             var close = document.createElement('button')
                             close.classList.add("btnClose")
                             close.setAttribute('onClick', 'fecharModal()')
-                            
+
                             corpo.appendChild(modalResposta)
                             console.log(corpo)
 
@@ -378,9 +384,9 @@ emailUser.innerHTML = userinfo.email;
 nick.innerHTML = userinfo.nick;
 id.innerHTML = userinfo.id;
 status.innerHTML = userinfo.status;
-if(status.innerHTML == "admin"){
+if (status.innerHTML == "admin") {
     status.innerHTML = "Moderador"
-}else{
+} else {
     status.innerHTML = "Usuário"
 }
 

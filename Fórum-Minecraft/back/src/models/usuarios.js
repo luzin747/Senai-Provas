@@ -25,7 +25,7 @@ const toLogin = (model) => {
 }
 
 const toName = (model) =>{
-    return `SELECT * FROM usuario WHERE nickname = '${model.nickname}`;
+    return `SELECT * FROM usuarios WHERE nickname = '${model.nickname}'`;
 }
 module.exports = {
 toReadAll,
