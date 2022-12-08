@@ -247,6 +247,12 @@ nav ul h1 {
     font-weight: 500;
 }
 
+.cont-pergunta > button:hover{
+    background-color: #000;
+    cursor: pointer;
+    color:#fff;
+}
+
 
 .agradecimentos {
     overflow-y: scroll;
@@ -416,6 +422,7 @@ nav ul h1 {
     font-size: 15pt;
     margin-left: -40px;
     cursor: pointer;
+    color: black;
 }
 .cont-input {
     width: 60%;
@@ -501,7 +508,9 @@ nav ul h1 {
     text-align: center;
 }
 
-.answer-card {
+.corpo {
+    height: 25vh;
+    overflow-y: scroll;
     background-color: #515153;
     padding: 5px;
     border-radius: 10px;
@@ -512,6 +521,12 @@ nav ul h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.tela{
+    visibility: hidden;
+    display: none;
 }
 
 .data-question-answer {
@@ -634,6 +649,10 @@ nav ul h1 {
     /* background-color: #212124; */
 }
 
+.caption-topics > a{
+    color: #fff;
+}
+
 .conferir-topico-button {
     font-size: 17px;
     border: 1px solid white;
@@ -743,4 +762,25 @@ footer {
 a{
     text-decoration: none;
     color: black;
+}
+
+.btnClose {
+    background-color: red;
+    width: 2vw;
+    height: 2vh;
+}
+
+#container-users{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#container-users > .acoes > i {
+    margin-left: 20%;
+}
+
+.id{
+    display: none;
+    visibility: hidden;
 }

@@ -13,7 +13,7 @@ create table usuarios(
 );
 -- CIANDO TABELA DE PERGUNTAS
 create table perguntas(
-    id_User integer null,
+    id_User integer not null,
     id_pergunta integer not null primary key auto_increment,
     pergunta varchar(300) not null,
     tema varchar(30) not null,
@@ -23,7 +23,7 @@ create table perguntas(
 
 --CRIANDO TABELA DE COMENTARIOS/RESPOSTAS
 create table respostas(
-    id_usuario integer null,
+    id_usuario integer not null,
     id_perg integer not null,
     resposta varchar(300) not null,
     dataResp date not null,
@@ -58,7 +58,7 @@ insert into usuarios values(default,'Fernanda Costa', 'gatinhafofa123', 'ferferC
 insert into usuarios values(default,'Caio Pena', 'filhodoN3y', 'caiozinho@gmail.com','caio123','usuario');
 insert into usuarios values(default,'Juan Dias', 'paulin_pinho', 'jézinho@gmail.com','senhaforte','usuario');
 insert into usuarios values(default,'Suzane Canoa', '19940028922', 'suzaneCosta12@gmail.com','susu123','usuario');
-insert into usuarios values(default,'Marcos PVP', 'jotóba_MOkano', 'marquinhos65@gmail.com','marcos123','usuario');
+insert into usuarios values(default,'Marcos PVP', 'jotóba_nOkano', 'marquinhos65@gmail.com','marcos123','usuario');
 insert into usuarios values(default,'Gleidson', 'gleisonPVP', 'gle@gmail.com','senha@123','admin');
 insert into usuarios values(default,'Luiz', 'Luizinho', 'luiz@gmail.com','luizgatao','admin');
 insert into usuarios values(default,'Jessica', 'jessicaTriSapeca', 'jessica23@gmail.com','senha1234','admin');

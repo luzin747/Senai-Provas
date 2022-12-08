@@ -1,59 +1,65 @@
-var uriUsuarios = 'http://localhost:3000/Usuarios'
+// var uriUsuarios = 'http://localhost:3000/login'
 
-var users = []
+// var users = []
 
-function ativar() {
+// function ativar() {
 
-    const options = { method: 'GET' };
+//     const options = { method: 'POST' };
 
-    fetch(uriUsuarios, options)
-        .then(res => res.json())
-        .then(res => {
-            users = res;
-            logar();
-        }
-        )
-        .catch(err => console.error(err));
+//     fetch(uriUsuarios, options)
+//         .then(res => res.json())
+//         .then(res => {
+//             users = res;
+//             logar();
+            
+//         }
+//         )
+       
+//         .catch(err => console.error(err));
     
-}
+// }
+const inpUser = document.querySelector('#user')
+const inpSenha = document.querySelector('#senha')
+var id 
 
 function logar() {
-    var inpUser = document.querySelector('#user').value
-    var inpSenha = document.querySelector('#senha').value 
-
-    var encontrado = false
-    var usuarioEncontrado = false
-
-    console.log(users)
-
-    users.forEach(e => {
-
-        if(inpUser == e.email && inpSenha == e.senha ) {
-            encontrado = true
-        }
-        else if(inpUser == e.nickname && inpSenha == e.senha) {
-            usuarioEncontrado = true
-            
-
-
-        }
+   let data = {
+    "nickname": inpUser.value,
+    "email": inpUser.value,
+    "senha": inpSenha.value
+   }
+   console.log(data)
+   fetch("http://localhost:3000/login", {
+    "method":"POST",
+    "headers": {
+        "Content-Type":"application/json"
+    },
+    "body": JSON.stringify(data)
+})
+.then(res => {return res.json()})
+.then(data => {
+    if(data.erro === undefined) {
+        console.log(data)
+        localStorage.setItem("info", JSON.stringify({"email":data.email, "id":data.id_user, "nick": data.nickname, "status":data.status_user}));
         
-    })
-
-    if(encontrado == true) {
-        localStorage.setItem("info", JSON.stringify({"email":inpUser, "senha":inpSenha}));
-        window.location.href = '../pages/Home/index.html'
-
-    }if(usuarioEncontrado == true){
-        localStorage.setItem("info", JSON.stringify({"nickname":inpUser, "senha":inpSenha}));
         window.location.href = '../pages/Home/index.html'
     }
-    else {
-        var erro = document.querySelector('.erros')
-
-        erro.classList.remove('modal')
-        
-    }
+})
 }
 
+//     if(encontrado == true) {
+//         localStorage.setItem("info", JSON.stringify({"email":inpUser, "senha":inpSenha, "id_user":id}));
+//         window.location.href = '../pages/Home/index.html'
+
+//     }if(usuarioEncontrado == true){
+//         localStorage.setItem("info", JSON.stringify({"nickname":inpUser, "senha":inpSenha, "id_user":id}));
+//         window.location.href = '../pages/Home/index.html'
+//     }
+//     else {
+//         var erro = document.querySelector('.erros')
+
+//         erro.classList.remove('modal')
+        
+//     }
+// }
 
