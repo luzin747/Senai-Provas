@@ -80,12 +80,14 @@ function preencher() {
 }
 
 
-function ativarFetchesPerguntas() {
+function ativarFetchesPerguntas(e) {
 
+    var tema = e.querySelector('.nameTema').innerHTML
 
+    var url = 'http://localhost:3000/tema/' + tema
     const options = { method: 'GET' };
 
-    fetch(uriQuestions, options)
+    fetch(url, options)
         .then(res => res.json())
         .then(res => {
             questions = res;
@@ -113,30 +115,20 @@ function ativarFetchesPerguntas() {
         .catch(err => console.error(err));
 
 }
+
 var qtdRep = 0
 
-
-
-
- 
-function cardsPerguntas(e) {
-
+function cardsPerguntas() {
     
-    var teste = e.querySelector('.nameTema').innerHTML
-    
-
-    console.log(teste)
-
-    questions.reverse()
+    // questions.reverse()
      
     qtdRep += 1
     if (qtdRep == 1) {
 
-        if(teste == null) {
-            questions.forEach((q, i) => {
-            
-           
-                   
+        questions.forEach((q, i) => {
+
+
+            // if(q.id_User == userinfo.id) {
                 var novoCardQuestion = cardQuestion.cloneNode(true)
 
                 novoCardQuestion.classList.toggle('model')
@@ -167,10 +159,12 @@ function cardsPerguntas(e) {
                 novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
 
                 document.querySelector('.container-cards').appendChild(novoCardQuestion)
+            // }
+                
             
 
     })
-        }
+        
         
     }
    
@@ -218,6 +212,7 @@ function modalRespostas(e) {
     mResposta.classList.remove('model')  
 
     respostas.forEach(r => {
+        
         
         if (id_perg == r.id_pergunta) {
             
@@ -296,10 +291,7 @@ function fechandoModal(e) {
         mResposta.removeChild(secResp)
 
     }
-
-
-
-        
+      
 }
 
 function modalPergunta() {
@@ -444,6 +436,7 @@ const nick = document.querySelector(".nick");
 const status = document.querySelector(".status");
 
 var userinfo = JSON.parse(localStorage.getItem("info"));
+
 
 // emailUser.innerHTML = userinfo.email;
 // nick.innerHTML = userinfo.nick;
