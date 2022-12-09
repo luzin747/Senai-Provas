@@ -350,6 +350,8 @@ nav ul h1 {
     object-fit: cover;
 }
 
+
+
 #section-02 {
     margin: 2px;
     position: fixed;
@@ -357,6 +359,14 @@ nav ul h1 {
     width: 15vw;
 }
 
+
+/************* SESSÃO PERGUNTAS *************/
+
+
+.img-noth {
+    width: 35%;
+    object-fit: contain;
+}
 .cont-questions {
     display: flex;
     justify-content: space-around;
@@ -374,10 +384,6 @@ nav ul h1 {
     padding: 10px;    
 }
 
-.img-noth {
-    width: 35%;
-    object-fit: contain;
-}
 
 .header-question {
     display: flex;
@@ -418,11 +424,16 @@ nav ul h1 {
     align-items: center;
     justify-content: space-evenly;
 }
+
+.input-answer input:focus {
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.315);
+}
 .i-enviar {
     font-size: 15pt;
-    margin-left: -40px;
+    margin-left: -45px;
     cursor: pointer;
-    color: black;
+    color: #212124;
 }
 .cont-input {
     width: 60%;
@@ -461,45 +472,7 @@ nav ul h1 {
     padding: 5px;
 }
 
-.favoritar-vazio:hover {
-    transition: 0.1s;
-    color: rgb(160, 160, 10);
-}
-.favoritar-cheio {
-    color: #ffd700;
-}
-
-.curtir-vazio:hover {
-    transition: 0.1s;
-    color: rgba(255, 0, 0, 0.815);
-}
-.curtir-cheio {
-    color: rgba(255, 0, 0, 0.815);
-}
-
-
-.answer {
-    position: absolute;
-    left: 50%;
-    width: 22%;
-    height: 64vh;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.288);
-}
-
-
-.answer h4 {
-    text-align: center;
-}
-
-.answer hr {
-    margin-bottom: 10px;
-}
-
-.title-answer {
-    padding: 10px;
-}
-
+/* SESSÃO RESPOSTAS  */
 .pergunta-answer {
     text-align: justify;
 }
@@ -508,39 +481,17 @@ nav ul h1 {
     text-align: center;
 }
 
-.corpo {
-    height: 25vh;
-    overflow-y: scroll;
-    background-color: #212124;
+.answer-card {
+    background-color: #515153;
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
-
-.corpo h2 {
-    text-align: center;
-    color: white;
-}
-.corpo i {
-    display: flex;
-    justify-content: end;
-    position: relative;
-    right: 2%;
-    top: -12%;
-    font-size: 18pt;
-    margin-bottom: -30px;
-}
 .cont-title-answer {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-.tela{
-    visibility: hidden;
-    display: none;
 }
 
 .data-question-answer {
@@ -550,8 +501,10 @@ nav ul h1 {
 .user-answer {
     overflow-y: scroll;
     background-color: #212124;
+    border-radius: 10px;
     padding: 10px;
-    height: 52.6vh;
+    margin-top: 20px;
+    height: 32.6vh;
 
 }
 
@@ -565,25 +518,32 @@ nav ul h1 {
     background-color: #515153;
 }
 .answer h2 {
-    font-size: 13pt;
+    font-size: 17pt;
     color: white;
     text-align: center;
     
 }
 .answer-card img {
-    width: 13%;
+    width: 6%;
     object-fit: cover;
     border-radius: 5px;
 }
+
+.btn-fechar {
+    display: block;
+    text-align: end;
+    margin-top: -23px;
+    font-size: 20pt;
+}
+
 .header-user-answer {
     display: flex;
     border-radius: 20px;
     
 }
 
-.user-answer-title {
-    margin-left: 10px;
-    color: white;
+.user-answer-title i {
+    text-align: end;
 }
 
 .answer-r {
@@ -593,6 +553,13 @@ nav ul h1 {
 .pergunta-answer {
     text-align: center;
 }
+
+.v-user {
+    display: none;
+}
+
+/* FIM DA SESSÃO RESPOSTAS */
+
 /********* SESSÃO DOS TÓPICOSS ******/
 .sub-topics {
     display: flex;

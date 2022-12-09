@@ -445,18 +445,20 @@ const status = document.querySelector(".status");
 
 var userinfo = JSON.parse(localStorage.getItem("info"));
 
-emailUser.innerHTML = userinfo.email;
-nick.innerHTML = userinfo.nick;
-id.innerHTML = userinfo.id;
-status.innerHTML = userinfo.status;
-if (status.innerHTML == "admin") {
-    status.innerHTML = "Moderador"
-} else {
-    status.innerHTML = "Usuário"
-}
+// emailUser.innerHTML = userinfo.email;
+// nick.innerHTML = userinfo.nick;
+// id.innerHTML = userinfo.id;
+// status.innerHTML = userinfo.status;
+// if (status.innerHTML == "admin") {
+//     status.innerHTML = "Moderador"
+// } else {
+//     status.innerHTML = "Usuário"
+// }
 
 
-document.querySelector('.inpNomeUser').value = userinfo.nome
+console.log(userinfo.nome)
+
+document.querySelector('.inpNomeUser').value = userinfo.nome_user
 document.querySelector('.inpEmailUser').value = userinfo.email
 
 //ACRECENTANDO NA PÁGINA PERFIL

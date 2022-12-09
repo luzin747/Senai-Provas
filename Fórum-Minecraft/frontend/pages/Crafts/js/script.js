@@ -289,6 +289,9 @@ function fechandoModal(e) {
         
 }
 
+
+
+
 function modalPergunta() {
     var modalQuestion = document.querySelector('.modal-pergunta')
     var texto = document.querySelector('#txtPerguntar')
