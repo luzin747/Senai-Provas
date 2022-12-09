@@ -511,12 +511,26 @@ nav ul h1 {
 .corpo {
     height: 25vh;
     overflow-y: scroll;
-    background-color: #515153;
+    background-color: #212124;
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
+
+.corpo h2 {
+    text-align: center;
+    color: white;
+}
+.corpo i {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    right: 2%;
+    top: -12%;
+    font-size: 18pt;
+    margin-bottom: -30px;
+}
 .cont-title-answer {
     display: flex;
     justify-content: center;

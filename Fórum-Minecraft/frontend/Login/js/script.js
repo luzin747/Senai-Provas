@@ -40,9 +40,9 @@ function logar() {
 .then(data => {
     if(data.erro === undefined) {
         console.log(data)
-        localStorage.setItem("info", JSON.stringify({"email":data.email, "id":data.id_user, "nick": data.nickname, "status":data.status_user}));
-        
-        window.location.href = '../pages/Home/index.html'
+        localStorage.setItem("info", JSON.stringify({"email":data.email, "nick": data.nickname, "id":data.id_user,}));
+
+         window.location.href = '../pages/Home/index.html'
     }
 })
 }

@@ -102,6 +102,11 @@ function ativarModalResposta(e) {
 
     const corpo = e.parentNode.parentNode.querySelector(".corpo");
 
+    corpo.classList.remove('tela')
+
+    var btnVerMais = e.parentNode.querySelector('.cont-ver-mais-resposta')
+
+    btnVerMais.classList.add('tela')
 
     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
     fetch("http://localhost:3000/Feed")
@@ -148,9 +153,25 @@ function ativarModalResposta(e) {
 
 }
 
-function fecharModal() {
-    var modalResposta = document.querySelector('.answer-card')
-    modalResposta.classList.add('tela')
+function fechandoModal(e) {
+    
+    var btnVerMais = e.parentNode.parentNode.querySelector('.cont-ver-mais-resposta')
+    
+    btnVerMais.classList.remove('tela') 
+    console.log(btnVerMais)
+    
+    for(let i = 1; i > 0; i++) {
+        var mResposta = e.parentNode.parentNode.querySelector('.corpo')
+        var secResp = document.querySelector('.answer-card')
+        
+        mResposta.classList.add('tela')
+        
+        mResposta.remove(secResp)
+    }
+
+
+
+        
 }
 
 function cadastrarResposta(e) {
