@@ -45,7 +45,7 @@ function carregar() {
 
 
 
-    // ativarFetchesPerguntas()
+    ativarFetchesPerguntas()
 }
 
 function preencher() {
@@ -82,16 +82,16 @@ function preencher() {
 
 function ativarFetchesPerguntas(e) {
 
-    var tema = e.querySelector('.nameTema').innerHTML
+    // var tema = e.querySelector('.nameTema').innerHTML
 
-    var url = 'http://localhost:3000/tema/' + tema
+    var url = 'http://localhost:3000/Feed'
     const options = { method: 'GET' };
 
     fetch(url, options)
         .then(res => res.json())
         .then(res => {
             questions = res;
-            cardsPerguntas();
+            cardsPerguntas(e);
         }
         )
         .catch(err => console.error(err));
@@ -118,17 +118,32 @@ function ativarFetchesPerguntas(e) {
 
 var qtdRep = 0
 
+var idIgual = false
+
 function cardsPerguntas() {
-    
+
+
     // questions.reverse()
-     
+
     qtdRep += 1
     if (qtdRep == 1) {
 
         questions.forEach((q, i) => {
 
+            usuarios.forEach(u => {
 
-            // if(q.id_User == userinfo.id) {
+                if (u.id_user == userinfo.id) {
+
+                    idIgual = true
+                }
+
+            })
+
+
+            if (idIgual == true) {
+                console.log('é igual')
+
+
                 var novoCardQuestion = cardQuestion.cloneNode(true)
 
                 novoCardQuestion.classList.toggle('model')
@@ -159,15 +174,18 @@ function cardsPerguntas() {
                 novoCardQuestion.querySelector('.tema-card-question').innerHTML = q.tema
 
                 document.querySelector('.container-cards').appendChild(novoCardQuestion)
-            // }
-                
-            
 
-    })
-        
-        
+            }
+
+
+
+
+
+        })
+
+
     }
-   
+
 
 }
 
@@ -198,7 +216,7 @@ function ativarModalResposta(e) {
         )
         .catch(err => console.error(err));
 
-  
+
 
 
 }
@@ -208,14 +226,14 @@ function modalRespostas(e) {
 
     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
     var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
-    
-    mResposta.classList.remove('model')  
+
+    mResposta.classList.remove('model')
 
     respostas.forEach(r => {
-        
-        
+
+
         if (id_perg == r.id_pergunta) {
-            
+
             var divAC = document.createElement('div')
             divAC.classList.add('answer-card')
 
@@ -225,7 +243,7 @@ function modalRespostas(e) {
 
             var imgResp = document.createElement('img')
             imgResp.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc'
-        
+
             var divUAT = document.createElement('div')
             divUAT.classList.add('user-answer-title')
 
@@ -241,9 +259,9 @@ function modalRespostas(e) {
             //*********** FIM DA FORMATAÇÃO DA DATA *********** 
 
             var hTitleResp = document.createElement('h5')
-            hTitleResp.classList.add('usuario-resp') 
-            hTitleResp.innerHTML = r.nickname 
-            
+            hTitleResp.classList.add('usuario-resp')
+            hTitleResp.innerHTML = r.nickname
+
             var spanDR = document.createElement('span')
             spanDR.classList.add('data-resp')
             spanDR.innerHTML = dataCompleta
@@ -266,32 +284,32 @@ function modalRespostas(e) {
             divAC.appendChild(divCAR)
 
             console.log(divAC)
-            
+
             mResposta.appendChild(divAC)
         }
 
     })
 
-    
+
 
 }
 
 function fechandoModal(e) {
-    
+
     var btnVerMais = e.parentNode.parentNode.parentNode.querySelector('.cont-ver-mais-resposta')
-    
-    btnVerMais.classList.remove('model') 
+
+    btnVerMais.classList.remove('model')
     console.log(btnVerMais)
-    
-    for(let i = 1; i > 0; i++) {
+
+    for (let i = 1; i > 0; i++) {
         var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
         var secResp = document.querySelector('.answer-card')
-        
+
         mResposta.classList.add('model')
         mResposta.removeChild(secResp)
 
     }
-      
+
 }
 
 function modalPergunta() {
@@ -393,8 +411,8 @@ function curtir(e) {
     curtirCheio.classList.toggle('model')
 }
 function favoritar(e) {
-    var favoritarVazio =  e.parentNode.querySelector('.favoritar-vazio')
-    var favoritarCheio =  e.parentNode.querySelector('.favoritar-cheio')
+    var favoritarVazio = e.parentNode.querySelector('.favoritar-vazio')
+    var favoritarCheio = e.parentNode.querySelector('.favoritar-cheio')
 
     favoritarVazio.classList.toggle('model')
     favoritarCheio.classList.toggle('model')
@@ -407,27 +425,59 @@ const PERGUNTAS = document.querySelector('.container-cards')
 
 search_btn.addEventListener('click', () => {
 
-  let expressao = INPUT_BUSCA.value
+    let expressao = INPUT_BUSCA.value
 
-  let linhas = PERGUNTAS.getElementsByClassName('questions')
+    let linhas = PERGUNTAS.getElementsByClassName('questions')
 
-  for (let posicao in linhas) {
-      if (true === isNaN(posicao)) {
-          continue
-      }
+    for (let posicao in linhas) {
+        if (true === isNaN(posicao)) {
+            continue
+        }
 
-      let conteudoDaLinha = linhas[posicao].innerHTML
+        let conteudoDaLinha = linhas[posicao].innerHTML
 
-      if (true === conteudoDaLinha.includes(expressao)) {
-          linhas[posicao].style.display = ''
-      } else {
-          linhas[posicao].style.display = 'none'
+        if (true === conteudoDaLinha.includes(expressao)) {
+            linhas[posicao].style.display = ''
+        } else {
+            linhas[posicao].style.display = 'none'
 
-      }
+        }
 
-  }
+    }
 
 })
+
+
+//FILTO DOS TOPICOSvar search_btn = document.querySelector('.btn-filter')
+
+function testessss(e) {
+
+    const TOPICO_DESEJADO = e.querySelector('.nameTema').innerHTML
+
+    let expressao = TOPICO_DESEJADO
+
+    let linhas = PERGUNTAS.getElementsByClassName('questions')
+
+    for (let posicao in linhas) {
+        if (true === isNaN(posicao)) {
+            continue
+        }
+
+        let conteudoDaLinha = linhas[posicao].innerHTML
+
+        if (true === conteudoDaLinha.includes(expressao)) {
+            linhas[posicao].style.display = ''
+        } else {
+            linhas[posicao].style.display = 'none'
+
+        }
+
+    }
+
+}
+
+
+
 
 // INFOS DO USUARIO 
 const emailUser = document.querySelector(".email");
