@@ -12,7 +12,7 @@ import User from '../src/pages/User/UserPage'
 
 const Tab = createBottomTabNavigator();
 
-export default function Routes() {
+export default function Routes({navigation}) {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -53,7 +53,6 @@ export default function Routes() {
                 tabBarActiveTintColor: '#212124',
                 tabBarInactiveTintColor: 'grey',
             })}>
-
 
 
             <Tab.Screen name="Home" 

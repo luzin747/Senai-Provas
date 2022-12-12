@@ -1,31 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Routes from './components/routes';
 import Dicas from './src/pages/Topics/Dicas/Dicas'
 import Login from './src/pages/Login/Login'
 // import Dicas from './src/pages/Topics/Dicas/Dicas'
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
-
-      {/* <Routes /> */}
-      <MyStack />
-
-    </NavigationContainer>
-
-
-  );
-
-}
-
-const Stack = createStackNavigator();
-
-function MyStack() {
-  return (
-    <Stack.Navigator>
+       <Stack.Navigator>
       <Stack.Screen name="Login" component={Login}
         options={{
           title: '',
@@ -41,14 +28,20 @@ function MyStack() {
         }} />
       <Stack.Screen name="Dicas" component={Dicas}
         options={{
-          title: '',
+          title: 'teste',
           headerTransparent: true,
           headerShow: false,
           headerLeft: null
         }} />
     </Stack.Navigator>
+
+    </NavigationContainer>
+
+
   );
+
 }
+
 
 
 

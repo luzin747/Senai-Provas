@@ -4,10 +4,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput } fr
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-// import { BsFillChatLeftDotsFill } from "react-icons/bs";
 
 import styleM from './styleM'
 
@@ -17,18 +15,9 @@ import iconMods from './img/2.png'
 import iconBugs from './img/3.png'
 import iconChat from './img/chatIcon.png'
 
+export default function Main({navigation}) {
 
-import Dicas from '../../src/pages/Topics/Dicas/Dicas'
-
-
-const entrarDicas =() => {
-  navigation.navigate("Dicas")
-}
-
-
-
-
-export default function Main( {navigation}) {
+  
 
   // useEffect(() =>{
   //   fetch("http://localhost:3000/Perguntas")
@@ -47,6 +36,7 @@ export default function Main( {navigation}) {
 
   return (
     <View>
+
 
       <View style={styleM.contTitle}>
         <Text style={styleM.title}>Últimas Perguntas</Text>
@@ -146,7 +136,7 @@ export default function Main( {navigation}) {
 
           <View style={styleM.contTitleTopics}>
             <Text style={styleM.titleTopics}>Dicas</Text>
-            <TouchableOpacity style={styleM.contTitleBtnConferir}><Text style={styleM.titleBtnConefrir} onPress={entrarDicas}>CONFERIR</Text></TouchableOpacity>
+            <TouchableOpacity style={styleM.contTitleBtnConferir}><Text style={styleM.titleBtnConefrir} onPress={() => {navigation.navigate('Dicas')}}>CONFERIR</Text></TouchableOpacity>
           </View>
 
 
@@ -176,6 +166,7 @@ export default function Main( {navigation}) {
 function teste() {
   console.log('asdad')
 }
+
 
 
 

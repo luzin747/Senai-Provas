@@ -3,9 +3,6 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput, Ima
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-
 import MineIcon from './img/iconLogin.png'
 import CreeperIcon from './img/creeperface.png'
 import style from './style';

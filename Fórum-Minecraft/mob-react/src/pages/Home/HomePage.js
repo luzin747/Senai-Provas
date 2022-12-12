@@ -5,7 +5,7 @@ import Header from '../../../components/Header/header';
 import Main from '../../../components/Main/main';
 // import Routes from './components/routes';
 
-export default function HomePage() {
+export default function HomePage( navigation) {
     return (
         <ScrollView>
         <View>

@@ -14,7 +14,8 @@ import Header from '../../../../components/Header/header'
 import styleM from './styleDicas'
 
 
-export default function DicasPage() {
+export default function DicasPage({navigation}) {
+
     return (
         <View>
             <Header />
@@ -65,10 +66,10 @@ export default function DicasPage() {
 
             </View>
 
-            <NavigationContainer>
-                <Routes />
-            </NavigationContainer>
         </View>
+            // <NavigationContainer>
+            //     <Routes />
+            // </NavigationContainer>
 
 
 
