@@ -57,7 +57,7 @@ export default StyleSheet.create({
     containerSaveViewAnswer: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         marginLeft: 20,
         marginRight: 20,
         marginTop: 12,
@@ -168,7 +168,17 @@ export default StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         fontWeight: 500
-    }
+    },
+    containerAnswer: {
+        backgroundColor: '#515153',
+        margin: '2px',
+        padding: 5
+    },
+    userAnswer: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+
     
 })
 

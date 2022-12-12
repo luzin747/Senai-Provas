@@ -1,8 +1,12 @@
-// import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';]
+import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput } from 'react-native';
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import 'react-native-gesture-handler';
+
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 // import { BsFillChatLeftDotsFill } from "react-icons/bs";
 
 import styleM from './styleM'
@@ -13,16 +17,34 @@ import iconMods from './img/2.png'
 import iconBugs from './img/3.png'
 import iconChat from './img/chatIcon.png'
 
-// import {FaFacebook} from 'react-icons/fa'
 
-console.log(iconCraft)
-
-let Bookmark = 'Bookmark'
-let Heart
+import Dicas from '../../src/pages/Topics/Dicas/Dicas'
 
 
+const entrarDicas =() => {
+  navigation.navigate("Dicas")
+}
 
-export default function Main() {
+
+
+
+export default function Main( {navigation}) {
+
+  // useEffect(() =>{
+  //   fetch("http://localhost:3000/Perguntas")
+  //   .then(res => { return res.json()})
+  //   .then(data => {
+  //     data = data.results;
+  //     setPosts(data)
+  //   })
+  // },[posts]);
+  // useEffect(() =>{
+  // }, []);
+  // const [posts, setPosts] = useState([]);
+
+
+
+
   return (
     <View>
 
@@ -49,7 +71,7 @@ export default function Main() {
 
 
         <View style={styleM.containerSaveViewAnswer}>
-          <View style={styleM.contSaveCurtir}>
+          {/* <View style={styleM.contSaveCurtir}>
             <TouchableOpacity>
               <Ionicons style={styleM.iconIon} name={'bookmark-outline'} />
             </TouchableOpacity>
@@ -57,10 +79,10 @@ export default function Main() {
             <TouchableOpacity>
               <Ionicons style={styleM.iconIon} name={'heart-outline'} />
             </TouchableOpacity>
-          </View>
+          </View> */}
 
           <TouchableOpacity style={styleM.contImageAdd} onPress={teste}>
-            <Ionicons style={styleM.iconIonMoreAnswer}  name={'chatbox-ellipses-outline'} />
+            <Ionicons style={styleM.iconIonMoreAnswer} name={'chatbox-ellipses-outline'} />
 
             {/* <Image style={styleM.imageAdd} source={iconChat}/>  */}
           </TouchableOpacity>
@@ -68,6 +90,21 @@ export default function Main() {
 
         <View style={styleM.modalRespostas}>
           <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
+
+          <View style={styleM.containerAnswer}>
+            <View style={styleM.userAnswer}>
+              <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+              <View>
+                <Text>Fulano</Text>
+                <Text>loremasdadadsadadasdsadsadsadassadad</Text>
+              </View>
+             
+
+
+            </View>
+            <Text>asdadadsadsadsadsadsadswd</Text>  
+
+          </View>
         </View>
 
       </View>
@@ -76,6 +113,8 @@ export default function Main() {
         <Text style={styleM.title}>Tópicos</Text>
       </View>
 
+
+      
       <View>
         <View style={styleM.cardTopicsCrafts}>
 
@@ -107,7 +146,7 @@ export default function Main() {
 
           <View style={styleM.contTitleTopics}>
             <Text style={styleM.titleTopics}>Dicas</Text>
-            <TouchableOpacity style={styleM.contTitleBtnConferir}><Text style={styleM.titleBtnConefrir}>CONFERIR</Text></TouchableOpacity>
+            <TouchableOpacity style={styleM.contTitleBtnConferir}><Text style={styleM.titleBtnConefrir} onPress={entrarDicas}>CONFERIR</Text></TouchableOpacity>
           </View>
 
 
@@ -125,6 +164,8 @@ export default function Main() {
 
         </View>
       </View>
+      
+    
 
 
     </View>
@@ -135,6 +176,7 @@ export default function Main() {
 function teste() {
   console.log('asdad')
 }
+
 
 
 

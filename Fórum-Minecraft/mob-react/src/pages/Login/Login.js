@@ -3,13 +3,24 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput, Ima
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
 import MineIcon from './img/iconLogin.png'
 import CreeperIcon from './img/creeperface.png'
 import style from './style';
 
-export default function LogoutPage() {
+import Home from '../Home/HomePage'
+
+export default function LogoutPage({navigation}) {
     const [input, setInput] = useState('')
     const [hidePass, sideHidePass] = useState(true);
+
+
+    const entrar =() => {
+        navigation.navigate("Home")
+    }
+
 
     return (
         <View style={style.container}>
@@ -30,7 +41,7 @@ export default function LogoutPage() {
                         <TextInput style={style.inputs} placeholder='Insira sua Senha' placeholderTextColor='black' value={input} onChangeText={(texto) => setInput(texto)} secureTextEntry={hidePass} />
                     </View>
 
-                    <TouchableOpacity style={style.containerBtnLogin}>
+                    <TouchableOpacity style={style.containerBtnLogin} onPress={entrar}>
                         <Text style={style.titleBtnLogin}>Logar</Text>
                         <Image style={style.creeperIcon} source={CreeperIcon} />
                     </TouchableOpacity>

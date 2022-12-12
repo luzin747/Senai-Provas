@@ -34,23 +34,25 @@ export default StyleSheet.create({
     },
     inputs: {
         margin: 10,
-        border: '1px solid rgba(0,0,0,.3)',
+        marginTop: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(0,0,0,.5)',
         padding: 4,
         paddingLeft: 5,
-        width: '68vw',
-        borderRadius: 20,
+        width: '78vw',
 
     },
+    
     containerBtnLogin: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#09ac24',
         color: 'white',
-        paddingTop: 3,
-        paddingBottom: 3,
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingTop: 4,
+        paddingBottom: 4,
+        paddingLeft: 15,
+        paddingRight: 15,
         borderRadius: 40,
         marginTop: '3%'
 
