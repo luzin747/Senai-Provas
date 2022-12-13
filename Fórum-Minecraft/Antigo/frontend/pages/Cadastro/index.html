@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Forúm RenasCraft</title>
+
+    <link rel="stylesheet" href="css/cadastra.css">
+</head>
+
+<body>
+
+
+    <div id="container">
+
+        <div class="cont-cadastra">
+
+            <div class="cont-img-banner">
+                <img class="img-banner" src="img/IMAGES/kindpng_2062746.png" alt="">
+            </div>
+
+            <div>
+                <h1>Faça Já Seu Cadastro</h1>
+
+                <hr>
+
+                <div class="cont-inps">
+
+                    <div class="inps">
+                        <div class="single-input">
+                            <input type="text" class="input" id="nome">
+                            <label>Nome*</label>
+                        </div>
+
+                        <div class="single-input">
+                            <input class="input" type="text">
+                            <label>Sobrenome</label>
+                        </div>
+                    </div>
+
+                    <div class="inps">
+                        <div class="single-input">
+                            <input class="input" type="text" id="nick">
+                            <label for="user">Nickname*</label>
+                        </div>
+
+                        <div class="single-input">
+                            <input class="input" type="email" id="email">
+                            <label>Email*</label>
+                        </div>
+                    </div>
+
+                    <div class="inps">
+
+                        <div class="single-input">
+                            <input class="input" type="password" id="senha">
+                            <label>Senha*</label>
+                        </div>
+
+                        <div class="single-input">
+                            <input class="input" type="password">
+                            <label>Confirmar Senha*</label>
+                        </div>
+
+                    </div>
+
+                    <div class="btn-cadastrar " onClick="cad()">
+                        <button class="btn-cadastrar">
+                            <img class="img-btn" src="../../Login/img/creeper face.png" alt="">
+
+                            Cadastrar
+                            <img class="img-btn" src="../../Login/img/creeper face.png" alt="">
+                        </button>
+
+                    </div> 
+
+                </div class="input">
+                <a href="../../Login/index.html"><p class="link-login">Já Possui Cadastro?</p></a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-certo model">
+
+        <img src="./img/IMAGES/2.gif" alt="">
+
+        <p>Ticket Cadastrado Com Sucesso!</p>
+
+        <button onclick="esconderModalCheck()" class="btn-check">OK</button>
+    </div>
+
+</body>
+
+</html>
+<script src="./js/script.js"></script>

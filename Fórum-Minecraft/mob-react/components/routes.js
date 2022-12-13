@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Button,TextInput  } fr
 import Home from '../src/pages/Home/HomePage'
 import Topics from '../src/pages/Topics/TopicsPage'
 import ButtonNew from '../components/ButtonNew'
+import CadastrarPerg from '../src/pages/CadastrarPergunta/cadastrarPerg'
 import Logout from '../src/pages/Logout/LogoutPage'
 import User from '../src/pages/User/UserPage'
 
@@ -76,7 +77,7 @@ export default function Routes({navigation}) {
 
             <Tab.Screen 
             name="New" 
-            component={ButtonNew}
+            component={CadastrarPerg}
             options={{
                 
                 tabBarLabel: '',

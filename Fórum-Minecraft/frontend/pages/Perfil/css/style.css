@@ -326,21 +326,6 @@ nav ul h1 {
 /******** FIM DO TÍTULO DA PÁGINA ***********/
 
 /******** INFORMAÇÕES DO USUARIO ***********/
-
-.cont-btn_del {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-.cont-btn_del button {
-    padding: 5px 15px;
-    border: none;
-    background-color: red;
-    color: white;
-    font-weight: 600;
-    border-radius: 10px;
-}
-
 .header-User {    
     display: flex;
     flex-direction: column;
@@ -864,4 +849,162 @@ footer {
     background-color: #212124;
     width: 100%;
 }
+#container-users{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 
+#container-users > .acoes > i {
+    margin-left: 20%;
+}
+
+
+.id{
+    display: none;
+    visibility: hidden;
+}
+
+.cont-ul > li > a{
+    text-decoration: none;
+    color: white;
+}
+
+.cont-ul > li > a > i{
+    color: white;
+}
+
+.cont-inf-user > div > p {
+    margin-right: 2%;
+}
+
+.inpNomeUser{
+    width: 8vw;
+}
+
+
+.teste{
+    background-color: white;
+    border: 2px solid rgb(97, 202, 28);
+    border-radius: 10%;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+.teste > p{
+    margin-top: -5%;
+    font-size: 20px;
+    color: white;
+}
+.teste > img{
+    width: 20vw;
+}
+.m{
+    visibility: hidden;
+}
+
+#id{
+    margin-right: -10%;
+    visibility: hidden;
+}
+
+.perfil-acoes{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.perfil-acoes > i{
+    color: black;
+    font-size: 25px;
+}
+.perfil-acoes > i:hover{
+    cursor: pointer;
+    color: rgb(97, 202, 28);
+}
+
+.perfil-acoes > button{
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+}
+
+.perfil-acoes > button:hover{
+    cursor: pointer;
+    color: rgb(97, 202, 28);
+}
+
+.cont-inf-user > div > p{
+    font-weight: 600;
+}
+
+.tela4{
+    visibility: hidden;
+    display: none;
+}
+
+.confirm{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.288);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-confirm{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2%;
+    border-radius: 15px;
+}
+
+.container-confirm > p{
+    font-size: 18px;
+}
+
+.btns > button{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btns > .sim{
+    background-color: green;
+    color: white;
+}
+
+.btns > .sim:hover{
+    background-color: rgb(8, 185, 8);
+    color: white;
+}
+.btns > .nao{
+    background-color: rgb(197, 0, 0);
+    color: white;
+}
+.btns > .nao:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.modal-certo{
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    border-radius: 10%;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

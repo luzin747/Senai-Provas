@@ -51,6 +51,7 @@ function carregar() {
         up.setAttribute('onClick', 'abrirInfos(this)')
         acoes.appendChild(up)
     }
+
 }
 
 function abrirInfos(e) {
@@ -59,8 +60,17 @@ function abrirInfos(e) {
 
     fetch('http://localhost:3000/nick/' + sta, options)
         .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+        .then(resp => {
+            if(resp.erro === undefined) {
+                localStorage.setItem("data", JSON.stringify({"nome": resp[0].nome_user, "email":resp[0].email, "nick": resp[0].nickname, "id":resp[0].id_user, "status":resp[0].status_user}))
+                window.location.reload();
+                window.location.href = '../Perfil/perfil.html'
+                console.log(resp)
+            }
+
+           
+        })
+        
         console.log(sta)
 }
 
@@ -93,187 +103,83 @@ function preencher() {
     })
 
 }
-
-// -------------- MODAL E CAD RESPOSTAS -----------------
-
 var cardRespostaHome = document.querySelector('.answer-card')
-
-// function ativarModalResposta(e) {
-
-//     const corpo = e.parentNode.parentNode.querySelector(".corpo");
-
-//     corpo.classList.remove('tela')
-
-//     var btnVerMais = e.parentNode.querySelector('.cont-ver-mais-resposta')
-
-//     btnVerMais.classList.add('tela')
-
-//     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
-
-//     fetch("http://localhost:3000/Feed")
-//         .then(resp => { return resp.json() })
-//         .then(data => {
-//             if (id_perg != null) {
-//                 const options = { method: 'GET' };
-//                 fetch('http://localhost:3000/Feed/' + id_perg, options)
-//                     .then(response => response.json())
-//                     .then(resp => {
-//                         resp.forEach(r => {
-//                             var modalResposta = cardRespostaHome.cloneNode(true);
-
-//                             console.log(modalResposta)
-
-//                             modalResposta.classList.remove('tela')
-//                             modalResposta.querySelector(".answer-r").innerHTML = r.resposta
-//                             modalResposta.querySelector(".nameUser").innerHTML = r.nickname
-
-//                             var data = r.dataResp
-//                             const [ano, mes, juncao] = data.split('-')
-//                             var dia = juncao[0] + juncao[1]
-//                             var dataCompleta = dia + '/' + mes + '/' + ano
-//                             modalResposta.querySelector(".dataResp").innerHTML = dataCompleta
-//                             var close = document.createElement('button')
-//                             close.classList.add("btnClose")
-//                             close.setAttribute('onClick', 'fecharModal()')
-
-//                             corpo.appendChild(modalResposta)
-//                             console.log(corpo)
-
-//                             // modalResposta.appendChild(close)
-
-//                         })
-
-//                     })
-
-//             }
-
-//             // modalResposta.setAttribute('onClick', 'exibirResp(this)')
-
-//             console.log(id_perg)
-//         })
-
-// }
-
+// -------------- MODAL E CAD RESPOSTAS -----------------
 function ativarModalResposta(e) {
+
+    const corpo = e.parentNode.parentNode.querySelector(".corpo");
+
+    corpo.classList.remove('tela')
 
     var btnVerMais = e.parentNode.querySelector('.cont-ver-mais-resposta')
 
-    btnVerMais.classList.add('model')
-
-    var uriRespostas = 'http://localhost:3000/Feed'
-
-    const options = { method: 'GET' };
-
-    fetch(uriRespostas, options)
-        .then(res => res.json(e))
-        .then(res => {
-            respostas = res;
-            modalRespostas(e);
-        }
-        )
-        .catch(err => console.error(err));
-
-  
-
-
-}
-
-function modalRespostas(e) {
-
+    btnVerMais.classList.add('tela')
 
     var id_perg = e.parentNode.parentNode.querySelector('.id_pergunta').innerHTML
-    var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
-    
-    mResposta.classList.remove('model')  
+    fetch("http://localhost:3000/Feed")
+        .then(resp => { return resp.json() })
+        .then(data => {
+            if (id_perg != null) {
+                const options = { method: 'GET' };
+                fetch('http://localhost:3000/Feed/' + id_perg, options)
+                    .then(response => response.json())
+                    .then(resp => {
+                        resp.forEach(r => {
+                            var modalResposta = cardRespostaHome.cloneNode(true);
 
-    respostas.forEach(r => {
-        
-        if (id_perg == r.id_pergunta) {
-            
-            var divAC = document.createElement('div')
-            divAC.classList.add('answer-card')
+                            console.log(modalResposta)
 
-            // PRIMEIRA DIV
-            var divHUA = document.createElement('div')
-            divHUA.classList.add('header-user-answer')
+                            modalResposta.classList.remove('tela')
+                            modalResposta.querySelector(".answer-r").innerHTML = r.resposta
+                            modalResposta.querySelector(".nameUser").innerHTML = r.nickname
 
-            var imgResp = document.createElement('img')
-            imgResp.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/160745e3-9f8c-46b9-a326-cc9efff1e5aa/d7kxdcf-094a44e7-d459-47b6-8bf8-689a3a84d106.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2MDc0NWUzLTlmOGMtNDZiOS1hMzI2LWNjOWVmZmYxZTVhYVwvZDdreGRjZi0wOTRhNDRlNy1kNDU5LTQ3YjYtOGJmOC02ODlhM2E4NGQxMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.l8kabRud63qyIqTQtuZ-7PjI9yOxibEgYdsK2zaUHgc'
-        
-            var divUAT = document.createElement('div')
-            divUAT.classList.add('user-answer-title')
+                            var data = r.dataResp
+                            const [ano, mes, juncao] = data.split('-')
+                            var dia = juncao[0] + juncao[1]
+                            var dataCompleta = dia + '/' + mes + '/' + ano
+                            modalResposta.querySelector(".dataResp").innerHTML = dataCompleta
+                            var close = document.createElement('button')
+                            close.classList.add("btnClose")
+                            close.setAttribute('onClick', 'fecharModal()')
 
-            // ******* FORMATANDO A DATA ***********
-            var data = r.dataResp
+                            corpo.appendChild(modalResposta)
+                            console.log(corpo)
 
-            const [ano, mes, juncao] = data.split('-')
+                            // modalResposta.appendChild(close)
 
-            var dia = juncao[0] + juncao[1]
+                        })
 
-            var dataCompleta = dia + '/' + mes + '/' + ano
+                    })
 
-            //*********** FIM DA FORMATAÇÃO DA DATA *********** 
+            }
 
-            var hTitleResp = document.createElement('h5')
-            hTitleResp.classList.add('usuario-resp') 
-            hTitleResp.innerHTML = r.nickname 
-            
-            var spanDR = document.createElement('span')
-            spanDR.classList.add('data-resp')
-            spanDR.innerHTML = dataCompleta
+            // modalResposta.setAttribute('onClick', 'exibirResp(this)')
 
-            divHUA.appendChild(imgResp)
-            divHUA.appendChild(divUAT)
-            divUAT.appendChild(hTitleResp)
-            divUAT.appendChild(spanDR)
-
-            //SEGUNDA DIV
-            var divCAR = document.createElement('div')
-            divCAR.classList.add('cont-answer-r')
-
-            var pAR = document.createElement('p')
-            pAR.classList.add('answer-r')
-            pAR.innerHTML = r.resposta
-
-            divCAR.appendChild(pAR)
-            divAC.appendChild(divHUA)
-            divAC.appendChild(divCAR)
-
-            console.log(divAC)
-            
-            mResposta.appendChild(divAC)
-        }
-
-    })
-
-    
+            console.log(id_perg)
+        })
 
 }
 
 function fechandoModal(e) {
     
-    var btnVerMais = e.parentNode.parentNode.parentNode.querySelector('.cont-ver-mais-resposta')
+    var btnVerMais = e.parentNode.parentNode.querySelector('.cont-ver-mais-resposta')
     
-    btnVerMais.classList.remove('model') 
+    btnVerMais.classList.remove('tela') 
     console.log(btnVerMais)
     
     for(let i = 1; i > 0; i++) {
-        var mResposta = e.parentNode.parentNode.querySelector('.user-answer')
+        var mResposta = e.parentNode.parentNode.querySelector('.corpo')
         var secResp = document.querySelector('.answer-card')
         
-        mResposta.classList.add('model')
-        mResposta.removeChild(secResp)
-
+        mResposta.classList.add('tela')
+        
+        mResposta.remove(secResp)
     }
 
 
 
         
 }
-
-
-
-
 
 function cadastrarResposta(e) {
     var hoje = new Date()
@@ -318,9 +224,16 @@ function cadastrarResposta(e) {
 
 
 //  ----------------- MODAL PERGUNTA E CAD DE PERGUNTAS -------------------------
-function cadastrarPergunta() {
+function cadastrarPergunta(e) {
     var txtPergunta = document.querySelector('#txtPerguntar').value
+    var idUser = document.querySelector(".id").innerHTML;
+    
+    var hoje = new Date()
+    var dia = String(hoje.getDate()).padStart(2, '0')
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+    var ano = hoje.getFullYear()
 
+    dataAtual = ano + '-' + mes + '-' + dia;
 
     if (txtPergunta.length > 0) {
         var select_status = document.querySelector(".select_status")
@@ -332,7 +245,7 @@ function cadastrarPergunta() {
 
         if (txtPergunta !== "") {
             let data = {
-                "id_user": 2,
+                "id_user": idUser,
                 "tema": tema,
                 "pergunta": txtPergunta,
                 "data": dataAtual
@@ -349,7 +262,8 @@ function cadastrarPergunta() {
             })
                 .then(res => {
                     if (res.status == 201) {
-                        console.log("aaaa")
+                        alert("Pergunta enviada")
+                        window.location.reload()
 
                     }
                 })
@@ -511,5 +425,3 @@ if (status.innerHTML == "admin") {
 } else {
     status.innerHTML = "Usuário"
 }
-
-// VALIDAÇÃO DE ADMIN

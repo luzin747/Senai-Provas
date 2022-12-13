@@ -46,6 +46,136 @@ function carregar() {
 
 
     ativarFetchesPerguntas()
+    var perfilAcoes = document.querySelector(".perfil-acoes")
+    var acoes = document.querySelector(".acoes")
+    var st = document.querySelector(".status").innerHTML
+
+    const header = document.querySelector(".header-User")
+    const tela2 = document.querySelector(".tela2")
+    console.log(st)
+    if (st === "Moderador") {
+        header.classList.remove('tela2')
+        var up = document.createElement('i')
+        up.classList = ' bx bx-edit'
+        up.setAttribute('onClick', 'abrirInfos(this)')
+        acoes.appendChild(up)
+
+        var del = document.createElement('button')
+        del.classList = 'bx bxs-trash-alt'
+        del.setAttribute('onClick', 'deleteUser(this)')
+
+        perfilAcoes.appendChild(del)
+
+    }
+
+}
+function deleteUser(e) {
+    var idDel = document.querySelector(".inpIdUser").innerHTML
+    let data = {
+        "id_user": idDel,
+    }
+
+    fetch('http://localhost:3000/delete', {
+        "method": "DELETE",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(data)
+    })
+
+        .then(res => { return res.json() })
+        .then(resp => {
+
+            var header = document.querySelector(".header-User")
+           
+            header.classList.add('tela2')
+            ModalCreeper()
+            header.cloneNode(true)
+            setTimeout(() => {
+                ModalCreeper()
+                window.location.href = '../Home/index.html'
+            }, 4300)
+        })
+}
+function esconderModalCheck() {
+    var modalCerto = document.querySelector('.modal-certo')
+
+    modalCerto.classList.add('model')
+}
+
+function abrirModalUpdate(){
+    var confirmar = document.querySelector(".confirm")
+    confirmar.classList.toggle('tela4')
+}
+function update(){
+    var idUp = document.querySelector(".inpIdUser").innerHTML
+    var nomeUp = document.querySelector(".inpNomeUser").innerHTML
+    var emailUp = document.querySelector(".inpEmailUser").innerHTML
+    var nickUp = document.querySelector(".inpNickUser").innerHTML
+    var select_status = document.querySelector("#select_status")
+
+    let seleStatus = select_status.options[select_status.selectedIndex].value;
+    if (seleStatus == 'admin') { var status = 'admin' }
+    if (seleStatus == 'usuario') { var status = 'usuario' }
+
+    let options = JSON.stringify({
+        "id_user": idUp,
+        "nome_user": nomeUp,
+        "nickname": nickUp,
+        "email": emailUp,
+        "status_user": status
+    })
+    console.log(options)
+
+    fetch("http://localhost:3000/Usuarios", {
+        "method": "PUT",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": options
+    })
+        .then(resp => { return resp })
+        .then(resp => {
+            var modalCerto = document.querySelector('.modal-certo')
+                modalCerto.classList.remove('model')
+                abrirModalUpdate()
+            setTimeout(() => {
+                esconderModalCheck()
+                window.location.reload()
+            }, 4350)
+            
+            
+           
+        })
+
+}
+
+function ModalCreeper() {
+    var teste = document.querySelector(".teste")
+
+    teste.classList.toggle('m')
+    console.log("aaa")
+
+}
+
+function abrirInfos(e) {
+    const sta = e.parentNode.parentNode.querySelector(".nome-user-modal").innerHTML
+    const options = { method: 'GET' };
+
+    fetch('http://localhost:3000/nick/' + sta, options)
+        .then(response => response.json())
+        .then(resp => {
+            if(resp.erro === undefined) {
+                localStorage.setItem("data", JSON.stringify({"nome": resp[0].nome_user, "email":resp[0].email, "nick": resp[0].nickname, "id":resp[0].id_user, "status":resp[0].status_user}))
+                window.location.reload();
+                window.location.href = '../Perfil/perfil.html'
+                console.log(resp)
+            }
+
+           
+        })
+        
+        console.log(sta)
 }
 
 function preencher() {
@@ -122,14 +252,19 @@ var idIgual = false
 
 function cardsPerguntas() {
 
-
     // questions.reverse()
 
     qtdRep += 1
     if (qtdRep == 1) {
 
+        
+
         questions.forEach((q, i) => {
 
+
+            if(q.id_User == userinfo2.id) {
+
+            
             usuarios.forEach(u => {
 
                 if (u.id_user == userinfo.id) {
@@ -179,6 +314,7 @@ function cardsPerguntas() {
 
 
 
+        }
 
 
         })
@@ -186,14 +322,6 @@ function cardsPerguntas() {
 
     }
 
-
-}
-
-function crafts() {
-    console.log('asdadadsadsadsadsada')
-}
-
-function filtrandoUltimas() {
 
 }
 
@@ -447,8 +575,54 @@ search_btn.addEventListener('click', () => {
 
 })
 
+// var userinfo = JSON.parse(localStorage.getItem("info"));
+// const emailUser = document.querySelector(".email");
 
-//FILTO DOS TOPICOSvar search_btn = document.querySelector('.btn-filter')
+// emailUser.innerHTML = userinfo.email;
+// id.innerHTML = userinfo.id;
+
+// const nickName = document.querySelector(".nicknameUser");
+// const id = document.querySelector(".id");
+
+// var userinfo = JSON.parse(localStorage.getItem("info"));
+
+// document.querySelector(".nicknameUser").innerHTML = userinfo.nickname;
+// document.querySelector(".inpNomeUser").value = userinfo.nome;
+// document.querySelector(".inpEmailUser").value = userinfo.email;
+// id.innerHTML = userinfo.id;
+
+
+
+// INFOS DO USUARIO 
+const emailUser = document.querySelector(".email");
+const id = document.querySelector(".id");
+const nick = document.querySelector(".nick");
+const status = document.querySelector(".status");
+
+var userinfo = JSON.parse(localStorage.getItem("info"));
+
+emailUser.innerHTML = userinfo.email;
+nick.innerHTML = userinfo.nick;
+id.innerHTML = userinfo.id;
+status.innerHTML = userinfo.status;
+if (status.innerHTML == "admin") {
+    status.innerHTML = "Moderador"
+} else {
+    status.innerHTML = "Usuário"
+}
+
+const nickname = document.querySelector(".inpNickUser");
+const email = document.querySelector(".inpEmailUser");
+const nomeUser = document.querySelector(".inpNomeUser");
+const idUsuario = document.querySelector(".inpIdUser");
+
+var userinfo2 = JSON.parse(localStorage.getItem("data"));
+
+nickname.innerHTML = userinfo2.nick;
+email.innerHTML = userinfo2.email;
+nomeUser.innerHTML = userinfo2.nome;
+idUsuario.innerHTML = userinfo2.id;
+
 
 function testessss(e) {
 
@@ -475,36 +649,3 @@ function testessss(e) {
     }
 
 }
-
-
-
-
-// INFOS DO USUARIO 
-const emailUser = document.querySelector(".email");
-const id = document.querySelector(".id");
-const nick = document.querySelector(".nick");
-const status = document.querySelector(".status");
-
-var userinfo = JSON.parse(localStorage.getItem("info"));
-
-
-// emailUser.innerHTML = userinfo.email;
-// nick.innerHTML = userinfo.nick;
-// id.innerHTML = userinfo.id;
-// status.innerHTML = userinfo.status;
-// if (status.innerHTML == "admin") {
-//     status.innerHTML = "Moderador"
-// } else {
-//     status.innerHTML = "Usuário"
-// }
-
-
-console.log(userinfo.nome)
-
-document.querySelector('.inpNomeUser').value = userinfo.nome_user
-document.querySelector('.inpEmailUser').value = userinfo.email
-
-//ACRECENTANDO NA PÁGINA PERFIL
-
-// VALIDAÇÃO DE ADMIN
-

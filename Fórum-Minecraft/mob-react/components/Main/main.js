@@ -1,6 +1,6 @@
 // import { StatusBar } from 'expo-status-bar';]
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput, FlatList } from 'react-native';
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import 'react-native-gesture-handler';
@@ -14,43 +14,42 @@ import iconDicas from './img/4.png'
 import iconMods from './img/2.png'
 import iconBugs from './img/3.png'
 import iconChat from './img/chatIcon.png'
+import { ActivityIndicator } from 'react-native-web';
 
-export default function Main({navigation}) {
+export default function Main({ navigation }) {
 
-  
+  const [questions, setQuestions] = useState();
 
-  // useEffect(() =>{
-  //   fetch("http://localhost:3000/Perguntas")
-  //   .then(res => { return res.json()})
-  //   .then(data => {
-  //     data = data.results;
-  //     setPosts(data)
-  //   })
-  // },[posts]);
-  // useEffect(() =>{
-  // }, []);
-  // const [posts, setPosts] = useState([]);
-
-
-
+  useEffect(() => {
+    fetch("http://localhost:3000/Perguntas")
+      .then(res => { return res.json() })
+      .then(data => {
+        setQuestions(data);
+      })
+  });
 
   return (
     <View>
 
-
-      <View style={styleM.contTitle}>
+       <View style={styleM.contTitle}>
         <Text style={styleM.title}>Últimas Perguntas</Text>
       </View>
 
       <View style={styleM.contCardQuestions}>
 
+
+
         <View style={styleM.cardQuestions}>
           <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
 
+
+
           <View>
-            <Text>Fulano da Silva</Text>
-            <Text>Tema: Crafts</Text>
+            <Text>q.id_User</Text>
+            <Text>q.tema</Text>
           </View>
+
+
 
 
         </View>
@@ -60,23 +59,6 @@ export default function Main({navigation}) {
         <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
 
 
-        <View style={styleM.containerSaveViewAnswer}>
-          {/* <View style={styleM.contSaveCurtir}>
-            <TouchableOpacity>
-              <Ionicons style={styleM.iconIon} name={'bookmark-outline'} />
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Ionicons style={styleM.iconIon} name={'heart-outline'} />
-            </TouchableOpacity>
-          </View> */}
-
-          <TouchableOpacity style={styleM.contImageAdd} onPress={teste}>
-            <Ionicons style={styleM.iconIonMoreAnswer} name={'chatbox-ellipses-outline'} />
-
-            {/* <Image style={styleM.imageAdd} source={iconChat}/>  */}
-          </TouchableOpacity>
-        </View>
 
         <View style={styleM.modalRespostas}>
           <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
@@ -88,11 +70,11 @@ export default function Main({navigation}) {
                 <Text>Fulano</Text>
                 <Text>loremasdadadsadadasdsadsadsadassadad</Text>
               </View>
-             
+
 
 
             </View>
-            <Text>asdadadsadsadsadsadsadswd</Text>  
+            <Text>asdadadsadsadsadsadsadswd</Text>
 
           </View>
         </View>
@@ -103,8 +85,6 @@ export default function Main({navigation}) {
         <Text style={styleM.title}>Tópicos</Text>
       </View>
 
-
-      
       <View>
         <View style={styleM.cardTopicsCrafts}>
 
@@ -136,7 +116,7 @@ export default function Main({navigation}) {
 
           <View style={styleM.contTitleTopics}>
             <Text style={styleM.titleTopics}>Dicas</Text>
-            <TouchableOpacity style={styleM.contTitleBtnConferir}><Text style={styleM.titleBtnConefrir} onPress={() => {navigation.navigate('Dicas')}}>CONFERIR</Text></TouchableOpacity>
+            <TouchableOpacity style={styleM.contTitleBtnConferir}><Text style={styleM.titleBtnConefrir} onPress={() => { navigation.navigate('Dicas') }}>CONFERIR</Text></TouchableOpacity>
           </View>
 
 
@@ -155,10 +135,7 @@ export default function Main({navigation}) {
         </View>
       </View>
       
-    
-
-
-    </View>
+    </View >
 
   );
 }
