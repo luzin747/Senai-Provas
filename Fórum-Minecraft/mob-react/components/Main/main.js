@@ -18,66 +18,118 @@ import { ActivityIndicator } from 'react-native-web';
 
 export default function Main({ navigation }) {
 
-  const [questions, setQuestions] = useState();
-
+  const [questions, setQuestions] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/Perguntas")
+    const options = { method: 'GET' };
+    fetch('http://localhost:3000/Feed', options)
       .then(res => { return res.json() })
       .then(data => {
         setQuestions(data);
       })
-  });
+  }, [questions]);
+  useEffect(() => {
+  }, []);
+
+
+  const [usuarios, setUsuario] = useState([]);
+  useEffect(() => {
+    const options = { method: 'GET' };
+    fetch('http://localhost:3000/Usuarios', options)
+      .then(res => { return res.json() })
+      .then(data => {
+        setUsuario(data);
+      })
+  }, [usuarios]);
+  useEffect(() => {
+  }, []);
+
+
 
   return (
     <View>
 
-       <View style={styleM.contTitle}>
+
+      <View style={styleM.contTitle}>
         <Text style={styleM.title}>Últimas Perguntas</Text>
       </View>
 
       <View style={styleM.contCardQuestions}>
 
 
-
-        <View style={styleM.cardQuestions}>
-          <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+        {
 
 
+          questions.map((post, index) => {
 
-          <View>
-            <Text>q.id_User</Text>
-            <Text>q.tema</Text>
-          </View>
+            return (
+              <View key={index}>
+
+                <View>
+
+                  <View style={styleM.questions}>
+
+                    <View style={styleM.cardQuestions}>
+                      <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+
+                      <View style={styleM.contTitleUser}>
+
+                        {
+                          usuarios.map((u, i) => {
+                            if(post.id_User == u.id_user) {
+                              return (
+                                <Text key={i}>{u.nome_user}</Text>
+                              )
+                            }
+                           
+                          })
+                        }
+
+                        
+                        <Text>{post.tema}</Text>
+                      </View>
+                    </View>
+
+
+                    <Text>{post.pergunta}</Text>
+
+                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
+
+                    <View style={styleM.modalRespostas}>
+                      <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
+
+                      <View style={styleM.containerAnswer}>
+                        <View style={styleM.userAnswer}>
+                          <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+                          <View>
+                            <Text style={styleM.titleUserResp}>{post.nickname}</Text>
+                            <Text style={styleM.dataResp}>{post.dataResp}</Text>
+                          </View>
+
+                        </View>
+                        <Text style={styleM.resposta}>{post.resposta}</Text>
+
+                      </View>
+                    </View>
+
+                  </View>
+
+                </View>
 
 
 
 
-        </View>
 
-        <Text>loremasdadadsadadasdsadsadsada</Text>
-
-        <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
-
-
-
-        <View style={styleM.modalRespostas}>
-          <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
-
-          <View style={styleM.containerAnswer}>
-            <View style={styleM.userAnswer}>
-              <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
-              <View>
-                <Text>Fulano</Text>
-                <Text>loremasdadadsadadasdsadsadsadassadad</Text>
               </View>
+            )
+          })
+        }
 
 
 
-            </View>
-            <Text>asdadadsadsadsadsadsadswd</Text>
 
-          </View>
-        </View>
+
+
+
 
       </View>
 
@@ -134,7 +186,7 @@ export default function Main({ navigation }) {
 
         </View>
       </View>
-      
+
     </View >
 
   );

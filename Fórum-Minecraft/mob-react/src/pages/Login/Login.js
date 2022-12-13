@@ -14,11 +14,42 @@ export default function LogoutPage({navigation}) {
     const [hidePass, sideHidePass] = useState(true);
 
 
-    const entrar =() => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");   
+
+    const Logar = async () => {
+        let credenciais = {
+            "email": email,
+            "senha": input,
+        }
+
+        console.log(credenciais)
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        options.body = JSON.stringify(credenciais);
+        fetch("http://localhost:3000/login", options)
+            .then(resp => resp.status)
+            .then(resp => {
+                if (resp == 200) {
+                    navigation.navigate("Home")
+                }
+                else {
+                    console.log("Credeciais Incorretas")
+                }
+            })
+            .catch((error) => {
+                console.log('error', error);
+              });
+    };
+
+
+    const  entrar = () => {
         navigation.navigate("Home")
     }
 
-
+    
     return (
         <View style={style.container}>
 
@@ -26,15 +57,13 @@ export default function LogoutPage({navigation}) {
                 source={'https://www.todofondos.net/wp-content/uploads/4k-minecraft-wallpapers-los-mejores-fondos-4k-minecraft-gratis.-fondo-de-pantalla-hd-1080p-de-minecraft.png'}
                 style={style.ImageBackground} >
 
-
-
                 <View style={style.containerLogin}>
                     <Image style={style.imgLogin} source={MineIcon} />
 
                     <Text style={style.titleLogin}>LOGIN FÓRUM</Text>
 
                     <View>
-                        <TextInput style={style.inputs} placeholder='Insira seu Usuario' />
+                        <TextInput style={style.inputs} placeholder='Insira seu Email' onChangeText={(value) => { setEmail(value) }} />
                         <TextInput style={style.inputs} placeholder='Insira sua Senha' placeholderTextColor='black' value={input} onChangeText={(texto) => setInput(texto)} secureTextEntry={hidePass} />
                     </View>
 

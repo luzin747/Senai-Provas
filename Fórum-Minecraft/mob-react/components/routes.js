@@ -1,7 +1,7 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Button,TextInput  } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput } from 'react-native';
 
 
 import Home from '../src/pages/Home/HomePage'
@@ -13,15 +13,15 @@ import User from '../src/pages/User/UserPage'
 
 const Tab = createBottomTabNavigator();
 
-export default function Routes({navigation}) {
+export default function Routes({ navigation }) {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
 
-                tabBarStyle: ({focused, color, size}) => {
+                tabBarStyle: ({ focused, color, size }) => {
                     style: {
                         background: 'black'
-                    }  
+                    }
                 },
 
                 tabBarIcon: ({ focused, color, size }) => {
@@ -33,20 +33,20 @@ export default function Routes({navigation}) {
                             : 'ios-home-outline';
                     }
                     if (route.name === 'Topics') {
-                        iconName = focused 
-                        ? 'ios-list' 
-                        : 'ios-list-outline';
-                        
+                        iconName = focused
+                            ? 'ios-list'
+                            : 'ios-list-outline';
+
                     }
                     if (route.name === 'Logout') {
-                        iconName = focused 
-                        ? 'ios-log-out' 
-                        : 'ios-log-out-outline';
+                        iconName = focused
+                            ? 'ios-log-out'
+                            : 'ios-log-out-outline';
                     }
                     if (route.name === 'Users') {
-                        iconName = focused 
-                        ? 'ios-person' 
-                        : 'ios-person-outline';
+                        iconName = focused
+                            ? 'ios-person'
+                            : 'ios-person-outline';
                     }
 
                     return <Ionicons name={iconName} size={size} color={color} />;
@@ -56,57 +56,59 @@ export default function Routes({navigation}) {
             })}>
 
 
-            <Tab.Screen name="Home" 
-            component={Home}
-            options={{
-                title: '',
-                headerTransparent: true,
-                headerShow: false
-            }}
-            />
-            
-
-            <Tab.Screen name="Topics" 
-            component={Topics} 
-            options={{
-                title: '',
-                headerTransparent: true,
-                headerShow: false
-            }}
-            />
-
-            <Tab.Screen 
-            name="New" 
-            component={CadastrarPerg}
-            options={{
-                
-                tabBarLabel: '',
-                tabBarIcon: ({ focused, size, color}) => (
-                    size = "25pt",
-                    <ButtonNew size={size} color={color} focused={focused} />
-                )
-            }} 
-            />
-
-            <Tab.Screen 
-                name="Users" 
-                component={User}
-                options={{
-                    title: '',
-                    headerTransparent: true,
-                    headerShow: false
-                }} 
-            />
-
-            <Tab.Screen 
-                name="Logout" 
-                component={Logout} 
+            <Tab.Screen name="Home"
+                component={Home}
                 options={{
                     title: '',
                     headerTransparent: true,
                     headerShow: false
                 }}
-            />  
+            />
+
+
+            <Tab.Screen name="Topics"
+                component={Topics}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShow: false
+                }}
+            />
+
+            <Tab.Screen
+                name="New"
+                component={CadastrarPerg}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShow: false,
+                    tabBarLabel: '',
+                    tabBarIcon: ({ focused, size, color }) => (
+                        size = "25pt",
+                        <ButtonNew size={size} color={color} focused={focused} />
+                    )
+                }}
+            />
+
+            <Tab.Screen
+                name="Users"
+                component={User}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShow: false
+                }}
+            />
+
+            <Tab.Screen
+                name="Logout"
+                component={Logout}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShow: false
+                }}
+            />
         </Tab.Navigator>
     )
 }

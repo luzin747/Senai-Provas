@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native';
 
 
 export default StyleSheet.create({ 
+
+
+    
     
     contTitle: {
         backgroundColor: '#212124',

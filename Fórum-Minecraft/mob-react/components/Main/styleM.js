@@ -25,9 +25,16 @@ export default StyleSheet.create({
     },
 
     contCardQuestions: {
-        boxShadow: "0px 0px 3px black",
         margin: 10,
         padding: 4
+    },
+
+    questions: {
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: "0px 0px 3px black",
+        padding: 6,
+        marginTop: 20
     },
 
     cardQuestions: {
@@ -36,12 +43,18 @@ export default StyleSheet.create({
   
     },
 
+    contTitleUser: {
+        display:'flex',
+        flexDirection: 'column'
+    },
+
     imgUser: {
         marginRight: 5,
         width: 50,
         height: 50,
         borderRadius: 10
     },
+    
 
 
     inpResp: {
@@ -73,6 +86,19 @@ export default StyleSheet.create({
         fontSize: 22,
         marginLeft: 5,
         marginRight: 5,
+    },
+
+    titleUserResp: {
+        color: 'white',
+        fontWeight: 600,
+    },
+
+    dataResp: {
+        color: 'white'
+    },
+
+    resposta: {
+        color: 'white'
     },
 
     iconIonMoreAnswer: {

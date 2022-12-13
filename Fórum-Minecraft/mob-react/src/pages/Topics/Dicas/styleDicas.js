@@ -13,8 +13,7 @@ export default StyleSheet.create({
         margin: 1,
         borderRadius: 10,
         paddingLeft: 10,
-        paddingBottom: 6,
-        marginTop: '-3%'
+        paddingBottom: 6
     },
     title: {
         fontWeight: 500,
@@ -26,15 +25,27 @@ export default StyleSheet.create({
     },
 
     contCardQuestions: {
-        boxShadow: "0px 0px 3px black",
         margin: 10,
         padding: 4
+    },
+
+    questions: {
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: "0px 0px 3px black",
+        padding: 6,
+        marginTop: 20
     },
 
     cardQuestions: {
         display: 'flex',
         flexDirection: 'row',
   
+    },
+
+    contTitleUser: {
+        display:'flex',
+        flexDirection: 'column'
     },
 
     imgUser: {
@@ -58,7 +69,7 @@ export default StyleSheet.create({
     containerSaveViewAnswer: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         marginLeft: 20,
         marginRight: 20,
         marginTop: 12,
@@ -74,6 +85,19 @@ export default StyleSheet.create({
         fontSize: 22,
         marginLeft: 5,
         marginRight: 5,
+    },
+
+    titleUserResp: {
+        color: 'white',
+        fontWeight: 600,
+    },
+
+    dataResp: {
+        color: 'white'
+    },
+
+    resposta: {
+        color: 'white'
     },
 
     iconIonMoreAnswer: {
@@ -169,7 +193,17 @@ export default StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         fontWeight: 500
-    }
+    },
+    containerAnswer: {
+        backgroundColor: '#515153',
+        margin: '2px',
+        padding: 5
+    },
+    userAnswer: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+
     
 })
 

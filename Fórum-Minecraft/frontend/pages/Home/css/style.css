@@ -571,7 +571,7 @@ nav ul h1 {
     
 }
 .answer-card img {
-    width: 13%;
+    width: 9%;
     object-fit: cover;
     border-radius: 5px;
 }
@@ -588,6 +588,7 @@ nav ul h1 {
 
 .answer-r {
     color: white;
+    
 }
 
 .pergunta-answer {

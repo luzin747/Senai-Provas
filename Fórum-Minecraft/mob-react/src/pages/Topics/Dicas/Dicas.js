@@ -1,5 +1,6 @@
 // import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput } from 'react-native';
+import { useState, useEffect } from 'react';
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import 'react-native-gesture-handler';
@@ -14,65 +15,116 @@ import Header from '../../../../components/Header/header'
 import styleM from './styleDicas'
 
 
-export default function DicasPage({navigation}) {
+export default function DicasPage({ navigation }) {
+
+
+    const [questions, setQuestions] = useState([]);
+    useEffect(() => {
+        const options = { method: 'GET' };
+        fetch('http://localhost:3000/tema/dicas', options)
+            .then(res => { return res.json() })
+            .then(data => {
+                setQuestions(data);
+            })
+    }, [questions]);
+    useEffect(() => {
+    }, []);
+
+
+    const [usuarios, setUsuario] = useState([]);
+    useEffect(() => {
+        const options = { method: 'GET' };
+        fetch('http://localhost:3000/Usuarios', options)
+            .then(res => { return res.json() })
+            .then(data => {
+                setUsuario(data);
+            })
+    }, [usuarios]);
+    useEffect(() => {
+    }, []);
 
     return (
+
         <View>
-            <Header />
+
+            <Header/>
 
             <View style={styleM.contTitle}>
-                <Text style={styleM.title}>Dicas</Text>
+                <Text style={styleM.title}>Dicas!</Text>
             </View>
 
             <View style={styleM.contCardQuestions}>
 
-                <View style={styleM.cardQuestions}>
-                    <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
 
-                    <View>
-                        <Text>Fulano da Silva</Text>
-                        <Text>Tema: Crafts</Text>
-                    </View>
+                {
+                    questions.map((post, index) => {
+                        return (
+                            <View key={index}>
+
+                                <View>
+
+                                    <View style={styleM.questions}>
+
+                                        <View style={styleM.cardQuestions}>
+                                            <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+
+                                            <View style={styleM.contTitleUser}>
+
+                                                {
+                                                    usuarios.map((u, i) => {
+                                                        if (post.id_User == u.id_user) {
+                                                            return (
+                                                                <Text key={i}>{u.nome_user}</Text>
+                                                            )
+                                                        }
+
+                                                    })
+                                                }
 
 
-                </View>
-
-                <Text>loremasdadadsadadasdsadsadsada</Text>
-
-                <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
+                                                <Text>{post.tema}</Text>
+                                            </View>
+                                        </View>
 
 
-                <View style={styleM.containerSaveViewAnswer}>
-                    <View style={styleM.contSaveCurtir}>
-                        <TouchableOpacity>
-                            <Ionicons style={styleM.iconIon} name={'bookmark-outline'} />
-                        </TouchableOpacity>
+                                        <Text>{post.pergunta}</Text>
 
-                        <TouchableOpacity>
-                            <Ionicons style={styleM.iconIon} name={'heart-outline'} />
-                        </TouchableOpacity>
-                    </View>
+                                        <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
 
-                    <TouchableOpacity style={styleM.contImageAdd}>
-                        <Ionicons style={styleM.iconIonMoreAnswer} name={'chatbox-ellipses-outline'} />
+                                        <View style={styleM.modalRespostas}>
+                                            <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
 
-                        {/* <Image style={styleM.imageAdd} source={iconChat}/>  */}
-                    </TouchableOpacity>
-                </View>
+                                            <View style={styleM.containerAnswer}>
+                                                <View style={styleM.userAnswer}>
+                                                    <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+                                                    <View>
+                                                        <Text style={styleM.titleUserResp}>{post.nickname}</Text>
+                                                        <Text style={styleM.dataResp}>{post.dataResp}</Text>
+                                                    </View>
 
-                <View style={styleM.modalRespostas}>
-                    <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
-                </View>
 
+
+                                                </View>
+                                                <Text style={styleM.resposta}>{post.resposta}</Text>
+
+                                            </View>
+                                        </View>
+
+                                    </View>
+
+                                </View>
+
+
+
+
+
+                            </View>
+                        )
+                    })
+                }
             </View>
 
         </View>
-            // <NavigationContainer>
-            //     <Routes />
-            // </NavigationContainer>
-
-
-
 
     );
 
