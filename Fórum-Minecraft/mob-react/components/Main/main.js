@@ -21,6 +21,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function Main({ navigation }) {
 
   const [questions, setQuestions] = useState([]);
+
   useEffect(() => {
     const options = { method: 'GET' };
     fetch('http://localhost:3000/Perguntas', options)
@@ -28,9 +29,8 @@ export default function Main({ navigation }) {
       .then(data => {
         setQuestions(data);
       })
-  }, [questions]);
-  useEffect(() => {
   }, []);
+  
 
   const [respostas, setrespostas] = useState([]);
   useEffect(() => {
@@ -40,9 +40,8 @@ export default function Main({ navigation }) {
       .then(data => {
         setrespostas(data);
       })
-  }, [respostas]);
-  useEffect(() => {
   }, []);
+  
 
 
   const [usuarios, setUsuario] = useState([]);
@@ -53,9 +52,8 @@ export default function Main({ navigation }) {
       .then(data => {
         setUsuario(data);
       })
-  }, [usuarios]);
-  useEffect(() => {
   }, []);
+  
 
 
 
@@ -63,7 +61,7 @@ export default function Main({ navigation }) {
   const [tema, setTema] = useState("");
   const [Pergunta, setPergunta] = useState("");
 
-  const CadastrarResposta = async () => {
+  const CadastrarResposta = async (id) => {
     // var hoje = new Date()
     // var dia = String(hoje.getDate()).padStart(2, '0')
     // var mes = String(hoje.getMonth() + 1).padStart(2, '0')
@@ -71,11 +69,13 @@ export default function Main({ navigation }) {
 
     // dataAtual = ano + '-' + mes + '-' + dia;
 
+    console.log(id)
+
     let data = {
       "id_usuario": 3,
-      "id_perg": 8,
+      "id_perg": id,
       "resposta": respostaInp,
-      "dataResp": "2022-12-13"
+      "dataResp": "2022-12-14"
     }
 
     console.log(data)
@@ -161,7 +161,7 @@ export default function Main({ navigation }) {
 
                     <View style={styleM.contInpResp}>
                       <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaInp(value) }} />
-                      <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarResposta} />
+                      <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={() => CadastrarResposta(post.id_pergunta)} />
                     </View>
 
                     <ScrollView style={styleM.ScrollViewResp}>

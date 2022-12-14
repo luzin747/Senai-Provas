@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Button, TextInput, ImageBackground } from 'react-native';
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import MineIcon from './img/iconLogin.png'
 import CreeperIcon from './img/creeperface.png'
@@ -31,8 +32,19 @@ export default function LogoutPage({navigation}) {
         options.body = JSON.stringify(credenciais);
         fetch("http://localhost:3000/login", options)
             .then(resp => resp.status)
-            .then(resp => {
+            .then(async resp => {
                 if (resp == 200) {
+
+                    try{
+                        console.log('Passando')
+                        await AsyncStorage.setItem('usuarios', JSON.stringify(credenciais));
+
+                    }catch(err)
+                    {
+                        console.log(err)
+
+                    }
+
                     navigation.navigate("Home")
                 }
                 else {
@@ -67,7 +79,7 @@ export default function LogoutPage({navigation}) {
                         <TextInput style={style.inputs} placeholder='Insira sua Senha' placeholderTextColor='black' value={input} onChangeText={(texto) => setInput(texto)} secureTextEntry={hidePass} />
                     </View>
 
-                    <TouchableOpacity style={style.containerBtnLogin} onPress={entrar}>
+                    <TouchableOpacity style={style.containerBtnLogin} onPress={Logar}>
                         <Text style={style.titleBtnLogin}>Logar</Text>
                         <Image style={style.creeperIcon} source={CreeperIcon} />
                     </TouchableOpacity>

@@ -16,9 +16,8 @@ var i = 0
 
 
 
-export default function TopicsPage() {
+export default function TopicsPage({navigation}) {
 
-   console.log(i++)
 
     const [questions, setQuestions] = useState([]);
     useEffect(() => {
@@ -27,6 +26,7 @@ export default function TopicsPage() {
             .then(res => { return res.json() })
             .then(data => {
                 setQuestions(data);
+
             })
     }, []);
     
@@ -41,7 +41,7 @@ export default function TopicsPage() {
             .then(data => {
                 setQuestionsCrafts(data);
             })
-    }, []);
+    }, [questions]);
     
 
 
@@ -70,6 +70,7 @@ export default function TopicsPage() {
 
 
 
+    
 
     const [respostas, setrespostas] = useState([]);
     useEffect(() => {
@@ -79,7 +80,7 @@ export default function TopicsPage() {
             .then(data => {
                 setrespostas(data);
             })
-    }, [respostas]);
+    }, []);
     
 
 
@@ -91,10 +92,13 @@ export default function TopicsPage() {
             .then(data => {
                 setUsuario(data);
             })
-    }, [usuarios]);
+    }, []);
    
 
     const [respostaDicas, setrespostaDicas] = useState("");
+    const [respostaCrafts, setrespostaCrafts] = useState("");
+    const [respostaMods, setrespostaMods] = useState("");
+    const [respostaBugs, setrespostaBugs] = useState("");
 
 
     const [id_user, setIdUser] = useState("");
@@ -106,7 +110,7 @@ export default function TopicsPage() {
         navigation.navigate("Home")
     }
 
-    const CadastrarRespostaDicas = async () => {
+    const CadastrarRespostaDicas = async (id) => {
 
         var dataAtual 
 
@@ -119,6 +123,7 @@ export default function TopicsPage() {
        
 
         let data = {
+            "id_pergunta": id,
             "id_usuario": 3,
             "id_perg": 4,
             "resposta": respostaDicas,
@@ -135,8 +140,133 @@ export default function TopicsPage() {
             .then(resp => resp.status)
             .then(resp => {
                 if (resp == 201) {
+                    window.location.reload()
 
-                    alert('Resposta Cadastrada com sucesso')
+                }
+                else {
+                    console.log("Credeciais Incorretas")
+                }
+            })
+            .catch((error) => {
+                console.log('error', error);
+            });
+    };
+
+    const CadastrarRespostaCrafts = async (id) => {
+
+        var dataAtual 
+
+        var hoje = new Date()
+        var dia = String(hoje.getDate()).padStart(2, '0')
+        var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+        var ano = hoje.getFullYear()
+    
+        dataAtual = ano + '-' + mes + '-' + dia;
+       
+
+        let data = {
+            "id_usuario": 2,
+            "id_perg": id,
+            "resposta": respostaCrafts,
+            "dataResp": dataAtual
+        }
+
+        console.log(data)
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        options.body = JSON.stringify(data);
+        fetch("http://localhost:3000/Respostas", options)
+            .then(resp => resp.status)
+            .then(resp => {
+                if (resp == 201) {
+
+                   location.reload()
+
+                }
+                else {
+                    console.log("Credeciais Incorretas")
+                }
+            })
+            .catch((error) => {
+                console.log('error', error);
+            });
+    };
+
+    const CadastrarRespostaBugs = async (id) => {
+
+        var dataAtual 
+
+        var hoje = new Date()
+        var dia = String(hoje.getDate()).padStart(2, '0')
+        var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+        var ano = hoje.getFullYear()
+    
+        dataAtual = ano + '-' + mes + '-' + dia;
+       
+
+        let data = {
+            "id_usuario": 2,
+            "id_perg": id,
+            "resposta": respostaBugs,
+            "dataResp": dataAtual
+        }
+
+        console.log(data)
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        options.body = JSON.stringify(data);
+        fetch("http://localhost:3000/Respostas", options)
+            .then(resp => resp.status)
+            .then(resp => {
+                if (resp == 201) {
+
+                    window.location.reload()
+
+                }
+                else {
+                    console.log("Credeciais Incorretas")
+                }
+            })
+            .catch((error) => {
+                console.log('error', error);
+            });
+    };
+
+    const CadastrarRespostaMods = async (id) => {
+
+        var dataAtual 
+
+        var hoje = new Date()
+        var dia = String(hoje.getDate()).padStart(2, '0')
+        var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+        var ano = hoje.getFullYear()
+    
+        dataAtual = ano + '-' + mes + '-' + dia;
+       
+
+        let data = {
+            "id_usuario": 2,
+            "id_perg": id,
+            "resposta": respostaMods,
+            "dataResp": dataAtual
+        }
+
+        console.log(data)
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        options.body = JSON.stringify(data);
+        fetch("http://localhost:3000/Respostas", options)
+            .then(resp => resp.status)
+            .then(resp => {
+                if (resp == 201) {
+
+                    window.location.reload()
 
                 }
                 else {
@@ -204,7 +334,7 @@ export default function TopicsPage() {
 
                                                 <View style={styleM.contInpResp}>
                                                     <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaDicas(value) }} />
-                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarRespostaDicas} />
+                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={() => CadastrarRespostaDicas(post.id_pergunta)} />
                                                 </View>
 
                                                 <ScrollView style={styleM.ScrollViewResp}>
@@ -323,8 +453,8 @@ export default function TopicsPage() {
                                                 <Text>{post.pergunta}</Text>
 
                                                 <View style={styleM.contInpResp}>
-                                                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaInp(value) }} />
-                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarResposta} />
+                                                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaCrafts(value) }} />
+                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={() => CadastrarRespostaCrafts(post.id_pergunta)} />
                                                 </View>
 
                                                 <ScrollView style={styleM.ScrollViewResp}>
@@ -443,8 +573,8 @@ export default function TopicsPage() {
                                                 <Text>{post.pergunta}</Text>
 
                                                 <View style={styleM.contInpResp}>
-                                                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaInp(value) }} />
-                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarResposta} />
+                                                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaBugs(value) }} />
+                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={() => CadastrarRespostaBugs(post.id_pergunta)} />
                                                 </View>
 
                                                 <ScrollView style={styleM.ScrollViewResp}>
@@ -562,8 +692,8 @@ export default function TopicsPage() {
                                                 <Text>{post.pergunta}</Text>
 
                                                 <View style={styleM.contInpResp}>
-                                                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaInp(value) }} />
-                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarResposta} />
+                                                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaMods(value) }} />
+                                                    <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarRespostaMods(post.id_pergunta)} />
                                                 </View>
 
                                                 <ScrollView style={styleM.ScrollViewResp}>
