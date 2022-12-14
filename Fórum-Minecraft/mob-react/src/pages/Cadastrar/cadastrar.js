@@ -8,15 +8,47 @@ import CreeperIcon from './img/creeperface.png'
 import style from './style';
 
 
-export default function LogoutPage({navigation}) {
+export default function LogoutPage({ navigation }) {
     const [input, setInput] = useState('')
     const [hidePass, sideHidePass] = useState(true);
 
 
-    const entrar =() => {
-        navigation.navigate("Home")
-    }
+    const [email, setEmail] = useState("");
+    const [nome, setNome] = useState("");
+    const [sobrenome, setSobrenome] = useState("");
+    const [nickname, setNickname] = useState("");
+    const [password, setPassword] = useState("");
 
+    const Cadastrar = async () => {
+        let credenciais = {
+            "nome_user": nome + sobrenome,
+            "nickname": nickname,
+            "email": email,
+            "senha": password,
+            "status_user": "usuario"
+        }
+
+        console.log(credenciais)
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        options.body = JSON.stringify(credenciais);
+        fetch("http://localhost:3000/Usuarios", options)
+            .then(resp => resp.status)
+            .then(resp => {
+                if (resp == 201) {
+                    alert('Cadastrado Com Sucesso')
+                    navigation.navigate("Home")
+                }
+                else {
+                    console.log("Credeciais Incorretas")
+                }
+            })
+            .catch((error) => {
+                console.log('error', password);
+            });
+    };
 
     return (
         <View style={style.container}>
@@ -33,14 +65,18 @@ export default function LogoutPage({navigation}) {
                     <Text style={style.titleLogin}>CADASTRAR FÓRUM</Text>
 
                     <View>
-                        <TextInput style={style.inputs} placeholder='Insira seu Usuario' />
+                        <TextInput style={style.inputs} placeholder='Insira seu Nome*' value={nome} onChangeText={(texto) => setNome(texto)} />
 
-                        <TextInput style={style.inputs} placeholder='Insira sua Email'/>
+                        <TextInput style={style.inputs} placeholder='Insira seu Sobrenome*' value={sobrenome} onChangeText={(texto) => setSobrenome(texto)} />
 
-                        <TextInput style={style.inputs} placeholder='Insira sua Senha' placeholderTextColor='black' value={input} onChangeText={(texto) => setInput(texto)} secureTextEntry={hidePass} />
+                        <TextInput style={style.inputs} placeholder='Insira seu Nickname*' value={nickname} onChangeText={(texto) => setNickname(texto)} />
+
+                        <TextInput style={style.inputs} placeholder='Insira sua Email*' value={email} onChangeText={(texto) => setEmail(texto)} />
+
+                        <TextInput style={style.inputs} placeholder='Insira sua Senha*' placeholderTextColor='black' value={password} onChangeText={(texto) => setPassword(texto)} secureTextEntry={hidePass} />
                     </View>
 
-                    <TouchableOpacity style={style.containerBtnLogin} onPress={entrar}>
+                    <TouchableOpacity style={style.containerBtnLogin} onPress={Cadastrar}>
                         <Text style={style.titleBtnLogin}>Cadastrar</Text>
                         <Image style={style.creeperIcon} source={CreeperIcon} />
                     </TouchableOpacity>
@@ -52,7 +88,7 @@ export default function LogoutPage({navigation}) {
                         <TouchableOpacity><Ionicons style={style.iconIon} name={'logo-facebook'} /></TouchableOpacity>
                         <TouchableOpacity><Ionicons style={style.iconIon} name={'logo-twitter'} /></TouchableOpacity>
                     </View> */}
-                    
+
                     <TouchableOpacity><Text>Já Possui Conta?</Text></TouchableOpacity>
                 </View>
 
