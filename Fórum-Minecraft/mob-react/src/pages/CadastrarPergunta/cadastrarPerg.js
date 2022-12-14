@@ -97,6 +97,7 @@ export default function LogoutPage({ navigation }) {
                             style={{ height: 35, width: 100 }}
                             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                         >
+                            <Picker.Item label="SEM TEMA" value="" />
                             <Picker.Item label="CRAFTS" value="CRAFTS" />
                             <Picker.Item label="DICAS" value="DICAS" />
                             <Picker.Item label="BUGS" value="BUGS" />

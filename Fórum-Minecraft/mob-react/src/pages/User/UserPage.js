@@ -38,10 +38,10 @@ export default function UserPage() {
                 </View>
 
                 {
-                    usuarios.map(u => {
+                    usuarios.map((u , index) => {
                         if (u.status_user == 'admin') {
                             return (
-                                <View style={style.contCardUser}>
+                                <View key={index} style={style.contCardUser}>
                                     <Image source={user} style={style.userPng} />
                                     <View>
                                         <Text style={style.contNameUser}>{u.nickname}</Text>
@@ -61,10 +61,10 @@ export default function UserPage() {
 
 
                 {
-                    usuarios.map(u => {
+                    usuarios.map((u, index) => {
                         if (u.status_user == 'usuario') {
                             return (
-                                <View style={style.contCardUser}>
+                                <View key={index} style={style.contCardUser}>
                                     <Image source={user} style={style.userPng} />
                                     <View>
                                         <Text style={style.contNameUser}>{u.nickname}</Text>

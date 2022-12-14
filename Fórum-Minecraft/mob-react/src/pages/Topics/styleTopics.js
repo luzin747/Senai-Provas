@@ -217,6 +217,14 @@ export default StyleSheet.create({
         height: '25vh'
     },
 
+    containerTopics: {
+        height: '40vh',
+        margin: 13,
+        // backgroundColor: 'blue'
+        boxShadow: '0px 0px 10px rgba(0,0,0,.5)',
+        borderRadius: 5
+    },
+
     
 })
 

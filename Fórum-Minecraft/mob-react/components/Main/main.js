@@ -15,18 +15,32 @@ import iconMods from './img/2.png'
 import iconBugs from './img/3.png'
 import iconChat from './img/chatIcon.png'
 import { ActivityIndicator } from 'react-native-web';
+import { cos } from 'react-native-reanimated';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Main({ navigation }) {
 
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
     const options = { method: 'GET' };
-    fetch('http://localhost:3000/Feed', options)
+    fetch('http://localhost:3000/Perguntas', options)
       .then(res => { return res.json() })
       .then(data => {
         setQuestions(data);
       })
   }, [questions]);
+  useEffect(() => {
+  }, []);
+
+  const [respostas, setrespostas] = useState([]);
+  useEffect(() => {
+    const options = { method: 'GET' };
+    fetch('http://localhost:3000/Respostas', options)
+      .then(res => { return res.json() })
+      .then(data => {
+        setrespostas(data);
+      })
+  }, [respostas]);
   useEffect(() => {
   }, []);
 
@@ -45,6 +59,58 @@ export default function Main({ navigation }) {
 
 
 
+  const [id_user, setIdUser] = useState("");
+  const [tema, setTema] = useState("");
+  const [Pergunta, setPergunta] = useState("");
+
+  const CadastrarResposta = async () => {
+    // var hoje = new Date()
+    // var dia = String(hoje.getDate()).padStart(2, '0')
+    // var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+    // var ano = hoje.getFullYear()
+
+    // dataAtual = ano + '-' + mes + '-' + dia;
+
+    let data = {
+      "id_usuario": 3,
+      "id_perg": 8,
+      "resposta": respostaInp,
+      "dataResp": "2022-12-13"
+    }
+
+    console.log(data)
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    options.body = JSON.stringify(data);
+    fetch("http://localhost:3000/Respostas", options)
+      .then(resp => resp.status)
+      .then(resp => {
+        if (resp == 201) {
+
+          alert('Resposta Cadastrada com sucesso')
+        }
+        else {
+          console.log("Credeciais Incorretas")
+        }
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+  };
+
+
+  const [respostaInp, setrespostaInp] = useState("");
+  const [pergunta, setPerguntas] = useState("");
+
+//   const  CadastrarResposta = () => {
+//     console.log(respostaInp)
+//     console.log(pergunta)
+// }
+
+
+
   return (
     <View>
 
@@ -55,15 +121,14 @@ export default function Main({ navigation }) {
 
       <View style={styleM.contCardQuestions}>
 
-
         {
 
 
-          questions.map((post, index) => {
+          questions.map((post, indiceQuest) => {
 
             return (
-              <View key={index}>
-
+              <View key={indiceQuest}
+              >
                 <View>
 
                   <View style={styleM.questions}>
@@ -72,19 +137,21 @@ export default function Main({ navigation }) {
                       <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
 
                       <View style={styleM.contTitleUser}>
+                        
+                    
 
                         {
                           usuarios.map((u, i) => {
-                            if(post.id_User == u.id_user) {
+                            if (post.id_User == u.id_user) {
                               return (
                                 <Text key={i}>{u.nome_user}</Text>
                               )
                             }
-                           
+
                           })
                         }
 
-                        
+
                         <Text>{post.tema}</Text>
                       </View>
                     </View>
@@ -92,24 +159,59 @@ export default function Main({ navigation }) {
 
                     <Text>{post.pergunta}</Text>
 
-                    <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" />
+                    <View style={styleM.contInpResp}>
+                      <TextInput style={styleM.inpResp} placeholder="Insira sua Resposta" onChangeText={(value) => { setrespostaInp(value) }} />
+                      <Ionicons style={styleM.iconIon} name={'arrow-forward-circle-outline'} onPress={CadastrarResposta} />
+                    </View>
 
-                    <View style={styleM.modalRespostas}>
-                      <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
+                    <ScrollView style={styleM.ScrollViewResp}>
+                      <View style={styleM.modalRespostas}>
+                        <Text style={styleM.titleModalRespostas}>RESPOSTAS</Text>
 
-                      <View style={styleM.containerAnswer}>
-                        <View style={styleM.userAnswer}>
-                          <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
-                          <View>
-                            <Text style={styleM.titleUserResp}>{post.nickname}</Text>
-                            <Text style={styleM.dataResp}>{post.dataResp}</Text>
-                          </View>
+                        {
+                          respostas.map((resp, index) => {
 
-                        </View>
-                        <Text style={styleM.resposta}>{post.resposta}</Text>
+
+                            if (post.id_pergunta == resp.id_perg) {
+
+                              return (
+                                <View key={index} style={styleM.containerAnswer}>
+                                  <View style={styleM.userAnswer}>
+                                    <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
+                                    <View>
+
+                                      {
+                                        usuarios.map((u, i) => {
+                                          if (resp.id_usuario == u.id_user) {
+
+                                            return (
+                                              <Text key={i} style={styleM.titleUserResp}>{u.nickname}</Text>
+                                            )
+                                          }
+
+                                        })
+                                      }
+                                      {/* <Text style={styleM.titleUserResp}>{resp.nickname}</Text> */}
+                                      <Text style={styleM.dataResp}>{resp.dataResp}</Text>
+                                    </View>
+
+                                  </View>
+                                  <Text style={styleM.resposta}>{resp.resposta}</Text>
+
+                                </View>
+                              )
+
+
+                            }
+                          })
+
+                        }
+
 
                       </View>
-                    </View>
+                    </ScrollView>
+
+
 
                   </View>
 
@@ -192,9 +294,6 @@ export default function Main({ navigation }) {
   );
 }
 
-function teste() {
-  console.log('asdad')
-}
 
 
 

@@ -26,7 +26,9 @@ export default StyleSheet.create({
 
     contCardQuestions: {
         margin: 10,
-        padding: 4
+        padding: 4,
+        display: 'flex',
+        flexDirection: 'column-reverse'
     },
 
     questions: {
@@ -54,11 +56,12 @@ export default StyleSheet.create({
         height: 50,
         borderRadius: 10
     },
+    
 
 
     inpResp: {
         border: '1px solid rgba(0,0,0,.5)',
-        width: '80%',
+        width: '75%',
         marginTop: '3%',
         borderRadius: 15,
         marginLeft: '10%',
@@ -82,11 +85,17 @@ export default StyleSheet.create({
     },
 
     iconIon: {
-        fontSize: 22,
+        fontSize: 26,
         marginLeft: 5,
         marginRight: 5,
+        marginTop: 12
     },
 
+    contInpResp: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
     titleUserResp: {
         color: 'white',
         fontWeight: 600,
@@ -202,6 +211,11 @@ export default StyleSheet.create({
     userAnswer: {
         display: 'flex',
         flexDirection: 'row'
+    },
+
+
+    ScrollViewResp: {
+        height: '25vh'
     },
 
     
