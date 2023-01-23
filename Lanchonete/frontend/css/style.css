@@ -19,11 +19,91 @@ h1 {
     text-align: center  ;
 }
 
-.body div {
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
-.cont-pedidos {
+.title i {
+    font-size: 18pt;
+}
+
+.cont-body button{
     display: flex;
-    justify-content: space-around
+    
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+    margin: 2% 0px;
+
+}
+
+.cont-pedidos h2 {
+    text-align: center;
+}
+
+.cont-pedidos {
+    /* background-color: aquamarine; */
+    width: 100%;
+    margin: 5px;
+    text-align: center;
+}
+
+.cont-pedidos:nth-child(1){ border-right: 1px solid black;}
+
+.pedido {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3%;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.185);
+}
+
+.cliente_details {
+    display: flex;
+    margin: 5px 10px;
+}
+.title_pedidos {
+    font-weight: bold;
+    text-align: start;
+    margin-left: 6px;
+}
+.pedido_details {
+    text-align: start;
+    /* display: flex; */
+    margin: 12px 0px;
+}
+
+.pedido_details div {
+    display: flex;
+}
+
+.cliente_details p {
+    font-weight: bold;
+}
+.pedido_details span {
+    margin-left: 5px;
+    text-align: start;
+}
+
+.cont_pedido_details {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preco_total {
+    display: flex;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.preco_total p {
+    margin-right: 5px; 
+    font-weight: 700;
 }
