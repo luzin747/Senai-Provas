@@ -2,20 +2,6 @@ drop database if exists lanchonete;
 create database lanchonete charset=UTF8 collate UTF8_general_ci;
 use lanchonete;
 
--- CRIANDO TABELA DE PEDIDOS --
-create table pedidos(
-    id_pedido integer not null primary key auto_increment,
-    cliente varchar(30) not null,
-    endereco varchar(30) not null,
-    produto varchar(100) not null,
-    dia varchar(11) not null,
-    hora_pedido varchar(30) not null,
-    hora_entrega varchar(30) not null,
-    hora_fim varchar(30) not null,
-    entregador integer not null,
-    foreign key (entregador) references entregador (id_entregador)
-);
-
 -- CRIANDO TABELA DE ENTREGADORES --
 create table entregador(
     id_entregador integer not null primary key auto_increment,
@@ -25,6 +11,20 @@ create table entregador(
     veiculo varchar(30) not null
 );
 
+-- CRIANDO TABELA DE PEDIDOS --
+create table pedidos(
+    id_pedido integer not null primary key auto_increment,
+    cliente varchar(30) not null,
+    endereco varchar(100) not null,
+    produto varchar(100) not null,
+    dia varchar(11) not null,
+    hora_pedido varchar(30) not null,
+    hora_entrega varchar(30) not null,
+    hora_fim varchar(30) not null,
+    entregador integer not null,
+    foreign key (entregador) references entregador(id_entregador)
+);
+
 -- CRIANDO TABELA DE PRODUTOS --
 create table produtos(
     id_produto integer not null primary key auto_increment,
@@ -32,15 +32,16 @@ create table produtos(
 );
 
 -- IMPORTANDO INFORMAÇÕES DO CSV
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/3DES/projetos/Lanchonete/docs/pedidos.csv'
-INTO TABLE pedidos
+
+
+LOAD DATA INFILE 'D:/Senai-Provas/Lanchonete/docs/entregadores.csv'
+INTO TABLE entregador
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
-
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/3DES/projetos/Lanchonete/docs/entregadores.csv'
-INTO TABLE entregador
+LOAD DATA INFILE 'D:/Senai-Provas/Lanchonete/docs/pedidos.csv'
+INTO TABLE pedidos
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'

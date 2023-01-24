@@ -85,6 +85,10 @@ h1 {
     margin: 12px 0px;
 }
 
+.pedido span {
+    margin-left: 5px;
+}
+
 .pedido_details div {
     display: flex;
 }
@@ -127,4 +131,8 @@ h1 {
     background-color: transparent;
     background-color: #212124;
     color: white;
+}
+
+.cont_endereco {
+   width: 100%;
 }

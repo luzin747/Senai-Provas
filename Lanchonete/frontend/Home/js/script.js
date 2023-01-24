@@ -11,57 +11,38 @@ function carregar() {
         .then(res => res.json())
         .then(res => {
             pedidos = res;
-            pedidos();
+            preencher();
         }
         )
         .catch(err => console.error(err));
 }
- 
-function cad() {
-    let inptCliente = document.querySelector("#nome").value;
-    let inptEndereco = document.querySelector("#nick").value;
-    let inptHora = document.querySelector("#email").value;
-    let inptSenha = document.querySelector("#senha").value;
 
-    if(inptNome == "" || inptNick == "" || inptEmail == "" || inptSenha == ""){
-        alert("errado")
-    }else{
-        let options = JSON.stringify({
-            "nome_user": inptNome,
-            "nickname": inptNick,
-            "email": inptEmail,
-            "senha": inptSenha,
-            "status_user": "usuario"
-        })
 
-        fetch("http://localhost:3000/Usuarios", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": options
-        })
-            .then(res => {
-                if(res.status == 201){
-                    alert('Funcionando')
-                }
-            })
-    }
-    
-}
 
-function pedidos() {
+function preencher() {
 
     pedidos.forEach(p => {
 
         var novoCardPedido = cardPedido.cloneNode(true)
 
-        novoCardPedido.classList.remove('model')
+        novoCardPedido.style.display = 'block'
 
-        novoCardPedido.querySelector('.nome_cliente').innerHTML = p.inptCliente
-        novoCardPedido.querySelector('.hora_pedido').innerHTML = p.inptCliente
-        novoCardPedido.querySelector('.nome_cliente').innerHTML = p.inptCliente
-        novoCardPedido.querySelector('.nome_cliente').innerHTML = p.inptCliente
+        novoCardPedido.querySelector('.nome_cliente').innerHTML = p.cliente
+        novoCardPedido.querySelector('.hora_pedido').innerHTML = p.hora_pedido
+        novoCardPedido.querySelector('.endereco').innerHTML = p.endereco
+        novoCardPedido.querySelector('.produto').innerHTML = p.produto
+
+        console.log(p.hora_fim)
+
+        if (p.hora_entregue = "") {
+
+            console.log('asasadada')
+                        
+            document.querySelector('.caminho').appendChild(novoCardPedido)
+
+        }
+
+        document.querySelector('.andamento').appendChild(novoCardPedido)
 
     })
 
