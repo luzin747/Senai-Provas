@@ -27,22 +27,28 @@ function preencher() {
 
         novoCardPedido.style.display = 'block'
 
-        novoCardPedido.querySelector('.nome_cliente').innerHTML = p.cliente
-        novoCardPedido.querySelector('.hora_pedido').innerHTML = p.hora_pedido
-        novoCardPedido.querySelector('.endereco').innerHTML = p.endereco
-        novoCardPedido.querySelector('.produto').innerHTML = p.produto
-
-        console.log(p.hora_fim)
-
-        if (p.hora_entregue = "") {
-
-            console.log('asasadada')
-                        
+        if(p.hora_entrega != "") {
+            novoCardPedido.querySelector('.nome_cliente').innerHTML = p.cliente
+            novoCardPedido.querySelector('.hora_pedido').innerHTML = p.hora_pedido
+            novoCardPedido.querySelector('.hora_entrega').innerHTML = p.hora_pedido
+            novoCardPedido.querySelector('.endereco').innerHTML = p.endereco
+            novoCardPedido.querySelector('.produto').innerHTML = p.produto
+    
             document.querySelector('.caminho').appendChild(novoCardPedido)
-
         }
+        
+        if(p.hora_entrega == " ") {
 
-        document.querySelector('.andamento').appendChild(novoCardPedido)
+            console.log('ssssss')
+            novoCardPedido.querySelector('.nome_cliente').innerHTML = p.cliente
+            novoCardPedido.querySelector('.hora_pedido').innerHTML = p.hora_pedido
+            novoCardPedido.querySelector('.hora_entrega').innerHTML = p.hora_pedido
+            novoCardPedido.querySelector('.endereco').innerHTML = p.endereco
+            novoCardPedido.querySelector('.produto').innerHTML = p.produto
+    
+            document.querySelector('.andamento').appendChild(novoCardPedido)
+        }
+      
 
     })
 

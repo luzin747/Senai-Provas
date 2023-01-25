@@ -16,4 +16,6 @@ router.delete('/Pedidos/idDel/:id_pedido', pedidosController.excluirPedido)
 
 router.get('/Produtos/', produtosController.listarProdutos)
 
+router.post('/login', entregadorController.login)
+
 module.exports = router;

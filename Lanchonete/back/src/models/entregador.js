@@ -12,5 +12,6 @@ const toLogin = (model) => {
 
 module.exports = {
     toReadAll,
-    toRead
+    toRead,
+    toLogin
 }
