@@ -30,7 +30,7 @@ function preencher() {
         if(p.hora_entrega != "") {
             novoCardPedido.querySelector('.nome_cliente').innerHTML = p.cliente
             novoCardPedido.querySelector('.hora_pedido').innerHTML = p.hora_pedido
-            novoCardPedido.querySelector('.hora_entrega').innerHTML = p.hora_pedido
+            novoCardPedido.querySelector('.hora_entrega').innerHTML = p.hora_entrega
             novoCardPedido.querySelector('.endereco').innerHTML = p.endereco
             novoCardPedido.querySelector('.produto').innerHTML = p.produto
     
@@ -42,7 +42,8 @@ function preencher() {
             console.log('ssssss')
             novoCardPedido.querySelector('.nome_cliente').innerHTML = p.cliente
             novoCardPedido.querySelector('.hora_pedido').innerHTML = p.hora_pedido
-            novoCardPedido.querySelector('.hora_entrega').innerHTML = p.hora_pedido
+            var teste = document.querySelector('.saiu_entrega_andamento')
+            teste.style.display = 'none'
             novoCardPedido.querySelector('.endereco').innerHTML = p.endereco
             novoCardPedido.querySelector('.produto').innerHTML = p.produto
     
