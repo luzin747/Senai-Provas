@@ -21,25 +21,18 @@
             <i class='bx bx-coffee-togo'></i>
             <h1>Lanchonete Luiziana</h1>
             <i class='bx bx-coffee-togo'></i>
-
+            
         </header>
 
         <main class="cont-body">
-
-            <div class="cont-btn-new_pedido">
-                <button>Novo Pedido+</button>
-            </div>
-
             <div class="body">
-
-                
 
                 <div class="cont-pedidos andamento">
                     <h2>Em Andamento</h2>
 
 
                     <div class="pedido" style="display: none;">
-
+                        <p class="idPedido"></p>
                         <div class="cliente_details">
                             <p>Cliente:</p>
                             <span class="nome_cliente">Luiz Luizin</span>
@@ -48,16 +41,15 @@
                         <div class="cliente_details">
                             <p>Hora do Pedido:</p>
                             <span class="hora_pedido">10:18</span>
+                            <span class="hora_entrega"></span>
                         </div>
 
-                        <div class="cliente_details saiu_entrega_andamento">
-                            <p>Saiu p/ Entregra:</p>
-                            <span class="hora_entrega">10:18</span>
-                        </div>
 
                         <div class="cliente_details cont_endereco">
                             <p>Endereço:</p>
-                            <span class="endereco"> Rua das Cuticulas n:Fuc</span>
+                            <span class="endereco"> </span>
+                            <span class="bairro"> </span>
+                            <span class="cidade">- </span>
                         </div>
 
                         <div class="cont_pedido_details">
@@ -65,28 +57,23 @@
                                 <p class="title_pedidos">Pedidos:</p>
 
                                 <div>
-                                    <span class="qtd">2u -</span>
+                                    <span class="qtd"> </span>
                                     <span class="produto">Coca Cola Lata -</span>
                                     <!-- <span>R$5,00</span> -->
                                 </div>
-                                <!-- 
-                                <div>
-                                    <span>2u -</span>
-                                    <span>X-Tudo e Mais um pouco -</span>
-                                    <span>R$18,90</span>
-                                </div> -->
                             </div>
 
-                            <!-- <div class="preco_total">
+                            <div class="total">
                                 <p>Total:</p>
-                                <span>R$46,90</span>
-                            </div> -->
+                                <span class="preco_total">R$46,90</span>
+                            </div>
 
+                            
 
                         </div>
 
                     </div>
-
+                    
                 </div>
 
                 <div class="cont-pedidos caminho">
@@ -95,7 +82,7 @@
                     <div>
 
                         <div class="pedido" style="display: none;">
-
+                            <p class="idPedido"></p>
                             <div class="cliente_details">
                                 <p>Cliente:</p>
                                 <span class="nome_cliente">Luiz Luizin</span>
@@ -106,6 +93,7 @@
                                 <span class="hora_pedido">10:18</span>
                             </div>
 
+
                             <div class="cliente_details">
                                 <p>Saiu p/ Entregra:</p>
                                 <span class="hora_entrega">10:18</span>
@@ -114,6 +102,8 @@
                             <div class="cliente_details cont_endereco">
                                 <p>Endereço:</p>
                                 <span class="endereco"> Rua das Cuticulas n:Fuc</span>
+                                <span class="cidade"> Rua das Cuticulas n:Fuc</span>
+                                <span class="bairro"> Rua das Cuticulas n:Fuc</span>
                             </div>
 
                             <div class="cont_pedido_details">
@@ -142,7 +132,7 @@
                             </div>
 
                         </div>
-
+                        
                     </div>
 
                 </div>
@@ -152,7 +142,9 @@
             <div>
 
             </div>
-
+            <div class="cont-btn-new_pedido">
+                <a href="../page/cadastrarPedido/index.html"><button>Novo Pedido<img class="imgH" src="https://img.icons8.com/emoji/100/null/hamburger-emoji.png"/></button></a>
+            </div>
     </div>
 
     </div>

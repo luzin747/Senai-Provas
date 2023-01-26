@@ -73,8 +73,6 @@ export default function LogoutPage({ navigation }) {
     return (
         <View style={style.container}>
 
-
-
             <View style={style.containerLogin}>
                 <Image style={style.imgLogin} source={HamburguerIcon} />
 

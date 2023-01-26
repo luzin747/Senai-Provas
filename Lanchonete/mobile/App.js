@@ -18,7 +18,7 @@ export default function App() {
             title: '',
             headerTransparent: true,
             headerShow: false
-          }} /> */}
+          }} />  */}
 
         <Stack.Screen name="Home" component={Home}
           options={{

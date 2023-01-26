@@ -12,22 +12,34 @@
     width: 80%;
     margin: 1% auto;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.303);
-    padding: 5px;
+    padding-bottom: 10px;
+
+
 }
 
 h1 {
     text-align: center  ;
+    color: white;
 }
 
+.title > h1{
+    font-size: 45px;
+    color: white;
+
+}
 .title {
+    background-color: #dd3507;
     display: flex;
+    text-align: center;
     align-items: center;
     justify-content: center;
-
+    width: 100%;
+    height: 9vh;
 }
 
 .title i {
-    font-size: 18pt;
+    font-size: 24pt;
+    color: white;
 }
 
 .model {
@@ -54,7 +66,7 @@ h1 {
 .cont-pedidos {
     /* background-color: aquamarine; */
     width: 100%;
-    height: 65vh;
+    height: 70vh;
     overflow-y: scroll;
     margin: 5px;
     text-align: center;
@@ -93,6 +105,11 @@ h1 {
     display: flex;
 }
 
+.hora_entrega{
+    font-weight: bold;
+    margin-left: -20%;
+}
+
 .cliente_details p {
     font-weight: bold;
 }
@@ -109,6 +126,8 @@ h1 {
 }
 
 .preco_total {
+    text-align: center;
+    align-items: center;
     display: flex;
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.158);
@@ -121,18 +140,83 @@ h1 {
 
 .cont-btn-new_pedido {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     margin: 10px;
+    width: 100%;
 }
 
 .cont-btn-new_pedido button {
-    padding: 10px 12px;
-    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    padding: 5px 12px;
+    width: 100%;
     background-color: transparent;
-    background-color: #212124;
-    color: white;
+    color: #000;
+    margin-left: -10%;
+    font-size: 15px;
+    border-radius: 20px;
+    border-color:#ff3300;
+}
+
+.cont-btn-new_pedido > a{
+    text-decoration: none;
+}
+
+.cont-btn-new_pedido button:hover{
+    cursor: pointer; 
+    color: #fff;
+    background-color: #ff3300;
+    border-color:#ff3300;
+}
+.imgH{
+    width: 2.2vw;
+    text-align: center;
 }
 
 .cont_endereco {
    width: 100%;
+}
+
+.idPedido{
+    display: none;
+}
+
+.total{
+    display: flex;
+    align-items: center;
+}
+
+.btnPedidoEntregue{
+    justify-content: center;
+    font-weight: bold;
+    display: flex;
+    background-color: #ccc;
+    padding: 8px 0px;
+    width: 40%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff3300;
+    color: #fff;
+    margin-left: 30%;
+}
+
+.btnPedidoEntregue:hover{
+    background-color: #ff0000;
+    cursor: pointer;
+}
+
+.btnEntrega{
+    justify-content: center;
+    font-weight: bold;
+    display: flex;
+    background-color: #ccc;
+    padding: 8px 0px;
+    width: 40%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff3300;
+    color: #fff;
+    margin-left: 30%;
 }

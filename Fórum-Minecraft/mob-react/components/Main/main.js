@@ -24,7 +24,7 @@ export default function Main({ navigation }) {
 
   useEffect(() => {
     const options = { method: 'GET' };
-    fetch('http://localhost:3000/Perguntas', options)
+    fetch('http://10.87.207.23:3000/Pedidos', options)
       .then(res => { return res.json() })
       .then(data => {
         setQuestions(data);
@@ -120,12 +120,8 @@ export default function Main({ navigation }) {
       </View>
 
       <View style={styleM.contCardQuestions}>
-
         {
-
-
           questions.map((post, indiceQuest) => {
-
             return (
               <View key={indiceQuest}
               >
@@ -137,8 +133,6 @@ export default function Main({ navigation }) {
                       <Image style={styleM.imgUser} source="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/minecraft-creeper-face.jpg" />
 
                       <View style={styleM.contTitleUser}>
-                        
-                    
 
                         {
                           usuarios.map((u, i) => {
@@ -150,7 +144,6 @@ export default function Main({ navigation }) {
 
                           })
                         }
-
 
                         <Text>{post.tema}</Text>
                       </View>

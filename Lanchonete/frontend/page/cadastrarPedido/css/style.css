@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+body{
+    display: flex;
+    justify-content: center;
+    background-image: url('https://img.freepik.com/vetores-gratis/papel-de-parede-mural-do-restaurante_23-2148694555.jpg?w=1380&t=st=1674733758~exp=1674734358~hmac=f2063cde339355bca27ccd7130389c0ff5a4bcd135c0bf302ad429cdcf56487e');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.container{
+    margin-top: 10%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;  
+    background-color: #FFFF;
+    border-radius: 10px;
+}
+
+.inputs{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    font-size: 20px;
+}
+
+.inputs > .inputs1 > div > input{
+    font-size: 20px;
+    padding: 5px 25px;
+    width: 20vw;
+    outline: none;
+    border: none;
+    border: 1px solid #ccc;
+}
+
+.inputs > .inputs2 > div > input{
+    font-size: 20px;
+    padding: 5px 25px;
+    width: 20vw;
+    outline: none;
+    border: none;
+    border: 1px solid #ccc;
+}
+
+.inputs > .inputs1 > div > select{
+    font-size: 20px;
+    padding: 5px 18px;
+    width: 20vw;
+    outline: none;
+    border: none;
+    border: 1px solid #ccc;
+}
+
+.inputs > .inputs2 > div > select{
+    font-size: 20px;
+    padding: 5px 15px;
+    width: 20vw;
+    outline: none;
+    border: none;
+    border: 1px solid #ccc;
+}
+
+button{
+    height: 45h;
+    font-size: 25px;
+    width: 40%;
+    padding: 8px 20px;
+    border: none;
+    margin-top: 20px;
+    background-color: #dd3507;
+    color: #fff;
+}
+
+button:hover{
+    background-color: #e24419;
+    cursor: pointer;
+}
+
+.title{
+    display: flex;
+    text-align:center;
+    align-items: center;
+}
+i{
+    font-size: 35px;
+    color: #dd3507;
+}
+span{
+    color: #dd3507;
+    font-weight: bold;
+    font-size: 40px;
+
+}
