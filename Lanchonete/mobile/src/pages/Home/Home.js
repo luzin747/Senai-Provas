@@ -27,26 +27,35 @@ export default function Home({ navigation }) {
             })
     };
 
-    const PedidoEntregue = async (id) => {
-        console.log(id)
+    const PedidoEntregue = async (id,hora_entrega) => {
+        console.log(id , hora_entrega)
+
+        var horaAtual
+        var hoje = new Date()
+        var dia = String(hoje.getDate()).padStart(2, '0')
+        var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+        var ano = hoje.getFullYear()
+
+        var hora = String(hoje.getHours() + 0).padStart(2, '0')
+        var minuto = String(hoje.getMinutes() + 0).padStart(2, '0')
+
+        horaAtual = hora + ':' + minuto;
     
         let data = {
-          "id_usuario": 3,
-          "id_perg": id,
-          "resposta": respostaInp,
-          "dataResp": "2022-12-14"
+          "id_pedido": id,
+          "hora_entrega": hora_entrega,
+         "hora_fim": horaAtual
         }
-    
         console.log(data)
         const options = {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' }
         };
         options.body = JSON.stringify(data);
-        fetch("http://localhost:3000/Respostas", options)
-          .then(resp => resp.status)
+        fetch("http://10.87.207.23:3000/Pedidos", options)
           .then(resp => {
-            if (resp == 201) {
+            console.log(resp)
+            if (resp.status == 200) {
     
               alert('Pedido Entregue com Sucesso')
             }
@@ -73,7 +82,7 @@ return (
 
                 {
                     pedidos.map((p, index) => {
-                        if (p.hora_entrega != ' ' ) {
+                        if (p.hora_entrega != '' && p.hora_fim == '' ) {
                             return (
 
                                 <View style={style.pedidos} key={index}>
@@ -111,7 +120,7 @@ return (
                                     </View>
 
                                     <View>
-                                        <TouchableOpacity style={style.btn_entrega} onPress={() => PedidoEntregue(p.id_pedido)}>
+                                        <TouchableOpacity style={style.btn_entrega} onPress={() => PedidoEntregue(p.id_pedido, p.hora_entrega)}>
                                             <Text style={style.title_btn_entrega}>Pedido Entregue</Text>
                                         </TouchableOpacity>
                                     </View>

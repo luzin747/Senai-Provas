@@ -26,7 +26,7 @@ create table pedidos(
     hora_entrega varchar(30),
     hora_fim varchar(30),
     id_entregador integer not null,
-    foreign key (id_entregador) references entregador(id)
+    foreign key (id_entregador) references entregador (id)
 );
 
 

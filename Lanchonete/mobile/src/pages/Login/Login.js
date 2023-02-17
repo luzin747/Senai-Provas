@@ -95,7 +95,7 @@ export default function LogoutPage({ navigation }) {
                         <TouchableOpacity><Ionicons style={style.iconIon} name={'logo-twitter'} /></TouchableOpacity>
                     </View> */}
 
-                <TouchableOpacity onPress={() => { navigation.navigate('Cadastrar') }}><Text>Cadastrar Agora!</Text></TouchableOpacity>
+                {/* <TouchableOpacity onPress={() => { navigation.navigate('Cadastrar') }}><Text>Cadastrar Agora!</Text></TouchableOpacity> */}
             </View>
         </View>
 

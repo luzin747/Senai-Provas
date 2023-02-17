@@ -49,7 +49,7 @@ export default StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#212124',
+        backgroundColor: '#dd3507',
         color: 'white',
         paddingTop: 5,
         paddingBottom: 5,

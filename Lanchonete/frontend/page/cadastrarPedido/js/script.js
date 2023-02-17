@@ -64,6 +64,8 @@ function cad() {
     // let produto = document.querySelector(".produto").value;
     var select_produto = document.querySelector(".select_produto")
     let seleStatus = select_produto.options[select_produto.selectedIndex].value;
+    if (seleStatus == 'selecionar') { var produto = 'vazio'}
+
     if (seleStatus == 'refrigerante') { var produto = 'Refrigerante - Lata'}
     if (seleStatus == 'suco') { var produto = 'Suco de Laranja' }
     if (seleStatus == 'guaravita') { var produto = 'Guaravita - 500ml' }
@@ -76,44 +78,50 @@ function cad() {
    
     var select_entregador = document.querySelector(".select_entregador")
     let seleEntregador = select_entregador.options[select_entregador.selectedIndex].value;
+    if (seleEntregador == 'selecionar') { var entregador = 'vazio'}
     if (seleEntregador == '1') { var entregador = '1'}
     if (seleEntregador == '2') { var entregador = '2'}
     if (seleEntregador == '3') { var entregador = '3'}
     if (seleEntregador == '4') { var entregador = '4'}
 
-        let options = JSON.stringify({
-            "cliente": cliente,
-            "endereco": endereco,
-            "bairro":bairro,
-            "cidade":cidade,
-            "produto": produto,
-            "quantidade":quantidade,
-            "preco":preco,
-            "dia": dataAtual,
-            "hora_pedido": horaAtual,
-            "hora_entrega": "",
-            "hora_fim": "",
-            "entregador": entregador
-        })
-
-        fetch("http://localhost:3000/Pedidos", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": options
-        })
-            .then(resp => { return resp })
-            .then(resp => {
-                if(resp.produto == null || resp.cliente == null ||
-                    resp.endereco == null || resp.quantidade == null || resp.entregador == null){
-                    alert("Por favor, preencher todos os campos")
-                }else{
-                    alert("Seu pedido esta sendo preparado")
-                    window.location.href = "../../Home/index.html"
-                }
-                
+    if(produto == 'vazio' || cliente == "" ||
+        endereco == "" || quantidade == "" || entregador == 'vazio'){
+        alert("Por favor, preencher todos os campos obrigatórios")
+        
+        }else{
+            let options = JSON.stringify({
+                "cliente": cliente,
+                "endereco": endereco,
+                "bairro":bairro,
+                "cidade":cidade,
+                "produto": produto,
+                "quantidade":quantidade,
+                "preco":preco,
+                "dia": dataAtual,
+                "hora_pedido": horaAtual,
+                "hora_entrega": "",
+                "hora_fim": "",
+                "entregador": entregador
             })
+    
+            fetch("http://localhost:3000/Pedidos", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": options
+            })
+                .then(resp => { return resp })
+                .then(resp => {
+                    alert("Seu pedido esta sendo preparado")
+                        window.location.href = "../../Home/index.html"
+                        
+            
+                    
+                })
+        }
+
+        
     
 
 }

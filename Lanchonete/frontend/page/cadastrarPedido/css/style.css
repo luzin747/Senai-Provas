@@ -99,3 +99,8 @@ span{
     font-size: 40px;
 
 }
+
+.btn_back {
+    text-decoration: none;
+    margin-top: 15px;
+}

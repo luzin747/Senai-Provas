@@ -28,7 +28,7 @@ function preencher() {
         novoCardPedido.style.display = 'block'
 
         // ESTA A CAMINHO
-        if (p.hora_entrega != "") {
+        if (p.hora_entrega != "" && p.hora_fim == "") {
 
             console.log(p.hora_entrega);
 
@@ -44,7 +44,7 @@ function preencher() {
 
             var teste = p.preco.toString()
 
-           console.log(teste)
+            console.log(teste)
             if (teste.length <= 2) {
                 console.log('ssssssssssss');
                 novoCardPedido.querySelector('.preco_total').innerHTML = "R$ " + p.preco + '.00'
@@ -65,7 +65,7 @@ function preencher() {
             document.querySelector('.caminho').appendChild(novoCardPedido)
         }
 
-        if (p.hora_entrega == "") {
+        if (p.hora_entrega == "" && p.hora_fim == "") {
 
             console.log('ssssss')
             novoCardPedido.querySelector('.idPedido').innerHTML = p.id_pedido
@@ -83,11 +83,11 @@ function preencher() {
             entregaEnviar.setAttribute('onClick', 'enviar(this)')
             novoCardPedido.appendChild(entregaEnviar)
 
-            // var cancelarEntrega = document.createElement('button')
-            // entregaEnviar.innerHTML = "Enviar entrega"
-            // entregaEnviar.classList = 'btnEntrega'
-            // entregaEnviar.setAttribute('onClick', 'enviar(this)')
-            // novoCardPedido.appendChild(entregaEnviar)
+            var cancelarEntrega = document.createElement('button')
+            cancelarEntrega.innerHTML = "Cancelar pedido"
+            cancelarEntrega.classList = 'btnCancelar'
+            cancelarEntrega.setAttribute('onClick', 'cancelar(this)')
+            novoCardPedido.appendChild(cancelarEntrega)
 
 
             document.querySelector('.andamento').appendChild(novoCardPedido)
@@ -112,7 +112,7 @@ function enviar(e) {
     let options = JSON.stringify({
         "id_pedido": idPedido,
         "hora_entrega": horaAtual,
-        "hora_fim": "00:00:00"
+        "hora_fim": ""
     })
 
     fetch("http://localhost:3000/Pedidos", {
@@ -131,16 +131,50 @@ function enviar(e) {
 }
 
 function pedidoEntregue(e) {
-    var idPedido2 = e.parentNode.querySelector('.idPedido').innerHTML
+    var hoje = new Date();
+    var hora = hoje.getHours();
+    var minutos = hoje.getMinutes();
+    var segundos = hoje.getSeconds();
+    horaAtual = hora + ':' + minutos + ":" + segundos;
+
+    var idPedido = e.parentNode.querySelector('.idPedido').innerHTML
+    var hora = e.parentNode.querySelector('.hora_pedido').innerHTML
+    console.log(hora)
+
+    let options = JSON.stringify({
+        "id_pedido": idPedido,
+        "hora_entrega": hora,
+        "hora_fim": horaAtual
+    })
+
+    fetch("http://localhost:3000/Pedidos", {
+        "method": "PUT",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": options
+    })
+        .then(resp => { return resp })
+        .then(resp => {
+            alert("Pedido entregue");
+            window.location.reload()
+
+        })
+
+}
+
+function cancelar(e) {
+    var idPedido = e.parentNode.querySelector('.idPedido').innerHTML
 
     const options = { method: 'DELETE' };
 
-    fetch('http://localhost:3000/Pedidos/idDel/' + idPedido2, options)
+    fetch('http://localhost:3000/Pedidos/idDel/' + idPedido, options)
         .then(response => response.json())
         .then(response => {
-            alert("Pedido deletado")
+            alert("Pedido cancelado");
             window.location.reload()
         })
+
 
 
 }

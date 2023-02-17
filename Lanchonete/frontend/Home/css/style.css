@@ -12,8 +12,7 @@
     width: 80%;
     margin: 1% auto;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.303);
-    padding-bottom: 10px;
-
+    padding: 5px;
 
 }
 
@@ -21,11 +20,9 @@ h1 {
     text-align: center  ;
     color: white;
 }
-
 .title > h1{
     font-size: 45px;
     color: white;
-
 }
 .title {
     background-color: #dd3507;
@@ -36,7 +33,6 @@ h1 {
     width: 100%;
     height: 9vh;
 }
-
 .title i {
     font-size: 24pt;
     color: white;
@@ -138,14 +134,19 @@ h1 {
     font-weight: 700;
 }
 
-.cont-btn-new_pedido {
+.btns{
+    display: flex;
+    justify-content:center;
+}
+
+.cont-btn-new_pedido, .cont-btn-relatorio{
     display: flex;
     justify-content: center;
     margin: 10px;
     width: 100%;
 }
 
-.cont-btn-new_pedido button {
+.cont-btn-new_pedido button, .cont-btn-relatorio  button {
     display: flex;
     align-items: center;
     padding: 5px 12px;
@@ -158,19 +159,35 @@ h1 {
     border-color:#ff3300;
 }
 
-.cont-btn-new_pedido > a{
+.cont-btn-relatorio  button{
+    width: 8vw;
+    height: 5vh;
+    font-size: 18px;
+   justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.cont-btn-new_pedido > a, .cont-btn-relatorio > a{
     text-decoration: none;
 }
 
-.cont-btn-new_pedido button:hover{
+.cont-btn-new_pedido button:hover , .cont-btn-relatorio button:hover{
     cursor: pointer; 
     color: #fff;
     background-color: #ff3300;
     border-color:#ff3300;
 }
+
+
+
 .imgH{
     width: 2.2vw;
     text-align: center;
+}
+
+.bxs-report{
+    font-size: 20px;
 }
 
 .cont_endereco {
@@ -202,7 +219,8 @@ h1 {
 }
 
 .btnPedidoEntregue:hover{
-    background-color: #ff0000;
+    background-color: #ed4116;
+    transition: 0.2s;
     cursor: pointer;
 }
 
@@ -219,4 +237,32 @@ h1 {
     background-color: #ff3300;
     color: #fff;
     margin-left: 30%;
+    margin-top: 10px;
+}
+
+.btnEntrega:hover{
+    background-color: #ed4116;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.btnCancelar:hover{
+    background-color: #d7a200;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.btnCancelar{
+    justify-content: center;
+    font-weight: bold;
+    display: flex;
+    background-color: #ccc;
+    padding: 8px 0px;
+    width: 40%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f8c325;
+    color: #fff;
+    margin-left: 30%;
+    margin-top: 10px;
 }
