@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Fisíca</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="carregar()">
+
+    <div id="container">
+
+        <Button>Inserir Paciente</Button>
+        
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                    <th>Peso</th>
+                    <th>Altura</th>
+                    <th>Idade</th>
+                    <th>IMC</th>
+                    <th>Diagnóstico</th>
+                    <th>Atualizar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+
+            <tbody class="tbody">
+                <tr class="td_paciente model">
+                    <td class="id">1</td>
+                    <td class="nome">asda</td>
+                    <td class="data">22/02/2004</td>
+                    <td class="peso">65kg</td>
+                    <td class="altura">1.80cm</td>
+                    <td class="idade"></td>
+                    <td class="imc"></td>
+                    <td class="diagnostico"></td>
+                    <td><button>A</button></td>
+                    <td><button onclick="Excluir(this)">E</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="modal_cadastrar">
+
+        <div class="inps">
+            <p>Nome</p>
+            <input type="text" class="nome_forms" placeholder="Digite o nome do paciente">
+        </div>
+
+        <div class="inps">
+            <p>Data Nascimento</p>
+            <input class="data_forms" type="date">
+        </div>
+
+        <div class="inps">
+            <p>Peso KG</p>
+            <input class="peso_forms" type="number">
+        </div>
+
+        <div class="inps">
+            <p>Altura m</p>
+            <input class="altura_forms" type="number">
+        </div>
+
+        <div class="inps btns">
+
+            <button>Cancelar</button>
+            <button onclick="Cadastrar()">Cadastrar</button>
+        </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -9,7 +9,6 @@ var respostas = []
 
 var usuarios = []
 
-
 var cardResposta = document.querySelector('.answer')
 var cardQuestion = document.querySelector('.questions')
 var questRespostas = document.querySelector('.answer-card')

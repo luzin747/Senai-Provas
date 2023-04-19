@@ -4,33 +4,33 @@ const uriClientes = 'http://localhost:3000/clientes/vw_clientes'
 const uriDeletar = 'http://localhost:3000/carros'
 const uriDeletarVagas = 'http://localhost:3000/vagas'
 
-var  estacionaTalbe = document.querySelector('.tickets')
+var estacionaTalbe = document.querySelector('.tickets')
 var tickets = []
 var nomeClientes = []
 var clientes = []
-var nomeCliente = [] 
+var nomeCliente = []
 
 function carregar() {
 
-    const options = {method: 'GET'};
+  const options = { method: 'GET' };
 
-    fetch(uri, options)
-      .then(res => res.json())
-      .then(res => {
-        tickets = res;
-            preencherTela();
-      }
-        )
-      .catch(err => console.error(err));
+  fetch(uri, options)
+    .then(res => res.json())
+    .then(res => {
+      tickets = res;
+      preencherTela();
+    }
+    )
+    .catch(err => console.error(err));
 
-      // fetch(uriClientes, options)
-      // .then(res => res.json())
-      // .then(res => {
-      //   nomeClientes = res;
-      //   editarCliente();
-      // }
-      //   )
-      // .catch(err => console.error(err));
+  // fetch(uriClientes, options)
+  // .then(res => res.json())
+  // .then(res => {
+  //   nomeClientes = res;
+  //   editarCliente();
+  // }
+  //   )
+  // .catch(err => console.error(err));
 
 }
 
@@ -38,34 +38,34 @@ var qtdAbertos = 0
 var qtdFechados = 0
 
 function preencherTela() {
-    tickets.forEach(e => {
+  tickets.forEach(e => {
 
-      if(e.status_pag == 'Aberto') {
-        qtdAbertos += 1
-      }else if(e.status_cli == 'Pagos') {
-        qtdFechados += 1
-      }
+    if (e.status_pag == 'Aberto') {
+      qtdAbertos += 1
+    } else if (e.status_cli == 'Pagos') {
+      qtdFechados += 1
+    }
 
-        var novaEstacionaTable = estacionaTalbe.cloneNode(true)
+    var novaEstacionaTable = estacionaTalbe.cloneNode(true)
 
-        novaEstacionaTable.classList.remove('model')
+    novaEstacionaTable.classList.remove('model')
 
-        novaEstacionaTable.querySelector('.id_registro').innerHTML = e.ticket_id
-        novaEstacionaTable.querySelector('.cpf-clientes').innerHTML = e.cpf_cliente
-        novaEstacionaTable.querySelector('.vagas').innerHTML = e.number_vaga
-        novaEstacionaTable.querySelector('.categoria_vaga').innerHTML = e.categoria_carro
-        novaEstacionaTable.querySelector('.valor_h').innerHTML = e.valor_h
-        novaEstacionaTable.querySelector('.placa_veiculo').innerHTML = e.placa_carro
-        novaEstacionaTable.querySelector('.forma_pagamento').innerHTML = e.forma_pagamento
-        novaEstacionaTable.querySelector('.status_pag').innerHTML = e.status_pag
+    novaEstacionaTable.querySelector('.id_registro').innerHTML = e.ticket_id
+    novaEstacionaTable.querySelector('.cpf-clientes').innerHTML = e.cpf_cliente
+    novaEstacionaTable.querySelector('.vagas').innerHTML = e.number_vaga
+    novaEstacionaTable.querySelector('.categoria_vaga').innerHTML = e.categoria_carro
+    novaEstacionaTable.querySelector('.valor_h').innerHTML = e.valor_h
+    novaEstacionaTable.querySelector('.placa_veiculo').innerHTML = e.placa_carro
+    novaEstacionaTable.querySelector('.forma_pagamento').innerHTML = e.forma_pagamento
+    novaEstacionaTable.querySelector('.status_pag').innerHTML = e.status_pag
 
-        document.querySelector(".contTickets").appendChild(novaEstacionaTable)
+    document.querySelector(".contTickets").appendChild(novaEstacionaTable)
 
-    })
+  })
 
-    document.querySelector('.abertos').innerHTML = qtdAbertos
-    // document.querySelector('.fechados').innerHTML = qtdFechados
-    document.querySelector('.qtd-tickets').innerHTML = tickets.length
+  document.querySelector('.abertos').innerHTML = qtdAbertos
+  // document.querySelector('.fechados').innerHTML = qtdFechados
+  document.querySelector('.qtd-tickets').innerHTML = tickets.length
 
 }
 
@@ -73,26 +73,26 @@ function ativar(e) {
 
   var id = e.parentNode.parentNode.querySelector('.id_registro').innerHTML
 
-  const options = {method: 'GET'};
+  const options = { method: 'GET' };
 
   fetch(uriEditar + id, options)
-      .then(res => res.json())
-      .then(res => {
-        clientes = res;
-        editarCliente(e);
-      }
-        )
-      .catch(err => console.error(err));
+    .then(res => res.json())
+    .then(res => {
+      clientes = res;
+      editarCliente(e);
+    }
+    )
+    .catch(err => console.error(err));
 
 
   fetch(uriClientes, options)
-      .then(res => res.json())
-      .then(res => {
-        nomeCliente = res;
-        nomearCliente(e);
-      }
-        )
-      .catch(err => console.error(err));
+    .then(res => res.json())
+    .then(res => {
+      nomeCliente = res;
+      nomearCliente(e);
+    }
+    )
+    .catch(err => console.error(err));
 }
 
 //Função que Nomeia o Cliente no Modal 
@@ -101,10 +101,10 @@ function nomearCliente(e) {
   var cpfCliente = document.querySelector('.cpf').value
 
   nomeCliente.forEach(n => {
-   
-    if(cpfCliente == n.cpf) {
-      
-    document.querySelector('.cliName').innerHTML = n.Nome_cliente
+
+    if (cpfCliente == n.cpf) {
+
+      document.querySelector('.cliName').innerHTML = n.Nome_cliente
 
     }
 
@@ -115,126 +115,126 @@ function nomearCliente(e) {
 function editarCliente(e) {
 
   var mostrarModal = document.querySelector('.m-editar')
-  
+
   mostrarModal.classList.toggle('model')
   document.querySelector('body').style.background = '#5e5e5e27';
 
 
   //PREENCHER OS INPUTS COM AS INFORMAÇÕES DO CLIENTE DESEJADO
-   
+
   var id = e.parentNode.parentNode.querySelector('.cpf-clientes').innerHTML
 
 
   clientes.forEach(c => {
-    if(id == c.cpf_cli) {
+    if (id == c.cpf_cli) {
 
 
       console.log(c.cpf_cli)
 
-          var id_vaga = document.querySelector('.id_vaga').innerHTML  = c.number_vaga
+      var id_vaga = document.querySelector('.id_vaga').innerHTML = c.number_vaga
 
-          document.querySelector('.ticket-id').value = c.ticket_id
-          document.querySelector('.cpf').value = c.cpf_cli
-          document.querySelector('.placa').value = c.placa_car
-          document.querySelector('.data_entrada').value = c.data_est
-          document.querySelector('.h_entrada').value = c.h_entrada
+      document.querySelector('.ticket-id').value = c.ticket_id
+      document.querySelector('.cpf').value = c.cpf_cli
+      document.querySelector('.placa').value = c.placa_car
+      document.querySelector('.data_entrada').value = c.data_est
+      document.querySelector('.h_entrada').value = c.h_entrada
 
-          var categoria_veiculo = c.categoria_carro
+      var categoria_veiculo = c.categoria_carro
 
-          if(categoria_veiculo == 'Pequeno' || categoria_veiculo == 'Veículo Pequeno' || categoria_veiculo == 'Ve?culo Pequeno') {
-            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Pequeno'
-          }
+      if (categoria_veiculo == 'Pequeno' || categoria_veiculo == 'Veículo Pequeno' || categoria_veiculo == 'Ve?culo Pequeno') {
+        var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Pequeno'
+      }
 
-          if(categoria_veiculo == 'Médio' || categoria_veiculo == 'Veículo Médio' || categoria_veiculo == 'Ve?culo M?dio') {
-            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Médio'
-            
-          }
-          if(categoria_veiculo == 'Grande'|| categoria_veiculo == 'Veículo Pequeno' || categoria_veiculo == 'Ve?culo Grande') {
-            var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Grande'           
-          }
+      if (categoria_veiculo == 'Médio' || categoria_veiculo == 'Veículo Médio' || categoria_veiculo == 'Ve?culo M?dio') {
+        var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Médio'
+
+      }
+      if (categoria_veiculo == 'Grande' || categoria_veiculo == 'Veículo Pequeno' || categoria_veiculo == 'Ve?culo Grande') {
+        var categoria_veiculo = document.querySelector('.categoria_veiculo').value = 'Grande'
+      }
     }
 
   })
-    
+
 }
 
 function ativarFechamento() {
 
   var id = e.parentNode.parentNode.querySelector('.id_registro').innerHTML
 
-  const options = {method: 'GET'};
+  const options = { method: 'GET' };
 
   fetch(uriEditar + id, options)
-      .then(res => res.json())
-      .then(res => {
-        fecharIsTrue= res;
-        edicao(e);
-      }
-        )
-      .catch(err => console.error(err));
+    .then(res => res.json())
+    .then(res => {
+      fecharIsTrue = res;
+      edicao(e);
+    }
+    )
+    .catch(err => console.error(err));
 }
 
 var fecharIsTrue = false
 
 function edicao() {
-      var status_vaga = document.querySelector(".select_status")
-      let statusVvaga = status_vaga.options[status_vaga.selectedIndex].value;
-      
-      if (statusVvaga == 'Fechado') { fecharIsTrue = true }
+  var status_vaga = document.querySelector(".select_status")
+  let statusVvaga = status_vaga.options[status_vaga.selectedIndex].value;
 
-      if(fecharIsTrue == true) {
-        var placa_car = document.querySelector('.placa').value
-        var cpf_cli = document.querySelector('.cpf').value
-        var data_entrada = document.querySelector('.data_entrada').value
-        var h_entrada = document.querySelector('.h_entrada').value
-        var h_saida = document.querySelector('.h_saida').value
-        var valor_final = document.querySelector('.valor_Total').value
-        var forma_pagamento = document.querySelector('.formas_pagamentos').value
-        var categoria_carro = document.querySelector('.categoria_veiculo').value
-  
-        const [n,valor,s] = valor_final.split(' ')
-  
-        console.log(valor)
-  
-        let data = {
-          "mensalista":"Usuario", 
-          "cpf_mensalista": cpf_cli,
-          "placa_car": placa_car, 
-          "categoria_car": categoria_carro,
-          "data_ent": data_entrada, 
-          "hora_ent": h_entrada,
-          "hora_sai": h_saida,
-          "valor_tot": valor, 
-          "forma_pagamento": forma_pagamento,
-          "stats_mensal":"Pago"
-          }
-  
-      console.log(data)
-  
-      fetch('http://localhost:3000/mensalidades', {
-          "method":"POST",
-          "headers": {
-              "Content-Type":"application/json"
-          },
-          "body":JSON.stringify(data)
-      })
-      .then(res => { return res.json() })
-          .then(resp => {
-              if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car  !== undefined && resp.hora_ent !== undefined && resp.hora_sai !== undefined && resp.valor_tot !== undefined &&  resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined ) {
-                  
-  
-                  deletarVagaPosFechamento()
-                  
-              } 
-          })
+  if (statusVvaga == 'Fechado') { fecharIsTrue = true }
+
+  if (fecharIsTrue == true) {
+    var placa_car = document.querySelector('.placa').value
+    var cpf_cli = document.querySelector('.cpf').value
+    var data_entrada = document.querySelector('.data_entrada').value
+    var h_entrada = document.querySelector('.h_entrada').value
+    var h_saida = document.querySelector('.h_saida').value
+    var valor_final = document.querySelector('.valor_Total').value
+    var forma_pagamento = document.querySelector('.formas_pagamentos').value
+    var categoria_carro = document.querySelector('.categoria_veiculo').value
+
+    const [n, valor, s] = valor_final.split(' ')
+
+    console.log(valor)
+
+    let data = {
+      "mensalista": "Usuario",
+      "cpf_mensalista": cpf_cli,
+      "placa_car": placa_car,
+      "categoria_car": categoria_carro,
+      "data_ent": data_entrada,
+      "hora_ent": h_entrada,
+      "hora_sai": h_saida,
+      "valor_tot": valor,
+      "forma_pagamento": forma_pagamento,
+      "stats_mensal": "Pago"
     }
-      else {
-        var modalErroFecharAntes = document.querySelector('.modal-errado-nao-existe')
 
-        modalErroFecharAntes.classList.remove('model')
-      }
-      
-}       
+    console.log(data)
+
+    fetch('http://localhost:3000/mensalidades', {
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": JSON.stringify(data)
+    })
+      .then(res => { return res.json() })
+      .then(resp => {
+        if (resp.mensalista !== undefined && resp.cpf_mensalista !== undefined && resp.placa_car !== undefined && resp.categoria_car !== undefined && resp.hora_ent !== undefined && resp.hora_sai !== undefined && resp.valor_tot !== undefined && resp.data_ent !== undefined && resp.forma_pagamento !== undefined && resp.stats_mensal !== undefined) {
+
+
+          deletarVagaPosFechamento()
+
+        }
+      })
+  }
+  else {
+    var modalErroFecharAntes = document.querySelector('.modal-errado-nao-existe')
+
+    modalErroFecharAntes.classList.remove('model')
+  }
+
+}
 
 
 function fechandoVagas() {
@@ -243,38 +243,38 @@ function fechandoVagas() {
   var id_vaga = document.querySelector('.id_vaga').innerHTML
   var categoria_veiculo = document.querySelector('.categoria_veiculo').value
 
-  if(categoria_veiculo == 'Veículo Pequeno') {
+  if (categoria_veiculo == 'Veículo Pequeno') {
     var valor_Hora = 10
   }
-  else if(categoria_veiculo == 'Veículo Médio' ) {
+  else if (categoria_veiculo == 'Veículo Médio') {
     var valor_Hora = 15
-  }else if(categoria_veiculo == 'Veículo Grande') {
+  } else if (categoria_veiculo == 'Veículo Grande') {
     var valor_Hora = 20
   }
 
   let data = {
     "numero_vaga": id_vaga,
-		"categoria_vaga": "Veículo Médio",
-		"valor_h": valor_Hora,
-		"status_vaga": "Fechada"
+    "categoria_vaga": "Veículo Médio",
+    "valor_h": valor_Hora,
+    "status_vaga": "Fechada"
   }
 
-console.log(data)
+  console.log(data)
 
-fetch('http://localhost:3000/vagas', {
-    "method":"PUT",
+  fetch('http://localhost:3000/vagas', {
+    "method": "PUT",
     "headers": {
-        "Content-Type":"application/json"
+      "Content-Type": "application/json"
     },
-    "body":JSON.stringify(data)
-})
-.then(res => { return res.json() })
+    "body": JSON.stringify(data)
+  })
+    .then(res => { return res.json() })
     .then(resp => {
-        if (resp.numero_vaga !== undefined &&resp.categoria_vaga !== undefined && resp.valor_h !== undefined && resp.status_vaga !== undefined) {
+      if (resp.numero_vaga !== undefined && resp.categoria_vaga !== undefined && resp.valor_h !== undefined && resp.status_vaga !== undefined) {
 
 
-            
-        } 
+
+      }
     })
 
 }
@@ -285,27 +285,27 @@ function deletarVagaPosFechamento() {
 
   let data = {
     "numero_vaga": num_vaga
-    
+
   };
   console.log(data)
 
-fetch(uriDeletarVagas, {
-    "method":"DELETE",
+  fetch(uriDeletarVagas, {
+    "method": "DELETE",
     "headers": {
-        "Content-Type":"application/json"
+      "Content-Type": "application/json"
     },
-    "body":JSON.stringify(data)
-})
-.then(res => { return res.json() })
+    "body": JSON.stringify(data)
+  })
+    .then(res => { return res.json() })
     .then(resp => {
-        if (resp.numero_vaga !== undefined) {
+      if (resp.numero_vaga !== undefined) {
 
-          var modalCerto = document.querySelector('.modal-certo')
-    
-          modalCerto.classList.remove('model')
-          
+        var modalCerto = document.querySelector('.modal-certo')
 
-        }
+        modalCerto.classList.remove('model')
+
+
+      }
     })
 }
 
@@ -314,26 +314,26 @@ fetch(uriDeletarVagas, {
 function deletarPlaca(e) {
 
   var placa_cara = e.parentNode.parentNode.querySelector('.placa_veiculo').innerHTML
-  
+
   let data = {
     "placa": placa_cara
-    
-};
+
+  };
 
 
-fetch(uriDeletar, {
-    "method":"DELETE",
+  fetch(uriDeletar, {
+    "method": "DELETE",
     "headers": {
-        "Content-Type":"application/json"
+      "Content-Type": "application/json"
     },
-    "body":JSON.stringify(data)
-})
-.then(res => { return res.json() })
+    "body": JSON.stringify(data)
+  })
+    .then(res => { return res.json() })
     .then(resp => {
-        if (resp.placa !== undefined) {
+      if (resp.placa !== undefined) {
 
-          deletarRegistro(e)
-        }
+        deletarRegistro(e)
+      }
     })
 
 
@@ -345,23 +345,23 @@ function deletarRegistro(e) {
 
   let data = {
     "ticket_id": id_ticket
-    
-};
+
+  };
 
 
-fetch(uriEditar, {
-    "method":"DELETE",
+  fetch(uriEditar, {
+    "method": "DELETE",
     "headers": {
-        "Content-Type":"application/json"
+      "Content-Type": "application/json"
     },
-    "body":JSON.stringify(data)
-})
-.then(res => { return res.json() })
+    "body": JSON.stringify(data)
+  })
+    .then(res => { return res.json() })
     .then(resp => {
-        if (resp.ticket_id !== undefined) {
+      if (resp.ticket_id !== undefined) {
 
-          deletarVaga(e)
-        }
+        deletarVaga(e)
+      }
     })
 
 
@@ -375,22 +375,22 @@ function deletarVaga(e) {
 
   let data = {
     "numero_vaga": num_vaga
-    
+
   };
   console.log(data)
 
-fetch(uriDeletarVagas, {
-    "method":"DELETE",
+  fetch(uriDeletarVagas, {
+    "method": "DELETE",
     "headers": {
-        "Content-Type":"application/json"
+      "Content-Type": "application/json"
     },
-    "body":JSON.stringify(data)
-})
-.then(res => { return res.json() })
+    "body": JSON.stringify(data)
+  })
+    .then(res => { return res.json() })
     .then(resp => {
-        if (resp.numero_vaga !== undefined) {
-          modalExcluir()
-        }
+      if (resp.numero_vaga !== undefined) {
+        modalExcluir()
+      }
     })
 }
 
@@ -446,32 +446,32 @@ function esconderModalFecharAntes() {
 
 
 function conferir() {
-  
+
   var select_status = document.querySelector(".select_status")
   let seleStatus = select_status.options[select_status.selectedIndex].value;
-  if (seleStatus == 'Fechado') {calcularHoras()} 
-  
+  if (seleStatus == 'Fechado') { calcularHoras() }
+
 }
 function calcularHoras() {
-    
+
   var inpDataEntrada = document.querySelector('.data_entrada').value
   var inpHoraEntrada = document.querySelector('.h_entrada').value
 
   var dataHoraIn = inpDataEntrada + ' ' + inpHoraEntrada
 
-    var hoje = new Date()
-    var dia = String(hoje.getDate()).padStart(2, '0')
-    var mes = String(hoje.getMonth() + 1).padStart(2, '0')
-    var ano = hoje.getFullYear()
+  var hoje = new Date()
+  var dia = String(hoje.getDate()).padStart(2, '0')
+  var mes = String(hoje.getMonth() + 1).padStart(2, '0')
+  var ano = hoje.getFullYear()
 
-    var hora = hoje.getHours()
-    var minutos = hoje.getMinutes()
-    var segundos = hoje.getSeconds()
+  var hora = hoje.getHours()
+  var minutos = hoje.getMinutes()
+  var segundos = hoje.getSeconds()
 
-    dataAtual = dia + '/' + mes + '/' + ano;
-    horaAtual = hora + ':' + minutos + ':' + segundos
+  dataAtual = dia + '/' + mes + '/' + ano;
+  horaAtual = hora + ':' + minutos + ':' + segundos
 
-    var dataHoraOut = dataAtual + ' ' + horaAtual
+  var dataHoraOut = dataAtual + ' ' + horaAtual
 
 
   const dayHourIn = dataHoraIn
@@ -482,14 +482,13 @@ function calcularHoras() {
 
     const [date, hours] = dateHour.split(' ')
     const [day, month, year] = date.split('/')
-    const [hour , minutes , seconds] = hours.split(':')
-  
-    const newDate = new Date(year, month - 1, day , hour , minutes, seconds) 
-  
-    console.log(newDate.getTime())
-    
-    return newDate.getTime()
+    const [hour, minutes, seconds] = hours.split(':')
 
+    const newDate = new Date(year, month - 1, day, hour, minutes, seconds)
+
+    console.log(newDate.getTime())
+
+    return newDate.getTime()
 
   }
 
@@ -513,15 +512,15 @@ function calcularHoras() {
 
   //Condições Para Fazer o Calculo Final
   var categoria_veiculo = document.querySelector('.categoria_veiculo').value
-  
-  if(categoria_veiculo == 'Pequeno') {
-    
-    if(hours == 0) {
+
+  if (categoria_veiculo == 'Pequeno') {
+
+    if (hours == 0) {
 
       var valorTotal = 10 * 1
 
       document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
-      
+
     }
     else {
       var valorTotal = 10 * hours
@@ -532,14 +531,14 @@ function calcularHoras() {
 
   }
 
-  if(categoria_veiculo == 'Médio') {
-    
-    if(hours == 0) {
+  if (categoria_veiculo == 'Médio') {
+
+    if (hours == 0) {
 
       var valorTotal = 15 * 1
 
       document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
-      
+
     }
     else {
       var valorTotal = 15 * hours
@@ -550,14 +549,14 @@ function calcularHoras() {
 
   }
 
-  if(categoria_veiculo == 'Grande') {
-    
-    if(hours == 0) {
+  if (categoria_veiculo == 'Grande') {
+
+    if (hours == 0) {
 
       var valorTotal = 20 * 1
 
       document.querySelector('.valor_Total').value = 'R$ ' + valorTotal + ' ,00'
-      
+
     }
     else {
       var valorTotal = 20 * hours
@@ -592,18 +591,18 @@ search_btn.addEventListener('click', () => {
   let linhas = TABELA_CLIENTES.getElementsByTagName('tr')
 
   for (let posicao in linhas) {
-      if (true === isNaN(posicao)) {
-          continue
-      }
+    if (true === isNaN(posicao)) {
+      continue
+    }
 
-      let conteudoDaLinha = linhas[posicao].innerHTML
+    let conteudoDaLinha = linhas[posicao].innerHTML
 
-      if (true === conteudoDaLinha.includes(expressao)) {
-          linhas[posicao].style.display = ''
-      } else {
-          linhas[posicao].style.display = 'none'
+    if (true === conteudoDaLinha.includes(expressao)) {
+      linhas[posicao].style.display = ''
+    } else {
+      linhas[posicao].style.display = 'none'
 
-      }
+    }
 
   }
 
